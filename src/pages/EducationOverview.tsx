@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -20,11 +20,11 @@ export default function EducationOverviewPage() {
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             <div className="reveal rounded-2xl overflow-hidden border mb-12 shadow-md">
-              <img src="https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg" alt="Academics at Ishan Law" className="w-full h-96 object-cover" />
+              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" alt="Academics at Ishan Pharmacy" className="w-full h-96 object-cover" />
             </div>
             <div className="reveal space-y-5 mb-16">
               <p className="text-foreground/70 leading-relaxed">
-                The Ishan Law Institute offers Bar Council of India (BCI) approved Integrated BA LLB (5 Years) and LLB (3 Years) programs affiliated with CCS University, Meerut. Our pedagogical approach focuses on clinical legal education, ensuring students develop strong analytical, research, and advocacy skills. With a state-of-the-art Moot Court Hall, dedicated Legal Aid Cell, and mandatory court visits, Ishan Law provides a comprehensive platform for students to excel in litigation, corporate law, and judicial services.
+                The Ishan Institute of Pharmacy offers Bar Council of India (BCI) approved Integrated BA LLB (5 Years) and LLB (3 Years) programs affiliated with CCS University, Meerut. Our pedagogical approach focuses on clinical legal education, ensuring students develop strong analytical, research, and advocacy skills. With a state-of-the-art Moot Court Hall, dedicated Pharmacy Practice Cell, and mandatory court visits, Ishan Pharmacy provides a comprehensive platform for students to excel in litigation, corporate law, and judicial services.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[

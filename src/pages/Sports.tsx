@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -25,7 +25,7 @@ export default function SportsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="reveal relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border shadow-lg">
-                <img src="https://law.ishan.ac/static/gallery/sports/sports-16.jpeg" alt="Sports Meet" className="w-full h-full object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" alt="Sports Meet" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-navy text-white p-4 rounded-xl shadow-xl font-bold hidden md:block">
                 ANNUAL SPORTS MEET
@@ -34,7 +34,7 @@ export default function SportsPage() {
             <div className="reveal-right space-y-6">
               <h2 className="text-3xl font-bold text-foreground leading-tight">Fitness & Sportsmanship</h2>
             <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
-              {content || "Ishan Law promotes physical fitness and sportsmanship through a comprehensive sports program. The campus features facilities for cricket, basketball, badminton, volleyball, table tennis, and athletics. The annual sports meet is a highlight of the academic calendar, bringing together students from across the Ishan Group in a spirit of healthy competition."}
+              {content || "Ishan Pharmacy promotes physical fitness and sportsmanship through a comprehensive sports program. The campus features facilities for cricket, basketball, badminton, volleyball, table tennis, and athletics. The annual sports meet is a highlight of the academic calendar, bringing together students from across the Ishan Group in a spirit of healthy competition."}
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {specs.map((s: any, i: number) => (
@@ -48,10 +48,10 @@ export default function SportsPage() {
 
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="rounded-xl overflow-hidden border">
-                <img src="https://law.ishan.ac/static/gallery/sports/sports-10.jpg" alt="Basketball Court" className="w-full h-40 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" alt="Basketball Court" className="w-full h-40 object-cover" />
               </div>
               <div className="rounded-xl overflow-hidden border">
-                <img src="https://law.ishan.ac/static/gallery/sports/sports-7.jpg" alt="Cricket Match" className="w-full h-40 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" alt="Cricket Match" className="w-full h-40 object-cover" />
               </div>
             </div>
           </div>

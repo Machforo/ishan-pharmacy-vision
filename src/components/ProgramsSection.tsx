@@ -12,31 +12,31 @@ export default function ProgramsSection() {
 
   const fallbackPrograms = [
     { 
-      name: "BA LLB (Hons)", 
-      type: "Integrated",
-      category: "5 Years",
-      description: "Integrated Bachelor of Arts & Bachelor of Laws. 5 Years.", 
-      link: "/courses/ba-llb",
-      overview: "A comprehensive dual-degree program blending humanities with core legal studies. Ideal for students aiming for the judiciary or high-stakes advocacy.",
-      outcomes: ["Judicial Service", "Litigation Lawyer", "Legal Advisor", "Civil Services"]
+      name: "D.Pharm", 
+      type: "Diploma",
+      category: "2 Years",
+      description: "Diploma in Pharmacy. 2 Years.", 
+      link: "/courses/d-pharm",
+      overview: "A comprehensive diploma program focusing on the fundamental concepts of pharmaceutical science. Prepares students for entry-level roles in pharmacies and hospitals.",
+      outcomes: ["Pharmacist", "Medical Representative", "Lab Technician", "Entrepreneur"]
     },
     { 
-      name: "LLB", 
-      type: "Professional",
-      category: "3 Years",
-      description: "Bachelor of Laws. 3 Years.", 
-      link: "/courses/llb",
-      overview: "Traditional professional law degree for graduates across disciplines. Focuses on procedural laws, corporate legal framework, and clinical training.",
-      outcomes: ["Corporate Lawyer", "Legal Analyst", "Public Prosecutor", "Solicitor"]
+      name: "B.Pharm", 
+      type: "Bachelor",
+      category: "4 Years",
+      description: "Bachelor of Pharmacy. 4 Years.", 
+      link: "/courses/b-pharm",
+      overview: "An advanced undergraduate degree providing deep knowledge of drug formulation, testing, and therapeutic application. Ideal for careers in research, manufacturing, and clinical pharmacy.",
+      outcomes: ["Clinical Pharmacist", "Quality Control Analyst", "Drug Inspector", "Research Associate"]
     },
     { 
       name: "Certificate Courses", 
       type: "Value-Added",
       category: "Short-Term",
-      description: "Specialized Legal Certifications. 6 Months.", 
+      description: "Specialized Pharmaceutical Certifications. 6 Months.", 
       link: "/certificate-programs",
-      overview: "Bridge the gap between theory and practice with specialized courses in Cyber Law, Intellectual Property, and Mediation.",
-      outcomes: ["IP Specialist", "Cyber Consultant", "Mediator", "Compliance Officer"]
+      overview: "Bridge the gap between theory and practice with specialized courses in Pharmacovigilance, Regulatory Affairs, and Clinical Research.",
+      outcomes: ["Regulatory Specialist", "Clinical Researcher", "Pharmacovigilance Officer"]
     }
   ];
   
@@ -65,7 +65,7 @@ export default function ProgramsSection() {
             Programs Designed for Real-World Success
           </h2>
           <p className="reveal delay-200 mt-5 leading-relaxed">
-            BCI approved professional law programs affiliated to CCS University, Meerut, designed to bridge the gap between academic theory and court-room practice.
+            PCI approved professional pharmaceutical programs affiliated to AKTU and BTE UP, designed to bridge the gap between academic theory and clinical practice.
           </p>
         </div>
 

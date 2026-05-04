@@ -3,27 +3,21 @@ import { TrendingUp, Building2, Users2, Star } from "lucide-react";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultRecruiters = [
-  { name: "BAJAJ", logo: "https://law.ishan.ac/images/company/BAJAJ.png" },
-  { name: "Welspun", logo: "https://law.ishan.ac/images/company/welspun.png" },
-  { name: "Body Care", logo: "https://law.ishan.ac/images/company/Body-Care.png" },
-  { name: "KPMG", logo: "https://law.ishan.ac/images/company/kpmg.png" },
-  { name: "SBI", logo: "https://law.ishan.ac/images/company/SBI.png" },
-  { name: "Nirala", logo: "https://law.ishan.ac/images/company/Nirala.png" },
-  { name: "Spice", logo: "https://law.ishan.ac/images/company/Spice.png" },
-  { name: "The Times", logo: "https://law.ishan.ac/images/company/The-Times.png" },
-  { name: "47 Billion", logo: "https://law.ishan.ac/images/company/47-Billion.png" },
-  { name: "Shardul Amarchand Mangaldas", logo: "" },
-  { name: "AZB & Partners", logo: "" },
-  { name: "NIRALA", logo: "https://law.ishan.ac/images/company/Nirala.png" },
-  { name: "SPICE", logo: "https://law.ishan.ac/images/company/Spice.png" },
-  { name: "THE TIMES", logo: "https://law.ishan.ac/images/company/The-Times.png" },
-  { name: "47 BILLION", logo: "https://law.ishan.ac/images/company/47-Billion.png" },
+  { name: "Sun Pharma", logo: "" },
+  { name: "Cipla", logo: "" },
+  { name: "Dr. Reddy's", logo: "" },
+  { name: "Mankind", logo: "" },
+  { name: "Lupin", logo: "" },
+  { name: "Divis Labs", logo: "" },
+  { name: "Apollo Pharmacy", logo: "" },
+  { name: "Netmeds", logo: "" },
+  { name: "Tata 1mg", logo: "" },
 ];
 
 export default function PlacementsSection() {
   const ref = useScrollReveal();
   const { data } = useIshanLawData("homepage");
-  const placementsCfg = data?.placements || { title: "Career Outcomes & Placements", description: "Our alumni practice in top-tier firms and judicial courts across India." };
+  const placementsCfg = data?.placements || { title: "Career Outcomes & Placements", description: "Our alumni work in top-tier pharmaceutical companies and healthcare institutions across India." };
   const recruiters = data?.recruitingPartners?.length > 0 ? data.recruitingPartners : defaultRecruiters;
 
   return (

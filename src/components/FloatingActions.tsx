@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { MessageCircle, X, Send, Phone, ArrowUpRight, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 
 export function WhatsAppButton() {
   const phoneNumber = "919569394675";
-  const message = encodeURIComponent("I want to inquire more about Ishan Law Institute");
+  const message = encodeURIComponent("I want to inquire more about Ishan Institute of Pharmacy");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   const [isHovered, setIsHovered] = useState(false);
 

@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -15,7 +15,7 @@ export default function BestPracticesPage() {
     <Layout>
       <PageHeader
         title="Best Practices"
-        subtitle="NAAC-documented institutional best practices that define Ishan Law's excellence"
+        subtitle="NAAC-documented institutional best practices that define Ishan Pharmacy's excellence"
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Best Practices" }]}
       />
 
@@ -33,7 +33,7 @@ export default function BestPracticesPage() {
               ) : (
                 <>
                   <p className="text-foreground/70 leading-relaxed">
-                    Ishan Law Institute is committed to bridging the gap between classroom theory and courtroom practice. Our best practices are systematically documented for NAAC peer review, ensuring that every initiative contributes to the professional and ethical development of our aspiring advocates.
+                    Ishan Institute of Pharmacy is committed to bridging the gap between classroom theory and courtroom practice. Our best practices are systematically documented for NAAC peer review, ensuring that every initiative contributes to the professional and ethical development of our aspiring advocates.
                   </p>
                   <div className="p-6 rounded-xl border bg-card">
                     <h2 className="text-xl font-bold text-foreground mb-3">1. Integrated Clinical Legal Education</h2>
@@ -50,13 +50,13 @@ export default function BestPracticesPage() {
                   <div className="p-6 rounded-xl border bg-card">
                     <h2 className="text-xl font-bold text-foreground mb-3">3. Community Legal Aid & Social Advocacy</h2>
                     <p className="text-foreground/70 leading-relaxed">
-                      Our Legal Aid Cell actively organizes awareness camps in neighboring villages, where students provide free legal counseling under the supervision of faculty advocates. This practice fosters a sense of social responsibility and provides students with live experience in dealing with diverse legal issues.
+                      Our Pharmacy Practice Cell actively organizes awareness camps in neighboring villages, where students provide free legal counseling under the supervision of faculty advocates. This practice fosters a sense of social responsibility and provides students with live experience in dealing with diverse pharmacy practice issues.
                     </p>
                   </div>
                   <div className="p-6 rounded-xl border bg-card">
                     <h2 className="text-xl font-bold text-foreground mb-3">Institutional Outcomes</h2>
                     <p className="text-foreground/70 leading-relaxed italic">
-                      These practices have resulted in a significant increase in student participation in national legal events, higher success rates in judicial examinations, and a growing reputation for producing practice-ready legal professionals.
+                      These practices have resulted in a significant increase in student participation in national legal events, higher success rates in judicial examinations, and a growing reputation for producing practice-ready pharmacy professionals.
                     </p>
                   </div>
                 </>

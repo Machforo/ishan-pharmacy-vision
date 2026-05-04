@@ -6,9 +6,9 @@ import { Award, ExternalLink } from "lucide-react";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultScholarships = [
-  { category: "ILET Merit Scholarship", concession: "Up to 100% tuition fee waiver", description: "Awarded to top performers in the Ishan Law Entrance Test (ILET). Details available at the time of counseling." },
-  { category: "Academic Excellence", concession: "Up to 25% fee waiver", description: "Automatically applied for students with 90% and above in 10+2 (for BA LLB) or Graduation (for LLB)." },
-  { category: "SC/ST/OBC Scholarship", concession: "As per UP Scholarship Portal norms", description: "Apply through scholarship.up.gov.in. Ishan Law assists in documentation and verification." },
+  { category: "Merit Scholarship", concession: "Up to 100% tuition fee waiver", description: "Awarded to top performers in qualifying examinations (10+2). Details available at the time of counseling." },
+  { category: "Academic Excellence", concession: "Up to 25% fee waiver", description: "Automatically applied for students with 90% and above marks in 10+2 (PCB/PCM)." },
+  { category: "SC/ST/OBC Scholarship", concession: "As per UP Scholarship Portal norms", description: "Apply through scholarship.up.gov.in. Ishan Pharmacy assists in documentation and verification." },
   { category: "Economically Weaker Section", concession: "Partial fee concession", description: "Family income below ₹2.5 LPA. Submit income certificate with admission application." },
   { category: "Sibling Discount", concession: "10% fee waiver", description: "Two or more siblings enrolled simultaneously at Ishan Group. Inform admissions office during enrolment." },
   { category: "Sports Scholarship", concession: "Up to 15% fee waiver", description: "State or National level sports achievement required. Submit certificates during admission." },
@@ -24,7 +24,7 @@ export default function ScholarshipsPage() {
     <Layout>
       <PageHeader
         title="Scholarships"
-        subtitle="Financial support options for deserving legal aspirants across all programs"
+        subtitle="Financial support options for deserving healthcare aspirants across all pharmacy programs"
         breadcrumbs={[{ label: "Admissions", href: "/admissions" }, { label: "Scholarships" }]}
       />
 
@@ -33,10 +33,10 @@ export default function ScholarshipsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-12">
             <div className="reveal space-y-8">
               <p className="text-foreground/70 leading-relaxed">
-                Ishan Law believes that financial constraints should never hinder a student's access to quality legal education. We offer multiple scholarship schemes — including ILET merit awards, category-based support, and need-based concessions — to ensure that every deserving student can pursue their legal career.
+                Ishan Pharmacy believes that financial constraints should never hinder a student's access to quality pharmaceutical education. We offer multiple scholarship schemes — including merit awards, category-based support, and need-based concessions — to ensure that every deserving student can pursue their healthcare career.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-8.jpg" alt="Ishan Law Student Success" className="w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Student Success" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-6">

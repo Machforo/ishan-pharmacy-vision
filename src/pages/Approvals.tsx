@@ -5,10 +5,14 @@ import { FileText, ExternalLink } from "lucide-react";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultAccreditations = [
-  { title: "BCI", description: "Mandatory recognition for law programs. Bar Council of India.", logo: "https://law.ishan.ac/all-law/home-page/Logo_of_Bar_Council_of_India.png" },
-  { title: "CCS University", description: "Affiliation for BA LLB and LLB degree programs. Chaudhary Charan Singh University, Meerut.", logo: "https://law.ishan.ac/images/home/regulatory-4.png" },
-  { title: "NAAC", description: "Institutional quality accreditation benchmark. National Assessment and Accreditation Council.", logo: "https://law.ishan.ac/all-law/home-page/naac-2.png" },
-  { title: "UGC", description: "University Grants Commission recognition.", logo: "https://law.ishan.ac/static/about/approvals/UGC_India_Logo.png" },
+  { title: "PCI", description: "Mandatory recognition for pharmacy programs. Pharmacy Council of India.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/PCI-150x150.png" },
+  { title: "AKTU", description: "Affiliation for B.Pharm degree programs. Dr. A.P.J. Abdul Kalam Technical University, Lucknow.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/AKTU-150x150.png" },
+  { title: "BTE UP", description: "Affiliation for D.Pharm diploma programs. Board of Technical Education, Uttar Pradesh.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/BTE-up-150x150.jpg" },
+  { title: "JEECUP", description: "Joint Entrance Examination Council, Uttar Pradesh — for polytechnic and D.Pharm admissions.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Jeecup-150x150.png" },
+  { title: "URISE", description: "UP Rozgar aur Shiksha Initiative — online portal for student registration and educational services.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/URISE.png" },
+  { title: "CUET", description: "Common University Entrance Test — accepted for B.Pharm admissions.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/CUET-150x150.jpg" },
+  { title: "UP Scholarship", description: "Official UP Government Scholarship portal for SC/ST/OBC and EWS students.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Scholarship-UP-150x150.jpg" },
+  { title: "UP Pharmacy Council", description: "State regulatory body for pharmacy practice and pharmacist registration in Uttar Pradesh.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/UP-Pharmacy-Council-150x150.png" },
 ];
 
 export default function ApprovalsPage() {
@@ -20,7 +24,7 @@ export default function ApprovalsPage() {
     <Layout>
       <PageHeader
         title="Approvals & Affiliations"
-        subtitle="Ishan Law is fully recognized by the Bar Council of India, ensuring the highest professional standards."
+        subtitle="Ishan Pharmacy is fully recognized by the Pharmacy Council of India, ensuring the highest professional standards."
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Approvals & Affiliations" }]}
       />
 
@@ -30,20 +34,20 @@ export default function ApprovalsPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Regulatory Compliance</p>
             <h2 className="font-bold text-foreground">A Fully Accredited Institution</h2>
             <p className="text-foreground/70 leading-relaxed">
-              Legal education in India is strictly regulated to ensure that practicing advocates meet the highest standards of professional ethics and competence. Ishan Law Institute holds all mandatory approvals from the Bar Council of India (BCI) and is affiliated with Chaudhary Charan Singh University, Meerut. These certifications ensure that our degrees are fully recognized for enrollment as an Advocate with any State Bar Council and for appearing in judicial services examinations.
+              Pharmaceutical education in India is strictly regulated to ensure that practicing pharmacists meet the highest standards of professional ethics and competence in healthcare. Ishan Institute of Pharmacy holds all mandatory approvals from the Pharmacy Council of India (PCI) and is affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU) and the Board of Technical Education, Uttar Pradesh (BTE UP). These certifications ensure that our diplomas and degrees are fully recognized for practice and higher education.
             </p>
             <div className="grid md:grid-cols-3 gap-8 pt-4">
               <div className="space-y-2">
-                <h4 className="font-bold text-navy">BCI</h4>
-                <p className="text-xs">The primary regulator of legal education in India, ensuring curriculum relevance and professional standards.</p>
+                <h4 className="font-bold text-navy">PCI</h4>
+                <p className="text-xs">The primary regulator of pharmacy education in India, ensuring curriculum relevance and professional standards.</p>
               </div>
               <div className="space-y-2">
-                <h4 className="font-bold text-navy">CCS University</h4>
-                <p className="text-xs">Provides academic affiliation, conducts standardized examinations, and awards the final professional degree.</p>
+                <h4 className="font-bold text-navy">AKTU</h4>
+                <p className="text-xs">Provides academic affiliation for our degree programs (B.Pharm), conducts standardized examinations, and awards the final professional degree.</p>
               </div>
               <div className="space-y-2">
-                <h4 className="font-bold text-navy">NAAC</h4>
-                <p className="text-xs">An autonomous body that assesses and accredits institutions on parameters of teaching, research, and infrastructure.</p>
+                <h4 className="font-bold text-navy">BTE UP</h4>
+                <p className="text-xs">Provides academic affiliation for our diploma programs (D.Pharm) and conducts standardized board examinations.</p>
               </div>
             </div>
           </div>

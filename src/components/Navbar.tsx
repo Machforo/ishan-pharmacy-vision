@@ -4,7 +4,7 @@ import {
   Menu, X, Phone, Mail, ChevronDown,
   BookOpen, Users, Award, Building2, GraduationCap,
   Camera, Microscope, ArrowRight, FileText, Shield,
-  MessageSquare, Briefcase, Search
+  MessageSquare, Briefcase, Search, Activity
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -24,9 +24,9 @@ const navLinks: NavItem[] = [
   {
     label: "About Us",
     featured: {
-      img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg",
-      title: "Excellence in Legal Education",
-      desc: "BCI Approved & NAAC Accredited institution in Greater Noida, dedicated to producing ethical legal professionals.",
+      img: "https://images.unsplash.com/photo-1587854692152-cbe668df9731?q=80&w=800&auto=format&fit=crop",
+      title: "Excellence in Pharmacy",
+      desc: "PCI Approved institution in Greater Noida, dedicated to producing competent healthcare professionals.",
       href: "/about",
     },
     columns: [
@@ -34,46 +34,40 @@ const navLinks: NavItem[] = [
         heading: "Institution",
         icon: Building2,
         links: [
-          { label: "About Ishan Law", href: "/about" },
+          { label: "About Ishan Pharmacy", href: "/about" },
           { label: "Principal's Message", href: "/principal-message" },
           { label: "Mission & Vision", href: "/mission-vision" },
           { label: "Why Choose Us", href: "/why-choose-us" },
-          { label: "Best Practices", href: "/best-practices" },
-          { label: "Green Initiatives", href: "/green-initiatives" },
           { label: "Approvals & Affiliations", href: "/approvals" },
-          { label: "Mandatory Disclosure", href: "/mandatory-disclosure" },
         ],
       },
       {
         heading: "Regulatory",
         icon: Shield,
         links: [
-          { label: "BCI Compliance", href: "/mandatory-disclosure" },
-          { label: "Anti-Ragging", href: "/anti-ragging" },
-          { label: "Grievance Redressal", href: "/grievance-redressal" },
+          { label: "Mandatory Disclosure", href: "/mandatory-disclosure" },
+          { label: "Code of Conduct", href: "/code-of-conduct-discipline" },
           { label: "FAQs", href: "/faqs" },
         ],
       },
     ],
   },
   {
-    label: "Our Courses",
+    label: "Programs",
     featured: {
-      img: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg",
-      title: "Professional Law Programs",
-      desc: "Integrated BA LLB and Professional LLB programs designed for modern legal practice.",
-      href: "/programs-overview",
+      img: "https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop",
+      title: "Pharmaceutical Sciences",
+      desc: "Comprehensive B.Pharm and D.Pharm programs designed for modern healthcare practice.",
+      href: "/courses/b-pharm",
     },
     columns: [
       {
-        heading: "Law Programs",
+        heading: "Courses",
         icon: GraduationCap,
         links: [
-          { label: "Programs Overview", href: "/programs-overview" },
-          { label: "BA LLB (Hons) - 5 Years", href: "/courses/ba-llb" },
-          { label: "LLB - 3 Years", href: "/courses/llb" },
-          { label: "LLM - 2 Years", href: "/courses/llm" },
-          { label: "Certificate Programs", href: "/certificate-programs" },
+          { label: "Bachelor of Pharmacy (B.Pharm)", href: "/courses/b-pharm" },
+          { label: "Diploma in Pharmacy (D.Pharm)", href: "/courses/d-pharm" },
+          { label: "Certificate Programmes", href: "/certificate-programs" },
         ],
       },
       {
@@ -82,29 +76,7 @@ const navLinks: NavItem[] = [
         links: [
           { label: "Admission Process", href: "/admissions" },
           { label: "Scholarships", href: "/scholarships" },
-          { label: "Internship & Externship", href: "/internship-externship" },
           { label: "Fee Structure", href: "/fee-payment" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Learning",
-    featured: {
-      img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg",
-      title: "Clinical Legal Education",
-      desc: "Beyond textbooks: Moot courts, legal aid clinics, and direct court exposure.",
-      href: "/moot-court",
-    },
-    columns: [
-      {
-        heading: "Clinical Training",
-        icon: Microscope,
-        links: [
-          { label: "Moot Court Sessions", href: "/moot-court" },
-          { label: "Legal Aid Cell", href: "/legal-aid-cell" },
-          { label: "Court & Jail Visits", href: "/court-jail-visits" },
-          { label: "Skill Development", href: "/skill-development" },
         ],
       },
       {
@@ -115,92 +87,98 @@ const navLinks: NavItem[] = [
           { label: "Visiting Faculty", href: "/visiting-faculty" },
         ],
       },
-      {
-        heading: "Events",
-        icon: Camera,
-        links: [
-          { label: "News & Events", href: "/news-events" },
-          { label: "Debates & GD", href: "/debates-gd" },
-          { label: "Cultural Activities", href: "/cultural-activities" },
-          { label: "Guest Lectures", href: "/guest-lectures" },
-        ],
-      },
     ],
   },
   {
-    label: "Campus",
+    label: "Labs & Campus",
     featured: {
-      img: "https://law.ishan.ac/static/gallery/infra/infra-16.jpg",
-      title: "World-Class Infrastructure",
-      desc: "Purpose-designed campus with specialized legal library and IT facilities.",
-      href: "/infrastructure",
+      img: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=800&auto=format&fit=crop",
+      title: "10 Specialized Labs",
+      desc: "State-of-the-art facilities mirroring professional pharmacy settings.",
+      href: "/pharmaceutical-chemistry",
     },
     columns: [
+      {
+        heading: "10 Labs",
+        icon: Microscope,
+        links: [
+          { label: "Pharmaceutics Lab", href: "/pharmaceutics" },
+          { label: "Pharmaceutical Chemistry", href: "/pharmaceutical-chemistry" },
+          { label: "Pharmacognosy Lab", href: "/pharmacognosy" },
+          { label: "Pharmacology Lab", href: "/pharmacology" },
+          { label: "Pharmacy Practice", href: "/pharmacy-practice" },
+          { label: "Human Anatomy", href: "/human-anatomy" },
+          { label: "Machine Room", href: "/machine-room" },
+          { label: "Herbal Garden", href: "/herbal-garden" },
+          { label: "Museum & Computer Lab", href: "/museum-computer-lab" },
+        ],
+      },
       {
         heading: "Facilities",
         icon: Building2,
         links: [
           { label: "Infrastructure", href: "/infrastructure" },
-          { label: "Legal Library", href: "/library" },
-          { label: "IT Lab", href: "/it-lab" },
-          { label: "Auditorium", href: "/auditorium" },
+          { label: "Library", href: "/library" },
           { label: "Hostel Facilities", href: "/hostel" },
-          { label: "Sports", href: "/sports" },
+          { label: "Auditorium & Sports", href: "/auditorium-sports" },
         ],
       },
+    ],
+  },
+  {
+    label: "Student Life",
+    featured: {
+      img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+      title: "Vibrant Campus",
+      desc: "Engaging activities, events, and resources for an enriching student experience.",
+      href: "/news-events",
+    },
+    columns: [
       {
-        heading: "Gallery",
-        icon: Camera,
+        heading: "Learning & Events",
+        icon: Activity,
         links: [
+          { label: "News & Events", href: "/news-events" },
+          { label: "Events Calendar", href: "/events-calendar" },
+          { label: "Guest Lectures", href: "/guest-lectures" },
+          { label: "Industrial Visits", href: "/industrial-visits" },
           { label: "Photo Gallery", href: "/photo-gallery" },
           { label: "Video Gallery", href: "/video-gallery" },
           { label: "Press Coverage", href: "/press-coverage" },
         ],
       },
-    ],
-  },
-  {
-    label: "Student Zone",
-    featured: {
-      img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-8.jpg",
-      title: "Student Resources",
-      desc: "One-stop access to academic materials, portals, and professional placements.",
-      href: "/student-portal",
-    },
-    columns: [
       {
-        heading: "Academic Hub",
+        heading: "Student Hub",
         icon: FileText,
         links: [
           { label: "Downloads", href: "/downloads" },
           { label: "Past Exam Papers", href: "/past-papers" },
-          { label: "Code of Conduct", href: "/code-of-conduct" },
           { label: "Student Portal", href: "/student-portal" },
         ],
       },
+    ],
+  },
+  {
+    label: "Connect",
+    featured: {
+      img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop",
+      title: "Research & Careers",
+      desc: "Outstanding placement outcomes and cutting-edge research opportunities.",
+      href: "/placements",
+    },
+    columns: [
       {
         heading: "Career & Research",
         icon: Briefcase,
         links: [
           { label: "Placements", href: "/placements" },
-          { label: "Research Journal", href: "/research-journal" },
+          { label: "Research Projects", href: "/research-projects" },
           { label: "Publications", href: "/publications" },
           { label: "Alumni Network", href: "/alumni-network" },
         ],
       },
-    ],
-  },
-  {
-    label: "Contact Us",
-    featured: {
-      img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg",
-      title: "Get in Touch",
-      desc: "Reach out to Ishan Law for admissions, career opportunities, and feedback.",
-      href: "/contact",
-    },
-    columns: [
       {
-        heading: "Connect",
+        heading: "Get in Touch",
         icon: Phone,
         links: [
           { label: "Contact Us", href: "/contact" },
@@ -224,11 +202,10 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
 
   // Searchable items
   const searchableItems = [
-    { name: "BA LLB (Hons)", href: "/courses/ba-llb" },
-    { name: "LLB (3 Years)", href: "/courses/llb" },
-    { name: "LLM (2 Years)", href: "/courses/llm" },
-    { name: "Moot Court", href: "/moot-court" },
-    { name: "Legal Aid Cell", href: "/legal-aid-cell" },
+    { name: "B.Pharm", href: "/courses/b-pharm" },
+    { name: "D.Pharm", href: "/courses/d-pharm" },
+    { name: "Pharmaceutical Chemistry", href: "/pharmaceutical-chemistry" },
+    { name: "Pharmaceutics", href: "/pharmaceutics" },
     { name: "Admissions", href: "/admissions" },
     { name: "Placements", href: "/placements" },
     { name: "Faculty", href: "/faculty" },
@@ -267,16 +244,16 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
     const currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--base-font-size') || "16");
     const newSize = Math.max(12, Math.min(24, currentSize + amount));
     root.style.setProperty('--base-font-size', `${newSize}px`);
-    localStorage.setItem('ishan_law_font_size', newSize.toString());
+    localStorage.setItem('ishan_pharmacy_font_size', newSize.toString());
   };
 
   const resetFont = () => {
     document.documentElement.style.setProperty('--base-font-size', '16px');
-    localStorage.setItem('ishan_law_font_size', '16');
+    localStorage.setItem('ishan_pharmacy_font_size', '16');
   };
 
   useEffect(() => {
-    const savedSize = localStorage.getItem('ishan_law_font_size');
+    const savedSize = localStorage.getItem('ishan_pharmacy_font_size');
     if (savedSize) {
       document.documentElement.style.setProperty('--base-font-size', `${savedSize}px`);
     }
@@ -328,24 +305,23 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
         <div className={`container-wide flex items-center justify-between transition-all duration-500 ${scrolled ? "h-14 md:h-[64px]" : "h-16 md:h-20"}`}>
 
           {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="w-10 h-10 rounded-xl bg-white overflow-hidden flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 border border-gold/20 p-1">
+            <Link to="/" className="flex items-center gap-2 shrink-0 group">
+            <div className="h-10 shrink-0 overflow-hidden flex items-center">
               <img 
-                src="/favicon.png" 
-                alt="Ishan Law Logo" 
-                className="w-full h-full object-contain"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtBPP1F_Pp9ioq_SfiDL6mn5No4JbZSE9X9A&s" 
+                alt="Ishan Pharmacy Logo" 
+                className="h-full w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
-                  (e.target as HTMLImageElement).parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-navy"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>';
                 }}
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className={`font-bold text-lg md:text-xl tracking-tight transition-colors duration-500 ${(scrolled || isNotFound) ? "text-navy" : "text-white drop-shadow-lg"}`}>
+              <span className={`font-extrabold text-base md:text-lg tracking-tight transition-colors duration-500 ${(scrolled || isNotFound) ? "text-navy" : "text-white drop-shadow-lg"}`}>
                 ISHAN
               </span>
-              <span className={`text-xs uppercase font-bold tracking-[0.15em] leading-none transition-colors duration-500 ${(scrolled || isNotFound) ? "text-muted-foreground" : "text-white/90 drop-shadow-md"}`}>
-                Institute of Law
+              <span className={`text-[10px] uppercase font-bold tracking-[0.14em] leading-none transition-colors duration-500 ${(scrolled || isNotFound) ? "text-muted-foreground" : "text-white/85 drop-shadow-md"}`}>
+                Institute of Pharmacy
               </span>
             </div>
           </Link>
@@ -536,10 +512,10 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
         <AnimatePresence>
           {searchOpen && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-navy/95 backdrop-blur-xl flex flex-col p-6 md:p-20"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               className="fixed inset-0 z-[100] bg-navy/95 backdrop-blur-xl flex flex-col p-6 md:p-20"
             >
               <div className="w-full max-w-4xl mx-auto flex flex-col h-full">
                 <div className="flex items-center justify-between mb-12">
@@ -591,7 +567,7 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
                     <div>
                       <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Popular Searches</p>
                       <div className="flex flex-wrap gap-3">
-                        {["BA LLB", "LLB", "Moot Court", "Admissions", "Placements", "Contact"].map(tag => (
+                        {["B.Pharm", "D.Pharm", "10 Labs", "Admissions", "Placements", "Contact"].map(tag => (
                           <button 
                             key={tag}
                             onClick={() => setSearchQuery(tag)}

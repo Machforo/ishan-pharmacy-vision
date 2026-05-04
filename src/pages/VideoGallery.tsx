@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
@@ -6,7 +6,7 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 const defaultVideos = [
   { title: "National Moot Court Competition Final Round", category: "Moot Court Highlights", ytId: "" },
   { title: "Understanding The New Criminal Laws", category: "Faculty Talks", ytId: "" },
-  { title: "My Journey at Ishan Law", category: "Student Testimonials", ytId: "" },
+  { title: "My Journey at Ishan Pharmacy", category: "Student Testimonials", ytId: "" },
   { title: "Supreme Court Visit Documentary", category: "Court Visits", ytId: "" },
   { title: "Annual Cultural Fest Kshitiz", category: "Events", ytId: "" },
   { title: "Legal Aid Camp in Rural Noida", category: "Events", ytId: "" },
@@ -30,11 +30,11 @@ export default function VideoGalleryPage() {
 
   return (
     <Layout>
-      <PageHeader title="Video Gallery" subtitle="Visual insights into academic and extracurricular life at Ishan Law" breadcrumbs={[{ label: "Gallery" }, { label: "Videos" }]} />
+      <PageHeader title="Video Gallery" subtitle="Visual insights into academic and extracurricular life at Ishan Pharmacy" breadcrumbs={[{ label: "Gallery" }, { label: "Videos" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <p className="reveal leading-relaxed max-w-4xl mx-auto text-center mb-16 text-lg">
-            Watch Ishan Law in action — moot court performances, court visit documentaries, faculty talks, student testimonials; subscribe to the YouTube channel to stay updated.
+            Watch Ishan Pharmacy in action — moot court performances, court visit documentaries, faculty talks, student testimonials; subscribe to the YouTube channel to stay updated.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((v: any, i: number) => (

@@ -3,14 +3,10 @@ import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb,
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultReasons = [
-  { icon: Shield, title: "BCI Approved", desc: "Bar Council of India recognized professional programs" },
-  { icon: Scale, title: "Clinical Focus", desc: "Mandatory court and jail visits starting from first year" },
-  { icon: Gavel, title: "Moot Court Hall", desc: "Dedicated high-tech hall for regular practice and competitions" },
-  { icon: Users, title: "Advocate Faculty", desc: "Learn from practicing High Court and Supreme Court advocates" },
-  { icon: Award, title: "Judicial Cell", desc: "Specialized guidance and training for judicial services exams" },
-  { icon: Globe, title: "Legal Aid Clinic", desc: "Live community service experience providing real legal aid" },
-  { icon: Lightbulb, title: "Research Library", desc: "Comprehensive legal library with digital research terminals" },
-  { icon: TrendingUp, title: "Location Advantage", desc: "Situated in Knowledge Park, the educational hub of Greater Noida" },
+  { icon: Shield, title: "PCI Approved", desc: "Recognized by Pharmacy Council of India ensuring top-tier academic standards." },
+  { icon: Building, title: "10 Specialised Labs", desc: "State-of-the-art facilities including Pharmaceutics, Pharmacognosy, and Pharmacology labs." },
+  { icon: Users, title: "Industry Faculty", desc: "Learn from experienced academicians and pharmaceutical industry experts." },
+  { icon: TrendingUp, title: "Placement Support", desc: "Dedicated placement cell connecting graduates with leading pharma companies." },
 ];
 
 export default function WhyIshanLawSection() {
@@ -26,10 +22,10 @@ export default function WhyIshanLawSection() {
           <div className="reveal-left">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Why Choose Us</p>
             <h2 className="font-bold text-foreground leading-tight">
-              What Makes Ishan Law Stand Apart
+              What Makes Ishan Pharmacy Stand Apart
             </h2>
             <p className="mt-4 leading-relaxed">
-              At Ishan Law Institute, we bridge the gap between classroom theory and courtroom reality. Our focus on clinical legal education ensures that every student graduates with the confidence of a seasoned professional.
+              At Ishan Institute of Pharmacy, we bridge the gap between theoretical knowledge and practical application. Our focus on hands-on clinical training in 10 specialized labs ensures that every student graduates ready for the pharmaceutical industry.
             </p>
             <a
               href="#contact"

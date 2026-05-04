@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -31,7 +31,7 @@ export default function HostelPage() {
           <div className="max-w-4xl mx-auto">
             <div className="reveal space-y-5 mb-12">
               <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
-                {content || "Ishan Law Institute provides comfortable hostel accommodation for both boys and girls in separate residential blocks located within 200 metres of the main campus. The hostel offers a home-away-from-home experience with furnished rooms, nutritious mess meals, and 24/7 security — allowing students to focus on their academics in a safe environment."}
+                {content || "Ishan Institute of Pharmacy provides comfortable hostel accommodation for both boys and girls in separate residential blocks located within 200 metres of the main campus. The hostel offers a home-away-from-home experience with furnished rooms, nutritious mess meals, and 24/7 security — allowing students to focus on their academics in a safe environment."}
               </p>
             </div>
 

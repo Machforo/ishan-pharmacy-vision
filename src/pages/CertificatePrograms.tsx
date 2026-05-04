@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -28,10 +28,10 @@ export default function CertificateProgramsPage() {
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="reveal rounded-2xl overflow-hidden border mb-12 shadow-sm max-w-4xl mx-auto">
-            <img src="https://law.ishan.ac/all-law/gallery-photos/academics/academics-11.jpg" alt="Certificate Programs" className="w-full h-80 object-cover" />
+            <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" alt="Certificate Programs" className="w-full h-80 object-cover" />
           </div>
           <p className="reveal leading-relaxed max-w-3xl mb-12">
-            Ishan Law offers structured certificate programs alongside regular degree courses. These specialized short courses help students develop practical skills that legal employers actively seek — from cyber law expertise to mediation skills and advanced legal drafting. All certificate programs include hands-on sessions, assessments, and a certificate of completion.
+            Ishan Pharmacy offers structured certificate programs alongside regular degree courses. These specialized short courses help students develop practical skills that legal employers actively seek — from cyber law expertise to mediation skills and advanced legal drafting. All certificate programs include hands-on sessions, assessments, and a certificate of completion.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

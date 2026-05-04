@@ -6,58 +6,58 @@
 
 @layer base {
   :root {
-    --background: 40 30% 98%;
-    --foreground: 210 100% 10%;
+    --background: 220 20% 97%;
+    --foreground: 220 40% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 100% 10%;
+    --card-foreground: 220 40% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 100% 10%;
+    --popover-foreground: 220 40% 10%;
 
-    --primary: 210 100% 20%;
-    --primary-foreground: 40 30% 98%;
+    --primary: 220 72% 32%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 48% 57%;
-    --secondary-foreground: 210 100% 20%;
+    --secondary: 220 30% 95%;
+    --secondary-foreground: 220 40% 10%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 36 48% 57%;
-    --accent-foreground: 210 100% 20%;
+    --accent: 42 80% 50%;
+    --accent-foreground: 220 40% 10%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 36 48% 57%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 72% 32%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom tokens from ishan-legal */
-    --navy: 215 100% 25%;
-    --navy-light: 215 80% 45%;
-    --navy-dark: 215 100% 12%;
-    --gold: 42 90% 55%;
-    --gold-light: 42 80% 92%;
-    --gold-dark: 42 85% 40%;
-    --cream: 40 30% 96%;
-    --slate-blue: 215 25% 35%;
-    --hero-overlay: 215 100% 10%;
-    --section-alt: 40 30% 96%;
+    --navy: 220 55% 12%;
+    --navy-foreground: 0 0% 100%;
+    --gold: 42 80% 50%;
+    --gold-foreground: 220 40% 10%;
+    --blue-light: 220 60% 96%;
+    --section-alt: 220 20% 97%;
 
     --font-heading: 'Inter', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
-    --gradient-hero: linear-gradient(135deg, #001F3D 0%, #003a7a 100%);
-    --gradient-gold: linear-gradient(135deg, #FFD700 0%, #d4af37 100%);
-    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #fffbec 100%);
-    --gradient-dark-section: linear-gradient(180deg, #001F3D 0%, #003a7a 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(220, 72%, 32%), hsl(220, 65%, 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(220, 55%, 12%) 0%, hsl(220, 45%, 20%) 50%, hsl(220, 72%, 32%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(220, 72%, 32%), hsl(42, 80%, 50%), hsl(220, 65%, 45%));
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 60%, 97%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42, 80%, 50%), hsl(38, 85%, 55%));
+    --gradient-dark-section: linear-gradient(180deg, hsl(220, 55%, 12%) 0%, hsl(220, 72%, 32%) 100%);
 
-    --shadow-card: 0 10px 30px -5px rgba(0, 51, 102, 0.1);
-    --shadow-card-hover: 0 20px 50px -10px rgba(0, 51, 102, 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(220 72% 32% / 0.15);
+    --shadow-elevated: 0 20px 60px -15px hsl(220 55% 12% / 0.2);
+    --shadow-glow: 0 0 40px hsl(220 72% 32% / 0.2);
+    --shadow-card: var(--shadow-soft);
+    --shadow-card-hover: var(--shadow-elevated);
     --shadow-gold: 0 10px 20px -5px rgba(197, 157, 95, 0.3);
   }
 }

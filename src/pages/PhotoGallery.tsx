@@ -6,65 +6,65 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultAlbums = [
   { 
-    category: "Moot Court", 
+    category: "Pharmacy Labs", 
     date: "2025-26", 
     images: [
-      { id: "mc-1", alt: "Moot Court 1", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" },
-      { id: "mc-2", alt: "Moot Court 2", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-10.jpg" },
-      { id: "mc-3", alt: "Moot Court 3", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-14.jpg" },
-      { id: "mc-4", alt: "Moot Court 4", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-6.jpg" },
+      { id: "mc-1", alt: "Pharmacy Lab 1", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" },
+      { id: "mc-2", alt: "Lab Experiments", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" },
+      { id: "mc-3", alt: "Practical Experiments", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-1024x454.jpg" },
+      { id: "mc-4", alt: "Practical Experiments 2", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-2-1024x705.jpg" },
     ]
   },
   { 
-    category: "Court & Jail Visits", 
-    date: "Clinical Training", 
+    category: "Industrial Visits & Outreach", 
+    date: "Experiential Learning", 
     images: [
-      { id: "cj-1", alt: "Court Visit", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" },
-      { id: "cj-2", alt: "Legal Visit", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg" },
-      { id: "cj-3", alt: "Students at Court", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-8.jpg" },
+      { id: "cj-1", alt: "Awareness Program", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Awareness-program-on-Ragging-and-Its-Consequences-1-1024x700.jpg" },
+      { id: "cj-2", alt: "Webinar on Cancer", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Webinar-on-Awareness-about-Bladder-Cancer.jpg" },
+      { id: "cj-3", alt: "Blood Donation Camp", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Blood-Donation-Camp-1024x769.jpg" },
     ]
   },
   { 
     category: "Campus Infrastructure", 
     date: "Facilities", 
     images: [
-      { id: "infra-1", alt: "Campus Building", url: "https://law.ishan.ac/static/gallery/infra/infra-16.jpg" },
-      { id: "infra-2", alt: "Library", url: "https://law.ishan.ac/static/gallery/infra/infra-2.png" },
-      { id: "infra-3", alt: "Hostel", url: "https://law.ishan.ac/static/gallery/infra/infra-6.jpeg" },
-      { id: "infra-4", alt: "Digital Lab", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-12.jpg" },
+      { id: "infra-1", alt: "Campus Building", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" },
+      { id: "infra-2", alt: "Library", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" },
+      { id: "infra-3", alt: "Hostel", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Girls-Hostel-1024x768.jpg" },
+      { id: "infra-4", alt: "Digital Lab", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Online-Learning-1024x710.jpg" },
     ]
   },
   { 
     category: "Academic Excellence", 
     date: "Learning", 
     images: [
-      { id: "acad-1", alt: "Classroom", url: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg" },
-      { id: "acad-2", alt: "Seminar", url: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-11.jpg" },
-      { id: "acad-3", alt: "Presentation", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-11.jpg" },
-      { id: "acad-4", alt: "Interactive Session", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-13.jpg" },
+      { id: "acad-1", alt: "Classroom", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" },
+      { id: "acad-2", alt: "Seminar", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" },
+      { id: "acad-3", alt: "Presentation", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Smart-classroom-1024x674.jpg" },
+      { id: "acad-4", alt: "Interactive Session", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Orientation-Program-for-New-Batch-1024x628.jpg" },
     ]
   },
   { 
     category: "Cultural Activities", 
     date: "Events", 
     images: [
-      { id: "cl-1", alt: "Cultural Fest", url: "https://law.ishan.ac/all-law/gallery-photos/cultural-activities/cultural-11.jpg" },
-      { id: "cl-2", alt: "Dance Performance", url: "https://law.ishan.ac/all-law/gallery-photos/cultural-activities/cultural-21.jpg" },
-      { id: "cl-6", alt: "Group Photo", url: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" },
+      { id: "cl-1", alt: "Cultural Fest", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Inauguration-of-Spardha--1024x473.jpg" },
+      { id: "cl-2", alt: "Dance Performance", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
+      { id: "cl-6", alt: "Group Photo", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" },
     ]
   },
   { 
     category: "Sports", 
     date: "Athletics", 
     images: [
-      { id: "cl-3", alt: "Sports 1", url: "https://law.ishan.ac/static/gallery/sports/sports-10.jpg" },
-      { id: "cl-4", alt: "Sports 2", url: "https://law.ishan.ac/static/gallery/sports/sports-7.jpg" },
-      { id: "cl-5", alt: "Sports 3", url: "https://law.ishan.ac/static/gallery/sports/sports-16.jpeg" },
+      { id: "cl-3", alt: "Sports 1", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
+      { id: "cl-4", alt: "Sports 2", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
+      { id: "cl-5", alt: "Sports 3", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
     ]
   }
 ];
 
-const cmsCategories = ["Moot Court", "Court & Jail Visits", "Academic Excellence", "Cultural Activities", "Sports", "Campus Infrastructure"];
+const cmsCategories = ["Pharmacy Labs", "Industrial Visits & Outreach", "Academic Excellence", "Cultural Activities", "Sports", "Campus Infrastructure"];
 
 export default function PhotoGalleryPage() {
   const ref = useScrollReveal();
@@ -89,11 +89,11 @@ export default function PhotoGalleryPage() {
 
   return (
     <Layout>
-      <PageHeader title="Photo Gallery" subtitle="A visual record of moot court competitions, seminars, and campus life" breadcrumbs={[{ label: "Gallery" }, { label: "Photos" }]} />
+      <PageHeader title="Photo Gallery" subtitle="A visual record of pharmacy labs, seminars, industrial visits, and campus life" breadcrumbs={[{ label: "Gallery" }, { label: "Photos" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <p className="reveal leading-relaxed max-w-4xl mx-auto text-center mb-16 text-lg">
-            Ishan Law's gallery is a visual record — moot court competitions, court visits, seminars, cultural activities, campus life; browse through albums below.
+            Ishan Pharmacy's gallery is a visual record — pharmacy labs, industrial visits, awareness programs, cultural activities, sports meets, and campus life; browse through albums below.
           </p>
 
           <div className="reveal flex flex-wrap gap-2 mb-10 justify-center">

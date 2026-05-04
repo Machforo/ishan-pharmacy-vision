@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -7,21 +7,21 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultMilestones = [
   { year: "1994", event: "Ishan Institute of Management & Technology established as the foundation of the group" },
-  { year: "2008", event: "Ishan Law Institute established with Bar Council of India (BCI) approval" },
-  { year: "2010", event: "Launch of specialized Clinical Legal Education programs and Court Visit initiatives" },
-  { year: "2015", event: "Establishment of the dedicated Legal Aid Cell for community service" },
-  { year: "2018", event: "NAAC Accreditation granted — a testament to quality in higher education" },
-  { year: "2023", event: "Crossed 2,000+ legal alumni successfully practicing in various courts and corporate houses" },
+  { year: "2017", event: "Ishan Institute of Pharmacy established with Pharmacy Council of India (PCI) approval" },
+  { year: "2018", event: "Introduction of Diploma in Pharmacy (D.Pharm) program" },
+  { year: "2021", event: "Launch of Bachelor of Pharmacy (B.Pharm) program" },
+  { year: "2023", event: "Setup of 10 specialized, state-of-the-art pharmaceutical laboratories" },
+  { year: "2025", event: "Crossed 500+ pharmacy alumni successfully placed in top healthcare institutions" },
 ];
 
 export default function AboutPage() {
   const ref = useScrollReveal();
   const { data, isLoading } = useIshanLawData("aboutus");
-  const fallback = `Established with a vision to revolutionize legal education, Ishan Law Institute stands as a premier center for legal studies in Knowledge Park, Greater Noida. Affiliated with Chaudhary Charan Singh (CCS) University, Meerut, and recognized by the Bar Council of India (BCI), our institution is committed to producing advocates who are not only masters of legal theory but also skilled in the art of practice.
+  const fallback = `Established with a vision to revolutionize pharmaceutical education, Ishan Institute of Pharmacy stands as a premier center for healthcare studies in Knowledge Park, Greater Noida. Affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU) and the Board of Technical Education, Uttar Pradesh (BTE UP), and recognized by the Pharmacy Council of India (PCI), our institution is committed to producing healthcare professionals who excel in both theory and practice.
 
-Our curriculum is designed to bridge the gap between classroom learning and courtroom reality. From the very first semester, students are exposed to the living law through mandatory court visits, intensive moot court sessions, and participation in our Legal Aid Cell. We offer two flagship professional programs: the integrated BA LLB (Hons) and the Professional LLB, both structured to meet the demands of modern legal practice.
+Our curriculum is designed to bridge the gap between classroom learning and industrial/clinical reality. From the very first semester, students are exposed to practical applications through our specialized laboratories, regular industrial visits, and clinical training sessions. We offer two flagship professional programs: the Diploma in Pharmacy (D.Pharm) and the Bachelor of Pharmacy (B.Pharm), both structured to meet the modern demands of the pharmaceutical and healthcare sectors.
 
-The Ishan Law campus provides a specialized environment for legal scholarship, featuring a high-tech Moot Court Hall, a comprehensive legal library with digital research terminals (Manupatra, SCC Online), and a dedicated Judicial Services Cell. We invite aspiring legal professionals to join our community and build a formidable foundation for a career in advocacy, judiciary, or corporate legal service.`;
+The Ishan Pharmacy campus provides a specialized environment for pharmaceutical scholarship, featuring 10 advanced laboratories, a comprehensive medical library, a herbal garden, and a dedicated Placement Cell. We invite aspiring healthcare professionals to join our community and build a formidable foundation for a career in clinical pharmacy, research, or pharmaceutical manufacturing.`;
 
   // Schema: aboutus.ourStory = { title, content } | aboutus.keyDifferentiators = [{title, description}]
   const ourStory = data?.ourStory;
@@ -30,22 +30,22 @@ The Ishan Law campus provides a specialized environment for legal scholarship, f
   const keyDifferentiators: string[] = keyDiffRaw?.length > 0
     ? keyDiffRaw.map((k: any) => typeof k === 'string' ? k : k.title)
     : [
-      "BCI Approved Professional Programs",
-      "NAAC Accredited Institution",
-      "Mandatory Court & Jail Visits",
-      "Integrated Legal Aid Clinic",
-      "High-Tech Moot Court Hall",
-      "Digital Legal Research Lab",
-      "Judicial Services Preparation Cell",
-      "Faculty of Practicing Advocates",
+      "PCI Approved Professional Programs",
+      "AKTU & BTE UP Affiliation",
+      "10 Specialized Laboratories",
+      "Dedicated Herbal Garden & Machine Room",
+      "Regular Industrial Visits",
+      "Clinical Training in Top Hospitals",
+      "Dedicated Placement & Training Cell",
+      "Experienced Faculty from Industry & Academia",
     ];
 
   return (
     <Layout>
       <PageHeader
-        title={ourStory?.title || "About Ishan Law"}
-        subtitle="Excellence in legal education and practice-oriented learning since 2008."
-        breadcrumbs={[{ label: "About Ishan Law" }]}
+        title={ourStory?.title || "About Ishan Pharmacy"}
+        subtitle="Excellence in pharmaceutical education and practice-oriented learning since 2017."
+        breadcrumbs={[{ label: "About Ishan Pharmacy" }]}
       />
 
       <section className="py-20 md:py-28" ref={ref}>
@@ -53,7 +53,7 @@ The Ishan Law campus provides a specialized environment for legal scholarship, f
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" alt="Students and faculty at Ishan Law Institute campus" className="w-full h-[400px] object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
               </div>
             </div>
 

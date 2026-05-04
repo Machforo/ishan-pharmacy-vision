@@ -9,26 +9,24 @@ const defaultFaqCategories = [
   {
     category: "Admissions",
     faqs: [
-      { q: "What is the admission process for BA LLB and LLB?", a: "Admissions at Ishan Law are based on merit in the Ishan Law Entrance Test (ILET) or scores from national tests like CLAT and LSAT-India, followed by a personal interview. Candidates must also register on the CCS University portal." },
-      { q: "What are the eligibility criteria for the 3-year LLB?", a: "Candidates must have a graduation degree in any discipline with at least 45% marks (40% for SC/ST) from a recognized university as per BCI and CCS University norms." },
-      { q: "Can I apply for admission before my 12th results are out?", a: "Yes, you can apply provisionally for BA LLB (Hons). Your admission will be finalized once you submit your qualifying marksheets meeting the eligibility criteria." },
-      { q: "Is the Ishan Law Entrance Test (ILET) mandatory?", a: "ILET is the primary entrance for our institutional scholarships. However, candidates with valid CLAT or LSAT-India scores may be exempted from the written test, subject to the interview process." },
+      { q: "What is the admission process for D.Pharm and B.Pharm?", a: "Admissions at Ishan Pharmacy are based on merit in qualifying examinations (10+2) and UPSEE/CUET counseling, followed by a personal interview." },
+      { q: "What are the eligibility criteria for the programs?", a: "Candidates must have passed 10+2 with Physics, Chemistry, and Biology/Mathematics with at least 50% marks (45% for SC/ST) from a recognized board." },
+      { q: "Can I apply for admission before my 12th results are out?", a: "Yes, you can apply provisionally. Your admission will be finalized once you submit your qualifying marksheets meeting the eligibility criteria." },
       { q: "How do I contact an admissions counsellor?", a: "You can reach our admissions helpline at +91 8448797700 or use the WhatsApp button on the website for immediate assistance." },
     ],
   },
   {
     category: "Programmes",
     faqs: [
-      { q: "Is Ishan Law Institute approved by the Bar Council of India?", a: "Yes, Ishan Law Institute is fully approved by the Bar Council of India (BCI) and affiliated with Chaudhary Charan Singh (CCS) University, Meerut." },
-      { q: "What is Clinical Legal Education?", a: "It is a practice-oriented pedagogy that integrates theoretical law with hands-on training through moot courts, legal aid clinics, court visits, and internship programs." },
-      { q: "Are moot court sessions mandatory?", a: "Yes, participation in moot courts is integrated into the curriculum to ensure every student develops advocacy, research, and drafting skills from the early semesters." },
-      { q: "Does the college provide coaching for Judicial Services?", a: "Yes, we have a dedicated Judicial Services Preparation Cell that provides specialized guidance and coaching for various State Judicial Services Examinations." },
+      { q: "Is Ishan Pharmacy approved by the Pharmacy Council of India?", a: "Yes, Ishan Institute of Pharmacy is fully approved by the Pharmacy Council of India (PCI) and affiliated with AKTU and BTE UP." },
+      { q: "What is the focus of practical training?", a: "Practical training is emphasized through our 10 specialized laboratories, ensuring hands-on experience in drug formulation, analysis, and clinical pharmacology." },
+      { q: "Are industrial visits mandatory?", a: "Yes, we regularly organize industrial visits to leading pharmaceutical manufacturing units to give students a real-world understanding of large-scale production." },
     ],
   },
   {
     category: "Fees & Scholarships",
     faqs: [
-      { q: "What kind of scholarships are available?", a: "We offer merit-based scholarships based on ILET performance, academic excellence in 10+2 or graduation, and special categories as per government norms." },
+      { q: "What kind of scholarships are available?", a: "We offer merit-based scholarships based on academic excellence in 10+2 and special categories as per government norms." },
       { q: "Are installment options available for fee payment?", a: "Yes, annual fees can be paid in semester-wise installments. Our accounts office can provide a detailed schedule at the time of admission." },
       { q: "What are the payment modes accepted?", a: "Fees can be paid online via our portal (fee.ishan.ac), through bank demand drafts, or direct bank transfers." },
     ],
@@ -36,16 +34,16 @@ const defaultFaqCategories = [
   {
     category: "Campus Life",
     faqs: [
-      { q: "What facilities are available in the Legal Library?", a: "Our specialized library houses thousands of law books, journals, and reports, along with digital access to SCC Online, Manupatra, and LexisNexis." },
+      { q: "What facilities are available in the Library?", a: "Our specialized medical library houses thousands of pharmacy books, journals, and reports, along with digital access to research databases." },
       { q: "What are the hostel facilities like?", a: "We provide separate, secure hostels for boys and girls with 24/7 security, Wi-Fi, and nutritious mess facilities within the Knowledge Park campus." },
-      { q: "Are there court visits for first-year students?", a: "Yes, we initiate court visits and legal aid awareness programs from the first year itself to build a strong practical foundation." },
+      { q: "Are there clinical visits for first-year students?", a: "Yes, we initiate health awareness programs and preliminary clinical exposure from the first year itself to build a strong practical foundation." },
     ],
   },
   {
     category: "Career Outcomes",
     faqs: [
-      { q: "How does the placement cell support law students?", a: "The cell facilitates internships with senior advocates, law firms, and NGOs, and provides placement support for corporate legal roles and litigating houses." },
-      { q: "What career paths can I pursue after LLB?", a: "Graduates can practice in courts, join the judiciary, work as legal advisors in corporate sectors, join civil services, or pursue higher studies like LLM and PhD." },
+      { q: "How does the placement cell support pharmacy students?", a: "The cell facilitates internships with top pharmaceutical companies and hospitals, and provides placement support for roles in manufacturing, QA/QC, and clinical research." },
+      { q: "What career paths can I pursue after B.Pharm?", a: "Graduates can work as clinical pharmacists, drug inspectors, research scientists, QA/QC professionals, or pursue higher studies like M.Pharm and Pharm.D." },
     ],
   },
 ];
@@ -91,7 +89,7 @@ export default function FAQsPage() {
             </div>
             <div className="reveal hidden lg:block sticky top-32">
               <div className="rounded-2xl overflow-hidden shadow-2xl border mb-6">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg" alt="Ishan Law Campus Life" className="w-full h-[450px] object-cover" />
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Campus Life" className="w-full h-[450px] object-cover" />
               </div>
               <div className="p-6 rounded-xl bg-gold-light border border-[hsl(var(--gold)/0.2)]">
                 <p className="text-sm font-bold text-navy mb-2">Still have questions?</p>

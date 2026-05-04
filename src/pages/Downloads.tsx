@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
@@ -27,7 +27,7 @@ export default function DownloadsPage() {
                 Access mandatory forms, academic calendars, and syllabus documents. All documents are in PDF format for easy accessibility across devices. For any specific document not listed here, please contact the academic office.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg" alt="Ishan Law Resources" className="w-full h-80 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" alt="Ishan Pharmacy Resources" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-3">

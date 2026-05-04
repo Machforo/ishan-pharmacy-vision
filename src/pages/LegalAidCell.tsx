@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -20,8 +20,8 @@ export default function LegalAidCellPage() {
     },
     {
       icon: Scale,
-      title: "Para-Legal Training",
-      desc: "The cell trains students as Para-Legal Volunteers (PLVs), empowering them to assist the District Legal Services Authority (DLSA) in various social initiatives."
+      title: "Para-Medical Training",
+      desc: "The cell trains students as Para-Medical Volunteers (PLVs), empowering them to assist the District Legal Services Authority (DLSA) in various social initiatives."
     },
     {
       icon: Heart,
@@ -33,9 +33,9 @@ export default function LegalAidCellPage() {
   return (
     <Layout>
       <PageHeader 
-        title="Legal Aid Cell" 
+        title="Pharmacy Practice Cell" 
         subtitle="Bridging the gap between law and society through community service" 
-        breadcrumbs={[{ label: "Governance" }, { label: "Legal Aid Cell" }]} 
+        breadcrumbs={[{ label: "Governance" }, { label: "Pharmacy Practice Cell" }]} 
       />
 
       <section className="py-20 md:py-28" ref={ref}>
@@ -47,10 +47,10 @@ export default function LegalAidCellPage() {
                 Empowering the Underprivileged
               </h2>
               <p className="text-foreground/70 leading-relaxed mb-6">
-                The Legal Aid Cell at Ishan Law Institute is dedicated to the constitutional mandate of ensuring that justice is not denied to any citizen by reason of economic or other disabilities. It serves as a vital link between the institution and the community.
+                The Pharmacy Practice Cell at Ishan Institute of Pharmacy is dedicated to the constitutional mandate of ensuring that justice is not denied to any citizen by reason of economic or other disabilities. It serves as a vital link between the institution and the community.
               </p>
               <p className="text-foreground/70 leading-relaxed">
-                By participating in the Legal Aid Cell, students gain practical experience in handling real-life legal problems while developing a deep sense of social responsibility. Our students assist in drafting representations, conducting field surveys, and organizing awareness rallies on critical legal issues.
+                By participating in the Pharmacy Practice Cell, students gain practical experience in handling real-life legal problems while developing a deep sense of social responsibility. Our students assist in drafting representations, conducting field surveys, and organizing awareness rallies on critical pharmacy practice issues.
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function LegalAidCellPage() {
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img 
                   src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1200&auto=format&fit=crop" 
-                  alt="Legal Aid Cell Activity" 
+                  alt="Pharmacy Practice Cell Activity" 
                   className="w-full h-[450px] object-cover"
                 />
               </div>

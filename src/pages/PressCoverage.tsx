@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
@@ -13,11 +13,11 @@ export default function PressCoveragePage() {
     url: p.url,
     tag: p.type || "Online"
   })) : [
-    { publication: "Times of India", date: "15 March 2026", headline: "Ishan Law Institute students excel in National Moot Court Competition", tag: "Print" },
-    { publication: "Hindustan Times", date: "02 Feb 2026", headline: "Legal Aid Camp organized by Ishan Law provides free counseling to villagers", tag: "Print" },
-    { publication: "LiveLaw", date: "20 Jan 2026", headline: "Ishan Law hosts national seminar on evolving digital evidence jurisprudence", tag: "Legal Journal" },
-    { publication: "NDTV", date: "05 Dec 2025", headline: "Law schools adapt to New Criminal Bills: Insights from Ishan Law experts", tag: "TV" },
-    { publication: "Bar & Bench", date: "12 Nov 2025", headline: "Ishan Law Institute announces expansion of free legal aid clinics", tag: "Online" },
+    { publication: "Times of India", date: "15 March 2026", headline: "Ishan Institute of Pharmacy students excel in National Moot Court Competition", tag: "Print" },
+    { publication: "Hindustan Times", date: "02 Feb 2026", headline: "Legal Aid Camp organized by Ishan Pharmacy provides free counseling to villagers", tag: "Print" },
+    { publication: "LiveLaw", date: "20 Jan 2026", headline: "Ishan Pharmacy hosts national seminar on evolving digital evidence jurisprudence", tag: "Pharmacy Journal" },
+    { publication: "NDTV", date: "05 Dec 2025", headline: "Law schools adapt to New Criminal Bills: Insights from Ishan Pharmacy experts", tag: "TV" },
+    { publication: "Bar & Bench", date: "12 Nov 2025", headline: "Ishan Institute of Pharmacy announces expansion of free pharmacy outreach clinics", tag: "Online" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function PressCoveragePage() {
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <p className="reveal leading-relaxed max-w-4xl mx-auto text-center mb-16 text-lg">
-            Ishan Law's moot court achievements, legal aid work, and academic activities have been featured in regional and national media; this page archives press coverage for students, parents, and the legal community.
+            Ishan Pharmacy's moot court achievements, pharmacy outreach work, and academic activities have been featured in regional and national media; this page archives press coverage for students, parents, and the pharmacy community.
           </p>
           <div className="max-w-4xl mx-auto space-y-4">
             {pressItems.map((item, i) => (

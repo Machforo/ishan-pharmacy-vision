@@ -8,34 +8,34 @@ const eminentFaculty = [
   {
     name: "Dr. Sandeep Singh",
     designation: "Principal",
-    qualification: "PhD, LLM",
-    specialisation: "Constitutional Law & Jurisprudence",
+    qualification: "PhD, M.Pharm",
+    specialisation: "Pharmaceutics & Drug Delivery",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
-    bio: "Dr. Sandeep Singh is a visionary academician dedicated to the advancement of legal education in India. With extensive experience in constitutional scholarship, he has mentored hundreds of judicial aspirants and published research that influences contemporary legal discourse."
+    bio: "Dr. Sandeep Singh is a visionary academician dedicated to the advancement of pharmaceutical education in India. With extensive experience in drug formulation, he has mentored hundreds of aspiring pharmacists."
   },
   {
     name: "Prof. Rajesh Khanna",
-    designation: "Professor (Law)",
-    qualification: "LLM, UGC NET",
-    specialisation: "Criminal Law & Procedure",
+    designation: "Professor",
+    qualification: "M.Pharm, PhD",
+    specialisation: "Pharmacology & Toxicology",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
-    bio: "Prof. Rajesh Khanna brings profound insights into criminal justice and procedural laws. His clinical approach to teaching ensures that students understand the nuances of the courtroom before they ever set foot in one."
+    bio: "Prof. Rajesh Khanna brings profound insights into pharmacological sciences. His clinical approach to teaching ensures that students understand the therapeutic actions and safe usage of drugs."
   },
   {
     name: "Dr. Megha Gupta",
     designation: "Associate Professor",
-    qualification: "PhD, LLM",
-    specialisation: "International Law & Human Rights",
+    qualification: "PhD, M.Pharm",
+    specialisation: "Pharmaceutical Chemistry",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-    bio: "Dr. Megha Gupta is a specialist in international legal frameworks and human rights. She leads our Research & Publication wing, encouraging students to contribute to national and international legal journals."
+    bio: "Dr. Megha Gupta is a specialist in drug synthesis and analysis. She leads our Research & Development wing, encouraging students to contribute to national and international pharmaceutical journals."
   },
   {
     name: "Ms. Anjali Sharma",
     designation: "Assistant Professor",
-    qualification: "LLM, Former Advocate",
-    specialisation: "Advocacy Skills & Moot Courts",
+    qualification: "M.Pharm",
+    specialisation: "Pharmacognosy & Natural Products",
     image: "https://images.unsplash.com/photo-1580894732230-282b963aee2b?auto=format&fit=crop&w=800&q=80",
-    bio: "Ms. Anjali Sharma, with her background as a practicing advocate, bridges the gap between academic theory and courtroom reality. She mentors our national-level moot court teams and leads clinical training sessions."
+    bio: "Ms. Anjali Sharma bridges the gap between traditional herbal medicine and modern drug discovery. She mentors our students in identifying and extracting active pharmaceutical ingredients from natural sources."
   }
 ];
 
@@ -53,7 +53,7 @@ export default function FacultySection() {
               Eminent Faculty & Mentors
             </h2>
             <p className="reveal delay-200 mt-5 leading-relaxed">
-              Our faculty members are distinguished legal scholars and practicing advocates from the High Courts and Supreme Court, dedicated to nurturing the next generation of judicial leaders through practice-oriented mentorship.
+              Our faculty members are distinguished pharmaceutical scholars and industry experts, dedicated to nurturing the next generation of healthcare professionals through practice-oriented mentorship.
             </p>
           </div>
           <Link 

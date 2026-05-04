@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
 const galleryImages = [
-  { title: "Moot Court Hall", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg", category: "Advocacy" },
-  { title: "Legal Research Lab", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-12.jpg", category: "Research" },
-  { title: "Clinical Sessions", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg", category: "Training" },
-  { title: "Legal Aid Clinic", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg", category: "Service" },
-  { title: "Academic Excellence", img: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg", category: "Campus" },
-  { title: "Judicial Cell", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-8.jpg", category: "Governance" },
-  { title: "Event Plenary", img: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-11.jpg", category: "Events" },
-  { title: "Lush Greenery", img: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-13.jpg", category: "Environment" },
+  { title: "Pharmaceutics Lab", img: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80", category: "Practical" },
+  { title: "Library", img: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80", category: "Research" },
+  { title: "Clinical Sessions", img: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80", category: "Training" },
+  { title: "Health Camp", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80", category: "Service" },
+  { title: "Academic Excellence", img: "https://images.unsplash.com/photo-1587854692152-cbe668df9731?auto=format&fit=crop&w=800&q=80", category: "Campus" },
+  { title: "Pharmacology Lab", img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80", category: "Training" },
+  { title: "Event Plenary", img: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=800&q=80", category: "Events" },
+  { title: "Lush Greenery", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80", category: "Environment" },
 ];
 
 export default function CampusExperience() {
@@ -34,9 +34,9 @@ export default function CampusExperience() {
     <section id="experience" className="py-16 md:py-24 bg-navy text-white overflow-hidden min-h-screen flex flex-col justify-center snap-start" ref={ref}>
       <div className="container-wide">
         <div className="mb-10 md:mb-12">
-          <p className="reveal text-xs font-bold uppercase tracking-[0.25em] text-gold mb-3 opacity-80">Life at Ishan Law</p>
+          <p className="reveal text-xs font-bold uppercase tracking-[0.25em] text-gold mb-3 opacity-80">Life at Ishan Pharmacy</p>
           <h2 className="reveal delay-100 text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">
-            Where <span className="text-gold">Legal Professionals</span> Are Formed
+            Where <span className="text-gold">Healthcare Professionals</span> Are Formed
           </h2>
         </div>
 

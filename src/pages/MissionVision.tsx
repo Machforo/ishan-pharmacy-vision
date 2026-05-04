@@ -11,25 +11,25 @@ export default function MissionVisionPage() {
   
   const mv = data?.missionVision;
   
-  const vision = mv?.vision || `To be a global center of excellence in legal education, recognized for producing ethical advocates, judicial leaders, and legal scholars who uphold the rule of law and serve the cause of justice with integrity.`;
+  const vision = mv?.vision || `To be a global center of excellence in pharmaceutical education, recognized for producing ethical healthcare professionals, research innovators, and industry leaders who serve the cause of public health with integrity.`;
   
   const missionStr = mv?.mission;
   const missionList = missionStr ? missionStr.split('\n').filter((x: string) => x.trim() !== '') : [
-    "To provide practice-oriented legal education that integrates rigorous academic scholarship with structured clinical training and court exposure.",
-    "To foster critical thinking, ethical legal reasoning, and a profound understanding of social justice among our students.",
-    "To serve the community through active legal aid clinics and awareness programs, bridging the gap between law and society.",
-    "To prepare students for diverse legal careers in litigation, judiciary, corporate sectors, and public service through expert mentorship.",
+    "To provide practice-oriented pharmaceutical education that integrates rigorous academic scholarship with laboratory training and clinical exposure.",
+    "To foster critical thinking, ethical reasoning, and a profound understanding of patient care among our students.",
+    "To serve the community through active health awareness camps and medical aid programs, bridging the gap between healthcare and society.",
+    "To prepare students for diverse pharmaceutical careers in manufacturing, research, clinical practice, and public health through expert mentorship.",
   ];
 
   const defaultCoreValues = [
-    { title: "Justice", description: "Upholding the fundamental principles of fairness and the rule of law in all pursuits." },
-    { title: "Integrity", description: "Maintaining the highest standards of professional ethics and honesty in legal practice." },
-    { title: "Professionalism", description: "Cultivating practice-ready skills and a disciplined approach to legal service." },
-    { title: "Social Responsibility", description: "Committing to community service and legal awareness for the underprivileged." },
-    { title: "Clinical Excellence", description: "Prioritizing hands-on experience through moot courts, legal aid, and court visits." },
-    { title: "Research & Inquiry", description: "Encouraging a deep-seated spirit of investigation and academic contribution." },
-    { title: "Advocacy", description: "Empowering students with the skills to effectively represent and argue for justice." },
-    { title: "Ethical Reasoning", description: "Developing the ability to navigate complex legal challenges with moral clarity." },
+    { title: "Healthcare Excellence", description: "Upholding the highest standards of patient care and pharmaceutical practice." },
+    { title: "Integrity", description: "Maintaining the highest standards of professional ethics and honesty in the medical field." },
+    { title: "Innovation", description: "Cultivating research-oriented thinking and advanced problem-solving skills." },
+    { title: "Social Responsibility", description: "Committing to community health awareness and accessible medical guidance." },
+    { title: "Clinical Proficiency", description: "Prioritizing hands-on experience through laboratory work and hospital training." },
+    { title: "Research & Inquiry", description: "Encouraging a deep-seated spirit of investigation and scientific contribution." },
+    { title: "Compassion", description: "Empowering students with the empathy needed to effectively serve patients." },
+    { title: "Ethical Reasoning", description: "Developing the ability to navigate complex medical challenges with moral clarity." },
   ];
 
   // coreValues stored as newline-separated string in DB
@@ -43,7 +43,7 @@ export default function MissionVisionPage() {
     <Layout>
       <PageHeader
         title="Mission & Vision"
-        subtitle="Guiding principles that drive legal excellence and ethical practice at Ishan Law"
+        subtitle="Guiding principles that drive pharmaceutical excellence and ethical practice at Ishan Pharmacy"
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Mission & Vision" }]}
       />
 
@@ -52,10 +52,10 @@ export default function MissionVisionPage() {
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="reveal grid sm:grid-cols-2 gap-6 mb-20">
                <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9]">
-                 <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" alt="Ishan Law Excellence" className="w-full h-full object-cover" />
+                 <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Excellence" className="w-full h-full object-cover" />
                </div>
                <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9] hidden sm:block">
-                 <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" alt="Ishan Law Campus" className="w-full h-full object-cover" />
+                 <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Campus" className="w-full h-full object-cover" />
                </div>
             </div>
             {/* Vision */}

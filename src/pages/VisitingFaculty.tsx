@@ -3,14 +3,14 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const visitingFaculty = [
-  { name: "Adv. Rahul Verma", org: "Senior Advocate", specialisation: "Constitutional Litigation & Writ Petitions", impact: "Provides practical insights into drafting writ petitions and arguing before constitutional benches.", bar: "D/124/1998" },
-  { name: "Hon'ble Justice S.K. Gupta (Retd.)", org: "Retired Judicial Officer", specialisation: "Criminal Jurisprudence & Judicial Ethics", impact: "Brings decades of bench experience, training students in judicial reasoning and ethics.", bar: "" },
-  { name: "Ms. Priyanka Iyer", org: "Corporate Counsel", specialisation: "Mergers & Acquisitions / Corporate Law", impact: "Guides students on corporate compliance, due diligence, and commercial contract drafting.", bar: "MAH/456/2005" },
-  { name: "Adv. Meenakshi Lekhi", org: "Senior Advocate", specialisation: "Gender Justice & Human Rights", impact: "Mentors students in public interest litigation and human rights advocacy strategies.", bar: "D/89/1990" },
-  { name: "Mr. Alok Prasanna", org: "Legal Academic", specialisation: "Legal Research & Policy Drafting", impact: "Equips students with advanced methodologies for legal research and policy analysis.", bar: "KAR/234/2010" },
-  { name: "Adv. Vikram Singh", org: "IPR Specialist", specialisation: "Patent Prosecution & Copyright Law", impact: "Demonstrates practical applications of intellectual property protection for emerging tech startups.", bar: "UP/789/2008" },
-  { name: "Ms. Shreya Dhull", org: "Cyber Law Expert", specialisation: "Digital Evidence & IT Act Compliance", impact: "Trains students in handling electronic evidence and navigating modern cyber regulations.", bar: "D/321/2012" },
-  { name: "Adv. Amit Bansal", org: "Senior Advocate", specialisation: "Commercial Arbitration & Mediation", impact: "Conducts hands-on simulation sessions for alternate dispute resolution and commercial mediation.", bar: "D/567/2001" },
+  { name: "Dr. Arun Sharma", org: "Senior Pharmacologist", specialisation: "Clinical Drug Development & Trials", impact: "Provides insights into clinical trial design, GCP guidelines, and drug evaluation methodologies.", bar: "" },
+  { name: "Mr. Rajiv Mehta", org: "Production Head, Sun Pharma", specialisation: "Pharmaceutical Manufacturing & GMP", impact: "Trains students on large-scale manufacturing, SOPs, and Good Manufacturing Practice compliance.", bar: "" },
+  { name: "Dr. Kavita Iyer", org: "Research Scientist, Dr. Reddy's", specialisation: "Drug Formulation & Stability Studies", impact: "Guides students on formulation R&D, stability testing protocols, and regulatory submissions.", bar: "" },
+  { name: "Ms. Priya Nair", org: "Hospital Pharmacist, Apollo", specialisation: "Clinical Pharmacy & Patient Counselling", impact: "Mentors students in hospital pharmacy operations, medication reviews, and therapeutic counselling.", bar: "" },
+  { name: "Dr. Sanjay Gupta", org: "Drug Regulatory Expert", specialisation: "CDSCO Regulations & Drug Licensing", impact: "Equips students with knowledge of Indian drug regulations and the licensing process under CDSCO.", bar: "" },
+  { name: "Dr. Meena Bajaj", org: "Phytochemist, CSIR-CIMAP", specialisation: "Herbal Drug Research & Phytochemistry", impact: "Demonstrates advanced techniques in extraction and characterisation of bioactive plant compounds.", bar: "" },
+  { name: "Mr. Rahul Singh", org: "QA Manager, Cipla", specialisation: "Quality Assurance & Quality Control", impact: "Trains students in QA/QC systems, analytical testing methods, and pharmaceutical quality standards.", bar: "" },
+  { name: "Dr. Anita Verma", org: "Pharmacovigilance Expert", specialisation: "Drug Safety & Adverse Event Reporting", impact: "Covers post-marketing surveillance, adverse drug reaction reporting, and global pharmacovigilance systems.", bar: "" },
 ];
 
 export default function VisitingFacultyPage() {
@@ -20,14 +20,14 @@ export default function VisitingFacultyPage() {
     <Layout>
       <PageHeader
         title="Visiting Faculty"
-        subtitle="Distinguished advocates, legal scholars, and retired judges who bring courtroom insights to the classroom"
+        subtitle="Distinguished pharmacologists, industry scientists, and healthcare experts who bring real-world insights to the classroom"
         breadcrumbs={[{ label: "Faculty", href: "/faculty" }, { label: "Visiting Faculty" }]}
       />
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <p className="reveal leading-relaxed max-w-4xl mx-auto text-center mb-16 text-lg">
-            Ishan Law invites distinguished visiting faculty — practising Senior Advocates from Allahabad High Court and Delhi High Court, retired judicial officers, corporate counsel from leading companies, and legal academics from premier law schools; students gain direct access to legal minds shaping India's legal landscape.
+            Ishan Pharmacy invites distinguished visiting faculty — senior pharmacologists from top research institutes, production heads from leading companies like Sun Pharma and Cipla, hospital pharmacists from premier hospitals, and regulatory experts from CDSCO; students gain direct access to professionals shaping India's pharmaceutical landscape.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -47,7 +47,7 @@ export default function VisitingFacultyPage() {
                 {f.bar && (
                   <div className="mt-3 text-left">
                     <span className="px-2 py-1 rounded bg-muted text-xs font-medium text-muted-foreground border">
-                      Reg: {f.bar}
+                      Industry Expert
                     </span>
                   </div>
                 )}

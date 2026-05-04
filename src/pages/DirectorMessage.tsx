@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -11,11 +11,11 @@ export default function DirectorMessagePage() {
   const msg = data?.directorMessage || {
       name: "Dr. D.K. Garg",
       designation: "Founder Chairman, Ishan Group",
-      message: `Welcome to Ishan Law Institute. As we navigate an era of significant legal and social transformation, I believe that legal education must go beyond textbooks—it is a vital force that shapes the defenders of justice. At Ishan Law, our philosophy is rooted in the belief that every student has the potential to become a champion of the rule of law when nurtured with practice-oriented guidance.
+      message: `Welcome to Ishan Institute of Pharmacy. As we navigate an era of significant pharmaceutical and social transformation, I believe that legal education must go beyond textbooks—it is a vital force that shapes the defenders of justice. At Ishan Pharmacy, our philosophy is rooted in the belief that every student has the potential to become a champion of the rule of law when nurtured with practice-oriented guidance.
 
-Our vision for Ishan Law is to create an ecosystem that prioritizes clinical legal education and ethical practice. We aim for the holistic development of our students, focusing not just on legal scholarship, but on fostering critical reasoning, social empathy, and professional integrity. We want our graduates to be advocates who can lead with conscience and innovate in the pursuit of justice.
+Our vision for Ishan Pharmacy is to create an ecosystem that prioritizes clinical legal education and ethical practice. We aim for the holistic development of our students, focusing not just on pharmaceutical scholarship, but on fostering critical reasoning, social empathy, and professional integrity. We want our graduates to be advocates who can lead with conscience and innovate in the pursuit of justice.
 
-I warmly invite you to join the Ishan Law community and experience an education designed to prepare you for both professional success and social impact. Explore our programs and see how we can help you achieve your legal aspirations. We look forward to welcoming you to our campus in Knowledge Park.`,
+I warmly invite you to join the Ishan Pharmacy community and experience an education designed to prepare you for both professional success and social impact. Explore our programs and see how we can help you achieve your legal aspirations. We look forward to welcoming you to our campus in Knowledge Park.`,
       image: defaultImage
   };
 
@@ -60,7 +60,7 @@ I warmly invite you to join the Ishan Law community and experience an education 
                 </div>
 
                 <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                  <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" alt="Ishan Law Campus" className="w-full h-64 object-cover" />
+                  <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Campus" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>

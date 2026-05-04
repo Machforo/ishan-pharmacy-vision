@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // ─── Sub-nav links per section of the site ────────────────────────────────────
@@ -8,7 +8,7 @@ import { Link, useLocation } from "react-router-dom";
 const SUB_LINKS = [
   { label: "About",       href: "#about" },
   { label: "Programmes",  href: "#programs" },
-  { label: "Why Ishan Law", href: "#why-ishan-law" },
+  { label: "Why Ishan Pharmacy", href: "#why-ishan-law" },
   { label: "Placements",  href: "#placements" },
   { label: "Campus",      href: "#campus" },
   { label: "News",        href: "#news" },

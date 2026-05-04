@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -7,8 +7,8 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const initiatives = [
   { icon: Sun, title: "Energy Conservation", desc: "We prioritize energy efficiency through LED lighting across campus, sensor-based systems in common areas, and a commitment to reducing overall carbon footprint. Solar installations contribute significantly to our renewable energy goals.", stat: "20% Renewable energy" },
-  { icon: TreePine, title: "Tree Plantation Drives", desc: "Annual plantation drives are a hallmark of Ishan Law, resulting in over 1,500 trees across the Knowledge Park campus. These drives involve students and faculty, fostering a deep connection with nature and improving local air quality.", stat: "1,500+ trees planted" },
-  { icon: Recycle, title: "Waste Segregation & Plastic Ban", desc: "Ishan Law maintains a single-use plastic ban across campus. A robust waste segregation system ensures proper disposal of organic and inorganic waste, with organic waste being composted for campus gardens.", stat: "100% Plastic-free campus" },
+  { icon: TreePine, title: "Tree Plantation Drives", desc: "Annual plantation drives are a hallmark of Ishan Pharmacy, resulting in over 1,500 trees across the Knowledge Park campus. These drives involve students and faculty, fostering a deep connection with nature and improving local air quality.", stat: "1,500+ trees planted" },
+  { icon: Recycle, title: "Waste Segregation & Plastic Ban", desc: "Ishan Pharmacy maintains a single-use plastic ban across campus. A robust waste segregation system ensures proper disposal of organic and inorganic waste, with organic waste being composted for campus gardens.", stat: "100% Plastic-free campus" },
   { icon: Leaf, title: "Paperless Administration", desc: "We are progressively moving towards a paperless administration through digital portals for students and faculty, reducing paper consumption and improving administrative efficiency.", stat: "Digital-first workflow" },
   { icon: Droplets, title: "Water Harvesting", desc: "Active rainwater harvesting systems recharge groundwater levels, while efficient plumbing fixtures ensure minimal water wastage across hostels and academic blocks.", stat: "Water harvesting active" },
 ];
@@ -31,10 +31,10 @@ export default function GreenInitiativesPage() {
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="reveal grid sm:grid-cols-2 gap-6">
               <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9]">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" alt="Ishan Law Green Campus" className="w-full h-full object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" alt="Ishan Pharmacy Green Campus" className="w-full h-full object-cover" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9] hidden sm:block">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" alt="Ishan Law Sustainability" className="w-full h-full object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Sustainability" className="w-full h-full object-cover" />
               </div>
             </div>
             {content && (

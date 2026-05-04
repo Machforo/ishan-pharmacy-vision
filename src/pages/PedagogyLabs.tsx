@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, Gavel, Video, Monitor, BookOpen, Scale } from "lucide-react";
@@ -33,7 +33,7 @@ export default function MootCourtPage() {
     <Layout>
       <PageHeader
         title="Moot Court & Clinical Training"
-        subtitle="Bridging the gap between legal theory and courtroom practice through intensive clinical training."
+        subtitle="Bridging the gap between pharmaceutical theory and courtroom practice through intensive clinical training."
         breadcrumbs={[{ label: "Learning", href: "/news-events" }, { label: "Moot Court" }]}
       />
 
@@ -46,7 +46,7 @@ export default function MootCourtPage() {
                 Simulated Excellence for Future Advocates
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                Ishan Law provides a state-of-the-art Moot Court Hall that simulates a realistic High Court environment. This facility is central to our Clinical Legal Education model, where students learn to research, draft memorials, and present oral arguments before a bench of legal experts and practicing advocates.
+                Ishan Pharmacy provides a state-of-the-art Moot Court Hall that simulates a realistic High Court environment. This facility is central to our Clinical Legal Education model, where students learn to research, draft memorials, and present oral arguments before a bench of legal experts and practicing advocates.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -55,7 +55,7 @@ export default function MootCourtPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-1" />
-                  <p className="text-foreground/80 font-medium">Structured training in legal research and memorial drafting</p>
+                  <p className="text-foreground/80 font-medium">Structured training in pharmaceutical research and memorial drafting</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-1" />
@@ -83,7 +83,7 @@ export default function MootCourtPage() {
             <Scale className="w-12 h-12 text-gold mx-auto" />
             <h2 className="font-bold text-foreground">Clinical Legal Education</h2>
             <p className="text-foreground/70 leading-relaxed">
-              Our clinical training goes beyond mooting to include legal aid camps, client counseling sessions, and court visits. We ensure that every Ishan Law student is not just a degree holder, but a practice-ready legal professional equipped with the ethics and skills required for modern advocacy.
+              Our clinical training goes beyond mooting to include health awareness camps, client counseling sessions, and court visits. We ensure that every Ishan Pharmacy student is not just a degree holder, but a practice-ready pharmacy professional equipped with the ethics and skills required for modern advocacy.
             </p>
           </div>
         </div>

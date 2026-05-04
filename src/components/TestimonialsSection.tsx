@@ -5,20 +5,20 @@ import { Quote, Star, User, Users } from "lucide-react";
 const studentTestimonials = [
   { 
     name: "Rahul Deshmukh", 
-    role: "BA LLB Graduate, 2023", 
-    text: "The clinical training and moot court exposure at Ishan Law were instrumental in my transition to advocacy. I felt courtroom-ready from day one of my practice at the High Court.", 
+    role: "B.Pharm Graduate, 2023", 
+    text: "The clinical training and lab exposure at Ishan Pharmacy were instrumental in my transition to the industry. I felt industry-ready from day one of my job at Sun Pharma.", 
     image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80" 
   },
   { 
     name: "Sanya Malhotra", 
-    role: "LLB Student, 2024", 
-    text: "Access to premier legal databases like Manupatra and the guidance from practicing advocates as faculty has truly elevated my research and drafting skills.", 
+    role: "D.Pharm Student, 2024", 
+    text: "Access to state-of-the-art laboratories and guidance from industry-experienced faculty has truly elevated my practical skills.", 
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" 
   },
   { 
     name: "Priyanka Singh", 
-    role: "Judicial Aspirant, 2025", 
-    text: "The dedicated Judicial Services Cell provides structured guidance that is rare to find. The mock tests and guest lectures from judges are incredibly helpful.", 
+    role: "B.Pharm Student, 2025", 
+    text: "The dedicated placement cell provides structured guidance that is rare to find. The mock interviews and guest lectures from industry experts are incredibly helpful.", 
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" 
   }
 ];
@@ -26,14 +26,14 @@ const studentTestimonials = [
 const parentTestimonials = [
   { 
     name: "Mr. Sunil Vats", 
-    role: "Parent (BA LLB Student)", 
-    text: "Seeing my daughter represent Ishan Law at a National Moot Court competition was a proud moment. The institution truly focuses on professional grooming.", 
+    role: "Parent (B.Pharm Student)", 
+    text: "Seeing my daughter excel in her pharmaceutical research projects at Ishan Pharmacy was a proud moment. The institution truly focuses on professional grooming.", 
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" 
   },
   { 
     name: "Mrs. Kavita Rawat", 
-    role: "Parent (LLB Student)", 
-    text: "The legal awareness camps organized by the Legal Aid Cell have given my son a deep sense of social responsibility along with his legal degree.", 
+    role: "Parent (D.Pharm Student)", 
+    text: "The health awareness camps organized by the college have given my son a deep sense of social responsibility along with his pharmacy diploma.", 
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" 
   }
 ];

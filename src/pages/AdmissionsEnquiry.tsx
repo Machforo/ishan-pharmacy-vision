@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, MessageSquare, MapPin, Laptop } from "lucide-react";
@@ -44,7 +44,7 @@ export default function AdmissionsEnquiryPage() {
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-foreground">Begin Your Journey</h2>
                 <p className="text-foreground/70 leading-relaxed">
-                  Choosing the right institution is a significant decision. At Ishan Law Institute, we offer personal guidance to help you navigate your academic and career path. Whether you are curious about our programmes, eligibility, or campus life, our admissions team is here to provide all the information you need.
+                  Choosing the right institution is a significant decision. At Ishan Institute of Pharmacy, we offer personal guidance to help you navigate your academic and career path. Whether you are curious about our programmes, eligibility, or campus life, our admissions team is here to provide all the information you need.
                 </p>
                 <div className="bg-gold-light p-6 rounded-2xl border border-gold/20 flex gap-4">
                   <MapPin className="w-6 h-6 text-navy shrink-0" />
@@ -56,7 +56,7 @@ export default function AdmissionsEnquiryPage() {
                 <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-gold" /> Personal Counselling Session
                 </h3>
-                <p className="text-sm leading-relaxed">During your counselling session at Ishan Law Institute, you can expect:</p>
+                <p className="text-sm leading-relaxed">During your counselling session at Ishan Institute of Pharmacy, you can expect:</p>
                 <ul className="grid sm:grid-cols-2 gap-4">
                   <li className="flex items-center gap-3 text-sm text-foreground/80 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-gold" /> Eligibility Assessment
@@ -81,7 +81,7 @@ export default function AdmissionsEnquiryPage() {
                   For your convenience, our online admissions portal allows you to track your application, upload documents, and pay fees digitally, ensuring a low-friction admission experience from anywhere.
                 </p>
                 <div className="rounded-2xl overflow-hidden shadow-2xl border mt-8">
-                  <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-4.jpg" alt="Ishan Law Admissions" className="w-full h-64 object-cover" />
+                  <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>

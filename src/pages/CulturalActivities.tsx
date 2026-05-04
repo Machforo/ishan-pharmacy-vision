@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -17,13 +17,13 @@ export default function CulturalActivitiesPage() {
 
   return (
     <Layout>
-      <PageHeader title="Cultural Activities" subtitle="Kshitiz fest, drama, music, dance, and creative expression at Ishan Law Institute" breadcrumbs={[{ label: "Learning" }, { label: "Cultural Activities" }]} />
+      <PageHeader title="Cultural Activities" subtitle="Kshitiz fest, drama, music, dance, and creative expression at Ishan Institute of Pharmacy" breadcrumbs={[{ label: "Learning" }, { label: "Cultural Activities" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="reveal relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border shadow-lg">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/cultural-activities/cultural-11.jpg" alt="Cultural Fest" className="w-full h-full object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Inauguration-of-Spardha--1024x473.jpg" alt="Cultural Fest" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-gold text-navy p-4 rounded-xl shadow-xl font-bold hidden md:block">
                 KSHITIZ FEST
@@ -35,8 +35,8 @@ export default function CulturalActivitiesPage() {
               <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">{content}</p>
             ) : (
               <>
-                <p className="text-foreground/70 leading-relaxed">Cultural activities at Ishan Law Institute are anchored by Kshitiz — the annual inter-college cultural festival that draws participation from across the Delhi NCR region. Spanning three days of music, dance, drama, fashion, art, and literary competitions, Kshitiz is a platform for students to showcase their talents beyond the classroom.</p>
-                <p className="text-foreground/70 leading-relaxed">Throughout the year, Ishan Law Institute organizes cultural events including Republic Day and Independence Day celebrations, talent shows, photography contests, rangoli competitions, and departmental cultural programs.</p>
+                <p className="text-foreground/70 leading-relaxed">Cultural activities at Ishan Institute of Pharmacy are anchored by Kshitiz — the annual inter-college cultural festival that draws participation from across the Delhi NCR region. Spanning three days of music, dance, drama, fashion, art, and literary competitions, Kshitiz is a platform for students to showcase their talents beyond the classroom.</p>
+                <p className="text-foreground/70 leading-relaxed">Throughout the year, Ishan Institute of Pharmacy organizes cultural events including Republic Day and Independence Day celebrations, talent shows, photography contests, rangoli competitions, and departmental cultural programs.</p>
               </>
             )}
             
@@ -53,10 +53,10 @@ export default function CulturalActivitiesPage() {
             
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="rounded-xl overflow-hidden border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/cultural-activities/cultural-21.jpg" alt="Dance Performance" className="w-full h-40 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" alt="Dance Performance" className="w-full h-40 object-cover" />
               </div>
               <div className="rounded-xl overflow-hidden border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-13.jpg" alt="Cultural Event" className="w-full h-40 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Orientation-Program-for-New-Batch-1024x628.jpg" alt="Cultural Event" className="w-full h-40 object-cover" />
               </div>
             </div>
           </div>

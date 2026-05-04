@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -13,7 +13,7 @@ export default function ContactPage() {
     address: "Knowledge Park-III, Greater Noida, Uttar Pradesh 201308",
     phone: "8448797700",
     email: "admissions@ishan.ac",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.2!2d77.49!3d28.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sIshan+Institute+of+Law!5e0!3m2!1sen!2sin!4v1"
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.2!2d77.49!3d28.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sIshan+Institute+of+Pharmacy!5e0!3m2!1sen!2sin!4v1"
   };
   const collegeContacts = data?.collegeContacts || [];
 
@@ -39,7 +39,7 @@ export default function ContactPage() {
     
     // Attempt real submit but don't block the UI if it fails (as backend might not be up)
     try {
-      await fetch("http://localhost:5000/api/legal/leads", {
+      await fetch("http://localhost:5000/api/pharmacy/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, source: "Contact Page" }),
@@ -60,7 +60,7 @@ export default function ContactPage() {
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <p className="reveal leading-relaxed max-w-3xl mb-12 text-lg">
-            Ishan Law's team is available to assist prospective students, parents, enrolled students, and visitors. Admissions queries are given priority, with responses guaranteed within 24 working hours.
+            Ishan Pharmacy's team is available to assist prospective students, parents, enrolled students, and visitors. Admissions queries are given priority, with responses guaranteed within 24 working hours.
           </p>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div className="reveal-left space-y-8">
@@ -71,7 +71,7 @@ export default function ContactPage() {
                     { icon: Phone, label: "Admissions Office", value: "8448797700 (Phone & WhatsApp)", href: `tel:${mainContact.phone}` },
                     { icon: Mail, label: "Admissions Email", value: mainContact.email, href: `mailto:${mainContact.email}` },
                     { icon: Phone, label: "Academic Office", value: "0120-2323233", href: "tel:01202323233" },
-                    { icon: Mail, label: "Principal's Office", value: "principal.law@ishan.ac", href: "mailto:principal.law@ishan.ac" },
+                    { icon: Mail, label: "Principal's Office", value: "principal.pharmacy@ishan.ac", href: "mailto:principal.pharmacy@ishan.ac" },
                     { icon: MapPin, label: "Campus Address", value: mainContact.address },
                     { icon: Clock, label: "Office Hours", value: "Mon–Sat: 9:00 AM – 5:00 PM" },
                   ].map(({ icon: Icon, label, value, href }) => (
@@ -91,7 +91,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="rounded-xl overflow-hidden border h-[300px]">
-                <iframe src={mainContact.mapEmbed} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Ishan Law Location" />
+                <iframe src={mainContact.mapEmbed} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Ishan Pharmacy Location" />
               </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function ContactPage() {
                     <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm(p => ({...p, email: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
                     <select value={form.program} onChange={e => setForm(p => ({...p, program: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow">
                       <option value="">Select Program</option>
-                      <option>BA LLB</option><option>LLB</option>
+                      <option>D.Pharm</option><option>B.Pharm</option>
                     </select>
                     <textarea placeholder="Your Message (optional)" rows={4} value={form.message} onChange={e => setForm(p => ({...p, message: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow resize-none" />
                     <button type="submit" disabled={submitting} className="w-full py-3.5 text-sm font-semibold bg-navy text-primary-foreground rounded-lg shadow-lg hover:bg-navy/90 transition-all active:scale-[0.97] disabled:opacity-60">

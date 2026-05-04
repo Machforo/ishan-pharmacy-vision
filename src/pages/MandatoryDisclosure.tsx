@@ -4,11 +4,11 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
 
 const disclosureItems = [
-  { category: "Institution Details", items: ["Name: Ishan Law Institute", "Address: Knowledge Park-III, Greater Noida", "Year of Establishment: 2008", "Status: Private Self-Financing", "Type: Co-educational Professional Institution"] },
-  { category: "Academic Information", items: ["Programs Offered: BA LLB (Hons), LLB", "BCI Approval Status — Current", "Annual Intake per Program", "Faculty-Student Ratio", "Student Success Rate (Last 5 Years)"] },
-  { category: "Regulatory Information", items: ["BCI Approval Letters", "CCS University Affiliation Documents", "Anti-Ragging Committee Constitution", "Grievance Redressal Mechanism"] },
-  { category: "Infrastructure", items: ["Moot Court Hall Specifications", "Legal Library — Titles, Journals & Digital Resources", "IT Lab — Manupatra & SCC Online Access", "Legal Aid Clinic — Community Reach"] },
-  { category: "Faculty & Staff", items: ["List of Core Faculty with BCI-mandated Qualifications", "Visiting Senior Advocates Profile", "Administrative Staff Details"] },
+  { category: "Institution Details", items: ["Name: Ishan Institute of Pharmacy", "Address: Knowledge Park-III, Greater Noida", "Year of Establishment: 2017", "Status: Private Self-Financing", "Type: Co-educational Professional Institution"] },
+  { category: "Academic Information", items: ["Programs Offered: D.Pharm, B.Pharm", "PCI Approval Status — Current", "Annual Intake per Program", "Faculty-Student Ratio", "Student Success Rate"] },
+  { category: "Regulatory Information", items: ["PCI Approval Letters", "AKTU and BTE UP Affiliation Documents", "Anti-Ragging Committee Constitution", "Grievance Redressal Mechanism"] },
+  { category: "Infrastructure", items: ["10 Specialized Pharmaceutical Laboratories", "Medical Library — Titles, Journals & Digital Resources", "Machine Room & Herbal Garden", "Health Camp & Community Reach"] },
+  { category: "Faculty & Staff", items: ["List of Core Faculty with PCI-mandated Qualifications", "Visiting Industry Experts Profile", "Administrative Staff Details"] },
 ];
 
 export default function MandatoryDisclosurePage() {
@@ -18,7 +18,7 @@ export default function MandatoryDisclosurePage() {
     <Layout>
       <PageHeader
         title="Mandatory Disclosure"
-        subtitle="BCI / CCS University format mandatory disclosure document — updated annually"
+        subtitle="PCI / AKTU / BTE UP format mandatory disclosure document — updated annually"
         breadcrumbs={[{ label: "Mandatory Disclosure" }]}
       />
 
@@ -28,12 +28,12 @@ export default function MandatoryDisclosurePage() {
             <div className="reveal bg-gold-light rounded-xl p-6 mb-12 flex items-start gap-4">
               <FileText className="w-6 h-6 text-navy shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold text-foreground mb-1">BCI Compliance Statement</p>
+                <p className="font-semibold text-foreground mb-1">PCI Compliance Statement</p>
                 <p className="text-sm leading-relaxed">
-                  The information provided below is submitted as required by the Bar Council of India (BCI) and is updated annually to ensure full transparency. Any discrepancies found in the reported data should be immediately brought to the notice of the Registrar at Ishan Law Institute, Knowledge Park, Greater Noida.
+                  The information provided below is submitted as required by the Pharmacy Council of India (PCI) and is updated annually to ensure full transparency. Any discrepancies found in the reported data should be immediately brought to the notice of the Registrar at Ishan Institute of Pharmacy, Knowledge Park, Greater Noida.
                 </p>
                 <p className="text-sm leading-relaxed mt-4">
-                  BCI mandates public disclosure for the benefit of current and prospective students, legal practitioners, and regulatory authorities. It serves as a comprehensive record of the institution's legal aid services, moot court facilities, and faculty expertise, ensuring accountability in legal education.
+                  PCI mandates public disclosure for the benefit of current and prospective students, healthcare practitioners, and regulatory authorities. It serves as a comprehensive record of the institution's facilities, laboratory standards, and faculty expertise, ensuring accountability in pharmaceutical education.
                 </p>
               </div>
             </div>

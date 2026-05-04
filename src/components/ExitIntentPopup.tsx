@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, Users } from "lucide-react";
 
@@ -7,7 +7,7 @@ export default function ExitIntentPopup() {
 
   useEffect(() => {
     // Check if user has already dismissed or acted on this popup
-    const hasInteracted = localStorage.getItem("Ishan Law Institute_exit_intent_interacted");
+    const hasInteracted = localStorage.getItem("Ishan Institute of Pharmacy_exit_intent_interacted");
     if (hasInteracted) return;
 
     const handleMouseOut = (e: MouseEvent) => {
@@ -23,12 +23,12 @@ export default function ExitIntentPopup() {
 
   const handleDismiss = () => {
     setIsVisible(false);
-    localStorage.setItem("Ishan Law Institute_exit_intent_interacted", "true");
+    localStorage.setItem("Ishan Institute of Pharmacy_exit_intent_interacted", "true");
   };
 
   const handleAction = () => {
     setIsVisible(false);
-    localStorage.setItem("Ishan Law Institute_exit_intent_interacted", "true");
+    localStorage.setItem("Ishan Institute of Pharmacy_exit_intent_interacted", "true");
     // The link itself will handle the navigation/call
   };
 

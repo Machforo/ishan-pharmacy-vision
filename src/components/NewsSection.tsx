@@ -6,36 +6,36 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const defaultNews = [
   {
-    title: "National Moot Court Competition 2025: Grand Finale",
-    date: "April 15, 2025",
-    category: "Clinical",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
-    description: "Ishan Law hosted its flagship National Moot Court Competition, where teams from top law schools across India debated complex constitutional issues. The final round was presided over by a bench of sitting High Court judges, providing students with invaluable feedback and judicial insight.",
-    location: "Moot Court Hall, Ishan Law"
+    title: "National Pharmacy Week Celebration",
+    date: "November 22, 2025",
+    category: "Events",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
+    description: "Ishan Institute of Pharmacy celebrated National Pharmacy Week with a series of expert talks and student competitions focusing on the pharmacist's role in global health.",
+    location: "Auditorium, Ishan Pharmacy"
   },
   {
-    title: "Legal Aid Awareness Camp in Rural Gautam Budh Nagar",
-    date: "April 3, 2025",
+    title: "Health Camp & Free Checkups in Greater Noida",
+    date: "February 18, 2025",
     category: "Social Service",
-    image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
-    description: "Our Legal Aid Cell organized a community outreach program to provide free legal counseling to villagers. Students, under the supervision of faculty and practicing advocates, addressed issues related to land rights, family law, and government welfare schemes, fulfilling our commitment to social justice.",
-    location: "Gautam Budh Nagar District"
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+    description: "Our D.Pharm and B.Pharm students organized a community outreach program to provide basic diagnostic tests and medication counseling to over 100 community members.",
+    location: "Knowledge Park III"
   },
   {
-    title: "Final Year Students Visit the Supreme Court of India",
-    date: "March 26, 2025",
+    title: "Industrial Visit to Sun Pharma Production Facility",
+    date: "January 25, 2025",
     category: "Institutional",
-    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80",
-    description: "Students of the 5th Year BA LLB and 3rd Year LLB programs visited the Supreme Court of India. They observed live proceedings in the Chief Justice's courtroom and interacted with registry officials to understand the judicial administration of the apex court.",
-    location: "Supreme Court, New Delhi"
+    image: "https://images.unsplash.com/photo-1587854692152-cbe668df9731?auto=format&fit=crop&w=800&q=80",
+    description: "Final year B.Pharm students visited the Sun Pharma manufacturing unit to understand large-scale drug production, quality control, and regulatory compliance.",
+    location: "Sun Pharma, Noida"
   },
   {
-    title: "Expert Lecture on Emerging Trends in Intellectual Property Rights",
-    date: "March 6, 2025",
+    title: "Seminar on Modern Drug Delivery Systems",
+    date: "April 12, 2025",
     category: "Guest Lecture",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
-    description: "Eminent IPR expert and Senior Advocate delivered a comprehensive lecture on the challenges of IP protection in the age of Artificial Intelligence. The session covered global patent trends and the evolving digital copyright landscape in India.",
-    location: "Seminar Hall, Ishan Law"
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+    description: "Eminent pharmaceutical scientists delivered a comprehensive lecture on the latest advancements in targeted drug delivery systems and their impact on patient care.",
+    location: "Seminar Hall, Ishan Pharmacy"
   },
 ];
 
@@ -152,7 +152,7 @@ export default function NewsSection() {
                       </div>
                       <div className="flex items-center gap-1.5">
                         <MapPin size={14} className="text-gold" />
-                        {selectedNews.location || "Ishan Law Institute Campus"}
+                        {selectedNews.location || "Ishan Pharmacy Campus"}
                       </div>
                     </div>
                     <h2 className="font-bold text-navy leading-tight">

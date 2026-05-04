@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -11,9 +11,9 @@ export default function GrievanceRedressalPage() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             <div className="reveal space-y-6">
-              <p className="text-foreground/70 leading-relaxed text-sm">As mandated by the Bar Council of India and the University Grants Commission, Ishan Law Institute has established a comprehensive Grievance Redressal Mechanism. We are committed to maintaining a transparent, fair, and time-bound process for addressing concerns related to academic matters, administrative services, and campus facilities.</p>
+              <p className="text-foreground/70 leading-relaxed text-sm">As mandated by the Bar Council of India and the University Grants Commission, Ishan Institute of Pharmacy has established a comprehensive Grievance Redressal Mechanism. We are committed to maintaining a transparent, fair, and time-bound process for addressing concerns related to academic matters, administrative services, and campus facilities.</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" alt="Ishan Law Administration" className="w-full h-80 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Administration" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6">

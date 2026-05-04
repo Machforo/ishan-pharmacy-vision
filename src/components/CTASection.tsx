@@ -10,7 +10,7 @@ export default function CTASection() {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", course: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const { data } = useIshanLawData("homepage");
-  const ctaContent = data?.contactUs?.content || "Admissions are open for the session 2025-26. Connect with our admission counselors to discuss your career in law and clarify your doubts about eligibility and the application process.";
+  const ctaContent = data?.contactUs?.content || "Admissions are open for the session 2025-26. Connect with our admission counselors to discuss your career in pharmacy and clarify your doubts about eligibility and the application process.";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function CTASection() {
     
     setSubmitting(true);
     try {
-      const res = await fetch("http://localhost:5000/api/legal/leads", {
+      const res = await fetch("http://localhost:5000/api/pharmacy/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -43,8 +43,8 @@ export default function CTASection() {
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
       {/* Background */}
       <div className="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200" alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[hsl(var(--navy-dark)/0.9)]" />
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-dark)/0.97)] via-[hsl(var(--navy-dark)/0.90)] to-[hsl(var(--navy-dark)/0.65)]" />
       </div>
 
       <div className="relative container-wide">
@@ -53,7 +53,7 @@ export default function CTASection() {
           <div className="reveal-left space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Get In Touch</p>
             <h2 className="font-bold text-primary-foreground leading-tight">
-              Begin Your Legal Career at Ishan Law Institute
+              Begin Your Healthcare Career at Ishan Institute of Pharmacy
             </h2>
             <p className="text-primary-foreground/60 leading-relaxed whitespace-pre-wrap">
               {ctaContent}
@@ -118,8 +118,8 @@ export default function CTASection() {
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                 >
                   <option value="">Select Program</option>
-                  <option value="BA LLB">BA LLB (5 Years)</option>
-                  <option value="LLB">LLB (3 Years)</option>
+                  <option value="D.Pharm">D.Pharm (2 Years)</option>
+                  <option value="B.Pharm">B.Pharm (4 Years)</option>
                 </select>
                 <textarea
                   placeholder="Your Message (optional)"

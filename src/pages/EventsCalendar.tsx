@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Calendar, MapPin, Tag, Clock, Share2 } from "lucide-react";
@@ -41,7 +41,7 @@ export default function EventsCalendarPage() {
     <Layout>
       <PageHeader
         title="Events Calendar"
-        subtitle="Stay updated with academic, cultural, and professional events at Ishan Law Institute."
+        subtitle="Stay updated with academic, cultural, and professional events at Ishan Institute of Pharmacy."
         breadcrumbs={[{ label: "Events Calendar" }]}
       />
 
@@ -54,7 +54,7 @@ export default function EventsCalendarPage() {
                 Plan Your Campus Experience
               </h2>
               <p className="text-foreground/70 leading-relaxed max-w-2xl mx-auto">
-                Ishan Law Institute maintains a packed events calendar including national seminars, guest lectures, cultural festivals, sports meets, and placement drives. This helps students plan their participation and never miss an opportunity for growth.
+                Ishan Institute of Pharmacy maintains a packed events calendar including national seminars, guest lectures, cultural festivals, sports meets, and placement drives. This helps students plan their participation and never miss an opportunity for growth.
               </p>
               <div className="flex justify-center gap-4 pt-2">
                 <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 text-xs font-bold text-navy hover:bg-gold hover:text-white transition-all shadow-sm">

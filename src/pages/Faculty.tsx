@@ -5,17 +5,15 @@ import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
-const defaultDepartments = ["All", "Law", "Clinical Education", "Research & Publication"];
-
 const defaultFaculty = [
-  { name: "Dr. Sandeep Singh", designation: "Principal", dept: "Law", qualification: "PhD, LLM", specialisation: "Constitutional Law & Jurisprudence", bio: "Extensive experience in constitutional matters and legal theory. Author of several seminal papers on Indian jurisprudence.", publications: "12 Research Papers" },
-  { name: "Prof. Rajesh Khanna", designation: "Professor", dept: "Law", qualification: "LLM, UGC NET", specialisation: "Criminal Law & Procedure", bio: "Former practitioner with deep insights into criminal justice. Focuses on procedural law and evidence act interpretations.", publications: "8 Publications" },
-  { name: "Ms. Anjali Sharma", designation: "Assistant Professor", dept: "Clinical Education", qualification: "LLM, Former Advocate", specialisation: "Advocacy Skills & Moot Courts", bio: "Specialises in practical advocacy and clinical training. Mentors teams for national moot court competitions." },
-  { name: "Mr. Vivek Verma", designation: "Assistant Professor", dept: "Law", qualification: "LLM", specialisation: "Corporate & Commercial Laws", bio: "Expertise in company law and commercial dispute resolution. Bridges corporate practice with academic theory." },
-  { name: "Dr. Megha Gupta", designation: "Associate Professor", dept: "Research & Publication", qualification: "PhD, LLM", specialisation: "International Law & Human Rights", bio: "Focuses on human rights advocacy and international treaties. Actively guides student research initiatives.", publications: "15 Publications" },
-  { name: "Prof. Amit Das", designation: "Assistant Professor", dept: "Law", qualification: "LLM, UGC NET", specialisation: "Family Law & ADR", bio: "Dedicated to alternate dispute resolution mechanisms and modern family law practice in India." },
-  { name: "Ms. Neha Singh", designation: "Assistant Professor", dept: "Law", qualification: "LLM", specialisation: "Intellectual Property Rights", bio: "Passionate about intellectual property regimes and their impact on emerging technologies and startups." },
-  { name: "Mr. Karan Bajaj", designation: "Assistant Professor", dept: "Clinical Education", qualification: "LLM, Advocate", specialisation: "Civil Procedure & Drafting", bio: "Brings active civil practice experience to drafting modules. Emphasises practical pleading techniques." },
+  { name: "Dr. Sandeep Singh", designation: "Principal", dept: "Pharmaceutics", qualification: "PhD (Pharmacy), M.Pharm", specialisation: "Drug Delivery Systems & Formulation", bio: "Extensive experience in pharmaceutical formulation research. Author of several peer-reviewed papers on novel drug delivery.", publications: "12 Research Papers" },
+  { name: "Prof. Rajesh Khanna", designation: "Professor", dept: "Pharmacology", qualification: "M.Pharm, UGC NET", specialisation: "Clinical Pharmacology & Toxicology", bio: "Deep expertise in pharmacological interactions and toxicity studies. Focuses on evidence-based drug evaluation.", publications: "8 Publications" },
+  { name: "Ms. Anjali Sharma", designation: "Assistant Professor", dept: "Pharmacy Practice", qualification: "M.Pharm, Hospital Training", specialisation: "Clinical Pharmacy & Patient Counselling", bio: "Specialises in hospital pharmacy and clinical patient counselling. Mentors students for community health camps." },
+  { name: "Mr. Vivek Verma", designation: "Assistant Professor", dept: "Pharmaceutical Chemistry", qualification: "M.Pharm", specialisation: "Medicinal Chemistry & Drug Synthesis", bio: "Expertise in organic synthesis and drug design. Bridges industrial chemistry practice with academic theory." },
+  { name: "Dr. Megha Gupta", designation: "Associate Professor", dept: "Pharmacognosy", qualification: "PhD (Pharmacognosy), M.Pharm", specialisation: "Herbal Drug Technology & Phytochemistry", bio: "Focuses on medicinal plant extraction and herbal formulations. Actively guides student research on traditional medicine.", publications: "15 Publications" },
+  { name: "Prof. Amit Das", designation: "Assistant Professor", dept: "Pharmacology", qualification: "M.Pharm, UGC NET", specialisation: "Biochemistry & Pharmacokinetics", bio: "Dedicated to understanding drug metabolism and kinetic models in the human body and their therapeutic implications." },
+  { name: "Ms. Neha Singh", designation: "Assistant Professor", dept: "Pharmaceutical Chemistry", qualification: "M.Pharm", specialisation: "Pharmaceutical Analysis & Quality Control", bio: "Passionate about analytical methods and quality standards in pharmaceutical manufacturing and testing." },
+  { name: "Mr. Karan Bajaj", designation: "Assistant Professor", dept: "Pharmaceutics", qualification: "M.Pharm", specialisation: "Dosage Form Design & Biopharmaceutics", bio: "Brings industry experience in dosage form manufacturing. Emphasises practical lab techniques and GMP compliance." },
 ];
 
 export default function FacultyPage() {
@@ -40,7 +38,7 @@ export default function FacultyPage() {
     <Layout>
       <PageHeader
         title="Faculty Directory"
-        subtitle="Distinguished legal scholars and practicing advocates shaping future judicial leaders"
+        subtitle="Distinguished pharmaceutical scientists and industry experts shaping future healthcare professionals"
         breadcrumbs={[{ label: "Faculty" }]}
       />
 
@@ -51,12 +49,12 @@ export default function FacultyPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Academic Excellence</p>
               <h2 className="font-bold text-foreground leading-tight">Guided by Expert Mentors</h2>
               <p className="text-foreground/70 leading-relaxed">
-                Ishan Law's faculty combines academic scholarship with courtroom experience — permanent faculty hold LLM and PhD qualifications in specialised areas of law; visiting advocates bring current practice insights; together they prepare students not just to understand law but to argue it.
+                Ishan Pharmacy's faculty combines academic scholarship with industry experience — permanent faculty hold M.Pharm and PhD qualifications in specialised pharmaceutical domains; visiting industry experts bring current manufacturing insights; together they prepare students not just to understand pharmacy but to practice it at the highest level.
               </p>
             </div>
             <div className="reveal hidden lg:block">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-4.jpg" alt="Ishan Law Faculty" className="w-full h-64 object-cover" />
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Faculty" className="w-full h-64 object-cover" />
               </div>
             </div>
           </div>

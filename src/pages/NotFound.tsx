@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+﻿import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Search, Home, ArrowLeft } from "lucide-react";
@@ -19,7 +19,7 @@ const NotFound = () => {
 
         <div className="container-wide text-center px-4 relative z-10 py-20">
           <div className="reveal inline-flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-2xl mb-8 overflow-hidden border-4 border-gold/20 relative">
-            <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg" alt="Ishan Law" className="w-full h-full object-cover opacity-80" />
+            <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" alt="Ishan Pharmacy" className="w-full h-full object-cover opacity-80" />
             <div className="absolute inset-0 flex items-center justify-center">
               <Search className="w-12 h-12 text-navy drop-shadow-lg" />
             </div>

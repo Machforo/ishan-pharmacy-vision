@@ -8,14 +8,14 @@ export default function PrincipalMessagePage() {
   
   const msg = {
       name: "Dr. Sandeep Singh", // Placeholder name
-      designation: "Principal, Ishan Law Institute",
-      message: `Welcome to Ishan Law Institute, where we transform legal aspirants into practice-ready professionals. In an era where the legal landscape is rapidly evolving, our mission is to produce advocates and judicial leaders who are not only masters of legal theory but also deeply committed to the ethical pursuit of justice.
+      designation: "Principal, Ishan Institute of Pharmacy",
+      message: `Welcome to Ishan Institute of Pharmacy, where we transform healthcare aspirants into practice-ready professionals. In an era where the pharmaceutical landscape is rapidly evolving, our mission is to produce pharmacists and industry leaders who are not only masters of theoretical knowledge but also deeply committed to ethical healthcare practices.
 
-What distinguishes Ishan Law is our unwavering focus on Clinical Legal Education. We believe that law is a living discipline, best mastered through immersion. Our curriculum is purposefully structured to integrate rigorous academic scholarship with mandatory court exposure from the very first semester. Whether it is arguing complex cases in our state-of-the-art Moot Court Hall or providing real-world assistance through our Legal Aid Cell, our students learn by doing.
+What distinguishes Ishan Pharmacy is our unwavering focus on practical and clinical training. We believe that pharmacy is a life-saving discipline, best mastered through rigorous hands-on experience. Our curriculum is purposefully structured to integrate academic scholarship with laboratory experiments from the very first semester. Whether it is formulating drugs in our advanced Pharmaceutics Lab or learning clinical applications, our students learn by doing.
 
-We provide our scholars with premier resources, including access to leading digital legal databases like Manupatra and SCC Online, and mentorship from a faculty composed of distinguished legal practitioners and scholars. Our dedicated Judicial Services Cell further ensures that students aspiring for the bench receive specialized guidance from day one.
+We provide our scholars with premier resources, including 10 specialized laboratories, a comprehensive medical library, a dedicated herbal garden, and mentorship from a faculty composed of distinguished industry practitioners and researchers. Our dedicated Placement Cell further ensures that students aspiring for careers in manufacturing, research, or clinical practice receive specialized guidance from day one.
 
-I invite you to join our community and embark on a journey that will build a formidable foundation for your legal career. At Ishan Law, we don't just teach the law; we prepare you to practice it with excellence and integrity.`,
+I invite you to join our community and embark on a journey that will build a formidable foundation for your career in healthcare. At Ishan Pharmacy, we don't just teach pharmacy; we prepare you to practice it with excellence and integrity.`,
       image: "" // Removing generic unsplash
   };
 
@@ -23,7 +23,7 @@ I invite you to join our community and embark on a journey that will build a for
     <Layout>
       <PageHeader
         title="Principal's Message"
-        subtitle="Producing ethical and practice-ready legal professionals"
+        subtitle="Producing ethical and practice-ready healthcare professionals"
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Principal's Message" }]}
       />
 
@@ -60,7 +60,7 @@ I invite you to join our community and embark on a journey that will build a for
                 </div>
 
                 <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                  <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" alt="Ishan Law Academics" className="w-full h-64 object-cover" />
+                  <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Academics" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>

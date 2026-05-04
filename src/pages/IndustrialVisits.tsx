@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Landmark, Shield, Users, Scale, FileText } from "lucide-react";
@@ -41,7 +41,7 @@ export default function IndustrialVisitsPage() {
     <Layout>
       <PageHeader
         title="Court & Jail Visits"
-        subtitle="Bridging the gap between legal theory and courtroom practice through structured exposure."
+        subtitle="Bridging the gap between pharmaceutical theory and courtroom practice through structured exposure."
         breadcrumbs={[{ label: "Court & Jail Visits" }]}
       />
 
@@ -54,7 +54,7 @@ export default function IndustrialVisitsPage() {
                 Law in Motion: Beyond Textbooks
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                At Ishan Law, we believe that the legal profession is best mastered through direct observation. Court and Jail visits are an integral part of our clinical legal education model. Students visit trial courts, high courts, and the supreme court to witness the living law in action. These structured visits ensure that our students are familiar with the procedural realities of the Indian judicial system long before they begin their practice.
+                At Ishan Pharmacy, we believe that the legal profession is best mastered through direct observation. Court and Jail visits are an integral part of our clinical legal education model. Students visit trial courts, high courts, and the supreme court to witness the living law in action. These structured visits ensure that our students are familiar with the procedural realities of the Indian judicial system long before they begin their practice.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl border bg-card flex items-center gap-3">
@@ -78,7 +78,7 @@ export default function IndustrialVisitsPage() {
 
             <div className="reveal-right">
                <div className="rounded-3xl overflow-hidden shadow-2xl border mb-6">
-                 <img src="https://law.ishan.ac/all-law/gallery-photos/outreach/outreach-12.jpeg" alt="Outreach and Court Visit" className="w-full h-80 object-cover" />
+                 <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Awareness-program-on-Ragging-and-Its-Consequences-1-1024x700.jpg" alt="Outreach and Court Visit" className="w-full h-80 object-cover" />
                </div>
                <div className="bg-section-alt rounded-3xl p-8 md:p-10 border shadow-sm">
                  <h3 className="text-2xl font-bold text-foreground mb-6">Why These Visits Matter</h3>
@@ -99,7 +99,7 @@ export default function IndustrialVisitsPage() {
                      <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
                        <span className="text-xs font-bold text-gold">3</span>
                      </div>
-                     <p className="text-foreground/70 text-sm">Developing empathy and social responsibility through exposure to prison reformation and legal aid needs.</p>
+                     <p className="text-foreground/70 text-sm">Developing empathy and social responsibility through exposure to prison reformation and pharmacy outreach needs.</p>
                    </li>
                  </ul>
                </div>

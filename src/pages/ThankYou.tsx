@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/Layout";
 
@@ -11,7 +11,7 @@ export default function ThankYouPage() {
           <div className="md:w-5/12 bg-navy p-10 flex items-center relative overflow-hidden">
             <div className="absolute inset-0 opacity-40">
               <img 
-                src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" 
+                src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" 
                 alt="Campus background" 
                 className="w-full h-full object-cover"
               />
@@ -24,7 +24,7 @@ export default function ThankYouPage() {
               </div>
               <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
               <p className="text-white/80 text-sm leading-relaxed">
-                Your journey towards a distinguished legal career begins here. We look forward to connecting with you.
+                Your journey towards a distinguished pharmacy career begins here. We look forward to connecting with you.
               </p>
             </div>
           </div>
@@ -34,7 +34,7 @@ export default function ThankYouPage() {
             
             <div className="space-y-4 mb-8">
               <p className="text-sm leading-relaxed">
-                Thank you! Your enquiry about programs at Ishan Law has been successfully received. Our admissions counsellor will call you within 2 working hours — or by 10 AM on the next working day if you have reached out after hours.
+                Thank you! Your enquiry about programs at Ishan Pharmacy has been successfully received. Our admissions counsellor will call you within 2 working hours — or by 10 AM on the next working day if you have reached out after hours.
               </p>
               <p className="text-sm leading-relaxed">
                 An email confirmation containing the programme brochure is on its way to your inbox. For immediate assistance, you can always WhatsApp us directly at <a href="https://wa.me/918448797700" className="text-navy font-bold hover:underline">8448797700</a>.

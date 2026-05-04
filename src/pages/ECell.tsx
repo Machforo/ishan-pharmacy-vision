@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Lightbulb, Rocket, Users, Briefcase, Trophy, ArrowRight } from "lucide-react";
@@ -44,10 +44,10 @@ export default function ECellPage() {
             <div className="reveal-left space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">About E-Cell</p>
               <h2 className="font-bold text-foreground leading-tight">
-                Fueling Innovation at Ishan Law Institute
+                Fueling Innovation at Ishan Institute of Pharmacy
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                The Entrepreneurship Cell at Ishan Law Institute is established to nurture business creators. We provide a platform for students to ideate, prototype, and pitch their business ideas. Mentored by experienced faculty and industry experts, the E-Cell bridges the gap between academic theory and real-world business execution.
+                The Entrepreneurship Cell at Ishan Institute of Pharmacy is established to nurture business creators. We provide a platform for students to ideate, prototype, and pitch their business ideas. Mentored by experienced faculty and industry experts, the E-Cell bridges the gap between academic theory and real-world business execution.
               </p>
               <div className="grid sm:grid-cols-2 gap-6 pt-4">
                 {offerings.map((o, i) => (
@@ -90,7 +90,7 @@ export default function ECellPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Alumni Spotlight</p>
             <h2 className="text-3xl font-bold text-foreground">Entrepreneurial Success Stories</h2>
             <p className="text-foreground/70">
-              Many Ishan Law Institute graduates have successfully launched their own ventures, serving as role models for current students. From technology startups to consulting firms, our alumni network continues to inspire the next generation of creators.
+              Many Ishan Institute of Pharmacy graduates have successfully launched their own ventures, serving as role models for current students. From technology startups to consulting firms, our alumni network continues to inspire the next generation of creators.
             </p>
           </div>
         </div>

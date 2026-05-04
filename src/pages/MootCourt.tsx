@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -21,12 +21,12 @@ export default function MootCourtPage() {
     {
       icon: Scale,
       title: "National Competitions",
-      desc: "Ishan Law hosts and participates in prestigious National Moot Court Competitions, providing students with exposure to complex legal debates."
+      desc: "Ishan Pharmacy hosts and participates in prestigious National Moot Court Competitions, providing students with exposure to complex legal debates."
     },
     {
       icon: GraduationCap,
       title: "Expert Mentorship",
-      desc: "Sessions are presided over by practicing senior advocates and retired judges who provide invaluable feedback on courtroom etiquette and legal strategy."
+      desc: "Sessions are presided over by practicing senior advocates and retired judges who provide invaluable feedback on courtroom etiquette and pharmacy practice strategy."
     }
   ];
 
@@ -34,7 +34,7 @@ export default function MootCourtPage() {
     <Layout>
       <PageHeader 
         title="Moot Court Hall" 
-        subtitle="Where legal theory meets the art of advocacy" 
+        subtitle="Where pharmaceutical theory meets the art of advocacy" 
         breadcrumbs={[{ label: "Infrastructure" }, { label: "Moot Court Hall" }]} 
       />
 
@@ -44,8 +44,8 @@ export default function MootCourtPage() {
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img 
-                  src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" 
-                  alt="Moot Court Hall at Ishan Law Institute" 
+                  src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" 
+                  alt="Moot Court Hall at Ishan Institute of Pharmacy" 
                   className="w-full h-[450px] object-cover"
                 />
               </div>
@@ -61,10 +61,10 @@ export default function MootCourtPage() {
                 Mastering the Art of Advocacy
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                The Moot Court Hall at Ishan Law Institute is the heart of our clinical legal education program. It is designed to provide students with a realistic courtroom experience, bridging the gap between classroom lectures and professional practice. 
+                The Moot Court Hall at Ishan Institute of Pharmacy is the heart of our clinical legal education program. It is designed to provide students with a realistic courtroom experience, bridging the gap between classroom lectures and professional practice. 
               </p>
               <p className="text-foreground/70 leading-relaxed">
-                Participation in moot courts is mandatory for all students, ensuring they develop essential skills such as case analysis, legal research, memorial drafting, and oral presentation. Our students are trained to handle pressure, think on their feet, and respect the decorum of the judicial process.
+                Participation in moot courts is mandatory for all students, ensuring they develop essential skills such as case analysis, pharmaceutical research, memorial drafting, and oral presentation. Our students are trained to handle pressure, think on their feet, and respect the decorum of the judicial process.
               </p>
             </div>
           </div>

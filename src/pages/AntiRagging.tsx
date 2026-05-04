@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -16,9 +16,9 @@ export default function AntiRaggingPage() {
                 <p className="text-2xl font-bold text-foreground">1800-180-5522</p>
                 <p className="text-xs text-muted-foreground mt-1">Toll-free | National Helpline available round the clock</p>
               </div>
-              <p className="text-foreground/70 leading-relaxed text-sm">As per the directions of the Hon'ble Supreme Court of India and the Bar Council of India (BCI) / UGC Regulations, Ishan Law Institute maintains an absolute zero-tolerance policy against ragging in any form. Ragging is a criminal offence and can lead to immediate expulsion, criminal prosecution, and permanent debarment from legal practice.</p>
+              <p className="text-foreground/70 leading-relaxed text-sm">As per the directions of the Hon'ble Supreme Court of India and the Bar Council of India (BCI) / UGC Regulations, Ishan Institute of Pharmacy maintains an absolute zero-tolerance policy against ragging in any form. Ragging is a criminal offence and can lead to immediate expulsion, criminal prosecution, and permanent debarment from pharmacy practice.</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border mt-8">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-2.jpg" alt="Ishan Law Campus" className="w-full h-80 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6">
@@ -33,7 +33,7 @@ export default function AntiRaggingPage() {
                 <li>Report online at www.antiragging.in</li>
               </ol>
               <h2 className="text-lg font-bold text-foreground">The Legal Fraternity Pledge</h2>
-              <p className="text-foreground/70 leading-relaxed text-sm">Every student at Ishan Law is required to sign an undertaking at the time of admission. This pledge confirms the student's commitment to maintaining the dignity of the profession and ensuring a safe, respectful environment for all peers.</p>
+              <p className="text-foreground/70 leading-relaxed text-sm">Every student at Ishan Pharmacy is required to sign an undertaking at the time of admission. This pledge confirms the student's commitment to maintaining the dignity of the profession and ensuring a safe, respectful environment for all peers.</p>
             </div>
           </div>
         </div>

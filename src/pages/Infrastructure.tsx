@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -8,8 +8,8 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const facilities = [
   { icon: Building2, title: "Moot Court Hall", desc: "A realistic High Court environment for regular clinical training, oral advocacy practice, and national competitions.", link: "/moot-court" },
-  { icon: BookOpen, title: "Legal Library", desc: "Extensive collection of legal treatises, law reports (AIR, SCC), and international journals with a dedicated research wing.", link: "/library" },
-  { icon: Monitor, title: "Digital Research Lab", desc: "High-speed IT lab with 24/7 access to Manupatra, SCC Online, and LexisNexis for comprehensive legal research.", link: "/it-lab" },
+  { icon: BookOpen, title: "Pharmacy Library", desc: "Extensive collection of pharmaceutical texts, law reports (AIR, SCC), and international journals with a dedicated research wing.", link: "/library" },
+  { icon: Monitor, title: "Digital Research Lab", desc: "High-speed IT lab with 24/7 access to Manupatra, SCC Online, and LexisNexis for comprehensive pharmaceutical research.", link: "/it-lab" },
   { icon: Scale, title: "Legal Aid Clinic", desc: "A dedicated facility for community service where students provide free legal counseling under expert supervision.", link: "/legal-aid-cell" },
   { icon: Monitor, title: "Smart Classrooms", desc: "Modern air-conditioned lecture halls equipped with AV systems for interactive legal discussions and case presentations." },
   { icon: Wifi, title: "Wi-Fi Campus", desc: "Seamless connectivity across the campus to support digital learning and research terminals." },
@@ -18,11 +18,11 @@ const facilities = [
 export default function InfrastructurePage() {
   const ref = useScrollReveal();
   const { data } = useIshanLawData("campuslife");
-  const intro = `Ishan Law Institute's campus is strategically located in Knowledge Park III, Greater Noida, offering a specialized environment designed for legal scholarship and professional training. The campus is built on a foundation of tradition and modern infrastructure, providing a premium learning experience for aspiring advocates.
+  const intro = `Ishan Institute of Pharmacy's campus is strategically located in Knowledge Park III, Greater Noida, offering a specialized environment designed for pharmaceutical scholarship and professional training. The campus is built on a foundation of tradition and modern infrastructure, providing a premium learning experience for aspiring advocates.
 
-Our facilities include a high-tech Moot Court Hall, a comprehensive legal library with digital research terminals, and a dedicated Legal Aid Cell for community service. We also provide smart classrooms and secure campus-wide Wi-Fi, ensuring that our students have access to the best tools for legal research and advocacy.
+Our facilities include a high-tech Moot Court Hall, a comprehensive pharmacy library with digital research terminals, and a dedicated Pharmacy Practice Cell for community service. We also provide smart classrooms and secure campus-wide Wi-Fi, ensuring that our students have access to the best tools for pharmaceutical research and advocacy.
 
-The campus is highly accessible, situated in the heart of Greater Noida's educational hub and well-connected by major transport links, including the Pari Chowk Metro Station, making it an ideal choice for serious legal professionals.`;
+The campus is highly accessible, situated in the heart of Greater Noida's educational hub and well-connected by major transport links, including the Pari Chowk Metro Station, making it an ideal choice for serious pharmacy professionals.`;
 
   return (
     <Layout>
@@ -42,13 +42,13 @@ The campus is highly accessible, situated in the heart of Greater Noida's educat
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <div className="reveal rounded-2xl overflow-hidden border shadow-sm">
-              <img src="https://law.ishan.ac/static/gallery/infra/infra-16.jpg" alt="Campus Building" className="w-full h-64 object-cover" />
+              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Campus Building" className="w-full h-64 object-cover" />
             </div>
             <div className="reveal delay-100 rounded-2xl overflow-hidden border shadow-sm">
-              <img src="https://law.ishan.ac/static/gallery/infra/infra-2.png" alt="Institutional Facility" className="w-full h-64 object-cover" />
+              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" alt="Institutional Facility" className="w-full h-64 object-cover" />
             </div>
             <div className="reveal delay-200 rounded-2xl overflow-hidden border shadow-sm">
-              <img src="https://law.ishan.ac/static/gallery/infra/infra-6.jpeg" alt="Campus Infrastructure" className="w-full h-64 object-cover" />
+              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Girls-Hostel-1024x768.jpg" alt="Campus Infrastructure" className="w-full h-64 object-cover" />
             </div>
           </div>
 

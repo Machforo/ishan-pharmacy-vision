@@ -6,32 +6,32 @@ import { TrendingUp, Building2, Users2, Star, CheckCircle2 } from "lucide-react"
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultStats = [
-  { icon: TrendingUp, value: "100%", label: "Internship Support" },
-  { icon: Building2, value: "50+", label: "Law Firm Partners" },
-  { icon: Users2, value: "500+", label: "Advocates Produced" },
-  { icon: Star, value: "10+", label: "Judicial Selections" },
+  { icon: TrendingUp, value: "95%", label: "Placement Rate" },
+  { icon: Building2, value: "40+", label: "Pharma Company Partners" },
+  { icon: Users2, value: "500+", label: "Pharmacists Placed" },
+  { icon: Star, value: "₹3.5 LPA", label: "Average Package" },
 ];
 
 const defaultRecruiters = [
-  { name: "BAJAJ", logo: "https://law.ishan.ac/images/company/BAJAJ.png" },
-  { name: "Welspun", logo: "https://law.ishan.ac/images/company/welspun.png" },
-  { name: "Body Care", logo: "https://law.ishan.ac/images/company/Body-Care.png" },
-  { name: "KPMG", logo: "https://law.ishan.ac/images/company/kpmg.png" },
-  { name: "SBI", logo: "https://law.ishan.ac/images/company/SBI.png" },
-  { name: "Nirala", logo: "https://law.ishan.ac/images/company/Nirala.png" },
-  { name: "Spice", logo: "https://law.ishan.ac/images/company/Spice.png" },
-  { name: "The Times", logo: "https://law.ishan.ac/images/company/The-Times.png" },
-  { name: "47 Billion", logo: "https://law.ishan.ac/images/company/47-Billion.png" },
-  { name: "Shardul Amarchand Mangaldas", logo: "" },
-  { name: "AZB & Partners", logo: "" },
-  { name: "Khaitan & Co.", logo: "" },
+  { name: "Sun Pharma", logo: "" },
+  { name: "Cipla", logo: "" },
+  { name: "Dr. Reddy's", logo: "" },
+  { name: "Lupin", logo: "" },
+  { name: "Mankind Pharma", logo: "" },
+  { name: "Torrent Pharma", logo: "" },
+  { name: "Apollo Pharmacy", logo: "" },
+  { name: "Medplus", logo: "" },
+  { name: "Fortis Healthcare", logo: "" },
+  { name: "AIIMS (Research)", logo: "" },
+  { name: "Zydus Lifesciences", logo: "" },
+  { name: "Hetero Drugs", logo: "" },
 ];
 
 const defaultTestimonials = [
-  { name: "Rahul Deshmukh", program: "BA LLB 2022", company: "Delhi High Court", quote: "The clinical training and moot court exposure at Ishan Law were instrumental in my transition to advocacy. I felt courtroom-ready from day one of my practice." },
-  { name: "Sanya Malhotra", program: "LLB 2021", company: "JSA Law", quote: "The placement cell's focus on corporate law internships helped me secure a role at a top-tier firm. The digital research skills I learned here are invaluable." },
-  { name: "Priyanka Singh", program: "BA LLB 2023", company: "Judicial Services", quote: "The dedicated Judicial Services Cell provided me with the structured guidance and mock tests that helped me clear the preliminary examinations in my first attempt." },
-  { name: "Arjun Verma", program: "LLB 2022", company: "Corporate Legal Cell", quote: "Ishan Law's faculty, many of whom are practicing advocates, gave me a real-world perspective that you can't find in textbooks. Highly recommended for serious legal aspirants." },
+  { name: "Rahul Deshmukh", program: "B.Pharm 2022", company: "Sun Pharma", quote: "The laboratory training and industrial visits at Ishan Pharmacy were instrumental in preparing me for production roles. I felt industry-ready from day one." },
+  { name: "Sanya Malhotra", program: "D.Pharm 2021", company: "Apollo Pharmacy", quote: "The placement cell's focus on retail and hospital pharmacy helped me secure a great role. The clinical training I received here is invaluable." },
+  { name: "Priyanka Singh", program: "B.Pharm 2023", company: "Cipla — QA Department", quote: "The dedicated Placement Cell provided me with structured guidance and mock interviews that helped me crack the QA Manager role in my first attempt." },
+  { name: "Arjun Verma", program: "B.Pharm 2022", company: "Dr. Reddy's R&D", quote: "Ishan Pharmacy's faculty, many of whom have industry experience, gave me a real-world perspective that textbooks can't provide. Highly recommended." },
 ];
 
 export default function PlacementsPage() {
@@ -54,7 +54,7 @@ export default function PlacementsPage() {
 
   return (
     <Layout>
-      <PageHeader title="Career Outcomes" subtitle="Consistent record of placements in top-tier law firms, corporate legal cells, and judicial services" breadcrumbs={[{ label: "Career Outcomes" }]} />
+      <PageHeader title="Career Outcomes" subtitle="Consistent record of placements in top-tier pharma companies, hospitals, and research institutions" breadcrumbs={[{ label: "Career Outcomes" }]} />
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">

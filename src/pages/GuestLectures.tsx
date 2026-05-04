@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Mic2, Calendar, User, Info } from "lucide-react";
@@ -47,7 +47,7 @@ export default function GuestLecturesPage() {
                 Engaging with Industry Pioneers
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                Ishan Law Institute hosts prominent professionals, academics, and industry leaders through guest lectures, national seminars, and conferences. Students gain insights beyond the classroom on topics ranging from finance and marketing to technology and entrepreneurship. These sessions bridge the gap between academic theory and the rapidly evolving industrial landscape.
+                Ishan Institute of Pharmacy hosts prominent professionals, academics, and industry leaders through guest lectures, national seminars, and conferences. Students gain insights beyond the classroom on topics ranging from finance and marketing to technology and entrepreneurship. These sessions bridge the gap between academic theory and the rapidly evolving industrial landscape.
               </p>
               <div className="bg-muted/50 p-6 rounded-2xl border border-border/50">
                 <div className="flex gap-4 items-start">
@@ -92,7 +92,7 @@ export default function GuestLecturesPage() {
           <div className="max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl font-bold text-foreground">National Seminars & Conferences</h2>
             <p className="text-foreground/70">
-              Ishan Law Institute regularly organises national-level academic events that bring together researchers, practitioners, and students to discuss emerging trends in management, commerce, and education.
+              Ishan Institute of Pharmacy regularly organises national-level academic events that bring together researchers, practitioners, and students to discuss emerging trends in management, commerce, and education.
             </p>
           </div>
         </div>

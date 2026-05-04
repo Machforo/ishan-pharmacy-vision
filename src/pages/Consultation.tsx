@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { User, Phone, BookOpen, Send, Calendar, Clock, CheckCircle } from "lucide-react";
@@ -34,7 +34,7 @@ export default function Consultation() {
             <div>
               <h2 className="text-3xl font-bold text-navy mb-4">Why Book a Consultation?</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Choosing the right professional degree is the most important decision of your career. Our academic counsellors are here to help you navigate your options, understand the legal career landscape, and find your perfect fit at Ishan Law.
+                Choosing the right professional degree is the most important decision of your career. Our academic counsellors are here to help you navigate your options, understand the pharmacy career landscape, and find your perfect fit at Ishan Pharmacy.
               </p>
             </div>
             
@@ -43,7 +43,7 @@ export default function Consultation() {
                 { title: "Personalized Legal Career Path", desc: "Get tailored advice on pursuing litigation, corporate law, or the judiciary." },
                 { title: "Course Details & Curriculum", desc: "Understand how our clinical legal education model prepares you for the courtroom." },
                 { title: "Judiciary & Placement Support", desc: "Learn about our dedicated Judicial Services Cell and internships with top firms and advocates." },
-                { title: "Scholarship Guidance", desc: "Find out if you qualify for merit-based or Ishan Law entrance test scholarships." }
+                { title: "Scholarship Guidance", desc: "Find out if you qualify for merit-based or Ishan Pharmacy entrance test scholarships." }
               ].map((item, i) => (
                 <li key={i} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
@@ -175,7 +175,7 @@ export default function Consultation() {
                     </button>
                     
                     <p className="text-xs text-center text-muted-foreground">
-                      By submitting this form, you agree to our privacy policy and authorize Ishan Law to contact you regarding your consultation.
+                      By submitting this form, you agree to our privacy policy and authorize Ishan Pharmacy to contact you regarding your consultation.
                     </p>
                   </form>
                 </>

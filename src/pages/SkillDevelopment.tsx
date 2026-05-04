@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -7,14 +7,14 @@ export default function SkillDevelopmentPage() {
   const ref = useScrollReveal();
   return (
     <Layout>
-      <PageHeader title="Skill Development" subtitle="Advocacy skills, legal research, and courtroom etiquette integrated into our curriculum" breadcrumbs={[{ label: "Learning" }, { label: "Skill Development" }]} />
+      <PageHeader title="Skill Development" subtitle="Advocacy skills, pharmaceutical research, and courtroom etiquette integrated into our curriculum" breadcrumbs={[{ label: "Learning" }, { label: "Skill Development" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide"><div className="max-w-3xl mx-auto reveal space-y-6">
-          <p className="text-foreground/70 leading-relaxed">The Skill Development Cell at Ishan Law organizes specialized workshops and clinical training sessions designed to transform legal aspirants into practice-ready advocates. These programs focus on the core competencies required for successful litigation, judicial services, and corporate legal careers.</p>
+          <p className="text-foreground/70 leading-relaxed">The Skill Development Cell at Ishan Pharmacy organizes specialized workshops and clinical training sessions designed to transform pharmacy aspirants into practice-ready advocates. These programs focus on the core competencies required for successful litigation, judicial services, and corporate pharmacy careers.</p>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "Legal Research & Online Databases",
-              "Memorial & Legal Drafting",
+              "Pharmaceutical Research & Online Databases",
+              "Drug Formulation & Analysis",
               "Mooting & Oral Advocacy",
               "Client Counseling & Interviewing",
               "ADR, Mediation & Conciliation",

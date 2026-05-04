@@ -16,34 +16,26 @@ export default function DynamicCourse() {
   
   const fallbackCourses = [
     {
-      programName: "BA LLB (Hons)",
-      duration: "5 Years (Integrated)",
-      eligibility: "10+2 with 45% marks (General), 42% (OBC), 40% (SC/ST). CLAT/LSAT/Ishan Entrance.",
-      annualIntake: "120 Seats",
-      overview: "The integrated BA LLB (Hons) at Ishan Law Institute is a flagship 5-year professional program that seamlessly blends liberal arts with legal scholarship. It is meticulously designed for students who want to enter the legal profession immediately after school. The program combines subjects like Political Science, Sociology, and Economics with core Law subjects, providing a holistic understanding of the law within its social context.",
-      curriculumStructure: "The program follows the CCS University and BCI curriculum. Initial years focus on pre-law subjects and foundational legal principles. Later years dive deep into specialized areas such as Constitutional Law, IPR, Criminal Law, and Corporate Jurisprudence, with mandatory Moot Court and Legal Aid training.",
-      careerScope: "Graduates can enroll as advocates, appear for Judicial Services (PCS-J), work in top-tier Law Firms, join corporate legal departments, or pursue careers in Civil Services and international organizations.",
-      image: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg"
+      programName: "B.Pharm",
+      duration: "4 Years (Degree)",
+      eligibility: "10+2 with Physics, Chemistry & Biology/Mathematics with minimum 45% marks (40% for SC/ST). UPSEE/CUET score accepted.",
+      annualIntake: "60 Seats",
+      annualFee: "₹75,000 per year",
+      overview: "The Bachelor of Pharmacy (B.Pharm) at Ishan Institute of Pharmacy is a 4-year professional undergraduate degree approved by the Pharmacy Council of India (PCI) and affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU). The program provides comprehensive training in pharmaceutical sciences, drug discovery, clinical pharmacy, and quality assurance — preparing students for careers across the pharmaceutical industry, hospitals, research, and regulatory agencies.",
+      curriculumStructure: "The curriculum spans 8 semesters covering Pharmaceutics, Pharmaceutical Chemistry, Pharmacology, Pharmacognosy, Pharmacy Practice, and related life sciences. Practical laboratory training in all 10 specialized labs, industrial visits, and a final-year project are integral components. The program follows AKTU and PCI syllabus standards.",
+      careerScope: "B.Pharm graduates can work as pharmacists in hospitals, community pharmacies, and pharmaceutical companies. Career options include Production Officer, Quality Control/Assurance Analyst, Drug Regulatory Officer, Medical Representative, Clinical Research Associate, or pursue M.Pharm/MBA for advanced roles.",
+      image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg"
     },
     {
-      programName: "LLB (Professional)",
-      duration: "3 Years (Professional)",
-      eligibility: "Graduation in any discipline with 45% marks (General), 42% (OBC), 40% (SC/ST).",
-      annualIntake: "120 Seats",
-      overview: "The 3-year LLB program is designed for graduates from any field (Arts, Science, Commerce, etc.) who wish to transition into the legal profession. This intensive course focuses strictly on legal scholarship and professional training. At Ishan Law, we emphasize procedural mastery, clinical education, and the development of advocacy skills required for successful litigation and corporate practice.",
-      curriculumStructure: "The curriculum covers substantive and procedural laws including Civil Procedure, Criminal Procedure, Evidence, Property Law, and Professional Ethics. Specialized clinical modules on Drafting, Pleading, and Conveyance ensure that students are practice-ready upon graduation.",
-      careerScope: "LLB graduates are eligible to practice in all Indian courts. They can pursue careers in Litigation, Corporate Law, Legal Process Outsourcing (LPOs), Legal Research, and as Law Officers in various government and private sectors.",
-      image: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-11.jpg"
-    },
-    {
-      programName: "LLM (Master of Laws)",
-      duration: "2 Years",
-      eligibility: "LLB or BA LLB degree from a recognized university with minimum 50% marks.",
-      annualIntake: "30 Seats",
-      overview: "The LLM program is a postgraduate degree designed for law graduates who seek advanced specialization in specific areas of legal research and scholarship. It fosters an environment of critical inquiry, jurisprudential analysis, and academic leadership, preparing students for careers in legal research, academia, and specialized legal consulting.",
-      curriculumStructure: "The program offers specializations in fields like Constitutional Law, Criminal Law, and Corporate Law. It includes advanced research methodology, comparative law studies, and a mandatory dissertation project supervised by senior faculty members.",
-      careerScope: "LLM graduates are primarily suited for academic roles as Professors, legal researchers in think-tanks, specialized consultants in multinational corporations, and for competitive exams like the UGC NET/JRF.",
-      image: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg"
+      programName: "D.Pharm",
+      duration: "2 Years (Diploma)",
+      eligibility: "10+2 with Physics, Chemistry & Biology/Mathematics with minimum 45% marks. JEECUP score accepted.",
+      annualIntake: "60 Seats",
+      annualFee: "₹45,000 per year",
+      overview: "The Diploma in Pharmacy (D.Pharm) at Ishan Institute of Pharmacy is a 2-year program approved by the Pharmacy Council of India (PCI) and affiliated with the Board of Technical Education, Uttar Pradesh (BTE UP). It is the entry-level qualification for registered pharmacists in India. The program offers a solid foundation in pharmaceutical sciences, dispensing, and patient counselling.",
+      curriculumStructure: "The curriculum covers Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Human Anatomy & Physiology, Health Education, and Biochemistry & Clinical Pathology. Practical training in the institutional labs and a hospital internship are mandatory components of the program.",
+      careerScope: "D.Pharm graduates are eligible to register as pharmacists with the UP Pharmacy Council. They can work as retail/hospital pharmacists, medical representatives, in pharmaceutical manufacturing, or pursue B.Pharm for further career advancement.",
+      image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg"
     },
   ];
 
@@ -61,7 +53,7 @@ export default function DynamicCourse() {
         {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0">
            <img 
-             src={course.image || "https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg"} 
+             src={course.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg"} 
              className="w-full h-full object-cover opacity-20 mix-blend-overlay scale-110" 
              alt="Background"
            />
@@ -74,7 +66,7 @@ export default function DynamicCourse() {
               {course.programName}
             </h1>
             <p className="text-lg text-primary-foreground/70 leading-relaxed font-light">
-              Forge your legacy at Ishan Law Institute with our comprehensive {course.duration} program.
+              Forge your legacy at Ishan Institute of Pharmacy with our comprehensive {course.duration} program.
             </p>
           </div>
         </div>

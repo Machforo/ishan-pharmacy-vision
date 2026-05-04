@@ -6,22 +6,22 @@ import { FileText, Calendar, Phone, CheckCircle2, ArrowRight } from "lucide-reac
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const steps = [
-  { num: "01", title: "CCS University Registration", desc: "Begin by registering on the official CCS University web-portal. This is the mandatory first step for all students seeking admission to BA LLB and LLB programmes at Ishan Law." },
-  { num: "02", title: "Entrance Exam & Registration", desc: "Submit your application form at Ishan Law Institute. Admissions are based on merit in CLAT, LSAT-India, or the Ishan Law Entrance Test (ILET) followed by a personal interview." },
-  { num: "03", title: "Personal Interview (PI)", desc: "Shortlisted candidates are invited for a personal interview to assess their aptitude for legal studies, communication skills, and ethical reasoning." },
-  { num: "04", title: "Document Verification", desc: "Upon selection, visit our campus in Knowledge Park-III with original documents including marksheets, migration certificates, and character certificates for physical verification." },
-  { num: "05", title: "Admission Finalization", desc: "Confirm your seat by submitting the requisite admission fees. Our team will assist you with the final enrollment on the University and Bar Council of India portals." },
+  { num: "01", title: "UPSEE / CUET Counselling", desc: "For B.Pharm, begin by participating in the UPSEE (AKTU) or CUET-based state counselling. For D.Pharm, register on the BTE UP portal. Seat allotment is based on your 10+2 merit." },
+  { num: "02", title: "Application at Ishan Pharmacy", desc: "After counselling, submit your application form at Ishan Institute of Pharmacy, Knowledge Park-III, Greater Noida, along with the required documents." },
+  { num: "03", title: "Personal Interaction & Aptitude Check", desc: "Shortlisted candidates are invited for a brief interaction to assess their suitability, interest in healthcare, and readiness for rigorous laboratory-based study." },
+  { num: "04", title: "Document Verification", desc: "Visit our campus with all original documents — 10+2 marksheets, transfer/migration certificates, and character certificates — for physical verification by the admissions office." },
+  { num: "05", title: "Admission Finalization", desc: "Confirm your seat by submitting the requisite admission fees. Our team will assist with the final enrollment on the AKTU / BTE UP portals and PCI registration." },
 ];
 
 const documents = [
-  "10th & 12th Marksheets (Original + 3 Copies)",
-  "Graduation Marksheets (for 3-Year LLB)",
+  "10th Marksheet & Certificate (Original + 3 Copies)",
+  "12th Marksheet with PCB/PCM (Original + 3 Copies)",
   "Transfer & Migration Certificates",
   "Character Certificate from last institution",
   "Aadhar Card (Original + Copy)",
   "8 Passport-size Photographs",
-  "CLAT / LSAT-India / ILET Scorecard",
-  "Category Certificate (if applicable)",
+  "UPSEE / CUET Score / Allotment Letter",
+  "Category Certificate (if applicable — SC/ST/OBC)",
   "Income Certificate (for scholarship applicants)",
   "Medical Fitness Certificate",
 ];
@@ -32,14 +32,14 @@ export default function AdmissionsPage() {
   
   const howToApply = data?.howToApply?.length > 0 ? data.howToApply : steps;
   const docs = data?.documents?.length > 0 ? data.documents.map((d: any) => d.docName) : documents;
-  const alert = data?.alertBanner || { title: "Admissions Open for 2025-26", content: "Applications are being accepted for all programs.", isActive: true };
+  const alert = data?.alertBanner || { title: "Admissions Open for 2025-26", content: "Applications are being accepted for D.Pharm and B.Pharm programs.", isActive: true };
   const contact = data?.admissionContact || { phone: "8448797700", email: "admissions@ishan.ac" };
 
   return (
     <Layout>
       <PageHeader
         title="Admissions 2025-26"
-        subtitle="Your pathway to a professional legal career — BA LLB (Hons) & LLB"
+        subtitle="Your pathway to a career in healthcare — D.Pharm & B.Pharm"
         breadcrumbs={[{ label: "Admissions" }]}
       />
 
@@ -61,10 +61,10 @@ export default function AdmissionsPage() {
 
             <div className="reveal grid sm:grid-cols-2 gap-6 mb-14">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-4.jpg" alt="Ishan Law Admissions" className="w-full h-64 object-cover" />
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border hidden sm:block">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" alt="Ishan Law Life" className="w-full h-64 object-cover" />
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Life" className="w-full h-64 object-cover" />
               </div>
             </div>
 
@@ -98,8 +98,8 @@ export default function AdmissionsPage() {
 
             {/* Contact */}
             <div className="reveal rounded-xl border bg-section-alt p-8 text-center shadow-sm">
-              <h3 className="text-xl font-bold text-foreground mb-3">Ready to Join Ishan Law Institute?</h3>
-              <p className="text-sm mb-8">Begin your legal journey today by filling out our online application form.</p>
+              <h3 className="text-xl font-bold text-foreground mb-3">Ready to Join Ishan Institute of Pharmacy?</h3>
+              <p className="text-sm mb-8">Begin your pharmacy journey today by filling out our online application form.</p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                 <button className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold bg-gold text-navy rounded-xl hover:bg-gold-light transition-all shadow-lg active:scale-[0.97] shimmer-btn">

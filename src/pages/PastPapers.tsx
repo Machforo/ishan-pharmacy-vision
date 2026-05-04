@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Download, FileText, Search } from "lucide-react";
@@ -42,7 +42,7 @@ export default function PastPapersPage() {
                 </p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" alt="Ishan Law Exam Preparation" className="w-full h-64 object-cover" />
+                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" alt="Ishan Pharmacy Exam Preparation" className="w-full h-64 object-cover" />
               </div>
             </div>
 

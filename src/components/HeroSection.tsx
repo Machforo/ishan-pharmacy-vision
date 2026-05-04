@@ -8,47 +8,38 @@ import { toast } from "sonner";
 // ─── Slides ───────────────────────────────────────────────────────────────────
 const SLIDES = [
   {
-    image: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg",
-    badge: "BCI Approved · NAAC Accredited · CCS University Affiliated",
-    title: "Forge Your Legacy in",
-    highlight: "India's Courtrooms",
-    subtitle: "Excellence in legal education through integrated BA LLB (Hons) and Professional LLB programs in Greater Noida.",
-    cta1: { label: "Our Law Programs", href: "/programs-overview" },
-    cta2: { label: "Moot Court Tour", href: "/moot-court" },
+    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg",
+    badge: "PCI Approved · AKTU/BTE Affiliated",
+    title: "Advancing Healthcare",
+    highlight: "Through Excellence",
+    subtitle: "Pioneering pharmaceutical education with world-class facilities and 10 specialised labs in Greater Noida.",
+    cta1: { label: "Our Programs", href: "/courses/b-pharm" },
+    cta2: { label: "Campus Tour", href: "/infrastructure" },
   },
   {
-    image: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg",
-    badge: "Clinical Legal Education",
-    title: "Learn Law by",
-    highlight: "Practicing It",
-    subtitle: "Mandatory court visits, regular moot court sessions, and legal aid clinics ensure you are practice-ready from day one.",
-    cta1: { label: "Clinical Training", href: "/moot-court" },
-    cta2: { label: "Apply for 2025", href: "/admissions" },
+    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg",
+    badge: "10 Specialized Labs",
+    title: "Hands-on",
+    highlight: "Clinical Training",
+    subtitle: "Master the science of medicine with practical training in our advanced Pharmaceutics and Chemistry labs.",
+    cta1: { label: "Explore Labs", href: "/pharmaceutical-chemistry" },
+    cta2: { label: "Apply Now", href: "/admissions" },
   },
   {
-    image: "https://law.ishan.ac/all-law/gallery-photos/academics/academics-11.jpg",
-    badge: "Specialized Legal Infrastructure",
-    title: "Dedicated Resources",
-    highlight: "For Future Advocates",
-    subtitle: "Comprehensive legal library, state-of-the-art moot court hall, and digital research terminals with Manupatra & SCC Online.",
-    cta1: { label: "Explore Library", href: "/library" },
-    cta2: { label: "Virtual Campus", href: "/infrastructure" },
-  },
-  {
-    image: "https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-8.jpg",
-    badge: "Career Outcomes",
+    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg",
+    badge: "Industry Integration",
     title: "From Classrooms to",
-    highlight: "Judicial Chambers",
-    subtitle: "Structured guidance for Judiciary, Advocacy, and Corporate Legal roles. Join a network of successful legal professionals.",
-    cta1: { label: "Placement Cell", href: "/placements" },
-    cta2: { label: "Alumni Network", href: "/alumni-network" },
+    highlight: "Leading Pharma",
+    subtitle: "Strong placement support and industry partnerships ensuring a seamless transition to healthcare careers.",
+    cta1: { label: "Placements", href: "/placements" },
+    cta2: { label: "Student Life", href: "/news-events" },
   },
 ];
 
 // Pick a random start index once per browser session
 const SESSION_START = (() => {
   try {
-    const key = "ishan_law_hero_start";
+    const key = "ishan_pharmacy_hero_start";
     const s = sessionStorage.getItem(key);
     if (s !== null) return parseInt(s, 10) % SLIDES.length;
     const r = Math.floor(Math.random() * SLIDES.length);
@@ -70,41 +61,41 @@ export default function HeroSection() {
   const newsData = [
     { 
       type: 'EVENT', 
-      title: 'National Moot Court Competition 2025', 
-      date: 'MAR 22', 
+      title: 'National Pharmacy Week Celebration', 
+      date: 'NOV 22', 
       action: 'popup',
-      image: 'https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg',
-      details: 'Ishan Law Institute hosts its annual National Moot Court Competition. Teams from across India will debate complex constitutional issues before a bench of sitting and retired High Court judges.'
+      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800&auto=format&fit=crop',
+      details: 'Ishan Institute of Pharmacy celebrates National Pharmacy Week with a series of seminars, health camps, and student competitions focusing on the pharmacist\'s role in global health.'
     },
     { 
       type: 'NEWS', 
-      title: 'Legal Aid Cell Camp at Greater Noida', 
+      title: 'Health Camp & Free Checkups', 
       date: 'FEB 18', 
       action: 'popup',
-      image: 'https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-7.jpg',
-      details: 'Our students served over 50 community members in our latest free legal awareness and assistance camp, focusing on family law and property rights.'
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop',
+      details: 'Our D.Pharm and B.Pharm students organized a free health and awareness camp, providing basic diagnostic tests and medication counseling to over 100 community members.'
     },
     { 
       type: 'VISIT', 
-      title: 'Students Visit Supreme Court of India', 
+      title: 'Industrial Visit to Sun Pharma', 
       date: 'JAN 25', 
       action: 'none'
     },
     { 
       type: 'EVENT', 
-      title: 'Seminar on Digital Personal Data Protection', 
+      title: 'Seminar on Modern Drug Delivery Systems', 
       date: 'APR 12', 
       action: 'popup',
-      image: 'https://law.ishan.ac/all-law/gallery-photos/academics/academics-1.jpg',
-      details: 'Eminent legal scholars and industry experts discuss the implications of India’s new data protection law on corporate compliance and individual privacy.'
+      image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop',
+      details: 'Eminent pharmaceutical scientists and industry experts discuss the latest advancements in targeted drug delivery systems and their impact on patient care.'
     },
     { 
       type: 'NEWS', 
-      title: 'Moot Court Hall Upgraded with Digital Tech', 
+      title: 'Pharmacology Lab Upgraded with New Equipment', 
       date: 'DEC 15', 
       action: 'popup',
-      image: 'https://law.ishan.ac/static/gallery/infra/infra-16.jpg',
-      details: 'New high-definition recording and video conferencing facilities installed in the Moot Court Hall to support international competitions and self-review.'
+      image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=800&auto=format&fit=crop',
+      details: 'Latest simulation software and physiological instruments installed in the Pharmacology Lab to enhance practical learning without relying solely on animal models.'
     }
   ];
 
@@ -112,7 +103,7 @@ export default function HeroSection() {
     if (item.action === 'popup') {
       setSelectedNews(item);
     } else if (item.action === 'link') {
-      window.location.href = item.url || '/news';
+      window.location.href = item.url || '/news-events';
     } else {
       toast.info("Notification: " + item.title);
     }
@@ -304,15 +295,15 @@ export default function HeroSection() {
                           <BookOpen size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40" />
                           <select required value={formData.course} onChange={(e) => setFormData((p) => ({ ...p, course: e.target.value }))} className="w-full pl-10 pr-4 py-3.5 bg-muted/60 border rounded-xl outline-none focus:ring-2 focus:ring-gold/60 focus:bg-white appearance-none transition-all text-sm cursor-pointer">
                             <option value="">Select Programme *</option>
-                            <option>BA LLB (Hons) - 5 Years</option>
-                            <option>LLB - 3 Years</option>
-                            <option>LLM - 2 Years</option>
+                            <option>D.Pharm - 2 Years</option>
+                            <option>B.Pharm - 4 Years</option>
+                            <option>Certificate Programmes</option>
                           </select>
                         </div>
                         <div className="flex items-start gap-2 pt-1">
                           <input type="checkbox" id="hero-consent" className="mt-1 accent-gold w-4 h-4" defaultChecked />
                           <label htmlFor="hero-consent" className="text-xs leading-relaxed">
-                            I authorize Ishan Law to contact me regarding my admission inquiry.
+                            I authorize Ishan Pharmacy to contact me regarding my admission inquiry.
                           </label>
                         </div>
                         <button type="submit" className="w-full py-4 bg-navy text-white font-bold rounded-xl shadow-lg hover:bg-gold hover:text-navy transition-all flex items-center justify-center gap-2 group mt-4">

@@ -6,28 +6,27 @@ import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb,
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultReasons = [
-  { icon: Shield, title: "BCI Approved & NAAC Accredited", description: "Ishan Law Institute is fully recognized by the Bar Council of India (BCI) and NAAC accredited, ensuring that your professional degree is globally valid and meets the highest regulatory standards." },
-  { icon: Building, title: "Clinical Legal Education Focus", description: "We bridge the gap between classroom theory and courtroom reality through an integrated clinical legal education model, prioritizing practical skills over rote memorization." },
-  { icon: Award, title: "Mandatory Court & Jail Exposure", description: "From the very first semester, our students undergo structured visits to District Courts, High Courts, and the Supreme Court, providing them with firsthand insight into the judicial process." },
-  { icon: Users, title: "Expert Advocate Faculty", description: "Learn from a distinguished faculty of practicing advocates, legal scholars, and retired judicial officers who bring live cases and contemporary legal challenges into the classroom." },
-  { icon: GraduationCap, title: "Dedicated Judicial Services Cell", description: "For students aspiring to enter the judiciary, we provide specialized coaching, guest lectures from judges, and competitive exam preparation starting from the early years of the program." },
-  { icon: BookOpen, title: "State-of-the-Art Moot Court Hall", description: "Our specialized moot court hall provides a professional environment for students to sharpen their advocacy skills, research complex cases, and participate in national competitions." },
-  { icon: Lightbulb, title: "Digital Research Terminals", description: "Students have 24/7 access to premier legal databases like Manupatra, SCC Online, and LexisNexis, ensuring they are proficient in modern legal research techniques." },
-  { icon: Heart, title: "Legal Aid & Community Service", description: "Through our Legal Aid Cell, students provide free legal assistance to the underprivileged, developing a strong sense of social responsibility and ethical legal practice." },
+  { icon: Shield, title: "PCI Approved & AKTU/BTE UP Affiliated", description: "Ishan Institute of Pharmacy is fully approved by the Pharmacy Council of India (PCI) and affiliated with AKTU & BTE UP, ensuring your diploma/degree is nationally recognized for professional practice." },
+  { icon: Building, title: "10 Specialized Laboratories", description: "We offer 10 state-of-the-art pharmaceutical laboratories — from Pharmaceutics to Pharmacology — giving every student comprehensive hands-on training across all domains of pharmacy." },
+  { icon: Award, title: "Regular Industrial Visits", description: "From early semesters, students visit leading pharmaceutical manufacturing plants (Sun Pharma, Cipla, Dr. Reddy's), providing firsthand insight into large-scale drug production and quality control." },
+  { icon: Users, title: "Expert Industry Faculty", description: "Learn from a distinguished faculty of industry practitioners, research scientists, and pharmacologists who bridge academic theory with real-world pharmaceutical challenges." },
+  { icon: GraduationCap, title: "Dedicated Placement & Training Cell", description: "Our Placement Cell maintains active relationships with top pharma companies and hospitals, ensuring our graduates receive top-tier job opportunities upon completing their programs." },
+  { icon: BookOpen, title: "Dedicated Herbal Garden", description: "Our unique herbal garden provides students direct exposure to medicinal plants — essential for Pharmacognosy training — enriching practical knowledge beyond the classroom." },
+  { icon: Lightbulb, title: "Modern Digital Library", description: "Students have access to a comprehensive medical and pharmaceutical library with thousands of titles, journals, and digital research databases, supporting research and academic excellence." },
+  { icon: Heart, title: "Health Camps & Community Service", description: "Through regular health awareness camps and medical outreach initiatives, students develop a strong sense of social responsibility and a commitment to ethical public healthcare." },
 ];
 
-export default function WhyIshanLawPage() {
+export default function WhyIshanPharmacyPage() {
   const ref = useScrollReveal();
   const { data } = useIshanLawData("aboutus");
-  // Schema: WhyIshanLaw = { content: string }. Render as text content, fall back to card grid.
-  const whyContent: string | undefined = data?.WhyIshanLaw?.content;
+  const whyContent: string | undefined = data?.WhyIshanPharmacy?.content;
 
   return (
     <Layout>
       <PageHeader
-        title="Why Ishan Law?"
-        subtitle="8 reasons why students choose Ishan Law Institute for a career in advocacy and judiciary"
-        breadcrumbs={[{ label: "Why Ishan Law?" }]}
+        title="Why Ishan Pharmacy?"
+        subtitle="8 reasons why students choose Ishan Institute of Pharmacy for a career in healthcare and pharmaceuticals"
+        breadcrumbs={[{ label: "Why Ishan Pharmacy?" }]}
       />
 
       <section className="py-20 md:py-28" ref={ref}>
@@ -35,10 +34,10 @@ export default function WhyIshanLawPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-12">
             <div className="reveal space-y-8">
               <p className="text-foreground/70 leading-relaxed text-lg">
-                Ishan Law Institute is not just an educational centre; it's a launchpad for judicial leaders and advocates. Our commitment to clinical training, moral ethics, and professional excellence sets us apart in the field of legal education.
+                Ishan Institute of Pharmacy is not just an educational centre; it's a launchpad for healthcare leaders and pharmacists. Our commitment to laboratory training, ethical practice, and industry partnerships sets us apart in pharmaceutical education.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-1.jpg" alt="Ishan Law Excellence" className="w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Excellence" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-6">

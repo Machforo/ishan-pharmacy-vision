@@ -4,9 +4,9 @@ import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultStats = [
   { value: "95%", label: "PLACEMENTS" },
-  { value: "6.5 LPA", label: "AVG PACKAGE" },
-  { value: "15,000+", label: "ALUMNI NETWORK" },
-  { value: "250+", label: "FACULTY HUB" },
+  { value: "10", label: "SPECIALIZED LABS" },
+  { value: "10,000+", label: "ALUMNI NETWORK" },
+  { value: "150+", label: "FACULTY HUB" },
 ];
 
 function AnimatedCounter({ rawValue }: { rawValue: string }) {
@@ -67,10 +67,14 @@ export default function StatsBar() {
   }, [data]);
 
   const brands = [
-    { name: "Bar Council of India", logo: "https://law.ishan.ac/all-law/home-page/Logo_of_Bar_Council_of_India.png" },
-    { name: "CCS University", logo: "https://law.ishan.ac/images/home/regulatory-4.png" },
-    { name: "NAAC", logo: "https://law.ishan.ac/all-law/home-page/naac-2.png" },
-    { name: "UGC", logo: "https://law.ishan.ac/static/about/approvals/UGC_India_Logo.png" },
+    { name: "PCI", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/PCI-150x150.png" },
+    { name: "AKTU", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/AKTU-150x150.png" },
+    { name: "BTE UP", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/BTE-up-150x150.jpg" },
+    { name: "JEECUP", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Jeecup-150x150.png" },
+    { name: "URISE", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/URISE.png" },
+    { name: "CUET", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/CUET-150x150.jpg" },
+    { name: "UP Scholarship", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Scholarship-UP-150x150.jpg" },
+    { name: "UP Pharmacy Council", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/UP-Pharmacy-Council-150x150.png" },
   ];
 
   return (

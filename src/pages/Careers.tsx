@@ -5,24 +5,24 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 export default function CareersPage() {
   const ref = useScrollReveal();
   const jobs = [
-    { title: "Professor / Associate Professor — Law", qualification: "LLM with PhD", experience: "10+ Years", dept: "Law", type: "Full-time" },
-    { title: "Assistant Professor — Law", qualification: "LLM with UGC NET / PhD", experience: "0–5 Years", dept: "Law", type: "Full-time" },
-    { title: "Clinical Instructor — Moot Court", qualification: "LLM", experience: "3+ Years Litigation", dept: "Clinical Education", type: "Full-time" },
+    { title: "Professor / Associate Professor — Pharmacology", qualification: "M.Pharm / PhD (Pharmacology)", experience: "10+ Years", dept: "Pharmacology", type: "Full-time" },
+    { title: "Assistant Professor — Pharmaceutics", qualification: "M.Pharm with UGC NET / PhD", experience: "0–5 Years", dept: "Pharmaceutics", type: "Full-time" },
+    { title: "Laboratory Instructor — Pharmaceutical Chemistry", qualification: "B.Pharm / M.Pharm", experience: "2+ Years Lab Experience", dept: "Pharmaceutical Chemistry", type: "Full-time" },
     { title: "Academic Coordinator", qualification: "Graduate", experience: "5+ Years Administration", dept: "Academic Office", type: "Full-time" },
   ];
 
   return (
     <Layout>
-      <PageHeader title="Careers at Ishan Law" subtitle="Join a community of legal scholars and practitioners dedicated to excellence" breadcrumbs={[{ label: "Contact", href: "/contact" }, { label: "Careers" }]} />
+      <PageHeader title="Careers at Ishan Pharmacy" subtitle="Join a community of pharmaceutical scientists and healthcare educators dedicated to excellence" breadcrumbs={[{ label: "Contact", href: "/contact" }, { label: "Careers" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             <div className="reveal space-y-10">
               <p className="text-foreground/70 leading-relaxed text-lg">
-                Ishan Law invites qualified legal educators, practising advocates, and administrative professionals to join our institution — contributing to producing the next generation of India's legal professionals. We offer a highly professional environment, strong research support, and competitive compensation to foster academic growth and career advancement.
+                Ishan Pharmacy invites qualified pharmaceutical educators, industry practitioners, and administrative professionals to join our institution — contributing to producing the next generation of India's healthcare professionals. We offer a highly professional environment, strong research support, and competitive compensation.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://law.ishan.ac/all-law/gallery-photos/key-highlights/key-highlights-5.jpg" alt="Ishan Law Campus" className="w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-4">

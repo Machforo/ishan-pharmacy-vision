@@ -5,28 +5,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What legal programs are offered at Ishan Law?",
-    answer: "Ishan Law Institute offers the 5-year Integrated BA LLB program and the 3-year LLB program, both approved by the Bar Council of India (BCI) and affiliated with CCS University, Meerut."
+    question: "What programs are offered at Ishan Pharmacy?",
+    answer: "Ishan Institute of Pharmacy offers the 2-year Diploma in Pharmacy (D.Pharm) and the 4-year Bachelor of Pharmacy (B.Pharm) programs."
   },
   {
-    question: "Is Ishan Law Institute approved by the BCI?",
-    answer: "Yes, the Ishan Law Institute is fully approved by the Bar Council of India (BCI), ensuring that our graduates are eligible to enroll as advocates with any State Bar Council across India."
+    question: "Is Ishan Pharmacy approved by the PCI?",
+    answer: "Yes, Ishan Institute of Pharmacy is fully approved by the Pharmacy Council of India (PCI) and affiliated with AKTU and BTE UP."
   },
   {
-    question: "How does the institute support judicial service aspirants?",
-    answer: "We have a dedicated Judicial Services Cell that provides specialized coaching, mock interviews, and guest lectures from serving judges to prepare students for various state judiciary examinations."
+    question: "How does the institute support placements?",
+    answer: "We have a dedicated placement cell that connects students with top pharmaceutical companies, hospitals, and clinical research organizations for internships and full-time roles."
   },
   {
-    question: "What is Clinical Legal Education?",
-    answer: "Clinical legal education at Ishan Law involves mandatory court visits, jail visits, legal aid camps, and moot court exercises, ensuring students gain practical advocacy skills alongside theoretical knowledge."
+    question: "What is the focus of practical training?",
+    answer: "Practical training is emphasized through our 10 specialized laboratories, ensuring hands-on experience in drug formulation, analysis, and clinical pharmacology."
   },
   {
-    question: "Does the institute have a Moot Court facility?",
-    answer: "Yes, we have a high-tech Moot Court Hall designed to simulate a realistic High Court environment where students participate in regular competitions and clinical training sessions."
+    question: "Are there opportunities for industrial visits?",
+    answer: "Yes, we regularly organize industrial visits to leading pharmaceutical manufacturing units to give students a real-world understanding of large-scale production and quality control."
   },
   {
-    question: "What are the eligibility criteria for BA LLB and LLB?",
-    answer: "For BA LLB, candidates must have passed 10+2 with 45% marks (42% for OBC, 40% for SC/ST). For LLB, a graduation degree with similar percentage criteria is required."
+    question: "What are the eligibility criteria for D.Pharm and B.Pharm?",
+    answer: "Candidates must have passed 10+2 with Physics, Chemistry, and Biology/Mathematics with at least 50% marks (45% for SC/ST) from a recognized board."
   }
 ];
 

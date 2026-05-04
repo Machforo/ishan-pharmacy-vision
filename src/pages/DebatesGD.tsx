@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { MessageSquare, Users, Mic2, Briefcase, Trophy } from "lucide-react";
@@ -46,7 +46,7 @@ export default function DebatesGDPage() {
                 Preparing Students for India's Courtrooms
               </h2>
               <p className="text-foreground/70 leading-relaxed">
-                At Ishan Law, we believe the ability to articulate and defend legal arguments is as important as academic excellence. Regular debates and GD sessions prepare students for litigation, corporate legal practice, and competitive exams like the Judiciary. This culture of open dialogue helps build confidence, critical thinking, and the ability to view a case from multiple legal perspectives.
+                At Ishan Pharmacy, we believe the ability to articulate and defend legal arguments is as important as academic excellence. Regular debates and GD sessions prepare students for litigation, corporate pharmacy practice, and competitive exams like the Judiciary. This culture of open dialogue helps build confidence, critical thinking, and the ability to view a case from multiple legal perspectives.
               </p>
               <div className="space-y-4">
                 <p className="text-sm font-bold text-foreground">Participation includes:</p>
