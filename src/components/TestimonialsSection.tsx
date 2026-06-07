@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Star, User, Users } from "lucide-react";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const studentTestimonials = [
   { 
@@ -40,6 +41,11 @@ const parentTestimonials = [
 
 export default function TestimonialsSection() {
   const [activeTab, setActiveTab] = useState<'students' | 'parents'>('students');
+  const { data } = usePharmacyData("testimonials");
+
+  const testimonialsList = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : studentTestimonials);
+  const students = testimonialsList.filter((t: any) => t.type !== 'Parent');
+  const parents = testimonialsList.filter((t: any) => t.type === 'Parent').length > 0 ? testimonialsList.filter((t: any) => t.type === 'Parent') : parentTestimonials;
 
   return (
     <section className="py-16 md:py-24 bg-section-alt overflow-hidden">
@@ -78,15 +84,15 @@ export default function TestimonialsSection() {
               exit={{ opacity: 0 }}
               className="flex gap-8 animate-marquee"
             >
-              {[...(activeTab === 'students' ? studentTestimonials : parentTestimonials), ...(activeTab === 'students' ? studentTestimonials : parentTestimonials)].map((t, i) => (
+              {[...(activeTab === 'students' ? students : parents), ...(activeTab === 'students' ? students : parents)].map((t: any, i: number) => (
                 <div key={`${t.name}-${i}`} className="shrink-0 w-[380px] bg-card border border-muted hover:border-gold/30 rounded-[2.5rem] p-8 relative shadow-lg hover:shadow-2xl transition-all group">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                      <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                      <img src={t.image || t.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name || 'U')}&background=0A1432&color=D4AF37`} alt={t.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <h4 className="font-bold text-lg text-navy">{t.name}</h4>
-                      <p className="text-xs font-bold text-gold uppercase tracking-wider">{t.role}</p>
+                      <p className="text-xs font-bold text-gold uppercase tracking-wider">{t.role || t.designation || "Alumni"}</p>
                     </div>
                     <div className="ml-auto text-gold/10">
                       <Quote size={40} />
@@ -98,7 +104,7 @@ export default function TestimonialsSection() {
                   </div>
 
                   <p className="text-foreground/70 leading-relaxed italic text-sm line-clamp-4">
-                    "{t.text}"
+                    "{t.text || t.feedback || t.quote}"
                   </p>
                 </div>
               ))}

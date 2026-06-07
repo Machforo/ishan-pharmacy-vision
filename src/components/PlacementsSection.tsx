@@ -1,6 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { TrendingUp, Building2, Users2, Star } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const defaultRecruiters = [
   { name: "Sun Pharma", logo: "" },
@@ -16,7 +16,7 @@ const defaultRecruiters = [
 
 export default function PlacementsSection() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("homepage");
+  const { data } = usePharmacyData("homepage");
   const placementsCfg = data?.placements || { title: "Career Outcomes & Placements", description: "Our alumni work in top-tier pharmaceutical companies and healthcare institutions across India." };
   const recruiters = data?.recruitingPartners?.length > 0 ? data.recruitingPartners : defaultRecruiters;
 

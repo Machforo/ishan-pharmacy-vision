@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Calendar, ArrowRight, X, MapPin, Tag, Share2 } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { motion, AnimatePresence } from "framer-motion";
 
 const defaultNews = [
@@ -42,8 +42,8 @@ const defaultNews = [
 export default function NewsSection() {
   const ref = useScrollReveal();
   const [selectedNews, setSelectedNews] = useState<any>(null);
-  const { data } = useIshanLawData("homepage");
-  const news = data?.newsEvents?.length > 0 ? data.newsEvents : defaultNews;
+  const { data } = usePharmacyData("news");
+  const news = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : defaultNews);
 
   return (
     <section className="py-20 md:py-28 bg-section-alt" ref={ref}>

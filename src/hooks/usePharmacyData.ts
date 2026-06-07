@@ -1,0 +1,16 @@
+import { useQuery } from '@tanstack/react-query';
+
+export function usePharmacyData(endpoint: string) {
+  return useQuery({
+    queryKey: ['pharmacy', endpoint],
+    queryFn: async () => {
+      const response = await fetch(`https://ishan-backend-g096.onrender.com/api/pharmacy/${endpoint}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${endpoint} data`);
+      }
+      return response.json();
+    },
+    staleTime: 1000 * 60 * 5, // 5 minutes
+    retry: 2,
+  });
+}

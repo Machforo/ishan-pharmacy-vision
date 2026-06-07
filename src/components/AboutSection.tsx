@@ -1,6 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const defaultHighlights = [
   "PCI Approved & AKTU/BTE Affiliated",
@@ -11,11 +11,11 @@ const defaultHighlights = [
 
 export default function AboutSection() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("homepage");
-  const apiAbout = data?.aboutIshanLaw;
+  const { data } = usePharmacyData("homepage");
+  const apiAbout = data?.aboutSnippet;
   const about = {
-    title: apiAbout?.title || "Excellence in Pharmaceutical Education & Research",
-    description: apiAbout?.description || "Ishan Institute of Pharmacy, established as a premier center for pharmaceutical sciences, is dedicated to producing competent healthcare professionals. Recognized by the Pharmacy Council of India (PCI) and affiliated to AKTU and BTE UP, we combine rigorous academic curriculum with hands-on training in our 10 specialised labs.",
+    title: apiAbout?.title || "A Legacy of Healthcare Excellence in Greater Noida",
+    description: apiAbout?.content || "Ishan Institute of Pharmacy, established as a premier center for pharmaceutical sciences, is dedicated to producing competent healthcare professionals. Recognized by the Pharmacy Council of India (PCI) and affiliated to AKTU and BTE UP, we combine rigorous academic curriculum with hands-on training in our 10 specialised labs.",
     image: (apiAbout?.image && apiAbout.image.length > 5) ? apiAbout.image : "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1200&auto=format&fit=crop"
   };
 
@@ -46,7 +46,7 @@ export default function AboutSection() {
           <div className="reveal-right space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">About Ishan Pharmacy</p>
             <h2 className="font-bold text-foreground leading-tight">
-              A Legacy of Healthcare Excellence in Greater Noida
+              {about.title}
             </h2>
             <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
               {about.description}

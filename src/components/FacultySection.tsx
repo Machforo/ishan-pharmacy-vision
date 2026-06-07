@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, Award, BookOpen, X, Mail, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const eminentFaculty = [
   {
@@ -42,6 +43,8 @@ const eminentFaculty = [
 export default function FacultySection() {
   const ref = useScrollReveal();
   const [selectedFaculty, setSelectedFaculty] = useState<any>(null);
+  const { data } = usePharmacyData("faculty");
+  const faculty = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : eminentFaculty);
 
   return (
     <section className="py-20 md:py-28 bg-section-alt" ref={ref}>
@@ -66,7 +69,7 @@ export default function FacultySection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {eminentFaculty.map((f, i) => (
+          {faculty.slice(0, 4).map((f: any, i: number) => (
             <div 
               key={f.name} 
               onClick={() => setSelectedFaculty(f)}
@@ -74,7 +77,7 @@ export default function FacultySection() {
             >
               <div className="aspect-[4/5] relative overflow-hidden">
                 <img 
-                  src={f.image} 
+                  src={f.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(f.name || 'F')}&background=0A1432&color=D4AF37`} 
                   alt={f.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => {
@@ -135,7 +138,7 @@ export default function FacultySection() {
                 {/* Left: Image */}
                 <div className="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden bg-muted">
                   <img 
-                    src={selectedFaculty.image} 
+                    src={selectedFaculty.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedFaculty.name || 'F')}&background=0A1432&color=D4AF37`} 
                     alt={selectedFaculty.name} 
                     className="w-full h-full object-cover"
                     onError={(e) => {

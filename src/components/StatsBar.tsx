@@ -1,6 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useEffect, useState, useRef } from "react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const defaultStats = [
   { value: "95%", label: "PLACEMENTS" },
@@ -55,14 +55,14 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
 
 export default function StatsBar() {
   const ref = useScrollReveal();
-  const { data, isLoading } = useIshanLawData("homepage");
+  const { data, isLoading } = usePharmacyData("homepage");
   
   // Use a ref to keep the stats stable once they are loaded or if using defaults
   const [statsList, setStatsList] = useState(defaultStats);
 
   useEffect(() => {
-    if (data?.numbers?.length > 0) {
-      setStatsList(data.numbers);
+    if (data?.stats?.length > 0) {
+      setStatsList(data.stats);
     }
   }, [data]);
 
