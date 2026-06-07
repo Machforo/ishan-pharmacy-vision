@@ -5,14 +5,14 @@ import { FileText, ExternalLink } from "lucide-react";
 import { useIshanLawData } from "@/hooks/useIshanLawData";
 
 const defaultAccreditations = [
-  { title: "PCI", description: "Mandatory recognition for pharmacy programs. Pharmacy Council of India.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/PCI-150x150.png" },
-  { title: "AKTU", description: "Affiliation for B.Pharm degree programs. Dr. A.P.J. Abdul Kalam Technical University, Lucknow.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/AKTU-150x150.png" },
-  { title: "BTE UP", description: "Affiliation for D.Pharm diploma programs. Board of Technical Education, Uttar Pradesh.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/BTE-up-150x150.jpg" },
-  { title: "JEECUP", description: "Joint Entrance Examination Council, Uttar Pradesh — for polytechnic and D.Pharm admissions.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Jeecup-150x150.png" },
-  { title: "URISE", description: "UP Rozgar aur Shiksha Initiative — online portal for student registration and educational services.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/URISE.png" },
-  { title: "CUET", description: "Common University Entrance Test — accepted for B.Pharm admissions.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/CUET-150x150.jpg" },
-  { title: "UP Scholarship", description: "Official UP Government Scholarship portal for SC/ST/OBC and EWS students.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Scholarship-UP-150x150.jpg" },
-  { title: "UP Pharmacy Council", description: "State regulatory body for pharmacy practice and pharmacist registration in Uttar Pradesh.", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/UP-Pharmacy-Council-150x150.png" },
+  { title: "PCI", description: "Mandatory recognition for pharmacy programs. Pharmacy Council of India.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=PCI" },
+  { title: "AKTU", description: "Affiliation for B.Pharm degree programs. Dr. A.P.J. Abdul Kalam Technical University, Lucknow.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=AKTU" },
+  { title: "BTE UP", description: "Affiliation for D.Pharm diploma programs. Board of Technical Education, Uttar Pradesh.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=BTE+UP" },
+  { title: "JEECUP", description: "Joint Entrance Examination Council, Uttar Pradesh — for polytechnic and D.Pharm admissions.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=JEECUP" },
+  { title: "URISE", description: "UP Rozgar aur Shiksha Initiative — online portal for student registration and educational services.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=URISE" },
+  { title: "CUET", description: "Common University Entrance Test — accepted for B.Pharm admissions.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=CUET" },
+  { title: "UP Scholarship", description: "Official UP Government Scholarship portal for SC/ST/OBC and EWS students.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=Scholarship" },
+  { title: "UP Pharmacy Council", description: "State regulatory body for pharmacy practice and pharmacist registration in Uttar Pradesh.", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=UP+Pharmacy+Council" },
 ];
 
 export default function ApprovalsPage() {

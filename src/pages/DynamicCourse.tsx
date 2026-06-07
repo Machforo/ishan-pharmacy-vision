@@ -24,7 +24,7 @@ export default function DynamicCourse() {
       overview: "The Bachelor of Pharmacy (B.Pharm) at Ishan Institute of Pharmacy is a 4-year professional undergraduate degree approved by the Pharmacy Council of India (PCI) and affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU). The program provides comprehensive training in pharmaceutical sciences, drug discovery, clinical pharmacy, and quality assurance — preparing students for careers across the pharmaceutical industry, hospitals, research, and regulatory agencies.",
       curriculumStructure: "The curriculum spans 8 semesters covering Pharmaceutics, Pharmaceutical Chemistry, Pharmacology, Pharmacognosy, Pharmacy Practice, and related life sciences. Practical laboratory training in all 10 specialized labs, industrial visits, and a final-year project are integral components. The program follows AKTU and PCI syllabus standards.",
       careerScope: "B.Pharm graduates can work as pharmacists in hospitals, community pharmacies, and pharmaceutical companies. Career options include Production Officer, Quality Control/Assurance Analyst, Drug Regulatory Officer, Medical Representative, Clinical Research Associate, or pursue M.Pharm/MBA for advanced roles.",
-      image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg"
+      image: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments"
     },
     {
       programName: "D.Pharm",
@@ -35,7 +35,7 @@ export default function DynamicCourse() {
       overview: "The Diploma in Pharmacy (D.Pharm) at Ishan Institute of Pharmacy is a 2-year program approved by the Pharmacy Council of India (PCI) and affiliated with the Board of Technical Education, Uttar Pradesh (BTE UP). It is the entry-level qualification for registered pharmacists in India. The program offers a solid foundation in pharmaceutical sciences, dispensing, and patient counselling.",
       curriculumStructure: "The curriculum covers Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Human Anatomy & Physiology, Health Education, and Biochemistry & Clinical Pathology. Practical training in the institutional labs and a hospital internship are mandatory components of the program.",
       careerScope: "D.Pharm graduates are eligible to register as pharmacists with the UP Pharmacy Council. They can work as retail/hospital pharmacists, medical representatives, in pharmaceutical manufacturing, or pursue B.Pharm for further career advancement.",
-      image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg"
+      image: "https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab"
     },
   ];
 
@@ -53,7 +53,7 @@ export default function DynamicCourse() {
         {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0">
            <img 
-             src={course.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg"} 
+             src={course.image || "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments"} 
              className="w-full h-full object-cover opacity-20 mix-blend-overlay scale-110" 
              alt="Background"
            />

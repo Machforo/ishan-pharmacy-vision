@@ -13,7 +13,7 @@ export default function GrievanceRedressalPage() {
             <div className="reveal space-y-6">
               <p className="text-foreground/70 leading-relaxed text-sm">As mandated by the Bar Council of India and the University Grants Commission, Ishan Institute of Pharmacy has established a comprehensive Grievance Redressal Mechanism. We are committed to maintaining a transparent, fair, and time-bound process for addressing concerns related to academic matters, administrative services, and campus facilities.</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Administration" className="w-full h-80 object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Administration" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6">

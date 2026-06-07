@@ -67,14 +67,14 @@ export default function StatsBar() {
   }, [data]);
 
   const brands = [
-    { name: "PCI", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/PCI-150x150.png" },
-    { name: "AKTU", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/AKTU-150x150.png" },
-    { name: "BTE UP", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/BTE-up-150x150.jpg" },
-    { name: "JEECUP", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Jeecup-150x150.png" },
-    { name: "URISE", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/URISE.png" },
-    { name: "CUET", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/CUET-150x150.jpg" },
-    { name: "UP Scholarship", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Scholarship-UP-150x150.jpg" },
-    { name: "UP Pharmacy Council", logo: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/UP-Pharmacy-Council-150x150.png" },
+    { name: "PCI", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=PCI" },
+    { name: "AKTU", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=AKTU" },
+    { name: "BTE UP", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=BTE+UP" },
+    { name: "JEECUP", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=JEECUP" },
+    { name: "URISE", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=URISE" },
+    { name: "CUET", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=CUET" },
+    { name: "UP Scholarship", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=Scholarship" },
+    { name: "UP Pharmacy Council", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=UP+Pharmacy+Council" },
   ];
 
   return (

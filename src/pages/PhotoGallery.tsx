@@ -9,8 +9,8 @@ const defaultAlbums = [
     category: "Pharmacy Labs", 
     date: "2025-26", 
     images: [
-      { id: "mc-1", alt: "Pharmacy Lab 1", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" },
-      { id: "mc-2", alt: "Lab Experiments", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" },
+      { id: "mc-1", alt: "Pharmacy Lab 1", url: "https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab" },
+      { id: "mc-2", alt: "Lab Experiments", url: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" },
       { id: "mc-3", alt: "Practical Experiments", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-1024x454.jpg" },
       { id: "mc-4", alt: "Practical Experiments 2", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-2-1024x705.jpg" },
     ]
@@ -28,7 +28,7 @@ const defaultAlbums = [
     category: "Campus Infrastructure", 
     date: "Facilities", 
     images: [
-      { id: "infra-1", alt: "Campus Building", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" },
+      { id: "infra-1", alt: "Campus Building", url: "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" },
       { id: "infra-2", alt: "Library", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" },
       { id: "infra-3", alt: "Hostel", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Girls-Hostel-1024x768.jpg" },
       { id: "infra-4", alt: "Digital Lab", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Online-Learning-1024x710.jpg" },
@@ -38,7 +38,7 @@ const defaultAlbums = [
     category: "Academic Excellence", 
     date: "Learning", 
     images: [
-      { id: "acad-1", alt: "Classroom", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" },
+      { id: "acad-1", alt: "Classroom", url: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" },
       { id: "acad-2", alt: "Seminar", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" },
       { id: "acad-3", alt: "Presentation", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Smart-classroom-1024x674.jpg" },
       { id: "acad-4", alt: "Interactive Session", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Orientation-Program-for-New-Batch-1024x628.jpg" },
@@ -50,7 +50,7 @@ const defaultAlbums = [
     images: [
       { id: "cl-1", alt: "Cultural Fest", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Inauguration-of-Spardha--1024x473.jpg" },
       { id: "cl-2", alt: "Dance Performance", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
-      { id: "cl-6", alt: "Group Photo", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" },
+      { id: "cl-6", alt: "Group Photo", url: "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" },
     ]
   },
   { 

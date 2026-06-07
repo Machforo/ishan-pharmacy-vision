@@ -44,7 +44,7 @@ export default function MootCourtPage() {
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img 
-                  src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" 
+                  src="https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab" 
                   alt="Moot Court Hall at Ishan Institute of Pharmacy" 
                   className="w-full h-[450px] object-cover"
                 />

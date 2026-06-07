@@ -18,7 +18,7 @@ export default function AntiRaggingPage() {
               </div>
               <p className="text-foreground/70 leading-relaxed text-sm">As per the directions of the Hon'ble Supreme Court of India and the Bar Council of India (BCI) / UGC Regulations, Ishan Institute of Pharmacy maintains an absolute zero-tolerance policy against ragging in any form. Ragging is a criminal offence and can lead to immediate expulsion, criminal prosecution, and permanent debarment from pharmacy practice.</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border mt-8">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6">

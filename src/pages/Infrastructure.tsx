@@ -42,7 +42,7 @@ The campus is highly accessible, situated in the heart of Greater Noida's educat
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <div className="reveal rounded-2xl overflow-hidden border shadow-sm">
-              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Campus Building" className="w-full h-64 object-cover" />
+              <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Campus Building" className="w-full h-64 object-cover" />
             </div>
             <div className="reveal delay-100 rounded-2xl overflow-hidden border shadow-sm">
               <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" alt="Institutional Facility" className="w-full h-64 object-cover" />

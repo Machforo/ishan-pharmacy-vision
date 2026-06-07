@@ -53,7 +53,7 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
               </div>
             </div>
 

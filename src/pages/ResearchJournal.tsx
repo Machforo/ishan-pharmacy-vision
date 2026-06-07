@@ -15,7 +15,7 @@ export default function ResearchJournalPage() {
             <div className="reveal space-y-6">
               <p className="text-foreground/70 leading-relaxed">Ishan Pharmacy Review is the flagship peer-reviewed research journal published by the Ishan Institute of Pharmacy. Dedicated to fostering high-quality pharmaceutical scholarship, the journal publishes original research papers, case comments, and book reviews on contemporary pharmacy practice issues, constitutional developments, and international law. Published bi-annually, it serves as a platform for academicians, pharmaceutical practitioners, and students to contribute to the evolving pharmaceutical discourse in India and abroad.</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" alt="Ishan Pharmacy Research" className="w-full h-80 object-cover" />
+                <img src="https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab" alt="Ishan Pharmacy Research" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6">

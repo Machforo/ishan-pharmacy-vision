@@ -20,7 +20,7 @@ export default function EducationOverviewPage() {
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             <div className="reveal rounded-2xl overflow-hidden border mb-12 shadow-md">
-              <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" alt="Academics at Ishan Pharmacy" className="w-full h-96 object-cover" />
+              <img src="https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" alt="Academics at Ishan Pharmacy" className="w-full h-96 object-cover" />
             </div>
             <div className="reveal space-y-5 mb-16">
               <p className="text-foreground/70 leading-relaxed">

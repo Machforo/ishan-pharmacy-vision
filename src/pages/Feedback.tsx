@@ -15,7 +15,7 @@ export default function FeedbackPage() {
                 Ishan Pharmacy values feedback from students, parents, and visitors — assessment of academic quality, faculty, facilities, and administrative support helps us improve. All responses are carefully reviewed by the Quality Assurance Cell and reach the Principal's office directly. Your inputs remain private and confidential.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 bg-card rounded-2xl p-8 shadow-sm border">

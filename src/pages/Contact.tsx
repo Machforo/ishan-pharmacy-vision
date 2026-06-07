@@ -1,4 +1,4 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -9,13 +9,13 @@ import { toast } from "sonner";
 export default function ContactPage() {
   const ref = useScrollReveal();
   const { data } = useIshanLawData("contact");
-  const mainContact = data?.mainContact || {
+  const mainContact = data?.address ? data : {
     address: "Knowledge Park-III, Greater Noida, Uttar Pradesh 201308",
     phone: "8448797700",
     email: "admissions@ishan.ac",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.2!2d77.49!3d28.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sIshan+Institute+of+Pharmacy!5e0!3m2!1sen!2sin!4v1"
   };
-  const collegeContacts = data?.collegeContacts || [];
+
 
   const [form, setForm] = useState({ name: "", phone: "", email: "", program: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -33,10 +33,10 @@ export default function ContactPage() {
     }
 
     setSubmitting(true);
-    
+
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     // Attempt real submit but don't block the UI if it fails (as backend might not be up)
     try {
       await fetch("https://ishan-backend-g096.onrender.com/api/pharmacy/leads", {
@@ -47,7 +47,7 @@ export default function ContactPage() {
     } catch (err) {
       console.warn("Backend not reachable, simulating success for demo", err);
     }
-    
+
     setSubmitted(true);
     setForm({ name: "", phone: "", email: "", program: "", message: "" });
     setSubmitting(false);
@@ -85,9 +85,9 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <div className="mt-6">
-                   <a href={`https://wa.me/918448797700`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#128C7E] transition-colors w-full sm:w-auto">
-                     <span className="text-lg">💬</span> Chat on WhatsApp
-                   </a>
+                  <a href={`https://wa.me/918448797700`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#128C7E] transition-colors w-full sm:w-auto">
+                    <span className="text-lg">💬</span> Chat on WhatsApp
+                  </a>
                 </div>
               </div>
               <div className="rounded-xl overflow-hidden border h-[300px]">
@@ -110,15 +110,15 @@ export default function ContactPage() {
                 ) : (
                   <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <input type="text" placeholder="Full Name*" value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} required className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
-                      <input type="tel" placeholder="Phone Number*" value={form.phone} onChange={e => setForm(p => ({...p, phone: e.target.value}))} required className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
+                      <input type="text" placeholder="Full Name*" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} required className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
+                      <input type="tel" placeholder="Phone Number*" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} required className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
                     </div>
-                    <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm(p => ({...p, email: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
-                    <select value={form.program} onChange={e => setForm(p => ({...p, program: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow">
+                    <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
+                    <select value={form.program} onChange={e => setForm(p => ({ ...p, program: e.target.value }))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow">
                       <option value="">Select Program</option>
                       <option>D.Pharm</option><option>B.Pharm</option>
                     </select>
-                    <textarea placeholder="Your Message (optional)" rows={4} value={form.message} onChange={e => setForm(p => ({...p, message: e.target.value}))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow resize-none" />
+                    <textarea placeholder="Your Message (optional)" rows={4} value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow resize-none" />
                     <button type="submit" disabled={submitting} className="w-full py-3.5 text-sm font-semibold bg-navy text-primary-foreground rounded-lg shadow-lg hover:bg-navy/90 transition-all active:scale-[0.97] disabled:opacity-60">
                       {submitting ? "Submitting..." : "Submit Enquiry"}
                     </button>
@@ -127,7 +127,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          
+
 
         </div>
       </section>

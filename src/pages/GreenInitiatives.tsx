@@ -31,10 +31,10 @@ export default function GreenInitiativesPage() {
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="reveal grid sm:grid-cols-2 gap-6">
               <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9]">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg" alt="Ishan Pharmacy Green Campus" className="w-full h-full object-cover" />
+                <img src="https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab" alt="Ishan Pharmacy Green Campus" className="w-full h-full object-cover" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9] hidden sm:block">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Sustainability" className="w-full h-full object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Sustainability" className="w-full h-full object-cover" />
               </div>
             </div>
             {content && (

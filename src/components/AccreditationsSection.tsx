@@ -2,14 +2,14 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 // Force-hardcoded — bypasses CMS to ensure pharmacy logos always show
 const accreditations = [
-  { name: "PCI", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/PCI-150x150.png" },
-  { name: "AKTU", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/AKTU-150x150.png" },
-  { name: "BTE UP", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/BTE-up-150x150.jpg" },
-  { name: "JEECUP", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Jeecup-150x150.png" },
-  { name: "URISE", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/URISE.png" },
-  { name: "CUET", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/CUET-150x150.jpg" },
-  { name: "UP Scholarship", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/Scholarship-UP-150x150.jpg" },
-  { name: "UP Pharmacy Council", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/07/UP-Pharmacy-Council-150x150.png" },
+  { name: "PCI", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=PCI" },
+  { name: "AKTU", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=AKTU" },
+  { name: "BTE UP", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=BTE+UP" },
+  { name: "JEECUP", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=JEECUP" },
+  { name: "URISE", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=URISE" },
+  { name: "CUET", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=CUET" },
+  { name: "UP Scholarship", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=Scholarship" },
+  { name: "UP Pharmacy Council", url: "https://placehold.co/150x150/e2e8f0/1e293b?text=UP+Pharmacy+Council" },
 ];
 
 export default function AccreditationsSection() {

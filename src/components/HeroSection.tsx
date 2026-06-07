@@ -9,7 +9,7 @@ import { usePharmacyData } from "@/hooks/usePharmacyData";
 // ─── Slides ───────────────────────────────────────────────────────────────────
 const DEFAULT_SLIDES = [
   {
-    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg",
+    image: "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus",
     badge: "PCI Approved · AKTU/BTE Affiliated",
     title: "Advancing Healthcare",
     highlight: "Through Excellence",
@@ -18,7 +18,7 @@ const DEFAULT_SLIDES = [
     cta2: { label: "Campus Tour", href: "/infrastructure" },
   },
   {
-    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg",
+    image: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments",
     badge: "10 Specialized Labs",
     title: "Hands-on",
     highlight: "Clinical Training",
@@ -27,7 +27,7 @@ const DEFAULT_SLIDES = [
     cta2: { label: "Apply Now", href: "/admissions" },
   },
   {
-    image: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Pharmacy-Lab-1024x683.jpg",
+    image: "https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab",
     badge: "Industry Integration",
     title: "From Classrooms to",
     highlight: "Leading Pharma",
@@ -70,40 +70,40 @@ export default function HeroSection() {
   const DELAY = 5500;
 
   const newsData = [
-    { 
-      type: 'EVENT', 
-      title: 'National Pharmacy Week Celebration', 
-      date: 'NOV 22', 
+    {
+      type: 'EVENT',
+      title: 'National Pharmacy Week Celebration',
+      date: 'NOV 22',
       action: 'popup',
       image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800&auto=format&fit=crop',
       details: 'Ishan Institute of Pharmacy celebrates National Pharmacy Week with a series of seminars, health camps, and student competitions focusing on the pharmacist\'s role in global health.'
     },
-    { 
-      type: 'NEWS', 
-      title: 'Health Camp & Free Checkups', 
-      date: 'FEB 18', 
+    {
+      type: 'NEWS',
+      title: 'Health Camp & Free Checkups',
+      date: 'FEB 18',
       action: 'popup',
       image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop',
       details: 'Our D.Pharm and B.Pharm students organized a free health and awareness camp, providing basic diagnostic tests and medication counseling to over 100 community members.'
     },
-    { 
-      type: 'VISIT', 
-      title: 'Industrial Visit to Sun Pharma', 
-      date: 'JAN 25', 
+    {
+      type: 'VISIT',
+      title: 'Industrial Visit to Sun Pharma',
+      date: 'JAN 25',
       action: 'none'
     },
-    { 
-      type: 'EVENT', 
-      title: 'Seminar on Modern Drug Delivery Systems', 
-      date: 'APR 12', 
+    {
+      type: 'EVENT',
+      title: 'Seminar on Modern Drug Delivery Systems',
+      date: 'APR 12',
       action: 'popup',
       image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop',
       details: 'Eminent pharmaceutical scientists and industry experts discuss the latest advancements in targeted drug delivery systems and their impact on patient care.'
     },
-    { 
-      type: 'NEWS', 
-      title: 'Pharmacology Lab Upgraded with New Equipment', 
-      date: 'DEC 15', 
+    {
+      type: 'NEWS',
+      title: 'Pharmacology Lab Upgraded with New Equipment',
+      date: 'DEC 15',
       action: 'popup',
       image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=800&auto=format&fit=crop',
       details: 'Latest simulation software and physiological instruments installed in the Pharmacology Lab to enhance practical learning without relying solely on animal models.'
@@ -122,7 +122,7 @@ export default function HeroSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic phone validation
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(formData.phone)) {
@@ -149,7 +149,7 @@ export default function HeroSection() {
       console.log("Admission enquiry submitted:", formData);
       setIsSubmitted(true);
       toast.success("Application received! Our admissions team will reach out shortly.");
-      
+
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: "", phone: "", course: "" });
@@ -178,7 +178,7 @@ export default function HeroSection() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const slide = SLIDES[current];
+  const slide = SLIDES[current] || SLIDES[0];
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
@@ -271,16 +271,16 @@ export default function HeroSection() {
           {/* ── Combined Enquiry & Campus Life (Tabbed) ── */}
           <div className="lg:col-span-5">
             <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[540px]">
-              
+
               {/* Tabs Header */}
               <div className="flex border-b border-navy/5">
-                <button 
+                <button
                   onClick={() => setHeroActiveTab('enquiry')}
                   className={`flex-1 py-5 text-xs font-bold uppercase tracking-widest transition-all ${heroActiveTab === 'enquiry' ? 'bg-white text-navy' : 'bg-navy/[0.03] text-muted-foreground hover:bg-navy/[0.05]'}`}
                 >
                   Quick Enquiry
                 </button>
-                <button 
+                <button
                   onClick={() => setHeroActiveTab('campus')}
                   className={`flex-1 py-5 text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${heroActiveTab === 'campus' ? 'bg-white text-navy' : 'bg-navy/[0.03] text-muted-foreground hover:bg-navy/[0.05]'}`}
                 >
@@ -297,7 +297,7 @@ export default function HeroSection() {
                       <h3 className="text-2xl font-bold text-navy mb-2">Quick Enquiry</h3>
                       <p className="text-xs leading-relaxed font-medium uppercase tracking-wider">Start your professional journey</p>
                     </div>
-                    
+
                     {isSubmitted ? (
                       <div className="py-10 text-center space-y-6 flex-1 flex flex-col justify-center">
                         <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto">
@@ -364,8 +364,8 @@ export default function HeroSection() {
                     <div className="flex-1 relative overflow-hidden group mb-6">
                       <div className="flex flex-col gap-4 animate-marquee-vertical group-hover:pause">
                         {newsData.concat(newsData.slice(0, 2)).map((item, idx) => (
-                          <div 
-                            key={idx} 
+                          <div
+                            key={idx}
                             onClick={() => handleNewsClick(item)}
                             className="p-4 rounded-2xl bg-muted/20 border border-transparent hover:border-gold/20 hover:bg-white hover:shadow-xl transition-all cursor-pointer group/item"
                           >
@@ -418,12 +418,12 @@ export default function HeroSection() {
       <AnimatePresence>
         {selectedNews && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-navy/60 backdrop-blur-md">
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }} 
-              onClick={() => setSelectedNews(null)} 
-              className="absolute inset-0" 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedNews(null)}
+              className="absolute inset-0"
             />
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -431,7 +431,7 @@ export default function HeroSection() {
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
             >
-              <button 
+              <button
                 onClick={() => setSelectedNews(null)}
                 className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/10 text-navy hover:bg-gold transition-colors flex items-center justify-center z-10"
               >
@@ -440,13 +440,13 @@ export default function HeroSection() {
 
               {/* Left Side: Image */}
               <div className="md:w-5/12 h-64 md:h-auto relative overflow-hidden">
-                <img 
-                  src={selectedNews.image} 
+                <img
+                  src={selectedNews.image}
                   alt={selectedNews.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent flex items-end p-8">
-                   <span className="text-white/80 text-xs font-bold uppercase tracking-widest">{selectedNews.date}</span>
+                  <span className="text-white/80 text-xs font-bold uppercase tracking-widest">{selectedNews.date}</span>
                 </div>
               </div>
 
@@ -461,7 +461,7 @@ export default function HeroSection() {
                 <p className="text-foreground/70 leading-relaxed text-base mb-8 whitespace-pre-wrap">
                   {selectedNews.details}
                 </p>
-                
+
                 <div className="mt-auto flex flex-wrap gap-4 pt-6 border-t border-navy/5">
                   <button className="px-8 py-3 bg-navy text-white font-bold rounded-xl hover:bg-gold hover:text-navy transition-all shadow-lg shimmer-btn">Register Now</button>
                   <button onClick={() => setSelectedNews(null)} className="px-8 py-3 text-navy font-bold hover:text-gold transition-colors">Close</button>

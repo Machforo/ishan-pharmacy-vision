@@ -60,7 +60,7 @@ I warmly invite you to join the Ishan Pharmacy community and experience an educa
                 </div>
 
                 <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                  <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Campus" className="w-full h-64 object-cover" />
+                  <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Campus" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>

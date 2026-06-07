@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
                 Ishan Educational Group ("we," "us," "our") is committed to protecting the privacy of visitors to our websites (ishan.ac and all sub-sites including pharmacy.ishan.ac). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or submit forms.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Ishan-Campus.jpg" alt="Ishan Pharmacy Institutional Ethics" className="w-full h-80 object-cover" />
+                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Institutional Ethics" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 space-y-6 text-sm leading-relaxed">

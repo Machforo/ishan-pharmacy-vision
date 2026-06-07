@@ -22,11 +22,17 @@ export default function AdmissionsEnquiryPage() {
     }
 
     setSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitted(true);
-      setSubmitting(false);
-    }, 1500);
+    try {
+      await fetch("https://ishan-backend-g096.onrender.com/api/pharmacy/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, email: form.email || form.phone + "@placeholder.com", message: "Programme: " + form.program + ". " + form.message, source: "Admissions Enquiry" }),
+      });
+    } catch (err) {
+      console.warn("Backend not reachable", err);
+    }
+    setSubmitted(true);
+    setSubmitting(false);
   };
 
   return (
@@ -81,7 +87,7 @@ export default function AdmissionsEnquiryPage() {
                   For your convenience, our online admissions portal allows you to track your application, upload documents, and pay fees digitally, ensuring a low-friction admission experience from anywhere.
                 </p>
                 <div className="rounded-2xl overflow-hidden shadow-2xl border mt-8">
-                  <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Lab-with-Latest-Equipments-1024x769.jpg" alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
+                  <img src="https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>
