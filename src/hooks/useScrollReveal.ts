@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
+export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(dependencies: any[] = []) {
   const ref = useRef<T>(null);
 
   useEffect(() => {
@@ -20,14 +20,27 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
     );
 
     // Observe the element and all children with reveal classes
-    const revealElements = el.querySelectorAll(".reveal, .reveal-left, .reveal-right");
-    revealElements.forEach((child) => observer.observe(child));
-    if (el.classList.contains("reveal") || el.classList.contains("reveal-left") || el.classList.contains("reveal-right")) {
-      observer.observe(el);
-    }
+    const observeElements = () => {
+      const revealElements = el.querySelectorAll(".reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed)");
+      revealElements.forEach((child) => observer.observe(child));
+      if (!el.classList.contains("revealed") && (el.classList.contains("reveal") || el.classList.contains("reveal-left") || el.classList.contains("reveal-right"))) {
+        observer.observe(el);
+      }
+    };
 
-    return () => observer.disconnect();
-  }, []);
+    observeElements();
+
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(el, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, dependencies);
 
   return ref;
 }

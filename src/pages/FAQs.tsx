@@ -3,58 +3,17 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultFaqCategories = [
-  {
-    category: "Admissions",
-    faqs: [
-      { q: "What is the admission process for D.Pharm and B.Pharm?", a: "Admissions at Ishan Pharmacy are based on merit in qualifying examinations (10+2) and UPSEE/CUET counseling, followed by a personal interview." },
-      { q: "What are the eligibility criteria for the programs?", a: "Candidates must have passed 10+2 with Physics, Chemistry, and Biology/Mathematics with at least 50% marks (45% for SC/ST) from a recognized board." },
-      { q: "Can I apply for admission before my 12th results are out?", a: "Yes, you can apply provisionally. Your admission will be finalized once you submit your qualifying marksheets meeting the eligibility criteria." },
-      { q: "How do I contact an admissions counsellor?", a: "You can reach our admissions helpline at +91 8448797700 or use the WhatsApp button on the website for immediate assistance." },
-    ],
-  },
-  {
-    category: "Programmes",
-    faqs: [
-      { q: "Is Ishan Pharmacy approved by the Pharmacy Council of India?", a: "Yes, Ishan Institute of Pharmacy is fully approved by the Pharmacy Council of India (PCI) and affiliated with AKTU and BTE UP." },
-      { q: "What is the focus of practical training?", a: "Practical training is emphasized through our 10 specialized laboratories, ensuring hands-on experience in drug formulation, analysis, and clinical pharmacology." },
-      { q: "Are industrial visits mandatory?", a: "Yes, we regularly organize industrial visits to leading pharmaceutical manufacturing units to give students a real-world understanding of large-scale production." },
-    ],
-  },
-  {
-    category: "Fees & Scholarships",
-    faqs: [
-      { q: "What kind of scholarships are available?", a: "We offer merit-based scholarships based on academic excellence in 10+2 and special categories as per government norms." },
-      { q: "Are installment options available for fee payment?", a: "Yes, annual fees can be paid in semester-wise installments. Our accounts office can provide a detailed schedule at the time of admission." },
-      { q: "What are the payment modes accepted?", a: "Fees can be paid online via our portal (fee.ishan.ac), through bank demand drafts, or direct bank transfers." },
-    ],
-  },
-  {
-    category: "Campus Life",
-    faqs: [
-      { q: "What facilities are available in the Library?", a: "Our specialized medical library houses thousands of pharmacy books, journals, and reports, along with digital access to research databases." },
-      { q: "What are the hostel facilities like?", a: "We provide separate, secure hostels for boys and girls with 24/7 security, Wi-Fi, and nutritious mess facilities within the Knowledge Park campus." },
-      { q: "Are there clinical visits for first-year students?", a: "Yes, we initiate health awareness programs and preliminary clinical exposure from the first year itself to build a strong practical foundation." },
-    ],
-  },
-  {
-    category: "Career Outcomes",
-    faqs: [
-      { q: "How does the placement cell support pharmacy students?", a: "The cell facilitates internships with top pharmaceutical companies and hospitals, and provides placement support for roles in manufacturing, QA/QC, and clinical research." },
-      { q: "What career paths can I pursue after B.Pharm?", a: "Graduates can work as clinical pharmacists, drug inspectors, research scientists, QA/QC professionals, or pursue higher studies like M.Pharm and Pharm.D." },
-    ],
-  },
-];
+const defaultFaqCategories = [];
 
 export default function FAQsPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("admissions");
+  const { data } = usePharmacyData("faqs");
 
-  // If API provides faqs array, group them into a single category; otherwise fall back to default
-  const faqCategories = data?.faq?.length > 0
-    ? [{ category: "Frequently Asked Questions", faqs: data.faq.map((f: any) => ({ q: f.question, a: f.answer })) }]
+  // Since faqs endpoint returns a collection (array of items)
+  const faqCategories = Array.isArray(data) && data.length > 0
+    ? [{ category: "Frequently Asked Questions", faqs: data.map((f: any) => ({ q: f.question, a: f.answer })) }]
     : defaultFaqCategories;
 
   return (

@@ -4,7 +4,9 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { BookOpen, ExternalLink } from "lucide-react";
 
-const publications = [
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultPublications = [
   { title: "Novel Drug Delivery Systems for Enhanced Bioavailability", authors: "Dr. Sandeep Singh, Dr. Megha Gupta", journal: "Asian Journal of Pharmaceutics", year: "2024", doi: "#" },
   { title: "Phytochemical Analysis of Ocimum sanctum for Antimicrobial Activity", authors: "Prof. Amit Das, Ms. Anjali Sharma", journal: "Journal of Pharmacognosy", year: "2023", doi: "#" },
   { title: "Formulation and Evaluation of Sustained Release Tablets of Metformin", authors: "Dr. Sandeep Singh, Mr. Karan Bajaj", journal: "International Journal of Pharmaceutics", year: "2023", doi: "#" },
@@ -14,7 +16,9 @@ const publications = [
 ];
 
 export default function PublicationsPage() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("publications");
+  const ref = useScrollReveal([data]);
+  const publications = data?.length > 0 ? data : defaultPublications;
   return (
     <Layout>
       <PageHeader

@@ -4,7 +4,9 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Users, Building2, Star, TrendingUp } from "lucide-react";
 
-const alumni = [
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultAlumni = [
   { name: "Priya Sharma", batch: "B.Pharm 2022", company: "Sun Pharma", role: "Senior Research Scientist" },
   { name: "Rohit Gupta", batch: "D.Pharm 2021", company: "Apollo Pharmacy", role: "Store Manager" },
   { name: "Ankita Singh", batch: "B.Pharm 2023", company: "Cipla", role: "QA Executive" },
@@ -14,7 +16,9 @@ const alumni = [
 ];
 
 export default function AlumniNetworkPage() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("alumninetwork");
+  const ref = useScrollReveal([data]);
+  const alumni = data?.length > 0 ? data : defaultAlumni;
   return (
     <Layout>
       <PageHeader

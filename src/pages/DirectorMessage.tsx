@@ -2,11 +2,11 @@
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function DirectorMessagePage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("aboutus");
+  const { data } = usePharmacyData("aboutus");
   const defaultImage = "/assets/director.jpg"; // Placeholder path for now
   const msg = data?.directorMessage || {
       name: "Dr. D.K. Garg",

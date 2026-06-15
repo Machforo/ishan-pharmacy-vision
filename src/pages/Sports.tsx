@@ -3,11 +3,11 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function SportsPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
+  const { data } = usePharmacyData("campuslife");
   const sports = data?.sports;
   const content = sports?.content;
   const specs = sports?.specs?.length > 0 ? sports.specs : [

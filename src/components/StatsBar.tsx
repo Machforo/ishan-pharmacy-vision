@@ -2,12 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useEffect, useState, useRef } from "react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultStats = [
-  { value: "95%", label: "PLACEMENTS" },
-  { value: "10", label: "SPECIALIZED LABS" },
-  { value: "10,000+", label: "ALUMNI NETWORK" },
-  { value: "150+", label: "FACULTY HUB" },
-];
+const defaultStats = [];
 
 function AnimatedCounter({ rawValue }: { rawValue: string }) {
   const numMatch = typeof rawValue === 'string' ? rawValue.match(/^[\d,.]+/) : null;
@@ -54,19 +49,24 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
 }
 
 export default function StatsBar() {
-  const ref = useScrollReveal();
   const { data, isLoading } = usePharmacyData("homepage");
   
   // Use a ref to keep the stats stable once they are loaded or if using defaults
   const [statsList, setStatsList] = useState(defaultStats);
+  const [brandsList, setBrandsList] = useState<any[]>([]);
+
+  const ref = useScrollReveal([statsList, brandsList]);
 
   useEffect(() => {
     if (data?.stats?.length > 0) {
       setStatsList(data.stats);
     }
+    if (data?.brands?.length > 0) {
+      setBrandsList(data.brands);
+    }
   }, [data]);
 
-  const brands = [
+  const brands = brandsList.length > 0 ? brandsList : [
     { name: "PCI", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=PCI" },
     { name: "AKTU", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=AKTU" },
     { name: "BTE UP", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=BTE+UP" },
@@ -76,7 +76,6 @@ export default function StatsBar() {
     { name: "UP Scholarship", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=Scholarship" },
     { name: "UP Pharmacy Council", logo: "https://placehold.co/150x150/e2e8f0/1e293b?text=UP+Pharmacy+Council" },
   ];
-
   return (
     <section className="bg-navy relative z-10 overflow-hidden" ref={ref}>
       <div className="container-wide py-16 md:py-20">
@@ -84,6 +83,7 @@ export default function StatsBar() {
           {statsList.map((stat: any, i: number) => (
             <div
               key={stat.label || i}
+              
               className={`text-center reveal delay-${i * 100}`}
             >
               <AnimatedCounter rawValue={stat.value?.toString() || "0"} />

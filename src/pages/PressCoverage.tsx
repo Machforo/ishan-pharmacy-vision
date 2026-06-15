@@ -1,17 +1,17 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function PressCoveragePage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("gallery");
-  const pressItems = data?.pressCoverage?.length > 0 ? data.pressCoverage.map((p: any) => ({
-    publication: p.title.split('—')[1]?.trim() || "Press Release",
+  const { data: pressData } = usePharmacyData("press");
+  const ref = useScrollReveal([pressData]);
+  const pressItems = pressData?.length > 0 ? pressData.map((p: any) => ({
+    publication: p.publication || "Press Release",
     date: p.date,
-    headline: p.title.split('—')[0]?.trim() || p.title,
-    url: p.url,
-    tag: p.type || "Online"
+    headline: p.headline || p.title,
+    url: p.url || "",
+    tag: p.tag || p.type || "Online"
   })) : [
     { publication: "Times of India", date: "15 March 2026", headline: "Ishan Institute of Pharmacy students excel in National Moot Court Competition", tag: "Print" },
     { publication: "Hindustan Times", date: "02 Feb 2026", headline: "Legal Aid Camp organized by Ishan Pharmacy provides free counseling to villagers", tag: "Print" },

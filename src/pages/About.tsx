@@ -1,22 +1,15 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultMilestones = [
-  { year: "1994", event: "Ishan Institute of Management & Technology established as the foundation of the group" },
-  { year: "2017", event: "Ishan Institute of Pharmacy established with Pharmacy Council of India (PCI) approval" },
-  { year: "2018", event: "Introduction of Diploma in Pharmacy (D.Pharm) program" },
-  { year: "2021", event: "Launch of Bachelor of Pharmacy (B.Pharm) program" },
-  { year: "2023", event: "Setup of 10 specialized, state-of-the-art pharmaceutical laboratories" },
-  { year: "2025", event: "Crossed 500+ pharmacy alumni successfully placed in top healthcare institutions" },
-];
+const defaultMilestones = [];
 
 export default function AboutPage() {
   const ref = useScrollReveal();
-  const { data, isLoading } = useIshanLawData("aboutus");
+  const { data, isLoading } = usePharmacyData("aboutus");
   const fallback = `Established with a vision to revolutionize pharmaceutical education, Ishan Institute of Pharmacy stands as a premier center for healthcare studies in Knowledge Park, Greater Noida. Affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU) and the Board of Technical Education, Uttar Pradesh (BTE UP), and recognized by the Pharmacy Council of India (PCI), our institution is committed to producing healthcare professionals who excel in both theory and practice.
 
 Our curriculum is designed to bridge the gap between classroom learning and industrial/clinical reality. From the very first semester, students are exposed to practical applications through our specialized laboratories, regular industrial visits, and clinical training sessions. We offer two flagship professional programs: the Diploma in Pharmacy (D.Pharm) and the Bachelor of Pharmacy (B.Pharm), both structured to meet the modern demands of the pharmaceutical and healthcare sectors.
@@ -53,7 +46,7 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
-                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
+                <img src={ourStory?.image || "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus"} alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
               </div>
             </div>
 
@@ -62,9 +55,10 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
               <h2 className="font-bold text-foreground leading-tight">
                 {ourStory?.title || "Legacy of Shaping Professional Excellence"}
               </h2>
-              <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
-                {ourStory?.content || fallback}
-              </p>
+              <div 
+                className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none"
+                dangerouslySetInnerHTML={{ __html: ourStory?.content || fallback }}
+              />
             </div>
           </div>
         </div>
@@ -85,7 +79,8 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
                   <span className="text-xs font-bold text-foreground">{m.year}</span>
                 </div>
                 <div className={`bg-card rounded-xl border p-5 shadow-sm flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <p className="text-sm text-foreground/80 leading-relaxed">{m.event}</p>
+                  {m.title && <h4 className="font-bold text-base mb-1">{m.title}</h4>}
+                  <p className="text-sm text-foreground/80 leading-relaxed">{m.desc || m.event}</p>
                 </div>
               </div>
             ))}

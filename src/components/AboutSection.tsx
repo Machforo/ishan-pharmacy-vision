@@ -2,12 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultHighlights = [
-  "PCI Approved & AKTU/BTE Affiliated",
-  "10 Specialised Laboratories",
-  "Focus on Clinical Pharmacy Practice",
-  "Strategic Location in Greater Noida",
-];
+const defaultHighlights = [];
 
 export default function AboutSection() {
   const ref = useScrollReveal();

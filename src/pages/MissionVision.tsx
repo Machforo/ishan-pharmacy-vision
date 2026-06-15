@@ -3,11 +3,11 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Target, Eye, Compass } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function MissionVisionPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("aboutus");
+  const { data } = usePharmacyData("aboutus");
   
   const mv = data?.missionVision;
   
@@ -21,16 +21,7 @@ export default function MissionVisionPage() {
     "To prepare students for diverse pharmaceutical careers in manufacturing, research, clinical practice, and public health through expert mentorship.",
   ];
 
-  const defaultCoreValues = [
-    { title: "Healthcare Excellence", description: "Upholding the highest standards of patient care and pharmaceutical practice." },
-    { title: "Integrity", description: "Maintaining the highest standards of professional ethics and honesty in the medical field." },
-    { title: "Innovation", description: "Cultivating research-oriented thinking and advanced problem-solving skills." },
-    { title: "Social Responsibility", description: "Committing to community health awareness and accessible medical guidance." },
-    { title: "Clinical Proficiency", description: "Prioritizing hands-on experience through laboratory work and hospital training." },
-    { title: "Research & Inquiry", description: "Encouraging a deep-seated spirit of investigation and scientific contribution." },
-    { title: "Compassion", description: "Empowering students with the empathy needed to effectively serve patients." },
-    { title: "Ethical Reasoning", description: "Developing the ability to navigate complex medical challenges with moral clarity." },
-  ];
+  const defaultCoreValues = [];
 
   // coreValues stored as newline-separated string in DB
   const coreValuesStr = mv?.coreValues;
@@ -52,10 +43,10 @@ export default function MissionVisionPage() {
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="reveal grid sm:grid-cols-2 gap-6 mb-20">
                <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9]">
-                 <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Excellence" className="w-full h-full object-cover" />
+                 <img src={mv?.image1 || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Excellence" className="w-full h-full object-cover" />
                </div>
                <div className="rounded-2xl overflow-hidden shadow-2xl border aspect-[16/9] hidden sm:block">
-                 <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Campus" className="w-full h-full object-cover" />
+                 <img src={mv?.image2 || "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Campus" className="w-full h-full object-cover" />
                </div>
             </div>
             {/* Vision */}

@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Calendar, Phone, CheckCircle2, ArrowRight } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const steps = [
   { num: "01", title: "UPSEE / CUET Counselling", desc: "For B.Pharm, begin by participating in the UPSEE (AKTU) or CUET-based state counselling. For D.Pharm, register on the BTE UP portal. Seat allotment is based on your 10+2 merit." },
@@ -27,8 +27,8 @@ const documents = [
 ];
 
 export default function AdmissionsPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("admissions");
+  const { data } = usePharmacyData("admissions");
+  const ref = useScrollReveal([data]);
   
   const howToApply = data?.howToApply?.length > 0 ? data.howToApply : steps;
   const docs = data?.documents?.length > 0 ? data.documents.map((d: any) => d.docName) : documents;

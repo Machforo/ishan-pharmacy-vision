@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { Clock, GraduationCap, IndianRupee, Users, CheckCircle2 } from "lucide-react";
 import NotFound from "./NotFound";
 
 export default function DynamicCourse() {
   const { courseId } = useParams();
-  const { data, isLoading } = useIshanLawData("courses");
+  const { data, isLoading } = usePharmacyData("courses");
 
   if (isLoading) return <div className="min-h-screen flex flex-col"><Navbar /><div className="flex-1 flex items-center justify-center text-xl text-navy animate-pulse">Loading Academic Program...</div></div>;
   
@@ -39,7 +39,7 @@ export default function DynamicCourse() {
     },
   ];
 
-  const courseList = data?.courses?.length > 0 ? data.courses : fallbackCourses;
+  const courseList = data?.length > 0 ? data : fallbackCourses;
   const course = courseList.find((c: any) => sanitizeSlug(c.programName).includes(sanitizeSlug(courseId || '')));
 
   if (!course) return <NotFound />;

@@ -3,13 +3,13 @@ import auditoriumImg from "@/assets/auditorium.jpg";
 import { Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function CTASection() {
   const ref = useScrollReveal();
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", course: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
-  const { data } = useIshanLawData("homepage");
+  const { data } = usePharmacyData("homepage");
   const ctaContent = data?.contactUs?.content || "Admissions are open for the session 2025-26. Connect with our admission counselors to discuss your career in pharmacy and clarify your doubts about eligibility and the application process.";
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,7 +21,8 @@ export default function CTASection() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("https://ishan-backend-g096.onrender.com/api/pharmacy/leads", {
+      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const res = await fetch(`${apiBase}/pharmacy/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)

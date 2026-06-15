@@ -3,40 +3,17 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { TrendingUp, Building2, Users2, Star, CheckCircle2 } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultStats = [
-  { icon: TrendingUp, value: "95%", label: "Placement Rate" },
-  { icon: Building2, value: "40+", label: "Pharma Company Partners" },
-  { icon: Users2, value: "500+", label: "Pharmacists Placed" },
-  { icon: Star, value: "₹3.5 LPA", label: "Average Package" },
-];
+const defaultStats = [];
 
-const defaultRecruiters = [
-  { name: "Sun Pharma", logo: "" },
-  { name: "Cipla", logo: "" },
-  { name: "Dr. Reddy's", logo: "" },
-  { name: "Lupin", logo: "" },
-  { name: "Mankind Pharma", logo: "" },
-  { name: "Torrent Pharma", logo: "" },
-  { name: "Apollo Pharmacy", logo: "" },
-  { name: "Medplus", logo: "" },
-  { name: "Fortis Healthcare", logo: "" },
-  { name: "AIIMS (Research)", logo: "" },
-  { name: "Zydus Lifesciences", logo: "" },
-  { name: "Hetero Drugs", logo: "" },
-];
+const defaultRecruiters = [];
 
-const defaultTestimonials = [
-  { name: "Rahul Deshmukh", program: "B.Pharm 2022", company: "Sun Pharma", quote: "The laboratory training and industrial visits at Ishan Pharmacy were instrumental in preparing me for production roles. I felt industry-ready from day one." },
-  { name: "Sanya Malhotra", program: "D.Pharm 2021", company: "Apollo Pharmacy", quote: "The placement cell's focus on retail and hospital pharmacy helped me secure a great role. The clinical training I received here is invaluable." },
-  { name: "Priyanka Singh", program: "B.Pharm 2023", company: "Cipla — QA Department", quote: "The dedicated Placement Cell provided me with structured guidance and mock interviews that helped me crack the QA Manager role in my first attempt." },
-  { name: "Arjun Verma", program: "B.Pharm 2022", company: "Dr. Reddy's R&D", quote: "Ishan Pharmacy's faculty, many of whom have industry experience, gave me a real-world perspective that textbooks can't provide. Highly recommended." },
-];
+const defaultTestimonials = [];
 
 export default function PlacementsPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("placements");
+  const { data } = usePharmacyData("placements");
+  const ref = useScrollReveal([data]);
 
   // Schema field names: placementNumbers, recruitingPartners, successStories, placementProcess
   const stats = data?.placementNumbers?.length > 0 ? data.placementNumbers : defaultStats;

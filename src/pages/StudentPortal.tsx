@@ -1,12 +1,12 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function StudentPortalPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("studentportal");
-  const content = data?.content;
+  const { data } = usePharmacyData("studentportal");
+  const ref = useScrollReveal([data]);
+  const content = data || {};
 
   return (
     <Layout>
@@ -17,7 +17,7 @@ export default function StudentPortalPage() {
             <div className="reveal space-y-8">
               <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">{content?.instructions || "Current Ishan Pharmacy students can access their academic profiles, attendance records, and library resources through the unified student portal. University examination results are available via the CCS University portal."}</p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" alt="Ishan Pharmacy Student Resources" className="w-full h-80 object-cover" />
+                <img src={content?.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg"} alt="Ishan Pharmacy Student Resources" className="w-full h-80 object-cover" />
               </div>
             </div>
             

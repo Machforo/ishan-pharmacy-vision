@@ -1,20 +1,13 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultVideos = [
-  { title: "National Moot Court Competition Final Round", category: "Moot Court Highlights", ytId: "" },
-  { title: "Understanding The New Criminal Laws", category: "Faculty Talks", ytId: "" },
-  { title: "My Journey at Ishan Pharmacy", category: "Student Testimonials", ytId: "" },
-  { title: "Supreme Court Visit Documentary", category: "Court Visits", ytId: "" },
-  { title: "Annual Cultural Fest Kshitiz", category: "Events", ytId: "" },
-  { title: "Legal Aid Camp in Rural Noida", category: "Events", ytId: "" },
-];
+const defaultVideos = [];
 
 export default function VideoGalleryPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("gallery");
+  const { data: videosData } = usePharmacyData("videos");
+  const ref = useScrollReveal([videosData]);
 
   const getYTId = (url: string) => {
     if (!url) return "";
@@ -23,7 +16,7 @@ export default function VideoGalleryPage() {
     return (match && match[2].length === 11) ? match[2] : url;
   };
 
-  const videos = data?.videos?.length > 0 ? data.videos.map((v: any) => ({
+  const videos = videosData?.length > 0 ? videosData.map((v: any) => ({
     ...v,
     ytId: getYTId(v.url)
   })) : defaultVideos;

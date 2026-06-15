@@ -4,7 +4,9 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FlaskConical, Users, Award, TrendingUp } from "lucide-react";
 
-const projects = [
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultProjects = [
   { title: "Development of Nanoparticle-Based Drug Delivery for Cancer Therapy", pi: "Dr. Sandeep Singh", department: "Pharmaceutics", status: "Ongoing", funding: "AKTU Research Grant" },
   { title: "Phytochemical Screening and Antimicrobial Activity of Regional Medicinal Plants", pi: "Dr. Megha Gupta", department: "Pharmacognosy", status: "Completed", funding: "Institutional Funding" },
   { title: "Formulation and Evaluation of Herbal Cosmetics from Natural Extracts", pi: "Prof. Amit Das", department: "Pharmacognosy", status: "Ongoing", funding: "DST-SERB" },
@@ -12,7 +14,9 @@ const projects = [
 ];
 
 export default function ResearchProjectsPage() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("researchprojects");
+  const ref = useScrollReveal([data]);
+  const projects = data?.length > 0 ? data : defaultProjects;
   return (
     <Layout>
       <PageHeader

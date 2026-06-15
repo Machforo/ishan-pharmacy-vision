@@ -3,7 +3,9 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ChevronDown, ChevronUp, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const faqs = [
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultFaqs = [
   {
     question: "What programs are offered at Ishan Pharmacy?",
     answer: "Ishan Institute of Pharmacy offers the 2-year Diploma in Pharmacy (D.Pharm) and the 4-year Bachelor of Pharmacy (B.Pharm) programs."
@@ -31,7 +33,9 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("faqs");
+  const faqs = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : defaultFaqs);
+  const ref = useScrollReveal([faqs]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

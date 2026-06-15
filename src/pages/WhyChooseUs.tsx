@@ -3,23 +3,24 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb, GraduationCap, Heart, CheckCircle } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const defaultReasons = [
-  { icon: Shield, title: "PCI Approved & AKTU/BTE UP Affiliated", description: "Ishan Institute of Pharmacy is fully approved by the Pharmacy Council of India (PCI) and affiliated with AKTU & BTE UP, ensuring your diploma/degree is nationally recognized for professional practice." },
-  { icon: Building, title: "10 Specialized Laboratories", description: "We offer 10 state-of-the-art pharmaceutical laboratories — from Pharmaceutics to Pharmacology — giving every student comprehensive hands-on training across all domains of pharmacy." },
-  { icon: Award, title: "Regular Industrial Visits", description: "From early semesters, students visit leading pharmaceutical manufacturing plants (Sun Pharma, Cipla, Dr. Reddy's), providing firsthand insight into large-scale drug production and quality control." },
-  { icon: Users, title: "Expert Industry Faculty", description: "Learn from a distinguished faculty of industry practitioners, research scientists, and pharmacologists who bridge academic theory with real-world pharmaceutical challenges." },
-  { icon: GraduationCap, title: "Dedicated Placement & Training Cell", description: "Our Placement Cell maintains active relationships with top pharma companies and hospitals, ensuring our graduates receive top-tier job opportunities upon completing their programs." },
-  { icon: BookOpen, title: "Dedicated Herbal Garden", description: "Our unique herbal garden provides students direct exposure to medicinal plants — essential for Pharmacognosy training — enriching practical knowledge beyond the classroom." },
-  { icon: Lightbulb, title: "Modern Digital Library", description: "Students have access to a comprehensive medical and pharmaceutical library with thousands of titles, journals, and digital research databases, supporting research and academic excellence." },
-  { icon: Heart, title: "Health Camps & Community Service", description: "Through regular health awareness camps and medical outreach initiatives, students develop a strong sense of social responsibility and a commitment to ethical public healthcare." },
+  { title: 'PCI Approved', description: 'Fully approved by Pharmacy Council of India.', icon: Award },
+  { title: 'Expert Faculty', description: 'Learn from industry veterans.', icon: Users },
+  { title: 'Global Exposure', description: 'International partnerships.', icon: Globe },
+  { title: 'Modern Curriculum', description: 'Updated syllabus.', icon: BookOpen },
+  { title: '10 Advanced Labs', description: 'State of the art laboratories.', icon: Building },
+  { title: 'High Placement Rate', description: 'Top recruiters visit us.', icon: TrendingUp },
+  { title: 'Ethical Practice', description: 'Strong focus on ethics.', icon: Shield },
+  { title: 'Research Focus', description: 'Innovative research projects.', icon: Lightbulb },
 ];
 
 export default function WhyIshanPharmacyPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("aboutus");
-  const whyContent: string | undefined = data?.WhyIshanPharmacy?.content;
+  const { data } = usePharmacyData("homepage");
+  const whyContent: string | undefined = data?.whyIshanContent;
+  const reasonsData = data?.whyIshan?.length > 0 ? data.whyIshan : defaultReasons;
 
   return (
     <Layout>
@@ -41,8 +42,8 @@ export default function WhyIshanPharmacyPage() {
               </div>
             </div>
             <div className="space-y-6">
-              {defaultReasons.slice(0, 4).map((r, i) => {
-                const Icon = r.icon;
+              {reasonsData.slice(0, 4).map((r: any, i: number) => {
+                const Icon = r.icon || Award;
                 return (
                   <div key={r.title} className={`reveal delay-${Math.min(i % 3, 2)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow group`}>
                     <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors">
@@ -58,8 +59,8 @@ export default function WhyIshanPharmacyPage() {
             </div>
           </div>
           <div className="max-w-6xl mx-auto space-y-6">
-            {defaultReasons.slice(4).map((r, i) => {
-              const Icon = r.icon;
+            {reasonsData.slice(4).map((r: any, i: number) => {
+              const Icon = r.icon || Award;
               return (
                 <div key={r.title} className={`reveal delay-${Math.min(i % 3, 2)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow group`}>
                   <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors">

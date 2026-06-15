@@ -1,4 +1,4 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, MessageSquare, MapPin, Laptop } from "lucide-react";
@@ -23,16 +23,23 @@ export default function AdmissionsEnquiryPage() {
 
     setSubmitting(true);
     try {
-      await fetch("https://ishan-backend-g096.onrender.com/api/pharmacy/leads", {
+      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const response = await fetch(`${apiBase}/pharmacy/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, email: form.email || form.phone + "@placeholder.com", message: "Programme: " + form.program + ". " + form.message, source: "Admissions Enquiry" }),
       });
+      if (!response.ok) {
+        throw new Error("Failed to submit enquiry");
+      }
+      toast.success("Enquiry submitted successfully!");
+      setSubmitted(true);
     } catch (err) {
-      console.warn("Backend not reachable", err);
+      toast.error("Unable to submit enquiry. Please try again.");
+      console.error(err);
+    } finally {
+      setSubmitting(false);
     }
-    setSubmitted(true);
-    setSubmitting(false);
   };
 
   return (
@@ -109,20 +116,20 @@ export default function AdmissionsEnquiryPage() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Full Name</label>
-                        <input type="text" placeholder="e.g. Rahul Sharma" value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} required className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
+                        <input type="text" placeholder="e.g. Rahul Sharma" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} required className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Phone Number</label>
-                        <input type="tel" placeholder="10-digit mobile" value={form.phone} onChange={e => setForm(p => ({...p, phone: e.target.value}))} required className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
+                        <input type="tel" placeholder="10-digit mobile" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} required className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Email Address</label>
-                      <input type="email" placeholder="rahul@example.com" value={form.email} onChange={e => setForm(p => ({...p, email: e.target.value}))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
+                      <input type="email" placeholder="rahul@example.com" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Programme of Interest</label>
-                      <select value={form.program} onChange={e => setForm(p => ({...p, program: e.target.value}))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all appearance-none" required>
+                      <select value={form.program} onChange={e => setForm(p => ({ ...p, program: e.target.value }))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all appearance-none" required>
                         <option value="">Select Programme</option>
                         <option value="BA LLB">BA LLB (Hons)</option>
                         <option value="LLB">LLB (3 Years)</option>
@@ -130,7 +137,7 @@ export default function AdmissionsEnquiryPage() {
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Message (Optional)</label>
-                      <textarea placeholder="Tell us more about your query..." rows={3} value={form.message} onChange={e => setForm(p => ({...p, message: e.target.value}))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all resize-none" />
+                      <textarea placeholder="Tell us more about your query..." rows={3} value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all resize-none" />
                     </div>
                     <button type="submit" disabled={submitting} className="w-full py-4 bg-navy text-white font-bold rounded-xl shadow-lg hover:bg-gold hover:text-navy transition-all active:scale-[0.98] disabled:opacity-50">
                       {submitting ? "Sending..." : "Submit Enquiry"}

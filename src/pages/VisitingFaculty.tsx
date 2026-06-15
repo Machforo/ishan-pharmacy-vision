@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const visitingFaculty = [
+const defaultVisitingFaculty = [
   { name: "Dr. Arun Sharma", org: "Senior Pharmacologist", specialisation: "Clinical Drug Development & Trials", impact: "Provides insights into clinical trial design, GCP guidelines, and drug evaluation methodologies.", bar: "" },
   { name: "Mr. Rajiv Mehta", org: "Production Head, Sun Pharma", specialisation: "Pharmaceutical Manufacturing & GMP", impact: "Trains students on large-scale manufacturing, SOPs, and Good Manufacturing Practice compliance.", bar: "" },
   { name: "Dr. Kavita Iyer", org: "Research Scientist, Dr. Reddy's", specialisation: "Drug Formulation & Stability Studies", impact: "Guides students on formulation R&D, stability testing protocols, and regulatory submissions.", bar: "" },
@@ -14,7 +15,10 @@ const visitingFaculty = [
 ];
 
 export default function VisitingFacultyPage() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("visitingfaculty");
+  const ref = useScrollReveal([data]);
+  
+  const visitingFaculty = data?.length > 0 ? data : defaultVisitingFaculty;
 
   return (
     <Layout>

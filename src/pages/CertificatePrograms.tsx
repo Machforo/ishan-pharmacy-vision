@@ -1,21 +1,23 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const programs = [
-  { name: "Cyber Law & Digital Security", duration: "3 Months", fee: "₹5,000", eligibility: "Any student / graduate", desc: "Covers IT Act 2000, cyber crimes, digital evidence, data protection, and social media regulations." },
-  { name: "Intellectual Property Rights", duration: "2 Months", fee: "₹3,500", eligibility: "Law students / Professionals", desc: "Practical training in Patents, Trademarks, Copyrights registration, and IP litigation strategies." },
-  { name: "Mediation & Conciliation (ADR)", duration: "3 Months", fee: "₹6,000", eligibility: "Law students", desc: "Learn alternative dispute resolution techniques, negotiation skills, and the role of a mediator in civil disputes." },
-  { name: "Corporate Compliance", duration: "3 Months", fee: "₹6,000", eligibility: "Law / CS students", desc: "Focuses on SEBI regulations, Companies Act compliance, FEMA, and secretarial auditing." },
-  { name: "Advanced Legal Drafting", duration: "1 Month", fee: "₹2,000", eligibility: "Law students", desc: "Intensive training in drafting writs, petitions, commercial contracts, and conveyance deeds." },
-  { name: "Human Rights & Social Justice", duration: "2 Months", fee: "₹4,000", eligibility: "Any graduate", desc: "Understanding domestic and international human rights frameworks and public interest litigation (PIL)." },
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultPrograms = [
+  { name: "Pharmacovigilance & Clinical Trials", duration: "3 Months", fee: "₹5,000", eligibility: "B.Pharm / D.Pharm students", desc: "Learn about drug safety monitoring, adverse event reporting, and clinical trial regulations." },
+  { name: "Drug Regulatory Affairs", duration: "2 Months", fee: "₹3,500", eligibility: "Pharmacy students", desc: "Understanding FDA, EMA, and CDSCO regulations, and preparation of CTD/eCTD dossiers." },
+  { name: "Medical Coding & Billing", duration: "3 Months", fee: "₹6,000", eligibility: "Any life science graduate", desc: "Learn ICD-10, CPT coding, and healthcare revenue cycle management." }
 ];
 
 export default function CertificateProgramsPage() {
-  const ref = useScrollReveal();
+  const { data } = usePharmacyData("certificates");
+  const ref = useScrollReveal([data]);
+  
+  const programs = data?.length > 0 ? data : defaultPrograms;
 
   return (
     <Layout>

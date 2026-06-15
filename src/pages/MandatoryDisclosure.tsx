@@ -3,7 +3,9 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
 
-const disclosureItems = [
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultDisclosureItems = [
   { category: "Institution Details", items: ["Name: Ishan Institute of Pharmacy", "Address: Knowledge Park-III, Greater Noida", "Year of Establishment: 2017", "Status: Private Self-Financing", "Type: Co-educational Professional Institution"] },
   { category: "Academic Information", items: ["Programs Offered: D.Pharm, B.Pharm", "PCI Approval Status — Current", "Annual Intake per Program", "Faculty-Student Ratio", "Student Success Rate"] },
   { category: "Regulatory Information", items: ["PCI Approval Letters", "AKTU and BTE UP Affiliation Documents", "Anti-Ragging Committee Constitution", "Grievance Redressal Mechanism"] },
@@ -13,6 +15,16 @@ const disclosureItems = [
 
 export default function MandatoryDisclosurePage() {
   const ref = useScrollReveal();
+  const { data } = usePharmacyData("mandatorydisclosure");
+  
+  const statement = data?.statement || `The information provided below is submitted as required by the Pharmacy Council of India (PCI) and is updated annually to ensure full transparency. Any discrepancies found in the reported data should be immediately brought to the notice of the Registrar at Ishan Institute of Pharmacy, Knowledge Park, Greater Noida.\n\nPCI mandates public disclosure for the benefit of current and prospective students, healthcare practitioners, and regulatory authorities. It serves as a comprehensive record of the institution's facilities, laboratory standards, and faculty expertise, ensuring accountability in pharmaceutical education.`;
+  
+  const disclosureItems = data?.disclosureItems?.length > 0 
+    ? data.disclosureItems.map((item: any) => ({
+        category: item.category,
+        items: item.items ? item.items.split('\n') : []
+      }))
+    : defaultDisclosureItems;
 
   return (
     <Layout>
@@ -29,12 +41,9 @@ export default function MandatoryDisclosurePage() {
               <FileText className="w-6 h-6 text-navy shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-foreground mb-1">PCI Compliance Statement</p>
-                <p className="text-sm leading-relaxed">
-                  The information provided below is submitted as required by the Pharmacy Council of India (PCI) and is updated annually to ensure full transparency. Any discrepancies found in the reported data should be immediately brought to the notice of the Registrar at Ishan Institute of Pharmacy, Knowledge Park, Greater Noida.
-                </p>
-                <p className="text-sm leading-relaxed mt-4">
-                  PCI mandates public disclosure for the benefit of current and prospective students, healthcare practitioners, and regulatory authorities. It serves as a comprehensive record of the institution's facilities, laboratory standards, and faculty expertise, ensuring accountability in pharmaceutical education.
-                </p>
+                <div className="text-sm leading-relaxed whitespace-pre-wrap space-y-4">
+                  {statement}
+                </div>
               </div>
             </div>
 

@@ -1,61 +1,68 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { CheckCircle2 } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { CheckCircle2, ShieldCheck, MapPin, Star } from "lucide-react";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const amenities = [
-  "Separate boys and girls blocks", "Furnished rooms (2/3 sharing)", "Attached washrooms",
-  "Vegetarian mess facility", "CCTV surveillance 24/7", "Wi-Fi connectivity",
-  "Common room with TV", "RO water purifier", "Laundry facility",
-  "First aid and medical support", "Warden supervision round the clock", "200m from main campus",
-];
+const fallbackIcons = [CheckCircle2, ShieldCheck, MapPin, Star];
 
-export default function HostelPage() {
+export default function HostelFacilitiesPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
-  const hostel = data?.hostel;
-  const content = hostel?.content;
-  const specs = hostel?.specs?.length > 0 ? hostel.specs : [
-    { label: "Boys Hostel Fee", value: "₹60,000 / year" },
-    { label: "Girls Hostel Fee", value: "₹65,000 / year" },
-    { label: "Mess Charges", value: "Included in hostel fee" }
-  ];
+  const { data } = usePharmacyData("facilities");
+  
+  const fallback = {
+    title: "Hostel Facilities",
+    subtitle: "State-of-the-art infrastructure providing an enriching environment for students",
+    overviewHeading: "Exceptional Facilities",
+    overviewContent: "Ishan Institute of Pharmacy provides world-class infrastructure designed to foster academic excellence and personal growth. Our campus is equipped with modern amenities that cater to the comprehensive needs of our students.\n\nFrom advanced study areas to comfortable living spaces, every aspect of our campus has been thoughtfully designed to create a conducive environment for both learning and recreation.",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    highlights: [
+      { title: "Modern Amenities", description: "Fully equipped with the latest technology and resources." },
+      { title: "Safe Campus", description: "24/7 security and a secure environment for all students." },
+      { title: "Accessible Location", description: "Strategically located for easy connectivity." }
+    ]
+  };
+
+  const pageData = data?.length > 0 ? data.find((d: any) => d.slug === "/hostel") : null;
+  const current = pageData || fallback;
 
   return (
     <Layout>
-      <PageHeader title="Hostel" subtitle="Safe, comfortable residential facilities for outstation students" breadcrumbs={[{ label: "Campus", href: "/infrastructure" }, { label: "Hostel" }]} />
+      <PageHeader
+        title={current.title}
+        subtitle={current.subtitle}
+        breadcrumbs={[{ label: "Facilities" }, { label: "Hostel Facilities" }]}
+      />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal space-y-5 mb-12">
-              <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
-                {content || "Ishan Institute of Pharmacy provides comfortable hostel accommodation for both boys and girls in separate residential blocks located within 200 metres of the main campus. The hostel offers a home-away-from-home experience with furnished rooms, nutritious mess meals, and 24/7 security — allowing students to focus on their academics in a safe environment."}
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-16">
+            <div className="reveal space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Facility Overview</p>
+              <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
+              <div className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
             </div>
-
-            <div className="reveal delay-100 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
-              {amenities.map((a) => (
-                <div key={a} className="flex items-center gap-2.5 px-4 py-3 rounded-lg border bg-card text-sm text-foreground/80">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" /> {a}
+            <div className="reveal">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border">
+                <img src={current.image} alt={current.title} className="w-full h-[400px] object-cover" />
+              </div>
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {current.highlights.map((h: any, i: number) => {
+              const Icon = fallbackIcons[i % fallbackIcons.length];
+              return (
+                <div key={h.title || i} className={`reveal delay-${Math.min(i, 3)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
+                  <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-navy" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground mb-2">{h.title}</h3>
+                    <p className="text-sm leading-relaxed text-foreground/70">{h.description}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="reveal delay-200 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-              {specs.map((s: any, i: number) => (
-                <div key={s.label || i} className="p-5 rounded-xl border bg-section-alt text-center">
-                  <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
-                  <p className="text-sm font-semibold text-foreground">{s.value}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="reveal delay-300 rounded-xl border bg-card p-6">
-              <h3 className="font-semibold text-foreground mb-3">Warden Contact</h3>
-              <p className="text-sm">For hostel enquiries and applications, contact the admissions office at <a href="tel:+918448797700" className="text-navy font-semibold">8448797700</a> or visit the campus.</p>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>

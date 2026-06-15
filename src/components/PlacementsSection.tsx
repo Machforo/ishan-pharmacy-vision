@@ -2,17 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { TrendingUp, Building2, Users2, Star } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultRecruiters = [
-  { name: "Sun Pharma", logo: "" },
-  { name: "Cipla", logo: "" },
-  { name: "Dr. Reddy's", logo: "" },
-  { name: "Mankind", logo: "" },
-  { name: "Lupin", logo: "" },
-  { name: "Divis Labs", logo: "" },
-  { name: "Apollo Pharmacy", logo: "" },
-  { name: "Netmeds", logo: "" },
-  { name: "Tata 1mg", logo: "" },
-];
+const defaultRecruiters = [];
 
 export default function PlacementsSection() {
   const ref = useScrollReveal();

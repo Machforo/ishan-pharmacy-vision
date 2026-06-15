@@ -1,41 +1,15 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Calendar, MapPin, Tag, Clock, Share2 } from "lucide-react";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function EventsCalendarPage() {
-  const ref = useScrollReveal();
+  const { data: eventsData } = usePharmacyData("calendarevents");
+  const ref = useScrollReveal([eventsData]);
+  const events = eventsData?.length > 0 ? eventsData : [];
 
-  const events = [
-    {
-      name: "National Seminar on Digital Business",
-      date: "May 15, 2024",
-      venue: "Main Auditorium",
-      category: "Academic",
-      description: "A comprehensive seminar on how digital transformation is reshaping traditional business models.",
-    },
-    {
-      name: "Kshitiz 2024: Annual Cultural Fest",
-      date: "June 05-07, 2024",
-      venue: "Campus Grounds",
-      category: "Cultural",
-      description: "Our flagship cultural festival featuring music, dance, and arts from across the region.",
-    },
-    {
-      name: "Mega Placement Drive",
-      date: "May 20, 2024",
-      venue: "Placement Cell",
-      category: "Placement",
-      description: "Annual recruitment event with 30+ corporate partners participating.",
-    },
-    {
-      name: "Workshop on Python for Data Science",
-      date: "May 10, 2024",
-      venue: "IT Lab 1",
-      category: "Workshop",
-      description: "Hands-on skill development workshop for BCA and interested BBA students.",
-    },
-  ];
+  
 
   return (
     <Layout>

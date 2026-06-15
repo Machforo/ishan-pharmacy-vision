@@ -2,58 +2,67 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { BookOpen, Monitor, FlaskConical, Archive } from "lucide-react";
+import { FlaskConical, Microscope, BookOpen, Award } from "lucide-react";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const fallbackIcons = [FlaskConical, Microscope, BookOpen, Award];
 
 export default function MuseumComputerLabPage() {
   const ref = useScrollReveal();
+  const { data } = usePharmacyData("facilities");
+  
+  const fallback = {
+    title: "Museum & Computer Lab",
+    subtitle: "State-of-the-art facility for pharmaceutical science students",
+    overviewHeading: "Where Theory Meets Practice",
+    overviewContent: "This laboratory is a fully equipped facility designed to provide students with comprehensive training. Students gain hands-on experience essential for careers in pharmaceutical R&D and quality control.\n\nThe lab supports the curricula with experiments aligned to PCI and university syllabus requirements, ensuring students are prepared for professional practice and higher education.",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+    highlights: [
+      { title: "Advanced Equipment", description: "Equipped with modern apparatus for hands-on experiments." },
+      { title: "Analytical Focus", description: "Comprehensive analytical training for professional development." },
+      { title: "Research & Publications", description: "Faculty actively guide students in research projects." }
+    ]
+  };
+
+  const pageData = data?.length > 0 ? data.find((d: any) => d.slug === "/museum-computer-lab") : null;
+  const current = pageData || fallback;
+
   return (
     <Layout>
       <PageHeader
-        title="Museum & Computer Lab"
-        subtitle="Pharmaceutical museum preserving drug heritage and a modern IT lab for digital pharmaceutical research"
+        title={current.title}
+        subtitle={current.subtitle}
         breadcrumbs={[{ label: "Labs" }, { label: "Museum & Computer Lab" }]}
       />
       <section className="py-20 md:py-28" ref={ref}>
-        <div className="container-wide max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="reveal space-y-6 p-8 rounded-2xl border bg-card">
-              <div className="w-14 h-14 rounded-2xl bg-gold-light flex items-center justify-center">
-                <Archive className="w-7 h-7 text-navy" />
-              </div>
-              <h2 className="font-bold text-foreground text-2xl">Pharmaceutical Museum</h2>
-              <p className="text-foreground/70 leading-relaxed">
-                The Pharmaceutical Museum at Ishan Pharmacy houses a curated collection of historical drug specimens, antique dispensing equipment, traditional formulation tools, and botanical specimens. The museum offers students a living history of pharmaceutical science — from traditional Ayurvedic preparations to modern analytical instruments — fostering an appreciation of the field's rich heritage.
-              </p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Historical crude drug specimens and herbarium</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Antique dispensing equipment and mortar collections</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Traditional formulation tools and measure sets</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Pharmacopoeia timeline and historical publications</li>
-              </ul>
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-16">
+            <div className="reveal space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Facility Overview</p>
+              <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
+              <div className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
             </div>
-            <div className="reveal space-y-6 p-8 rounded-2xl border bg-card">
-              <div className="w-14 h-14 rounded-2xl bg-gold-light flex items-center justify-center">
-                <Monitor className="w-7 h-7 text-navy" />
+            <div className="reveal">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border">
+                <img src={current.image} alt={current.title} className="w-full h-[400px] object-cover" />
               </div>
-              <h2 className="font-bold text-foreground text-2xl">Computer Lab</h2>
-              <p className="text-foreground/70 leading-relaxed">
-                The state-of-the-art Computer Lab provides students with digital tools for pharmaceutical research, bioinformatics, and data analysis. With high-speed internet access and licensed pharmaceutical software, students can access global research databases, perform in-silico drug design studies, and develop computational skills essential for modern pharmaceutical research.
-              </p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> 30+ high-performance workstations with licensed software</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Access to pharmaceutical databases and e-journals</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> Bioinformatics and molecular docking software</li>
-                <li className="flex gap-2"><span className="text-gold font-bold">•</span> 24/7 high-speed internet connectivity</li>
-              </ul>
             </div>
           </div>
-          <div className="reveal grid sm:grid-cols-2 gap-6">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border">
-              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Pharmaceutical Museum" className="w-full h-64 object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl border">
-              <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" alt="Computer Laboratory" className="w-full h-64 object-cover" />
-            </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {current.highlights.map((h: any, i: number) => {
+              const Icon = fallbackIcons[i % fallbackIcons.length];
+              return (
+                <div key={h.title || i} className={`reveal delay-${Math.min(i, 3)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
+                  <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-navy" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground mb-2">{h.title}</h3>
+                    <p className="text-sm leading-relaxed text-foreground/70">{h.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

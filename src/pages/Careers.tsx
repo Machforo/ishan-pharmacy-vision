@@ -2,14 +2,19 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const defaultJobs = [
+  { title: "Professor / Associate Professor — Pharmacology", qualification: "M.Pharm / PhD (Pharmacology)", experience: "10+ Years", dept: "Pharmacology", type: "Full-time" },
+  { title: "Assistant Professor — Pharmaceutics", qualification: "M.Pharm with UGC NET / PhD", experience: "0–5 Years", dept: "Pharmaceutics", type: "Full-time" },
+  { title: "Laboratory Instructor — Pharmaceutical Chemistry", qualification: "B.Pharm / M.Pharm", experience: "2+ Years Lab Experience", dept: "Pharmaceutical Chemistry", type: "Full-time" },
+  { title: "Academic Coordinator", qualification: "Graduate", experience: "5+ Years Administration", dept: "Academic Office", type: "Full-time" },
+];
+
 export default function CareersPage() {
-  const ref = useScrollReveal();
-  const jobs = [
-    { title: "Professor / Associate Professor — Pharmacology", qualification: "M.Pharm / PhD (Pharmacology)", experience: "10+ Years", dept: "Pharmacology", type: "Full-time" },
-    { title: "Assistant Professor — Pharmaceutics", qualification: "M.Pharm with UGC NET / PhD", experience: "0–5 Years", dept: "Pharmaceutics", type: "Full-time" },
-    { title: "Laboratory Instructor — Pharmaceutical Chemistry", qualification: "B.Pharm / M.Pharm", experience: "2+ Years Lab Experience", dept: "Pharmaceutical Chemistry", type: "Full-time" },
-    { title: "Academic Coordinator", qualification: "Graduate", experience: "5+ Years Administration", dept: "Academic Office", type: "Full-time" },
-  ];
+  const { data } = usePharmacyData("careers");
+  const ref = useScrollReveal([data]);
+  const jobs = data?.length > 0 ? data : defaultJobs;
 
   return (
     <Layout>

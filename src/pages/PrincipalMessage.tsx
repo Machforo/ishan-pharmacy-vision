@@ -3,21 +3,20 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
 export default function PrincipalMessagePage() {
   const ref = useScrollReveal();
+  const { data } = usePharmacyData("aboutus");
   
-  const msg = {
-      name: "Dr. Sandeep Singh", // Placeholder name
+  const defaultMsg = {
+      name: "Dr. Sandeep Singh",
       designation: "Principal, Ishan Institute of Pharmacy",
-      message: `Welcome to Ishan Institute of Pharmacy, where we transform healthcare aspirants into practice-ready professionals. In an era where the pharmaceutical landscape is rapidly evolving, our mission is to produce pharmacists and industry leaders who are not only masters of theoretical knowledge but also deeply committed to ethical healthcare practices.
-
-What distinguishes Ishan Pharmacy is our unwavering focus on practical and clinical training. We believe that pharmacy is a life-saving discipline, best mastered through rigorous hands-on experience. Our curriculum is purposefully structured to integrate academic scholarship with laboratory experiments from the very first semester. Whether it is formulating drugs in our advanced Pharmaceutics Lab or learning clinical applications, our students learn by doing.
-
-We provide our scholars with premier resources, including 10 specialized laboratories, a comprehensive medical library, a dedicated herbal garden, and mentorship from a faculty composed of distinguished industry practitioners and researchers. Our dedicated Placement Cell further ensures that students aspiring for careers in manufacturing, research, or clinical practice receive specialized guidance from day one.
-
-I invite you to join our community and embark on a journey that will build a formidable foundation for your career in healthcare. At Ishan Pharmacy, we don't just teach pharmacy; we prepare you to practice it with excellence and integrity.`,
-      image: "" // Removing generic unsplash
+      message: `Welcome to Ishan Institute of Pharmacy, where we transform healthcare aspirants into practice-ready professionals. In an era where the pharmaceutical landscape is rapidly evolving, our mission is to produce pharmacists and industry leaders who are not only masters of theoretical knowledge but also deeply committed to ethical healthcare practices.\n\nWhat distinguishes Ishan Pharmacy is our unwavering focus on practical and clinical training. We believe that pharmacy is a life-saving discipline, best mastered through rigorous hands-on experience. Our curriculum is purposefully structured to integrate academic scholarship with laboratory experiments from the very first semester. Whether it is formulating drugs in our advanced Pharmaceutics Lab or learning clinical applications, our students learn by doing.\n\nWe provide our scholars with premier resources, including 10 specialized laboratories, a comprehensive medical library, a dedicated herbal garden, and mentorship from a faculty composed of distinguished industry practitioners and researchers. Our dedicated Placement Cell further ensures that students aspiring for careers in manufacturing, research, or clinical practice receive specialized guidance from day one.\n\nI invite you to join our community and embark on a journey that will build a formidable foundation for your career in healthcare. At Ishan Pharmacy, we don't just teach pharmacy; we prepare you to practice it with excellence and integrity.`,
+      image: ""
   };
+
+  const msg = data?.principalMessage?.name ? data.principalMessage : defaultMsg;
 
   return (
     <Layout>

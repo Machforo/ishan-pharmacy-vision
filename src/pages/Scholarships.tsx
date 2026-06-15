@@ -3,20 +3,13 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, ExternalLink } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultScholarships = [
-  { category: "Merit Scholarship", concession: "Up to 100% tuition fee waiver", description: "Awarded to top performers in qualifying examinations (10+2). Details available at the time of counseling." },
-  { category: "Academic Excellence", concession: "Up to 25% fee waiver", description: "Automatically applied for students with 90% and above marks in 10+2 (PCB/PCM)." },
-  { category: "SC/ST/OBC Scholarship", concession: "As per UP Scholarship Portal norms", description: "Apply through scholarship.up.gov.in. Ishan Pharmacy assists in documentation and verification." },
-  { category: "Economically Weaker Section", concession: "Partial fee concession", description: "Family income below ₹2.5 LPA. Submit income certificate with admission application." },
-  { category: "Sibling Discount", concession: "10% fee waiver", description: "Two or more siblings enrolled simultaneously at Ishan Group. Inform admissions office during enrolment." },
-  { category: "Sports Scholarship", concession: "Up to 15% fee waiver", description: "State or National level sports achievement required. Submit certificates during admission." },
-];
+const defaultScholarships = [];
 
 export default function ScholarshipsPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("admissions");
+  const { data } = usePharmacyData("admissions");
+  const ref = useScrollReveal([data]);
   // Schema: scholarships = [{category, concession, description}]
   const scholarships = data?.scholarships?.length > 0 ? data.scholarships : defaultScholarships;
 

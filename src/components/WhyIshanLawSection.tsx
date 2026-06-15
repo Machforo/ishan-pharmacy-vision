@@ -1,18 +1,13 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb, Gavel, Scale } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultReasons = [
-  { icon: Shield, title: "PCI Approved", desc: "Recognized by Pharmacy Council of India ensuring top-tier academic standards." },
-  { icon: Building, title: "10 Specialised Labs", desc: "State-of-the-art facilities including Pharmaceutics, Pharmacognosy, and Pharmacology labs." },
-  { icon: Users, title: "Industry Faculty", desc: "Learn from experienced academicians and pharmaceutical industry experts." },
-  { icon: TrendingUp, title: "Placement Support", desc: "Dedicated placement cell connecting graduates with leading pharma companies." },
-];
+const defaultReasons = [];
 
 export default function WhyIshanLawSection() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("homepage");
-  const reasons = data?.standApart?.length > 0 ? data.standApart : defaultReasons;
+  const { data } = usePharmacyData("homepage");
+  const reasons = data?.whyIshan?.length > 0 ? data.whyIshan : defaultReasons;
+  const ref = useScrollReveal([reasons]);
 
   return (
     <section id="why-choose-us" className="py-12 md:py-20" ref={ref}>

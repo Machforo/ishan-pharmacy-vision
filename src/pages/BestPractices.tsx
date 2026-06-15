@@ -2,11 +2,11 @@
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function BestPracticesPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("aboutus");
+  const { data } = usePharmacyData("aboutus");
   // Schema: bestPractices is an array of { title, content }
   const practices: Array<{title:string;content:string}> = data?.bestPractices?.length > 0 ? data.bestPractices : [];
   const legacyContent = practices.length === 0 ? null : null; // just to keep clarity

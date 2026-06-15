@@ -2,12 +2,12 @@
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 import auditoriumImg from "@/assets/auditorium.jpg";
 
 export default function AuditoriumPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
+  const { data } = usePharmacyData("campuslife");
   const defaultImage = auditoriumImg;
   const auditorium = data?.auditorium;
   const content = auditorium?.content;

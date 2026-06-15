@@ -1,27 +1,18 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Calendar, ArrowRight, Search, X } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultEvents = [
-  { title: "National Moot Court Competition 2025", date: "April 15, 2025", category: "Clinical", excerpt: "The flagship national-level moot court competition hosted by Ishan Pharmacy, featuring teams from across India.", image: "" },
-  { title: "Health Awareness Camp: Rural Outreach", date: "April 3, 2025", category: "Social Service", excerpt: "Our Pharmacy Practice Cell provided free legal counseling to rural communities in Gautam Budh Nagar.", image: "" },
-  { title: "Ishan Cultural Fest Kshitiz-2025", date: "March 26, 2025", category: "Cultural", excerpt: "The flagship cultural festival featuring music, dance, drama, art, and inter-college competitions across three days.", image: "" },
-  { title: "Seminar on Emerging Trends in IPR", date: "March 6, 2025", category: "Seminar", excerpt: "Expert-led seminar exploring the future of Intellectual Property Rights in the age of AI and digital transformation.", image: "" },
-  { title: "Annual Sports Meet 2025", date: "February 20, 2025", category: "Sports", excerpt: "Inter-college sports competition featuring cricket, basketball, badminton, athletics and more.", image: "" },
-  { title: "Institutional Visit to the Supreme Court", date: "February 8, 2025", category: "Institutional Visit", excerpt: "Final year law students visited the Supreme Court of India to observe live proceedings and judicial administration.", image: "" },
-  { title: "Guest Lecture: Preparing for Judiciary", date: "January 22, 2025", category: "Guest Lecture", excerpt: "Distinguished former judge shared insights and strategies for cracking the judicial services examination.", image: "" },
-  { title: "Republic Day Celebration", date: "January 26, 2025", category: "Event", excerpt: "Flag hoisting ceremony followed by cultural performances celebrating India's Republic Day with the entire Ishan Pharmacy family.", image: "" },
-];
+const defaultEvents = [];
 
 export default function NewsEventsPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("newsevent");
-  const events = data?.events?.length > 0 
-    ? data.events.map((e: any) => ({ ...e, excerpt: e.description })) 
+  const { data: newsData } = usePharmacyData("news");
+  const ref = useScrollReveal([newsData]);
+  const events = newsData?.length > 0 
+    ? newsData.map((e: any) => ({ ...e, excerpt: e.description })) 
     : defaultEvents;
 
   const categories = ["All", ...Array.from(new Set(events.map((e: any) => e.category))).filter(Boolean) as string[]];

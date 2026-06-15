@@ -1,7 +1,8 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const quickLinks = [
+const defaultQuickLinks = [
   { label: "About Ishan Pharmacy", href: "/about" },
   { label: "Programs Overview", href: "/programs-overview" },
   { label: "Admissions", href: "/admissions" },
@@ -9,21 +10,37 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const programs = [
+const defaultPrograms = [
   { label: "B.Pharm (Bachelor of Pharmacy)", href: "/courses/b-pharm" },
   { label: "D.Pharm (Diploma in Pharmacy)", href: "/courses/d-pharm" },
   { label: "Certificate Programmes", href: "/certificate-programs" },
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/ishanpharmacy", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com/ishanpharmacy", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com/@ishanpharmacy", label: "YouTube" },
-  { icon: Linkedin, href: "https://linkedin.com/company/ishan-pharmacy", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/ishan_pharmacy", label: "Twitter" },
-];
+const socialIconsMap: any = {
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter
+};
 
 export default function Footer() {
+  const { data } = usePharmacyData("footer");
+
+  const aboutText = data?.aboutText || "PCI Approved | Affiliated to AKTU & BTE UP | Excellence in pharmaceutical education and healthcare training.";
+  const contactInfo = data?.contactInfo || { address: "Knowledge Park-III, Greater Noida, UP 201308", phone: "8448797700", email: "info@ishan.ac" };
+  const quickLinks = data?.quickLinks?.length > 0 ? data.quickLinks : defaultQuickLinks;
+  const programs = data?.programs?.length > 0 ? data.programs : defaultPrograms;
+  const socialData = data?.socialLinks || { facebook: "https://facebook.com/ishanpharmacy", instagram: "https://instagram.com/ishanpharmacy", youtube: "https://youtube.com/@ishanpharmacy", linkedin: "https://linkedin.com/company/ishan-pharmacy", twitter: "https://twitter.com/ishan_pharmacy" };
+
+  const socialLinks = [
+    { icon: Facebook, href: socialData.facebook, label: "Facebook" },
+    { icon: Instagram, href: socialData.instagram, label: "Instagram" },
+    { icon: Youtube, href: socialData.youtube, label: "YouTube" },
+    { icon: Linkedin, href: socialData.linkedin, label: "LinkedIn" },
+    { icon: Twitter, href: socialData.twitter, label: "Twitter" },
+  ].filter(s => s.href);
+
   return (
     <footer className="bg-navy-dark text-primary-foreground border-t border-white/5">
       <div className="container-wide py-12">
@@ -46,7 +63,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-primary-foreground/50 leading-relaxed max-w-xs">
-              PCI Approved | Affiliated to AKTU &amp; BTE UP | Excellence in pharmaceutical education and healthcare training.
+              {aboutText}
             </p>
             <div className="flex gap-2">
               {socialLinks.map((s) => (
@@ -68,7 +85,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-6 text-gold">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((l) => (
+              {quickLinks.map((l: any) => (
                 <li key={l.label}>
                   <Link to={l.href} className="text-sm text-primary-foreground/50 hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-gold/50 group-hover:bg-gold transition-colors" />
@@ -83,7 +100,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-6 text-gold">Programs</h4>
             <ul className="space-y-3">
-              {programs.map((p) => (
+              {programs.map((p: any) => (
                 <li key={p.label}>
                   <Link to={p.href} className="text-sm text-primary-foreground/50 hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-gold/50 group-hover:bg-gold transition-colors" />
@@ -100,15 +117,15 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 shrink-0 text-gold mt-0.5" />
-                <span className="text-sm text-primary-foreground/50 leading-relaxed">Knowledge Park-III, Greater Noida, UP 201308</span>
+                <span className="text-sm text-primary-foreground/50 leading-relaxed">{contactInfo.address}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 shrink-0 text-gold" />
-                <a href="tel:+918448797700" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">8448797700</a>
+                <a href={`tel:+91${contactInfo.phone}`} className="text-sm text-primary-foreground/50 hover:text-white transition-colors">{contactInfo.phone}</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 shrink-0 text-gold" />
-                <a href="mailto:info@ishan.ac" className="text-sm text-primary-foreground/50 hover:text-white transition-colors">info@ishan.ac</a>
+                <a href={`mailto:${contactInfo.email}`} className="text-sm text-primary-foreground/50 hover:text-white transition-colors">{contactInfo.email}</a>
               </div>
             </div>
           </div>

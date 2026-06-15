@@ -1,59 +1,68 @@
-﻿import Layout from "@/components/Layout";
+import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { CheckCircle2, ShieldCheck, MapPin, Star } from "lucide-react";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
+
+const fallbackIcons = [CheckCircle2, ShieldCheck, MapPin, Star];
+
 export default function LibraryPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
-  const defaultImage = "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg";
-  const library = data?.library;
-  const content = library?.content;
-  const specs = library?.specs?.length > 0 ? library.specs : [
-    { label: "Total Titles", value: "10,000+" },
-    { label: "Law Reports", value: "AIR, SCC, SCR" },
-    { label: "Digital Access", value: "Manupatra, SCC Online" },
-    { label: "Bare Acts", value: "150+ unique titles" },
-    { label: "Reading Room", value: "150+ seats" },
-    { label: "Timings", value: "8 AM – 8 PM" },
-    { label: "Journals", value: "National & Int'l" },
-    { label: "Borrowing", value: "4 books / 14 days" },
-  ];
+  const { data } = usePharmacyData("facilities");
+  
+  const fallback = {
+    title: "Library",
+    subtitle: "State-of-the-art infrastructure providing an enriching environment for students",
+    overviewHeading: "Exceptional Facilities",
+    overviewContent: "Ishan Institute of Pharmacy provides world-class infrastructure designed to foster academic excellence and personal growth. Our campus is equipped with modern amenities that cater to the comprehensive needs of our students.\n\nFrom advanced study areas to comfortable living spaces, every aspect of our campus has been thoughtfully designed to create a conducive environment for both learning and recreation.",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    highlights: [
+      { title: "Modern Amenities", description: "Fully equipped with the latest technology and resources." },
+      { title: "Safe Campus", description: "24/7 security and a secure environment for all students." },
+      { title: "Accessible Location", description: "Strategically located for easy connectivity." }
+    ]
+  };
+
+  const pageData = data?.length > 0 ? data.find((d: any) => d.slug === "/library") : null;
+  const current = pageData || fallback;
+
   return (
     <Layout>
       <PageHeader
-        title="Pharmacy Library"
-        subtitle="A specialized resource centre for pharmaceutical scholarship and research"
-        breadcrumbs={[{ label: "Campus", href: "/infrastructure" }, { label: "Library" }]}
+        title={current.title}
+        subtitle={current.subtitle}
+        breadcrumbs={[{ label: "Facilities" }, { label: "Library" }]}
       />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)] mb-10 border">
-              <img src={defaultImage} alt="Ishan Institute of Pharmacy Library" className="w-full h-[400px] object-cover" />
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-16">
+            <div className="reveal space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Facility Overview</p>
+              <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
+              <div className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
             </div>
-            <div className="reveal space-y-5 mb-12">
-              {content ? (
-                <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">{content}</p>
-              ) : (
-                <>
-                  <p className="text-foreground/70 leading-relaxed">
-                    The Pharmacy Library at Ishan Institute of Pharmacy is the academic cornerstone of our institution, meticulously curated to support the research needs of aspiring advocates and legal scholars. Our collection includes an extensive range of pharmaceutical texts, commentaries, and encyclopedias across diverse branches of law.
-                  </p>
-                  <p className="text-foreground/70 leading-relaxed">
-                    We maintain complete sets of the All India Reporter (AIR), Supreme Court Cases (SCC), and Supreme Court Reports (SCR). To ensure our students stay abreast of contemporary developments, we provide 24/7 access to premier digital databases such as Manupatra and SCC Online. The library also features a dedicated reading zone and a digital research wing equipped with high-speed terminals.
-                  </p>
-                </>
-              )}
+            <div className="reveal">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border">
+                <img src={current.image} alt={current.title} className="w-full h-[400px] object-cover" />
+              </div>
             </div>
-            <div className="reveal delay-100 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-              {specs.map((s: any, i: number) => (
-                <div key={s.label || i} className="p-4 rounded-xl border bg-card">
-                  <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
-                  <p className="text-sm font-semibold text-foreground">{s.value}</p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {current.highlights.map((h: any, i: number) => {
+              const Icon = fallbackIcons[i % fallbackIcons.length];
+              return (
+                <div key={h.title || i} className={`reveal delay-${Math.min(i, 3)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
+                  <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-navy" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground mb-2">{h.title}</h3>
+                    <p className="text-sm leading-relaxed text-foreground/70">{h.description}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>

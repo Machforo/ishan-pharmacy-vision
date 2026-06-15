@@ -2,13 +2,13 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { useState } from "react";
 import { toast } from "sonner";
 
 export default function ContactPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("contact");
+  const { data } = usePharmacyData("contact");
+  const ref = useScrollReveal([data]);
   const mainContact = data?.address ? data : {
     address: "Knowledge Park-III, Greater Noida, Uttar Pradesh 201308",
     phone: "8448797700",
@@ -32,25 +32,25 @@ export default function ContactPage() {
       return;
     }
 
-    setSubmitting(true);
-
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Attempt real submit but don't block the UI if it fails (as backend might not be up)
     try {
-      await fetch("https://ishan-backend-g096.onrender.com/api/pharmacy/leads", {
+      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const response = await fetch(`${apiBase}/pharmacy/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, source: "Contact Page" }),
       });
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+      toast.success("Your message has been sent successfully!");
+      setSubmitted(true);
+      setForm({ name: "", phone: "", email: "", program: "", message: "" });
     } catch (err) {
-      console.warn("Backend not reachable, simulating success for demo", err);
+      toast.error("Unable to send message. Please try again.");
+      console.error(err);
+    } finally {
+      setSubmitting(false);
     }
-
-    setSubmitted(true);
-    setForm({ name: "", phone: "", email: "", program: "", message: "" });
-    setSubmitting(false);
   };
 
   return (

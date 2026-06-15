@@ -2,76 +2,18 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultAlbums = [
-  { 
-    category: "Pharmacy Labs", 
-    date: "2025-26", 
-    images: [
-      { id: "mc-1", alt: "Pharmacy Lab 1", url: "https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab" },
-      { id: "mc-2", alt: "Lab Experiments", url: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" },
-      { id: "mc-3", alt: "Practical Experiments", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-1024x454.jpg" },
-      { id: "mc-4", alt: "Practical Experiments 2", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Practical-experiments-2-1024x705.jpg" },
-    ]
-  },
-  { 
-    category: "Industrial Visits & Outreach", 
-    date: "Experiential Learning", 
-    images: [
-      { id: "cj-1", alt: "Awareness Program", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Awareness-program-on-Ragging-and-Its-Consequences-1-1024x700.jpg" },
-      { id: "cj-2", alt: "Webinar on Cancer", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Webinar-on-Awareness-about-Bladder-Cancer.jpg" },
-      { id: "cj-3", alt: "Blood Donation Camp", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Blood-Donation-Camp-1024x769.jpg" },
-    ]
-  },
-  { 
-    category: "Campus Infrastructure", 
-    date: "Facilities", 
-    images: [
-      { id: "infra-1", alt: "Campus Building", url: "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" },
-      { id: "infra-2", alt: "Library", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg" },
-      { id: "infra-3", alt: "Hostel", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Girls-Hostel-1024x768.jpg" },
-      { id: "infra-4", alt: "Digital Lab", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Online-Learning-1024x710.jpg" },
-    ]
-  },
-  { 
-    category: "Academic Excellence", 
-    date: "Learning", 
-    images: [
-      { id: "acad-1", alt: "Classroom", url: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments" },
-      { id: "acad-2", alt: "Seminar", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg" },
-      { id: "acad-3", alt: "Presentation", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Smart-classroom-1024x674.jpg" },
-      { id: "acad-4", alt: "Interactive Session", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Orientation-Program-for-New-Batch-1024x628.jpg" },
-    ]
-  },
-  { 
-    category: "Cultural Activities", 
-    date: "Events", 
-    images: [
-      { id: "cl-1", alt: "Cultural Fest", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Inauguration-of-Spardha--1024x473.jpg" },
-      { id: "cl-2", alt: "Dance Performance", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
-      { id: "cl-6", alt: "Group Photo", url: "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" },
-    ]
-  },
-  { 
-    category: "Sports", 
-    date: "Athletics", 
-    images: [
-      { id: "cl-3", alt: "Sports 1", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
-      { id: "cl-4", alt: "Sports 2", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
-      { id: "cl-5", alt: "Sports 3", url: "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Tug-of-War-1024x768.jpg" },
-    ]
-  }
-];
+const defaultAlbums = [];
 
 const cmsCategories = ["Pharmacy Labs", "Industrial Visits & Outreach", "Academic Excellence", "Cultural Activities", "Sports", "Campus Infrastructure"];
 
 export default function PhotoGalleryPage() {
-  const ref = useScrollReveal();
-  const { data } = useIshanLawData("gallery");
+  const { data: photosData } = usePharmacyData("photos");
+  const ref = useScrollReveal([photosData]);
 
   // Dynamic photos from CMS or fallback to static placeholders
-  const photos: Array<{title:string;url:string;category?:string}> = data?.photos?.length > 0 ? data.photos : [];
+  const photos: Array<{title:string;url:string;category?:string}> = photosData?.length > 0 ? photosData : [];
   
   const [filter, setFilter] = useState("All");
 

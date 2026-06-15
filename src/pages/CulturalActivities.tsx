@@ -2,11 +2,11 @@
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 export default function CulturalActivitiesPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
+  const { data } = usePharmacyData("campuslife");
   const cultural = data?.culturalActivities;
   const content = cultural?.content;
   const specs = cultural?.specs?.length > 0 ? cultural.specs : [

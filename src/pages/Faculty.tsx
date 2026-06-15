@@ -3,24 +3,15 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { Search, X } from "lucide-react";
-import { useIshanLawData } from "@/hooks/useIshanLawData";
+import { usePharmacyData } from "@/hooks/usePharmacyData";
 
-const defaultFaculty = [
-  { name: "Dr. Sandeep Singh", designation: "Principal", dept: "Pharmaceutics", qualification: "PhD (Pharmacy), M.Pharm", specialisation: "Drug Delivery Systems & Formulation", bio: "Extensive experience in pharmaceutical formulation research. Author of several peer-reviewed papers on novel drug delivery.", publications: "12 Research Papers" },
-  { name: "Prof. Rajesh Khanna", designation: "Professor", dept: "Pharmacology", qualification: "M.Pharm, UGC NET", specialisation: "Clinical Pharmacology & Toxicology", bio: "Deep expertise in pharmacological interactions and toxicity studies. Focuses on evidence-based drug evaluation.", publications: "8 Publications" },
-  { name: "Ms. Anjali Sharma", designation: "Assistant Professor", dept: "Pharmacy Practice", qualification: "M.Pharm, Hospital Training", specialisation: "Clinical Pharmacy & Patient Counselling", bio: "Specialises in hospital pharmacy and clinical patient counselling. Mentors students for community health camps." },
-  { name: "Mr. Vivek Verma", designation: "Assistant Professor", dept: "Pharmaceutical Chemistry", qualification: "M.Pharm", specialisation: "Medicinal Chemistry & Drug Synthesis", bio: "Expertise in organic synthesis and drug design. Bridges industrial chemistry practice with academic theory." },
-  { name: "Dr. Megha Gupta", designation: "Associate Professor", dept: "Pharmacognosy", qualification: "PhD (Pharmacognosy), M.Pharm", specialisation: "Herbal Drug Technology & Phytochemistry", bio: "Focuses on medicinal plant extraction and herbal formulations. Actively guides student research on traditional medicine.", publications: "15 Publications" },
-  { name: "Prof. Amit Das", designation: "Assistant Professor", dept: "Pharmacology", qualification: "M.Pharm, UGC NET", specialisation: "Biochemistry & Pharmacokinetics", bio: "Dedicated to understanding drug metabolism and kinetic models in the human body and their therapeutic implications." },
-  { name: "Ms. Neha Singh", designation: "Assistant Professor", dept: "Pharmaceutical Chemistry", qualification: "M.Pharm", specialisation: "Pharmaceutical Analysis & Quality Control", bio: "Passionate about analytical methods and quality standards in pharmaceutical manufacturing and testing." },
-  { name: "Mr. Karan Bajaj", designation: "Assistant Professor", dept: "Pharmaceutics", qualification: "M.Pharm", specialisation: "Dosage Form Design & Biopharmaceutics", bio: "Brings industry experience in dosage form manufacturing. Emphasises practical lab techniques and GMP compliance." },
-];
+const defaultFaculty = [];
 
 export default function FacultyPage() {
   const ref = useScrollReveal();
-  const { data } = useIshanLawData("campuslife");
+  const { data } = usePharmacyData("faculty");
 
-  const faculty = data?.faculty?.length > 0 ? data.faculty : defaultFaculty;
+  const faculty = data?.length > 0 ? data : defaultFaculty;
   const departments = ["All", ...Array.from(new Set(faculty.map((f: any) => f.dept || f.department || "General"))).filter(Boolean) as string[]];
 
   const [filter, setFilter] = useState("All");

@@ -4,46 +4,13 @@ import { Calendar, ArrowRight, X, MapPin, Tag, Share2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { motion, AnimatePresence } from "framer-motion";
 
-const defaultNews = [
-  {
-    title: "National Pharmacy Week Celebration",
-    date: "November 22, 2025",
-    category: "Events",
-    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
-    description: "Ishan Institute of Pharmacy celebrated National Pharmacy Week with a series of expert talks and student competitions focusing on the pharmacist's role in global health.",
-    location: "Auditorium, Ishan Pharmacy"
-  },
-  {
-    title: "Health Camp & Free Checkups in Greater Noida",
-    date: "February 18, 2025",
-    category: "Social Service",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
-    description: "Our D.Pharm and B.Pharm students organized a community outreach program to provide basic diagnostic tests and medication counseling to over 100 community members.",
-    location: "Knowledge Park III"
-  },
-  {
-    title: "Industrial Visit to Sun Pharma Production Facility",
-    date: "January 25, 2025",
-    category: "Institutional",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe668df9731?auto=format&fit=crop&w=800&q=80",
-    description: "Final year B.Pharm students visited the Sun Pharma manufacturing unit to understand large-scale drug production, quality control, and regulatory compliance.",
-    location: "Sun Pharma, Noida"
-  },
-  {
-    title: "Seminar on Modern Drug Delivery Systems",
-    date: "April 12, 2025",
-    category: "Guest Lecture",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
-    description: "Eminent pharmaceutical scientists delivered a comprehensive lecture on the latest advancements in targeted drug delivery systems and their impact on patient care.",
-    location: "Seminar Hall, Ishan Pharmacy"
-  },
-];
+const defaultNews = [];
 
 export default function NewsSection() {
-  const ref = useScrollReveal();
   const [selectedNews, setSelectedNews] = useState<any>(null);
   const { data } = usePharmacyData("news");
   const news = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : defaultNews);
+  const ref = useScrollReveal([news]);
 
   return (
     <section className="py-20 md:py-28 bg-section-alt" ref={ref}>
