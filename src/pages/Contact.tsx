@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -59,6 +60,11 @@ export default function ContactPage() {
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
+          {data?.bannerImage && (
+            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
+              <ImageWithFallback src={data.bannerImage} alt="Banner" className="w-full h-full object-cover" />
+            </div>
+          )}
           <p className="reveal leading-relaxed max-w-3xl mb-12 text-lg">
             Ishan Pharmacy's team is available to assist prospective students, parents, enrolled students, and visitors. Admissions queries are given priority, with responses guaranteed within 24 working hours.
           </p>
@@ -128,7 +134,15 @@ export default function ContactPage() {
             </div>
           </div>
 
-
+          {data?.images && data.images.length > 0 && (
+            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.images.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </Layout>

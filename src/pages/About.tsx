@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -43,10 +44,15 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
+          {data?.bannerImage && (
+            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
+              <ImageWithFallback src={data.bannerImage} alt="Banner" className="w-full h-full object-cover" />
+            </div>
+          )}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
-                <img src={ourStory?.image || "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus"} alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
+                <ImageWithFallback src={ourStory?.image || "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus"} alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
               </div>
             </div>
 
@@ -61,6 +67,15 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
               />
             </div>
           </div>
+          {data?.images && data.images.length > 0 && (
+            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.images.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

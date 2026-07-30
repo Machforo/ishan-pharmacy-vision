@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
@@ -20,11 +21,16 @@ export default function PastPapersPage() {
       <PageHeader title={current.title} subtitle={current.subtitle} breadcrumbs={[{ label: "Students" }, { label: current.title }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
+          {current.bannerImage && (
+            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
+              <ImageWithFallback src={current.bannerImage} alt="Banner" className="w-full h-full object-cover" />
+            </div>
+          )}
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             <div className="reveal space-y-8">
               <div className="text-foreground/70 leading-relaxed prose max-w-none" dangerouslySetInnerHTML={{ __html: current.overview }} />
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src={current.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg"} alt="Resources" className="w-full h-80 object-cover" />
+                <ImageWithFallback src={current.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg"} alt="Resources" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-3">
@@ -40,6 +46,15 @@ export default function PastPapersPage() {
             ))}
             </div>
           </div>
+          {current.images && current.images.length > 0 && (
+            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {current.images.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </Layout>

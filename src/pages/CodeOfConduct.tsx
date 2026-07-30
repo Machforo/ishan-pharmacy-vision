@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
@@ -28,6 +29,11 @@ export default function CodeOfConductPage() {
       <PageHeader title="Code of Conduct" subtitle="Student rules, dress code, and academic integrity guidelines" breadcrumbs={[{ label: "Students" }, { label: "Code of Conduct" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
+          {data?.bannerImage && (
+            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
+              <ImageWithFallback src={data.bannerImage} alt="Banner" className="w-full h-full object-cover" />
+            </div>
+          )}
           <div className="grid lg:grid-cols-[1fr_350px] gap-12 items-start max-w-6xl mx-auto">
             <div className="reveal space-y-8">
               {data?.intro && <p className="text-foreground/80 leading-relaxed">{data.intro}</p>}
@@ -40,10 +46,20 @@ export default function CodeOfConductPage() {
             </div>
             <div className="reveal hidden lg:block sticky top-32">
               <div className="rounded-2xl overflow-hidden shadow-2xl border mb-6">
-                <img src={data?.image || "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Professionalism" className="w-full h-[500px] object-cover" />
+                <ImageWithFallback src={data?.image || "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Professionalism" className="w-full h-[500px] object-cover" />
               </div>
             </div>
           </div>
+          
+          {data?.images && data.images.length > 0 && (
+            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.images.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </Layout>

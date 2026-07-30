@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -21,13 +22,18 @@ export default function CareersPage() {
       <PageHeader title="Careers at Ishan Pharmacy" subtitle="Join a community of pharmaceutical scientists and healthcare educators dedicated to excellence" breadcrumbs={[{ label: "Contact", href: "/contact" }, { label: "Careers" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
+          {jobs[0]?.bannerImage && (
+            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
+              <ImageWithFallback src={jobs[0].bannerImage} alt="Banner" className="w-full h-full object-cover" />
+            </div>
+          )}
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             <div className="reveal space-y-10">
               <p className="text-foreground/70 leading-relaxed text-lg">
                 Ishan Pharmacy invites qualified pharmaceutical educators, industry practitioners, and administrative professionals to join our institution — contributing to producing the next generation of India's healthcare professionals. We offer a highly professional environment, strong research support, and competitive compensation.
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
+                <ImageWithFallback src={jobs[0]?.image || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-4">
@@ -58,7 +64,17 @@ export default function CareersPage() {
                Please send your updated CV, along with a cover letter detailing your relevant experience and academic interests, to <a href="mailto:careers@ishan.ac" className="text-navy font-bold hover:underline">careers@ishan.ac</a>. Shortlisted candidates will be contacted by the HR department within 14 working days for the interview process.
              </p>
           </div>
-        </div></div>
+          </div>
+          {jobs[0]?.images && jobs[0].images.length > 0 && (
+            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {jobs[0].images.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </section>
     </Layout>
   );
