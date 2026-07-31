@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 export default function CulturalActivitiesPage() {
   const ref = useScrollReveal();
@@ -62,6 +63,7 @@ export default function CulturalActivitiesPage() {
           </div>
         </div>
       </section>
+      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

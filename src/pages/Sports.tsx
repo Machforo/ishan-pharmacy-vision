@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 export default function SportsPage() {
   const ref = useScrollReveal();
@@ -57,6 +58,7 @@ export default function SportsPage() {
           </div>
         </div>
       </section>
+      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

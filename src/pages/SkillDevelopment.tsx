@@ -2,6 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import PageGallery from "@/components/PageGallery";
 
 export default function SkillDevelopmentPage() {
   const ref = useScrollReveal();
@@ -30,6 +31,7 @@ export default function SkillDevelopmentPage() {
         </div></div>
       </section>
       <EnquiryCTA />
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }

@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Heart, ShieldCheck, Scale, HandHelping } from "lucide-react";
+import PageGallery from "@/components/PageGallery";
 
 export default function LegalAidCellPage() {
   const ref = useScrollReveal();
@@ -84,6 +85,7 @@ export default function LegalAidCellPage() {
       </section>
 
       <EnquiryCTA />
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }

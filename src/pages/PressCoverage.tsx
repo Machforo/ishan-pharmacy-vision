@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 export default function PressCoveragePage() {
   const { data: pressData } = usePharmacyData("press");
@@ -54,6 +55,7 @@ export default function PressCoveragePage() {
           </div>
         </div>
       </section>
+    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

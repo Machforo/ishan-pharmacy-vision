@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Calendar, Phone, CheckCircle2, ArrowRight } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 const steps = [
   { num: "01", title: "UPSEE / CUET Counselling", desc: "For B.Pharm, begin by participating in the UPSEE (AKTU) or CUET-based state counselling. For D.Pharm, register on the BTE UP portal. Seat allotment is based on your 10+2 merit." },
@@ -122,6 +123,7 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
+      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 export default function PrincipalMessagePage() {
   const ref = useScrollReveal();
@@ -67,6 +68,7 @@ export default function PrincipalMessagePage() {
         </div>
       </section>
 
+      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

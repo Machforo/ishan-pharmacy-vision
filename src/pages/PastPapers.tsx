@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 export default function PastPapersPage() {
   const { data } = usePharmacyData("pastpapers");
@@ -57,6 +58,7 @@ export default function PastPapersPage() {
           )}
         </div>
       </section>
+    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

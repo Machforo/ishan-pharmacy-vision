@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, ShieldCheck, MapPin, Star } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 const fallbackIcons = [CheckCircle2, ShieldCheck, MapPin, Star];
 
@@ -66,6 +67,7 @@ export default function HostelFacilitiesPage() {
           </div>
         </div>
       </section>
+      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

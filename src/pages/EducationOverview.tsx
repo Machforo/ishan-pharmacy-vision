@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { GraduationCap, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
+import PageGallery from "@/components/PageGallery";
 
 export default function EducationOverviewPage() {
   const ref = useScrollReveal();
@@ -70,6 +71,7 @@ export default function EducationOverviewPage() {
       </section>
 
       <EnquiryCTA />
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }

@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Search, Home, ArrowLeft } from "lucide-react";
+import PageGallery from "@/components/PageGallery";
 
 const NotFound = () => {
   const location = useLocation();
@@ -55,7 +56,8 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 };
 

@@ -5,6 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { toast } from "sonner";
+import PageGallery from "@/components/PageGallery";
 
 export default function FeedbackPage() {
   const { data } = usePharmacyData("feedback");
@@ -81,6 +82,7 @@ export default function FeedbackPage() {
           </div>
         </div>
       </section>
+    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Lightbulb, Rocket, Users, Briefcase, Trophy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import PageGallery from "@/components/PageGallery";
 
 export default function ECellPage() {
   const ref = useScrollReveal();
@@ -95,6 +96,7 @@ export default function ECellPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }

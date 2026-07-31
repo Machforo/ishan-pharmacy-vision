@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import PageGallery from "@/components/PageGallery";
 
 const defaultVideos = [];
 
@@ -62,6 +63,7 @@ export default function VideoGalleryPage() {
           <p className="text-center text-sm text-muted-foreground mt-8">Video placeholders shown — embed YouTube videos via CMS.</p>
         </div>
       </section>
+    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

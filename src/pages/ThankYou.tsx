@@ -1,6 +1,7 @@
 ﻿import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/Layout";
+import PageGallery from "@/components/PageGallery";
 
 export default function ThankYouPage() {
   return (
@@ -68,6 +69,7 @@ export default function ThankYouPage() {
           </div>
         </div>
       </div>
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }

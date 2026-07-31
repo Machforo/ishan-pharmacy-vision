@@ -1,6 +1,7 @@
 ﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import PageGallery from "@/components/PageGallery";
 
 export default function AntiRaggingPage() {
   const ref = useScrollReveal();
@@ -38,6 +39,7 @@ export default function AntiRaggingPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    <PageGallery />
+      </Layout>
   );
 }
