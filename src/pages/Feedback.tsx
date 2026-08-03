@@ -16,6 +16,15 @@ export default function FeedbackPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (form.name) {
+      const nameRegex = /^[a-zA-Z\s.'-]+$/;
+      if (!nameRegex.test(form.name.trim())) {
+        toast.error("Name should only contain alphabets and spaces.");
+        return;
+      }
+    }
+
     setSubmitting(true);
     try {
       const apiBase = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
@@ -51,7 +60,7 @@ export default function FeedbackPage() {
             <div className="reveal delay-100 bg-card rounded-2xl p-8 shadow-sm border">
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <input type="text" placeholder="Your Name (optional)" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
+                  <input type="text" placeholder="Your Name (optional)" value={form.name} onChange={(e) => setForm({...form, name: e.target.value.replace(/[^a-zA-Z\s.'-]/g, '')})} className="w-full px-4 py-3 text-sm rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow" />
                   <select required value={form.userType} onChange={(e) => setForm({...form, userType: e.target.value})} className="w-full px-4 py-3 text-sm rounded-lg border bg-background text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold)/0.5)] transition-shadow">
                     <option value="">I am a...*</option><option>Student</option><option>Parent</option><option>Visitor</option>
                   </select>
