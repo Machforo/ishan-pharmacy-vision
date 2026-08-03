@@ -11,6 +11,9 @@ export function usePharmacyData(endpoint: string) {
       }
       return response.json();
     },
+    staleTime: 0,
+    refetchOnMount: 'always',
+    refetchOnWindowFocus: true,
     retry: 2,
   });
 }

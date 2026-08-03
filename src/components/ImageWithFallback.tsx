@@ -12,9 +12,22 @@ export default function ImageWithFallback({ src, alt, fallbackSrc, className, ..
     setError(false);
   }, [src]);
 
-  if (!src || error) {
-    if (fallbackSrc) {
-      return <img src={fallbackSrc} alt={alt || "Fallback Image"} className={className} {...props} />;
+  const getFormattedSrc = (url?: string) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+      return url;
+    }
+    const apiBase = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/api\/?$/, '');
+    const cleanPath = url.startsWith('/') ? url : `/${url}`;
+    return `${apiBase}${cleanPath}`;
+  };
+
+  const finalSrc = getFormattedSrc(src);
+
+  if (!finalSrc || error) {
+    const formattedFallback = getFormattedSrc(fallbackSrc);
+    if (formattedFallback) {
+      return <img src={formattedFallback} alt={alt || "Fallback Image"} className={className} {...props} />;
     }
     return (
       <div className={`flex flex-col items-center justify-center bg-muted text-muted-foreground ${className}`} {...(props as any)}>
@@ -25,7 +38,7 @@ export default function ImageWithFallback({ src, alt, fallbackSrc, className, ..
 
   return (
     <img
-      src={src}
+      src={finalSrc}
       alt={alt || "Image"}
       className={className}
       onError={() => setError(true)}
