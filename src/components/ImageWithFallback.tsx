@@ -17,7 +17,7 @@ export default function ImageWithFallback({ src, alt, fallbackSrc, className, ..
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
       return url;
     }
-    const apiBase = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/api\/?$/, '');
+    const apiBase = (import.meta.env.VITE_API_URL || "https://ishan-backend-g096.onrender.com/api").replace(/\/api\/?$/, '');
     const cleanPath = url.startsWith('/') ? url : `/${url}`;
     return `${apiBase}${cleanPath}`;
   };
