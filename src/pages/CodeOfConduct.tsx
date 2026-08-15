@@ -3,7 +3,7 @@ import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultRules = [
   { title: "1. Professional Conduct", content: "Pharmacy students are expected to maintain the highest standards of decorum and dignity, reflecting the noble nature of the healthcare profession. Respectful behavior towards faculty, staff, and fellow students is mandatory. Any form of misconduct, including bullying, verbal abuse, or physical altercation, will result in immediate disciplinary action." },
@@ -63,7 +63,6 @@ export default function CodeOfConductPage() {
           )}
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

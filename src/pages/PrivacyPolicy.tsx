@@ -1,7 +1,6 @@
 ﻿import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import PageGallery from "@/components/PageGallery";
 
 export default function PrivacyPolicyPage() {
   const ref = useScrollReveal();
@@ -35,7 +34,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

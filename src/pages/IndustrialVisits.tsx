@@ -3,7 +3,6 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
 
 export default function IndustrialVisitsPage() {
   const { data } = usePharmacyData("industrialvisits");
@@ -62,7 +61,6 @@ export default function IndustrialVisitsPage() {
           </div>
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

@@ -5,7 +5,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultMilestones = [];
 
@@ -121,7 +121,6 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
         </div>
       </section>
 
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

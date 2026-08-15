@@ -4,7 +4,6 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, MessageSquare, MapPin, Laptop } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import PageGallery from "@/components/PageGallery";
 
 export default function AdmissionsEnquiryPage() {
   const ref = useScrollReveal();
@@ -161,7 +160,6 @@ export default function AdmissionsEnquiryPage() {
           </div>
         </div>
       </section>
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

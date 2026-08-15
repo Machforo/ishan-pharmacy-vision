@@ -3,7 +3,6 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Scale, Users, Gavel, GraduationCap } from "lucide-react";
-import PageGallery from "@/components/PageGallery";
 
 export default function MootCourtPage() {
   const ref = useScrollReveal();
@@ -85,7 +84,6 @@ export default function MootCourtPage() {
       </section>
 
       <EnquiryCTA />
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

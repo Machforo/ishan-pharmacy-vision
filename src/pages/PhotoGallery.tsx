@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultAlbums = [];
 
@@ -93,7 +93,6 @@ export default function PhotoGalleryPage() {
 
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

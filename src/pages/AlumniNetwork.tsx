@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Users, Building2, Star, TrendingUp } from "lucide-react";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultAlumni = [
   { name: "Priya Sharma", batch: "B.Pharm 2022", company: "Sun Pharma", role: "Senior Research Scientist" },
@@ -63,7 +63,6 @@ export default function AlumniNetworkPage() {
           </div>
         </div>
       </section>
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

@@ -5,14 +5,16 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { toast } from "sonner";
-import PageGallery from "@/components/PageGallery";
+
 
 export default function FeedbackPage() {
-  const { data } = usePharmacyData("feedback");
-  const ref = useScrollReveal([data]);
+  const { data: contactData } = usePharmacyData("contact");
+  const ref = useScrollReveal([contactData]);
+  const pageData = contactData?.feedbackPage;
 
   const [form, setForm] = useState({ name: "", userType: "", programme: "", subject: "", message: "", rating: "5" });
   const [submitting, setSubmitting] = useState(false);
+  const [hoverRating, setHoverRating] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,16 +47,20 @@ export default function FeedbackPage() {
 
   return (
     <Layout>
-      <PageHeader title="Feedback" subtitle="Help us improve — share your experience as a student, parent, or visitor" breadcrumbs={[{ label: "Contact", href: "/contact" }, { label: "Feedback" }]} />
+      <PageHeader title={pageData?.title || "Feedback"} subtitle={pageData?.subtitle || "Help us improve — share your experience as a student, parent, or visitor"} breadcrumbs={[{ label: "Contact", href: "/contact" }, { label: "Feedback" }]} />
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal space-y-8">
-              <p className="text-foreground/70 leading-relaxed text-lg">
-                Ishan Pharmacy values feedback from students, parents, and visitors — assessment of academic quality, faculty, facilities, and administrative support helps us improve. All responses are carefully reviewed by the Quality Assurance Cell and reach the Principal's office directly. Your inputs remain private and confidential.
-              </p>
+              {pageData?.description ? (
+                <div className="text-foreground/70 leading-relaxed text-lg whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: pageData.description }} />
+              ) : (
+                <p className="text-foreground/70 leading-relaxed text-lg whitespace-pre-wrap">
+                  Ishan Pharmacy values feedback from students, parents, and visitors — assessment of academic quality, faculty, facilities, and administrative support helps us improve. All responses are carefully reviewed by the Quality Assurance Cell and reach the Principal's office directly. Your inputs remain private and confidential.
+                </p>
+              )}
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus" alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
+                <img src={pageData?.image || "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus"} alt="Ishan Pharmacy Campus" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="reveal delay-100 bg-card rounded-2xl p-8 shadow-sm border">
@@ -75,11 +81,11 @@ export default function FeedbackPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-2 border-t mt-4 pt-4">
                    <div className="flex items-center gap-3">
                      <span className="text-sm font-medium text-foreground">Rating:</span>
-                     <div className="flex gap-1">
+                     <div className="flex gap-1" onMouseLeave={() => setHoverRating(0)}>
                        {[1, 2, 3, 4, 5].map(star => (
-                         <label key={star} className="cursor-pointer">
-                           <input type="radio" name="rating" value={star} checked={form.rating === String(star)} onChange={(e) => setForm({...form, rating: e.target.value})} className="sr-only peer" required />
-                           <span className="text-2xl text-muted peer-checked:text-gold hover:text-gold-light transition-colors">★</span>
+                         <label key={star} className="cursor-pointer" onMouseEnter={() => setHoverRating(star)}>
+                           <input type="radio" name="rating" value={star} checked={form.rating === String(star)} onChange={(e) => setForm({...form, rating: e.target.value})} className="sr-only" required />
+                           <span className={`text-3xl transition-all duration-200 ${star <= (hoverRating || Number(form.rating)) ? 'text-gold drop-shadow-[0_0_8px_rgba(212,175,55,0.5)] scale-110 inline-block' : 'text-muted-foreground/20 hover:text-muted-foreground/40 inline-block'}`}>★</span>
                          </label>
                        ))}
                      </div>
@@ -91,7 +97,6 @@ export default function FeedbackPage() {
           </div>
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

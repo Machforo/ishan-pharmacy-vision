@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { User, Phone, BookOpen, Send, Calendar, Clock, CheckCircle } from "lucide-react";
-import PageGallery from "@/components/PageGallery";
+
 import { toast } from "sonner";
 
 export default function Consultation() {
@@ -200,7 +200,6 @@ export default function Consultation() {
           
         </div>
       </div>
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

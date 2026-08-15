@@ -4,7 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Monitor, Wifi, Clock, Shield } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultSpecs = [];
 
@@ -67,7 +67,6 @@ export default function ITLabPage() {
         </div>
       </section>
 
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

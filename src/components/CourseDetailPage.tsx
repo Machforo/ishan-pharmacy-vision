@@ -4,7 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import { Clock, IndianRupee, Users, GraduationCap, CheckCircle2, ArrowRight } from "lucide-react";
-import PageGallery from "@/components/PageGallery";
+import PageSections from "@/components/PageSections";
 
 interface CoursePageProps {
   name: string;
@@ -118,7 +118,7 @@ export default function CourseDetailPage(props: CoursePageProps) {
       </section>
 
       <EnquiryCTA />
-    <PageGallery />
+    <PageSections />
       </Layout>
   );
 }

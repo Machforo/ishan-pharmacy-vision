@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultJobs = [
   { title: "Professor / Associate Professor — Pharmacology", qualification: "M.Pharm / PhD (Pharmacology)", experience: "10+ Years", dept: "Pharmacology", type: "Full-time" },
@@ -77,7 +77,6 @@ export default function CareersPage() {
           )}
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

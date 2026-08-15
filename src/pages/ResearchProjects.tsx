@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FlaskConical, Users, Award, TrendingUp } from "lucide-react";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultProjects = [
   { title: "Development of Nanoparticle-Based Drug Delivery for Cancer Therapy", pi: "Dr. Sandeep Singh", department: "Pharmaceutics", status: "Ongoing", funding: "AKTU Research Grant" },
@@ -64,7 +64,6 @@ export default function ResearchProjectsPage() {
           </div>
         </div>
       </section>
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

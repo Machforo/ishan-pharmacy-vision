@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Calendar, MapPin, Tag, Clock, Share2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 export default function EventsCalendarPage() {
   const { data: eventsData } = usePharmacyData("calendarevents");
@@ -74,7 +74,6 @@ export default function EventsCalendarPage() {
           </div>
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

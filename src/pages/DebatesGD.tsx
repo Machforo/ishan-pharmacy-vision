@@ -2,7 +2,6 @@
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { MessageSquare, Users, Mic2, Briefcase, Trophy } from "lucide-react";
-import PageGallery from "@/components/PageGallery";
 
 export default function DebatesGDPage() {
   const ref = useScrollReveal();
@@ -90,7 +89,6 @@ export default function DebatesGDPage() {
           </div>
         </div>
       </section>
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

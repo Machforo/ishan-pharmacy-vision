@@ -2,7 +2,6 @@
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, Gavel, Video, Monitor, BookOpen, Scale } from "lucide-react";
-import PageGallery from "@/components/PageGallery";
 
 export default function MootCourtPage() {
   const ref = useScrollReveal();
@@ -89,7 +88,6 @@ export default function MootCourtPage() {
           </div>
         </div>
       </section>
-    <PageGallery />
-      </Layout>
+    </Layout>
   );
 }

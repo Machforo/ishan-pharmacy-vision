@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { BookOpen, ExternalLink } from "lucide-react";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultPublications = [
   { title: "Novel Drug Delivery Systems for Enhanced Bioavailability", authors: "Dr. Sandeep Singh, Dr. Megha Gupta", journal: "Asian Journal of Pharmaceutics", year: "2024", doi: "#" },
@@ -53,7 +53,6 @@ export default function PublicationsPage() {
           </div>
         </div>
       </section>
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

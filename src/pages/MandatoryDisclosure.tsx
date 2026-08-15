@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 const defaultDisclosureItems = [
   { category: "Institution Details", items: ["Name: Ishan Institute of Pharmacy", "Address: Knowledge Park-III, Greater Noida", "Year of Establishment: 2017", "Status: Private Self-Financing", "Type: Co-educational Professional Institution"] },
@@ -89,7 +89,6 @@ export default function MandatoryDisclosurePage() {
           )}
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }

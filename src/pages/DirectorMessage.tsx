@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 export default function DirectorMessagePage() {
   const ref = useScrollReveal();
@@ -69,7 +69,6 @@ I warmly invite you to join the Ishan Pharmacy community and experience an educa
         </div>
       </section>
 
-      <PageGallery images={data?.pageGallery} />
       <EnquiryCTA />
     </Layout>
   );

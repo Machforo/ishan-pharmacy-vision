@@ -3,7 +3,7 @@ import ImageWithFallback from "@/components/ImageWithFallback";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import PageGallery from "@/components/PageGallery";
+
 
 export default function FeePaymentPage() {
   const { data } = usePharmacyData("feepayment");
@@ -45,7 +45,6 @@ export default function FeePaymentPage() {
           )}
         </div>
       </section>
-    <PageGallery images={data?.pageGallery} />
     </Layout>
   );
 }
