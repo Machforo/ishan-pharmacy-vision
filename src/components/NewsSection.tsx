@@ -9,6 +9,7 @@ const defaultNews = [];
 export default function NewsSection() {
   const [selectedNews, setSelectedNews] = useState<any>(null);
   const { data } = usePharmacyData("news");
+  const { data: homeData } = usePharmacyData("homepage");
   const news = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : defaultNews);
   const ref = useScrollReveal([news]);
 
@@ -17,12 +18,14 @@ export default function NewsSection() {
       <div className="container-wide">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
           <div>
-            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Latest Updates</p>
+            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">
+              {homeData?.newsSection?.badge || "Latest Updates"}
+            </p>
             <h2 className="reveal delay-100 font-bold text-foreground">
-              News &amp; Events
+              {homeData?.newsSection?.heading || "News & Events"}
             </h2>
           </div>
-          <a href="/news" className="reveal delay-200 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors group">
+          <a href="/news-events" className="reveal delay-200 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors group">
             View All News
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>

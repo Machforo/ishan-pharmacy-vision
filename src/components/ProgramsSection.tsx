@@ -7,8 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProgramsSection() {
   const ref = useScrollReveal();
-  const { data } = usePharmacyData("programs");
+  const { data } = usePharmacyData("courses"); // Changed from programs to courses
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const { data: homeData } = usePharmacyData("homepage");
 
   const fallbackPrograms = [
     { 
@@ -40,7 +42,18 @@ export default function ProgramsSection() {
     }
   ];
   
-  const programs = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : fallbackPrograms);
+  // Transform courses to match the component's expected format
+  const programs = data?.length > 0 
+    ? data.map((c: any) => ({
+        name: c.programName,
+        type: c.duration?.includes("Year") ? "Degree" : "Certificate",
+        category: c.duration,
+        description: c.duration,
+        link: `/courses/${c.programName?.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        overview: c.overview,
+        outcomes: c.careerScope ? c.careerScope.split(',').map((s: string) => s.trim()) : ["Management Professional"]
+      })) 
+    : fallbackPrograms;
   
   // Dynamically generate available filters
   const availableTypes = Array.from(new Set(programs.map((p: any) => p.type))).filter(Boolean) as string[];
@@ -52,7 +65,7 @@ export default function ProgramsSection() {
 
   const filteredPrograms = programs.filter((p: any) => {
     const matchesFilter = activeFilter === "All" || p.type === activeFilter || p.category === activeFilter;
-    const matchesSearch = programSearch.trim() === "" || p.name.toLowerCase().includes(programSearch.toLowerCase());
+    const matchesSearch = programSearch.trim() === "" || p.name?.toLowerCase().includes(programSearch.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -60,13 +73,22 @@ export default function ProgramsSection() {
     <section id="programs" className="py-12 md:py-20 bg-section-alt overflow-hidden" ref={ref}>
       <div className="container-wide">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Academic Excellence</p>
-          <h2 className="reveal delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-            Programs Designed for Real-World Success
-          </h2>
-          <p className="reveal delay-200 mt-5 leading-relaxed">
-            PCI approved professional pharmaceutical programs affiliated to AKTU and BTE UP, designed to bridge the gap between academic theory and clinical practice.
+          <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">
+            {homeData?.programsSection?.badge || "Academic Excellence"}
           </p>
+          <h2 className="reveal delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            {homeData?.programsSection?.heading || "Programs Designed for Real-World Success"}
+          </h2>
+          {homeData?.programsSection?.description ? (
+            <div 
+              className="reveal delay-200 mt-5 leading-relaxed [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0"
+              dangerouslySetInnerHTML={{ __html: homeData.programsSection.description }}
+            />
+          ) : (
+            <p className="reveal delay-200 mt-5 leading-relaxed">
+              PCI approved professional pharmaceutical programs affiliated to AKTU and BTE UP, designed to bridge the gap between academic theory and clinical practice.
+            </p>
+          )}
         </div>
 
         {/* Filters & Search */}

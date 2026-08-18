@@ -42,12 +42,12 @@ export default function HeroSection() {
   const { data } = usePharmacyData("homepage");
   const SLIDES = data?.banners?.length > 0 ? data.banners.map((b: any) => ({
     image: b.image,
-    badge: "PCI Approved · AKTU/BTE Affiliated",
+    badge: b.badge || "PCI Approved · AKTU/BTE Affiliated",
     title: b.heading || "Advancing Healthcare",
     highlight: b.subheading || "Through Excellence",
     subtitle: b.description || "Pioneering pharmaceutical education with world-class facilities.",
     cta1: { label: b.ctaText || "Our Programs", href: b.ctaLink || "/courses/b-pharm" },
-    cta2: { label: "Campus Tour", href: "/infrastructure" },
+    cta2: { label: b.cta2Text || "Campus Tour", href: b.cta2Link || "/infrastructure" },
   })) : DEFAULT_SLIDES;
 
   const SESSION_START = (() => {
@@ -165,15 +165,20 @@ export default function HeroSection() {
     }
   };
 
+  const slidesLengthRef = useRef(SLIDES.length);
+  useEffect(() => {
+    slidesLengthRef.current = SLIDES.length;
+  }, [SLIDES.length]);
+
   const go = useCallback((idx: number) => {
-    setCurrent((idx + SLIDES.length) % SLIDES.length);
+    setCurrent((idx + slidesLengthRef.current) % slidesLengthRef.current);
   }, []);
 
   const resetTimer = useCallback((idx?: number) => {
     if (timerRef.current) clearInterval(timerRef.current);
     const start = idx ?? current;
     timerRef.current = setInterval(() => {
-      setCurrent((c) => (c + 1) % SLIDES.length);
+      setCurrent((c) => (c + 1) % slidesLengthRef.current);
     }, DELAY);
     return start;
   }, [current]);
@@ -182,7 +187,7 @@ export default function HeroSection() {
     resetTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [SLIDES.length]);
 
   const slide = SLIDES[current] || SLIDES[0];
 
@@ -234,9 +239,12 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtitle */}
-            <p key={`sub-${current}`} className="text-lg md:text-xl text-white/85 max-w-xl leading-relaxed" style={{ animation: "fadeUp 0.55s 0.12s ease both" }}>
-              {slide.subtitle}
-            </p>
+            <div 
+              key={`sub-${current}`} 
+              className="text-lg md:text-xl text-white/85 max-w-xl leading-relaxed [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0" 
+              style={{ animation: "fadeUp 0.55s 0.12s ease both" }}
+              dangerouslySetInnerHTML={{ __html: slide.subtitle }}
+            />
 
             {/* CTAs */}
             <div key={`cta-${current}`} className="flex flex-wrap gap-4" style={{ animation: "fadeUp 0.55s 0.18s ease both" }}>
@@ -362,7 +370,7 @@ export default function HeroSection() {
                         </h3>
                         <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold mt-1">What's going on at Ishan</p>
                       </div>
-                      <Link to="/news" className="text-xs font-bold text-gold hover:text-navy transition-colors flex items-center gap-1">
+                      <Link to="/news-events" className="text-xs font-bold text-gold hover:text-navy transition-colors flex items-center gap-1">
                         View All <ArrowRight size={12} />
                       </Link>
                     </div>
@@ -394,7 +402,7 @@ export default function HeroSection() {
                         <Sparkles size={14} className="text-gold" />
                         <span>30 Years of Academic Excellence</span>
                       </div>
-                      <Link to="/campus-experience" className="text-xs font-bold text-navy hover:text-gold transition-colors">Campus Tour</Link>
+                      <Link to="/infrastructure" className="text-xs font-bold text-navy hover:text-gold transition-colors">Campus Tour</Link>
                     </div>
                   </div>
                 )}

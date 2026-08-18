@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
+import PageGallery from "@/components/PageGallery";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { TrendingUp, Building2, Users2, Star, CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
@@ -18,9 +19,7 @@ export default function PlacementsPage() {
 
   // Schema field names: placementNumbers, recruitingPartners, successStories, placementProcess
   const stats = data?.placementNumbers?.length > 0 ? data.placementNumbers : defaultStats;
-  const recruiters: string[] = data?.recruitingPartners?.length > 0
-    ? data.recruitingPartners.map((r: any) => r.name || r)
-    : defaultRecruiters;
+  const recruiters: any[] = data?.recruitingPartners?.length > 0 ? data.recruitingPartners : defaultRecruiters;
   const testimonials = data?.successStories?.length > 0 ? data.successStories : defaultTestimonials;
   const placementProcess: Array<{step:string;desc:string}> = data?.placementProcess?.length > 0 ? data.placementProcess : [
     { step: "1", desc: "Pre-placement training: resume building, aptitude, group discussion, mock interviews" },
@@ -32,7 +31,7 @@ export default function PlacementsPage() {
 
   return (
     <Layout>
-      <PageHeader title="Career Outcomes" subtitle="Consistent record of placements in top-tier pharma companies, hospitals, and research institutions" breadcrumbs={[{ label: "Career Outcomes" }]} />
+      <PageHeader title="Career Outcomes" subtitle="Consistent record of placements in top-tier pharma companies, hospitals, and research institutions" breadcrumbs={[{ label: "Career Outcomes" }]} image={data?.bannerImage} />
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
@@ -102,6 +101,8 @@ export default function PlacementsPage() {
           </div>
         </div>
       </section>
+
+      {data?.images?.length > 0 && <PageGallery title="Campus Placements" images={data.images} />}
 
       <EnquiryCTA />
     </Layout>

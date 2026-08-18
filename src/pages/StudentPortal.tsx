@@ -16,7 +16,14 @@ export default function StudentPortalPage() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="reveal space-y-8">
-              <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">{content?.instructions || "Current Ishan Pharmacy students can access their academic profiles, attendance records, and library resources through the unified student portal. University examination results are available via the CCS University portal."}</p>
+              {content?.instructions ? (
+                <div 
+                  className="text-foreground/70 leading-relaxed whitespace-pre-wrap [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0"
+                  dangerouslySetInnerHTML={{ __html: content.instructions }}
+                />
+              ) : (
+                <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">Current Ishan Pharmacy students can access their academic profiles, attendance records, and library resources through the unified student portal. University examination results are available via the CCS University portal.</p>
+              )}
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img src={content?.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg"} alt="Ishan Pharmacy Student Resources" className="w-full h-80 object-cover" />
               </div>

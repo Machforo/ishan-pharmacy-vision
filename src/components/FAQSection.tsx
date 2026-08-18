@@ -4,6 +4,8 @@ import { ChevronDown, ChevronUp, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
+
 
 const defaultFaqs = [
   {
@@ -34,6 +36,7 @@ const defaultFaqs = [
 
 export default function FAQSection() {
   const { data } = usePharmacyData("faqs");
+  const { data: homeData } = usePharmacyData("homepage");
   const faqs = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : defaultFaqs);
   const ref = useScrollReveal([faqs]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -43,9 +46,11 @@ export default function FAQSection() {
       <div className="container-wide">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Common Inquiries</p>
+            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">
+              {homeData?.faqsSection?.badge || "Common Inquiries"}
+            </p>
             <h2 className="reveal delay-100 text-3xl md:text-5xl font-bold text-navy">
-              Frequently Asked Questions
+              {homeData?.faqsSection?.heading || "Frequently Asked Questions"}
             </h2>
           </div>
 
@@ -83,9 +88,10 @@ export default function FAQSection() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="p-6 pt-0 leading-relaxed bg-card">
-                        <div className="pl-14 border-l-2 border-gold/20 ml-5 py-2">
-                          {faq.answer}
-                        </div>
+                        <div 
+                          className="pl-14 border-l-2 border-gold/20 ml-5 py-2 [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0"
+                          dangerouslySetInnerHTML={{ __html: rt(faq.answer) }} 
+                        />
                       </div>
                     </motion.div>
                   )}

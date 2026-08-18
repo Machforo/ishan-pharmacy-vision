@@ -13,6 +13,8 @@ export default function ScholarshipsPage() {
   const ref = useScrollReveal([data]);
   // Schema: scholarships = [{category, concession, description}]
   const scholarships = data?.scholarships?.length > 0 ? data.scholarships : defaultScholarships;
+  const introDesc = data?.scholarshipPage?.description || "Ishan Pharmacy believes that financial constraints should never hinder a student's access to quality pharmaceutical education. We offer multiple scholarship schemes — including merit awards, category-based support, and need-based concessions — to ensure that every deserving student can pursue their healthcare career.";
+  const introImg = data?.scholarshipPage?.image || "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80";
 
   return (
     <Layout>
@@ -20,17 +22,18 @@ export default function ScholarshipsPage() {
         title="Scholarships"
         subtitle="Financial support options for deserving healthcare aspirants across all pharmacy programs"
         breadcrumbs={[{ label: "Admissions", href: "/admissions" }, { label: "Scholarships" }]}
+        image={data?.bannerImage}
       />
 
       <section className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-12">
             <div className="reveal space-y-8">
-              <p className="text-foreground/70 leading-relaxed">
-                Ishan Pharmacy believes that financial constraints should never hinder a student's access to quality pharmaceutical education. We offer multiple scholarship schemes — including merit awards, category-based support, and need-based concessions — to ensure that every deserving student can pursue their healthcare career.
+              <p className="text-foreground/70 leading-relaxed whitespace-pre-wrap">
+                {introDesc}
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Student Success" className="w-full h-80 object-cover" />
+                <img src={introImg} alt="Ishan Pharmacy Student Success" className="w-full h-80 object-cover" />
               </div>
             </div>
             <div className="space-y-6">

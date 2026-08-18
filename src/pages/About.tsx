@@ -5,9 +5,14 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 
-const defaultMilestones = [];
+const defaultMilestones = [
+  { year: "2017", title: "Inception", desc: "Foundation of Ishan Institute of Pharmacy with a vision to provide quality education." },
+  { year: "2019", title: "PCI Approval", desc: "Received official approval from the Pharmacy Council of India." },
+  { year: "2023", title: "Excellence Award", desc: "Recognized as a leading pharmacy institute in the region." }
+];
 
 export default function AboutPage() {
   const ref = useScrollReveal();
@@ -63,8 +68,8 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
                 {ourStory?.title || "Legacy of Shaping Professional Excellence"}
               </h2>
               <div 
-                className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none"
-                dangerouslySetInnerHTML={{ __html: ourStory?.content || fallback }}
+                className="text-foreground/70 leading-relaxed prose prose-sm max-w-none rich-text"
+                dangerouslySetInnerHTML={{ __html: rt(ourStory?.content || fallback) }}
               />
             </div>
           </div>

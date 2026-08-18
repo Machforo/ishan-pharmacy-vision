@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
+import MediaGallery from "@/components/MediaGallery";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, ShieldCheck, MapPin, Star } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 const fallbackIcons = [CheckCircle2, ShieldCheck, MapPin, Star];
 
@@ -40,7 +42,7 @@ export default function AuditoriumSportsPage() {
             <div className="reveal space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Facility Overview</p>
               <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
-              <div className="text-foreground/70 leading-relaxed whitespace-pre-wrap prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
+              <div className="text-foreground/70 leading-relaxed prose prose-sm max-w-none rich-text" dangerouslySetInnerHTML={{ __html: rt(current.overviewContent) }} />
             </div>
             <div className="reveal">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
@@ -66,6 +68,13 @@ export default function AuditoriumSportsPage() {
           </div>
         </div>
       </section>
+      {current?.images?.length > 0 && (
+        <section className="pb-20 md:pb-28">
+          <div className="container-wide max-w-6xl mx-auto">
+            <MediaGallery images={current.images} altPrefix={current?.title || "Facility photo"} />
+          </div>
+        </section>
+      )}
       <EnquiryCTA />
     </Layout>
   );

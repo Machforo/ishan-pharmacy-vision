@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Mic2, Calendar } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 export default function GuestLecturesPage() {
   const { data } = usePharmacyData("guestlectures");
@@ -24,13 +25,18 @@ export default function GuestLecturesPage() {
             <div className="reveal-left space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Beyond Textbooks</p>
               <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
-              <div className="text-foreground/70 leading-relaxed prose max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
+              <div className="text-foreground/70 leading-relaxed prose max-w-none rich-text" dangerouslySetInnerHTML={{ __html: rt(current.overviewContent) }} />
             </div>
             <div className="reveal-right space-y-4">
               {(current.events || []).map((e: any, i: number) => (
                 <div key={i} className="group p-6 rounded-2xl border bg-card hover:bg-muted transition-all duration-300">
+                  {e.image && (
+                    <div className="mb-4 rounded-xl overflow-hidden shadow-sm border h-48">
+                      <img src={e.image} alt={e.speaker} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  )}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">
                       <Mic2 className="w-5 h-5" />
                     </div>
                     <div>

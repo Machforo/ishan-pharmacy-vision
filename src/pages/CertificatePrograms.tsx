@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import PageGallery from "@/components/PageGallery";
+import { rt } from "@/lib/richText";
 
 const defaultPrograms = [
   { name: "Pharmacovigilance & Clinical Trials", duration: "3 Months", fee: "₹5,000", eligibility: "B.Pharm / D.Pharm students", desc: "Learn about drug safety monitoring, adverse event reporting, and clinical trial regulations." },
@@ -36,7 +37,7 @@ export default function CertificateProgramsPage() {
             <img src={pageData?.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Class-Room-3-1024x668.jpg"} alt="Certificate Programs" className="w-full h-80 object-cover" />
           </div>
           {pageData?.description ? (
-            <div className="reveal leading-relaxed max-w-3xl mx-auto text-center mb-12 whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: pageData.description }} />
+            <div className="reveal leading-relaxed max-w-3xl mx-auto text-center mb-12 rich-text" dangerouslySetInnerHTML={{ __html: rt(pageData.description) }} />
           ) : (
             <p className="reveal leading-relaxed max-w-3xl mx-auto text-center mb-12">
               Ishan Pharmacy offers structured certificate programs alongside regular degree courses. These specialized short courses help students develop practical skills that legal employers actively seek — from cyber law expertise to mediation skills and advanced legal drafting. All certificate programs include hands-on sessions, assessments, and a certificate of completion.

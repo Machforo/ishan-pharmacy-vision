@@ -42,6 +42,7 @@ export default function AdmissionsPage() {
         title="Admissions 2025-26"
         subtitle="Your pathway to a career in healthcare — D.Pharm & B.Pharm"
         breadcrumbs={[{ label: "Admissions" }]}
+        image={data?.bannerImage}
       />
 
       <section className="py-20 md:py-28" ref={ref}>
@@ -62,10 +63,10 @@ export default function AdmissionsPage() {
 
             <div className="reveal grid sm:grid-cols-2 gap-6 mb-14">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
+                <img src={data?.bannerImage || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border hidden sm:block">
-                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Life" className="w-full h-64 object-cover" />
+                <img src={data?.images?.[0]?.url || "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Life" className="w-full h-64 object-cover" />
               </div>
             </div>
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { rt } from "@/lib/richText";
 
 export default function PageSections({ sections: propSections }: { sections?: any }) {
   const [globalData, setGlobalData] = useState<any>(null);
@@ -37,7 +38,7 @@ export default function PageSections({ sections: propSections }: { sections?: an
   return (
     <>
       {actualSections.map((sec: any, i: number) => (
-        <div key={i} className="page-custom-section" dangerouslySetInnerHTML={{ __html: sec.htmlContent || "" }} />
+        <div key={i} className="page-custom-section" dangerouslySetInnerHTML={{ __html: rt(sec.htmlContent || "") }} />
       ))}
     </>
   );

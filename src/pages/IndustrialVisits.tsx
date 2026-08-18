@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 export default function IndustrialVisitsPage() {
   const { data } = usePharmacyData("industrialvisits");
@@ -24,7 +25,7 @@ export default function IndustrialVisitsPage() {
             <div className="reveal-left space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Industry Connect</p>
               <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
-              <div className="text-foreground/70 leading-relaxed prose max-w-none" dangerouslySetInnerHTML={{ __html: current.overviewContent }} />
+              <div className="text-foreground/70 leading-relaxed prose max-w-none rich-text" dangerouslySetInnerHTML={{ __html: rt(current.overviewContent) }} />
             </div>
             <div className="reveal-right">
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
@@ -38,6 +39,11 @@ export default function IndustrialVisitsPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {(current.visits || []).map((v: any, i: number) => (
                 <div key={i} className={`reveal delay-${Math.min(i % 4, 3)}00 p-8 rounded-2xl border bg-card hover:shadow-xl transition-all duration-300 group`}>
+                  {v.image && (
+                    <div className="mb-6 rounded-xl overflow-hidden shadow-sm border h-48">
+                      <img src={v.image} alt={v.company} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  )}
                   <div className="flex items-start justify-between mb-6">
                     <div>
                       <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-gold transition-colors">{v.company}</h4>

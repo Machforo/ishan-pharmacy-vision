@@ -66,13 +66,22 @@ export default function CTASection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left */}
           <div className="reveal-left space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Get In Touch</p>
-            <h2 className="font-bold text-primary-foreground leading-tight">
-              Begin Your Healthcare Career at Ishan Institute of Pharmacy
-            </h2>
-            <p className="text-primary-foreground/60 leading-relaxed whitespace-pre-wrap">
-              {ctaContent}
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+              {data?.enquirySection?.badge || "Get In Touch"}
             </p>
+            <h2 className="font-bold text-primary-foreground leading-tight">
+              {data?.enquirySection?.heading || "Begin Your Healthcare Career at Ishan Institute of Pharmacy"}
+            </h2>
+            {data?.enquirySection?.description ? (
+              <div 
+                className="text-primary-foreground/60 leading-relaxed [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0"
+                dangerouslySetInnerHTML={{ __html: data.enquirySection.description }}
+              />
+            ) : (
+              <p className="text-primary-foreground/60 leading-relaxed whitespace-pre-wrap">
+                {ctaContent}
+              </p>
+            )}
 
             <div className="space-y-4 pt-4">
               {[

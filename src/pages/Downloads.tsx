@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FileText, Download } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 export default function DownloadsPage() {
   const { data } = usePharmacyData("downloads");
@@ -30,7 +31,7 @@ export default function DownloadsPage() {
           )}
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             <div className="reveal space-y-8">
-              <div className="text-foreground/70 leading-relaxed prose max-w-none" dangerouslySetInnerHTML={{ __html: current.overview }} />
+              <div className="text-foreground/70 leading-relaxed prose max-w-none rich-text" dangerouslySetInnerHTML={{ __html: rt(current.overview) }} />
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <ImageWithFallback src={current.image || "https://pharmacy.ishan.ac/wp-content/uploads/2023/10/Library-2-1024x769.jpg"} alt="Resources" className="w-full h-80 object-cover" />
               </div>

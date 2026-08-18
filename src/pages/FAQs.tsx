@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import { rt } from "@/lib/richText";
 
 
 const defaultFaqCategories = [];
@@ -39,7 +40,7 @@ export default function FAQsPage() {
                           {faq.q}
                         </AccordionTrigger>
                         <AccordionContent className="text-sm leading-relaxed pb-4">
-                          {faq.a}
+                          <div className="rich-text" dangerouslySetInnerHTML={{ __html: rt(faq.a) }} />
                         </AccordionContent>
                       </AccordionItem>
                     ))}

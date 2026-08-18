@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { Clock, GraduationCap, IndianRupee, Users, CheckCircle2 } from "lucide-react";
 import NotFound from "./NotFound";
+import PageGallery from "@/components/PageGallery";
 
 export default function DynamicCourse() {
   const { courseId } = useParams();
@@ -66,7 +67,7 @@ export default function DynamicCourse() {
               {course.programName}
             </h1>
             <p className="text-lg text-primary-foreground/70 leading-relaxed font-light">
-              Forge your legacy at Ishan Institute of Pharmacy with our comprehensive {course.duration} program.
+              {course.subtitle || `Forge your legacy at Ishan Institute of Pharmacy with our comprehensive ${course.duration} program.`}
             </p>
           </div>
         </div>
@@ -106,7 +107,7 @@ export default function DynamicCourse() {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/60 mb-1">Duration</p>
-                    <p className="font-semibold text-lg">{course.duration || "N/A"}</p>
+                    <p className="font-semibold text-lg text-primary-foreground">{course.duration || "N/A"}</p>
                   </div>
                 </div>
 
@@ -116,7 +117,7 @@ export default function DynamicCourse() {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/60 mb-1">Annual Fee</p>
-                    <p className="font-semibold text-lg">{course.annualFee || "N/A"}</p>
+                    <p className="font-semibold text-lg text-primary-foreground">{course.annualFee || "N/A"}</p>
                   </div>
                 </div>
 
@@ -126,7 +127,7 @@ export default function DynamicCourse() {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/60 mb-1">Annual Intake</p>
-                    <p className="font-semibold text-lg">{course.annualIntake || "N/A"}</p>
+                    <p className="font-semibold text-lg text-primary-foreground">{course.annualIntake || "N/A"}</p>
                   </div>
                 </div>
 
@@ -136,7 +137,7 @@ export default function DynamicCourse() {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/60 mb-1">Eligibility</p>
-                    <p className="font-semibold">{course.eligibility || "N/A"}</p>
+                    <p className="font-semibold text-primary-foreground">{course.eligibility || "N/A"}</p>
                   </div>
                 </div>
               </div>
@@ -152,6 +153,7 @@ export default function DynamicCourse() {
         </div>
       </div>
       
+      <PageGallery images={course.images?.length > 0 ? { images: course.images } : course.pageGallery} />
       <Footer />
     </div>
   );

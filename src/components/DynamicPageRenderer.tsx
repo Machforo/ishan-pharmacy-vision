@@ -2,6 +2,7 @@ import PageSections from "./PageSections";
 import { useEffect, useState, useRef } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Layout from "./Layout";
+import { rt } from "@/lib/richText";
 
 interface PageData {
   title: string;
@@ -146,8 +147,8 @@ export default function DynamicPageRenderer({ portal }: { portal: string }) {
               if (!isFullHtml) {
                 return (
                   <div 
-                    className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-navy prose-a:text-gold"
-                    dangerouslySetInnerHTML={{ __html: bodyHTML }}
+                    className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-navy prose-a:text-gold rich-text"
+                    dangerouslySetInnerHTML={{ __html: rt(bodyHTML) }}
                   />
                 );
               }

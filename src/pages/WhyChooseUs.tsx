@@ -6,6 +6,8 @@ import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb,
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 
+const ICON_MAP: Record<string, any> = { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb, GraduationCap, Heart, CheckCircle };
+
 const defaultReasons = [
   { title: 'PCI Approved', description: 'Fully approved by Pharmacy Council of India.', icon: Award },
   { title: 'Expert Faculty', description: 'Learn from industry veterans.', icon: Users },
@@ -26,7 +28,7 @@ export default function WhyIshanPharmacyPage() {
   return (
     <Layout>
       <PageHeader
-        title="Why Ishan Pharmacy?"
+        title={data?.whyIshanHeading || "Why Ishan Pharmacy?"}
         subtitle="8 reasons why students choose Ishan Institute of Pharmacy for a career in healthcare and pharmaceuticals"
         breadcrumbs={[{ label: "Why Ishan Pharmacy?" }]}
       />
@@ -36,7 +38,11 @@ export default function WhyIshanPharmacyPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-12">
             <div className="reveal space-y-8">
               <p className="text-foreground/70 leading-relaxed text-lg">
-                Ishan Institute of Pharmacy is not just an educational centre; it's a launchpad for healthcare leaders and pharmacists. Our commitment to laboratory training, ethical practice, and industry partnerships sets us apart in pharmaceutical education.
+                {whyContent ? (
+                  <div className="[&_p]:text-inherit [&>p]:mb-4 last:[&>p]:mb-0" dangerouslySetInnerHTML={{ __html: whyContent }} />
+                ) : (
+                  <>Ishan Institute of Pharmacy is not just an educational centre; it's a launchpad for healthcare leaders and pharmacists. Our commitment to laboratory training, ethical practice, and industry partnerships sets us apart in pharmaceutical education.</>
+                )}
               </p>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Excellence" className="w-full h-80 object-cover" />
@@ -44,7 +50,7 @@ export default function WhyIshanPharmacyPage() {
             </div>
             <div className="space-y-6">
               {reasonsData.slice(0, 4).map((r: any, i: number) => {
-                const Icon = r.icon || Award;
+                const Icon = typeof r.icon === 'string' ? (ICON_MAP[r.icon] || Award) : (r.icon || Award);
                 return (
                   <div key={r.title} className={`reveal delay-${Math.min(i % 3, 2)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow group`}>
                     <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors">
@@ -61,7 +67,7 @@ export default function WhyIshanPharmacyPage() {
           </div>
           <div className="max-w-6xl mx-auto space-y-6">
             {reasonsData.slice(4).map((r: any, i: number) => {
-              const Icon = r.icon || Award;
+              const Icon = typeof r.icon === 'string' ? (ICON_MAP[r.icon] || Award) : (r.icon || Award);
               return (
                 <div key={r.title} className={`reveal delay-${Math.min(i % 3, 2)}00 flex gap-5 p-6 rounded-xl border bg-card hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow group`}>
                   <div className="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors">

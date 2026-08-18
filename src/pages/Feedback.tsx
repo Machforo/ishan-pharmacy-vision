@@ -5,6 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { toast } from "sonner";
+import { rt } from "@/lib/richText";
 
 
 export default function FeedbackPage() {
@@ -53,7 +54,7 @@ export default function FeedbackPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal space-y-8">
               {pageData?.description ? (
-                <div className="text-foreground/70 leading-relaxed text-lg whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: pageData.description }} />
+                <div className="text-foreground/70 leading-relaxed text-lg rich-text" dangerouslySetInnerHTML={{ __html: rt(pageData.description) }} />
               ) : (
                 <p className="text-foreground/70 leading-relaxed text-lg whitespace-pre-wrap">
                   Ishan Pharmacy values feedback from students, parents, and visitors — assessment of academic quality, faculty, facilities, and administrative support helps us improve. All responses are carefully reviewed by the Quality Assurance Cell and reach the Principal's office directly. Your inputs remain private and confidential.

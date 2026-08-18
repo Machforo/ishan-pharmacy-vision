@@ -84,10 +84,15 @@ export default function StatsBar() {
             <div
               key={stat.label || i}
               
-              className={`text-center reveal delay-${i * 100}`}
+              className={`text-center reveal delay-${i * 100} flex flex-col items-center justify-center`}
             >
+              {stat.icon && (
+                <div className="mb-4 bg-white/10 p-3 rounded-full flex items-center justify-center border border-white/20">
+                  <img src={stat.icon} alt={stat.label} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                </div>
+              )}
               <AnimatedCounter rawValue={stat.value?.toString() || "0"} />
-              <p className="stat-label text-white/70">{stat.label}</p>
+              <p className="stat-label text-white/70 mt-1">{stat.label}</p>
             </div>
           ))}
         </div>

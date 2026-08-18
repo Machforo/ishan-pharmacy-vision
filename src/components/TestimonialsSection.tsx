@@ -42,6 +42,7 @@ const parentTestimonials = [
 export default function TestimonialsSection() {
   const [activeTab, setActiveTab] = useState<'students' | 'parents'>('students');
   const { data } = usePharmacyData("testimonials");
+  const { data: homeData } = usePharmacyData("homepage");
 
   const testimonialsList = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : studentTestimonials);
   const students = testimonialsList.filter((t: any) => t.type !== 'Parent');
@@ -51,8 +52,16 @@ export default function TestimonialsSection() {
     <section className="py-16 md:py-24 bg-section-alt overflow-hidden">
       <div className="container-wide">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold mb-4 opacity-80">Success Stories</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-navy leading-tight">Hear From Our <span className="text-gold">Community</span></h2>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold mb-4 opacity-80">
+            {homeData?.testimonialsSection?.badge || "Success Stories"}
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-navy leading-tight">
+            {homeData?.testimonialsSection?.heading ? (
+              <span dangerouslySetInnerHTML={{ __html: homeData.testimonialsSection.heading }} />
+            ) : (
+              <>Hear From Our <span className="text-gold">Community</span></>
+            )}
+          </h2>
         </div>
 
         <div className="flex justify-center mb-16">

@@ -208,7 +208,7 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
 
   const { data } = usePharmacyData("navbar");
   const navLinksList = data?.navLinks?.length > 0 ? data.navLinks : navLinks;
-  
+
   // Searchable items
   const defaultSearchableItems = [
     { name: "B.Pharm", href: "/courses/b-pharm" },
@@ -225,13 +225,13 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
   const searchableItems = data?.searchableItems?.length > 0 ? data.searchableItems : defaultSearchableItems;
   const popularSearches = data?.popularSearches?.length > 0 ? data.popularSearches : ["B.Pharm", "D.Pharm", "10 Labs", "Admissions", "Placements", "Contact"];
 
-  const filteredItems = searchQuery.trim().length > 0 
+  const filteredItems = searchQuery.trim().length > 0
     ? searchableItems.filter((item: any) => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
     : [];
 
-  useEffect(() => { 
-    setMobileOpen(false); 
-    setOpenDropdown(null); 
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
     setSearchOpen(false);
   }, [location.pathname]);
 
@@ -316,11 +316,11 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
         <div className={`container-wide flex items-center justify-between transition-all duration-500 ${scrolled ? "h-14 md:h-[64px]" : "h-16 md:h-20"}`}>
 
           {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 shrink-0 group">
+          <Link to="/" className="flex items-center gap-2 shrink-0 group">
             <div className="h-10 shrink-0 overflow-hidden flex items-center">
-              <img 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtBPP1F_Pp9ioq_SfiDL6mn5No4JbZSE9X9A&s" 
-                alt="Ishan Pharmacy Logo" 
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtBPP1F_Pp9ioq_SfiDL6mn5No4JbZSE9X9A&s"
+                alt="Ishan Pharmacy Logo"
                 className="h-full w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
@@ -524,15 +524,15 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
         <AnimatePresence>
           {searchOpen && (
             <motion.div
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               className="fixed inset-0 z-[100] bg-navy/95 backdrop-blur-xl flex flex-col p-6 md:p-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-navy/95 backdrop-blur-xl flex flex-col p-6 md:p-20"
             >
               <div className="w-full max-w-4xl mx-auto flex flex-col h-full">
                 <div className="flex items-center justify-between mb-12">
                   <span className="text-white/40 text-xs font-bold uppercase tracking-[0.3em]">Institutional Search</span>
-                  <button 
+                  <button
                     onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
                     className="w-12 h-12 rounded-full bg-white/5 text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-all"
                   >
@@ -542,10 +542,10 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
 
                 <div className="relative mb-12">
                   <Search className="absolute left-0 top-1/2 -translate-y-1/2 text-gold w-8 h-8" />
-                  <input 
+                  <input
                     autoFocus
-                    type="text" 
-                    placeholder="Search courses, pages, faculty..." 
+                    type="text"
+                    placeholder="Search courses, pages, faculty..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full bg-transparent border-b-2 border-white/10 pb-6 pl-12 text-3xl md:text-5xl font-bold text-white outline-none focus:border-gold transition-all placeholder:text-white/10"
@@ -557,7 +557,7 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
                     <div className="grid md:grid-cols-2 gap-4">
                       {filteredItems.length > 0 ? (
                         filteredItems.map((item) => (
-                          <Link 
+                          <Link
                             key={item.href}
                             to={item.href}
                             className="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all flex items-center justify-between"
@@ -580,7 +580,7 @@ export default function Navbar({ isNotFound = false }: { isNotFound?: boolean })
                       <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Popular Searches</p>
                       <div className="flex flex-wrap gap-3">
                         {popularSearches.map((tag: string) => (
-                          <button 
+                          <button
                             key={tag}
                             onClick={() => setSearchQuery(tag)}
                             className="px-6 py-3 rounded-xl bg-white/5 text-white/80 hover:bg-gold hover:text-navy transition-all font-bold text-sm"

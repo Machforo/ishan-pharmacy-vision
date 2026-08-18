@@ -44,6 +44,7 @@ export default function FacultySection() {
   const ref = useScrollReveal();
   const [selectedFaculty, setSelectedFaculty] = useState<any>(null);
   const { data } = usePharmacyData("faculty");
+  const { data: homeData } = usePharmacyData("homepage");
   const faculty = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : eminentFaculty);
 
   return (
@@ -51,13 +52,22 @@ export default function FacultySection() {
       <div className="container-wide">
         <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Academic Leaders</p>
-            <h2 className="reveal delay-100 text-3xl md:text-5xl font-bold text-navy">
-              Eminent Faculty & Mentors
-            </h2>
-            <p className="reveal delay-200 mt-5 leading-relaxed">
-              Our faculty members are distinguished pharmaceutical scholars and industry experts, dedicated to nurturing the next generation of healthcare professionals through practice-oriented mentorship.
+            <p className="reveal text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">
+              {homeData?.facultySection?.badge || "Academic Leaders"}
             </p>
+            <h2 className="reveal delay-100 text-3xl md:text-5xl font-bold text-navy">
+              {homeData?.facultySection?.heading || "Eminent Faculty & Mentors"}
+            </h2>
+            {homeData?.facultySection?.description ? (
+              <div 
+                className="reveal delay-200 mt-5 leading-relaxed [&_p]:text-inherit [&>p]:mb-2 last:[&>p]:mb-0"
+                dangerouslySetInnerHTML={{ __html: homeData.facultySection.description }}
+              />
+            ) : (
+              <p className="reveal delay-200 mt-5 leading-relaxed">
+                Our faculty members are distinguished pharmaceutical scholars and industry experts, dedicated to nurturing the next generation of healthcare professionals through practice-oriented mentorship.
+              </p>
+            )}
           </div>
           <Link 
             to="/faculty" 

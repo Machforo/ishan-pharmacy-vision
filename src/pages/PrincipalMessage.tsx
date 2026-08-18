@@ -60,7 +60,7 @@ export default function PrincipalMessagePage() {
                 </div>
 
                 <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                  <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Academics" className="w-full h-64 object-cover" />
+                  <img src={msg.bottomImage || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Academics" className="w-full h-64 object-cover" />
                 </div>
               </div>
             </div>

@@ -64,6 +64,7 @@ const MuseumComputerLab = lazy(() => import("./pages/MuseumComputerLab"));
 
 const Infrastructure = lazy(() => import("./pages/Infrastructure"));
 const Library = lazy(() => import("./pages/Library"));
+const ProgramsOverview = lazy(() => import("./pages/EducationOverview"));
 const Hostel = lazy(() => import("./pages/Hostel"));
 const AuditoriumSports = lazy(() => import("./pages/AuditoriumSports"));
 
@@ -154,6 +155,15 @@ const App = () => (
             <Route path="/museum" element={<Navigate to="/museum-computer-lab" replace />} />
             <Route path="/computer-lab" element={<Navigate to="/museum-computer-lab" replace />} />
             <Route path="/join-us" element={<Navigate to="/careers" replace />} />
+            {/* Short paths used by the CMS navbar/footer and older links. */}
+            <Route path="/news" element={<Navigate to="/news-events" replace />} />
+            <Route path="/calendar-events" element={<Navigate to="/events-calendar" replace />} />
+            <Route path="/photos" element={<Navigate to="/photo-gallery" replace />} />
+            <Route path="/videos" element={<Navigate to="/video-gallery" replace />} />
+            <Route path="/press" element={<Navigate to="/press-coverage" replace />} />
+            <Route path="/director-message" element={<Navigate to="/principal-message" replace />} />
+            <Route path="/campus-experience" element={<Navigate to="/infrastructure" replace />} />
+            <Route path="/programs-overview" element={<ProgramsOverview />} />
 
             <Route path="/" element={<Index />} />
 
