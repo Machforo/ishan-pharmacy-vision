@@ -1,10 +1,11 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
+import EnquiryCTA from "@/components/EnquiryCTA";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
 
 const defaultFaculty = [];
 
@@ -26,17 +27,19 @@ export default function FacultyPage() {
     return matchesDept && matchesSearch;
   });
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="Faculty Directory"
         subtitle="Distinguished pharmaceutical scientists and industry experts shaping future healthcare professionals"
         breadcrumbs={[{ label: "Faculty" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    search_filter: (
+      <section key="search_filter" className="pt-16 pb-4" ref={ref}>
         <div className="container-wide">
-          <div className="max-w-5xl mx-auto mb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-5xl mx-auto mb-12 grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Academic Excellence</p>
               <h2 className="font-bold text-foreground leading-tight">Guided by Expert Mentors</h2>
@@ -51,7 +54,7 @@ export default function FacultyPage() {
             </div>
           </div>
 
-          <div className="reveal max-w-2xl mx-auto mb-12 relative group">
+          <div className="reveal max-w-2xl mx-auto mb-8 relative group">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-gold transition-colors" />
             <input 
               type="text" 
@@ -70,7 +73,7 @@ export default function FacultyPage() {
             )}
           </div>
 
-          <div className="reveal flex flex-wrap gap-2 mb-10 justify-center">
+          <div className="reveal flex flex-wrap gap-2 mb-4 justify-center">
             {departments.map((d) => (
               <button
                 key={d}
@@ -83,7 +86,12 @@ export default function FacultyPage() {
               </button>
             ))}
           </div>
-
+        </div>
+      </section>
+    ),
+    faculty_grid: (
+      <section key="faculty_grid" className="py-8">
+        <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filtered.map((f: any, i: number) => (
               <div key={f.name || i} className={`reveal delay-${Math.min(i % 4, 3)}00 bg-card rounded-xl border p-6 text-center hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
@@ -112,6 +120,19 @@ export default function FacultyPage() {
           </div>
         </div>
       </section>
+    ),
+    cta: <EnquiryCTA key="cta" />
+  };
+
+  const defaultOrder = ["header", "search_filter", "faculty_grid", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="faculty"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

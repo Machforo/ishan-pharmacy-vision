@@ -1,12 +1,13 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
+import EnquiryCTA from "@/components/EnquiryCTA";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Calendar, MapPin, Tag, Clock, Share2, X, Send, User, Phone as PhoneIcon, BookOpen, CheckCircle } from "lucide-react";
+import { Calendar, MapPin, Share2, X, Send, User, Phone as PhoneIcon, BookOpen, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
 
 export default function EventsCalendarPage() {
   const { data: eventsData } = usePharmacyData("calendarevents");
@@ -18,7 +19,7 @@ export default function EventsCalendarPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const nameRegex = /^[a-zA-Z\s.\'-]+$/;
+    const nameRegex = /^[a-zA-Z\s.'-]+$/;
     if (!formData.name || !nameRegex.test(formData.name.trim())) {
       toast.error("Name should only contain alphabets and spaces.");
       return;
@@ -54,79 +55,92 @@ export default function EventsCalendarPage() {
     }
   };
 
-
-
-
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="Events Calendar"
         subtitle="Stay updated with academic, cultural, and professional events at Ishan Institute of Pharmacy."
         breadcrumbs={[{ label: "Events Calendar" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
-        <div className="container-wide">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="reveal-up space-y-6 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">What's Happening</p>
-              <h2 className="font-bold text-foreground leading-tight">
-                Plan Your Campus Experience
-              </h2>
-              <p className="text-foreground/70 leading-relaxed max-w-2xl mx-auto">
-                Ishan Institute of Pharmacy maintains a packed events calendar including national seminars, guest lectures, cultural festivals, sports meets, and placement drives. This helps students plan their participation and never miss an opportunity for growth.
-              </p>
-              <div className="flex justify-center gap-4 pt-2">
-                <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 text-xs font-bold text-navy hover:bg-gold hover:text-white transition-all shadow-sm">
-                  <Share2 className="w-3 h-3" /> Export to Google Calendar
-                </button>
-                <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 text-xs font-bold text-navy hover:bg-gold hover:text-white transition-all shadow-sm">
-                  <Share2 className="w-3 h-3" /> Download iCal
-                </button>
-              </div>
-            </div>
-
-            <div className="reveal-up grid gap-6">
-              {events.map((e: any, i: number) => (
-                <div key={i} className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl border bg-card hover:border-gold transition-all duration-300">
-                  <div className="md:w-32 shrink-0 flex flex-col items-center justify-center p-4 bg-muted rounded-xl text-center group-hover:bg-gold group-hover:text-white transition-colors">
-                    <Calendar className="w-6 h-6 mb-2" />
-                    <span className="text-sm font-bold uppercase tracking-tighter leading-none">{e.date?.split(',')[0] || ''}</span>
-                    <span className="text-xl font-black leading-none">{e.date?.split(' ')?.[1]?.replace(',', '') || ''}</span>
-                  </div>
-
-                  <div className="flex-1 space-y-4">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="px-2 py-0.5 rounded bg-gold/10 text-xs font-bold text-gold uppercase tracking-widest">{e.category}</span>
-                      <div className="flex items-center gap-1.5 text-foreground/50 text-xs font-medium">
-                        <MapPin className="w-3 h-3" /> {e.venue}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">{e.title || e.name}</h3>
-                      <p className="text-sm leading-relaxed">{e.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="md:w-32 flex flex-col items-center justify-center gap-2">
-                    {e.link ? (
-                      <a href={e.link} target="_blank" rel="noopener noreferrer" className="w-full px-4 py-2 rounded-lg bg-navy text-white text-xs font-bold uppercase tracking-wider hover:bg-gold transition-colors text-center inline-block">
-                        Register
-                      </a>
-                    ) : null}
-                    <button
-                      onClick={() => setSelectedEvent(e)}
-                      className="w-full px-4 py-2 rounded-lg border border-gold text-gold text-xs font-bold uppercase tracking-wider hover:bg-gold hover:text-white transition-colors text-center inline-block"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+    ),
+    calendar_schedule: (
+      <section key="calendar_schedule" className="pt-16 pb-6" ref={ref}>
+        <div className="container-wide max-w-4xl mx-auto space-y-6 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">What's Happening</p>
+          <h2 className="font-bold text-foreground leading-tight text-3xl">
+            Plan Your Campus Experience
+          </h2>
+          <p className="text-foreground/70 leading-relaxed max-w-2xl mx-auto">
+            Ishan Institute of Pharmacy maintains a packed events calendar including national seminars, guest lectures, cultural festivals, sports meets, and placement drives. This helps students plan their participation and never miss an opportunity for growth.
+          </p>
+          <div className="flex justify-center gap-4 pt-2">
+            <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 text-xs font-bold text-navy hover:bg-gold hover:text-white transition-all shadow-sm">
+              <Share2 className="w-3 h-3" /> Export to Google Calendar
+            </button>
+            <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 text-xs font-bold text-navy hover:bg-gold hover:text-white transition-all shadow-sm">
+              <Share2 className="w-3 h-3" /> Download iCal
+            </button>
           </div>
         </div>
       </section>
+    ),
+    upcoming_workshops: (
+      <section key="upcoming_workshops" className="py-8">
+        <div className="container-wide max-w-4xl mx-auto">
+          <div className="grid gap-6">
+            {events.map((e: any, i: number) => (
+              <div key={i} className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl border bg-card hover:border-gold transition-all duration-300">
+                <div className="md:w-32 shrink-0 flex flex-col items-center justify-center p-4 bg-muted rounded-xl text-center group-hover:bg-gold group-hover:text-white transition-colors">
+                  <Calendar className="w-6 h-6 mb-2" />
+                  <span className="text-sm font-bold uppercase tracking-tighter leading-none">{e.date?.split(',')[0] || ''}</span>
+                  <span className="text-xl font-black leading-none">{e.date?.split(' ')?.[1]?.replace(',', '') || ''}</span>
+                </div>
+
+                <div className="flex-1 space-y-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="px-2 py-0.5 rounded bg-gold/10 text-xs font-bold text-gold uppercase tracking-widest">{e.category}</span>
+                    <div className="flex items-center gap-1.5 text-foreground/50 text-xs font-medium">
+                      <MapPin className="w-3 h-3" /> {e.venue}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{e.title || e.name}</h3>
+                    <p className="text-sm leading-relaxed text-foreground/70">{e.description}</p>
+                  </div>
+                </div>
+
+                <div className="md:w-32 flex flex-col items-center justify-center gap-2">
+                  {e.link ? (
+                    <a href={e.link} target="_blank" rel="noopener noreferrer" className="w-full px-4 py-2 rounded-lg bg-navy text-white text-xs font-bold uppercase tracking-wider hover:bg-gold transition-colors text-center inline-block">
+                      Register
+                    </a>
+                  ) : null}
+                  <button
+                    onClick={() => setSelectedEvent(e)}
+                    className="w-full px-4 py-2 rounded-lg border border-gold text-gold text-xs font-bold uppercase tracking-wider hover:bg-gold hover:text-white transition-colors text-center inline-block"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ),
+    cta: <EnquiryCTA key="cta" />
+  };
+
+  const defaultOrder = ["header", "calendar_schedule", "upcoming_workshops", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="events_calendar"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
 
       <AnimatePresence>
         {selectedEvent && (
@@ -235,7 +249,6 @@ export default function EventsCalendarPage() {
           </div>
         )}
       </AnimatePresence>
-
     </Layout>
   );
 }

@@ -1,10 +1,10 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { FileText, Calendar, Phone, CheckCircle2, ArrowRight } from "lucide-react";
+import { Calendar, Phone, CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
 
 const steps = [
   { num: "01", title: "UPSEE / CUET Counselling", desc: "For B.Pharm, begin by participating in the UPSEE (AKTU) or CUET-based state counselling. For D.Pharm, register on the BTE UP portal. Seat allotment is based on your 10+2 merit." },
@@ -36,69 +36,102 @@ export default function AdmissionsPage() {
   const alert = data?.alertBanner || { title: "Admissions Open for 2025-26", content: "Applications are being accepted for D.Pharm and B.Pharm programs.", isActive: true };
   const contact = data?.admissionContact || { phone: "8448797700", email: "admissions@ishan.ac" };
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="Admissions 2025-26"
         subtitle="Your pathway to a career in healthcare — D.Pharm & B.Pharm"
         breadcrumbs={[{ label: "Admissions" }]}
         image={data?.bannerImage}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
-        <div className="container-wide">
-          <div className="max-w-4xl mx-auto">
-            {/* Alert banner */}
-            {alert.isActive && (
-              <div className="reveal bg-gold-light rounded-xl p-6 mb-10 border border-[hsl(var(--gold)/0.2)]">
-                <div className="flex items-start gap-4">
-                  <Calendar className="w-6 h-6 text-navy shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">{alert.title}</p>
-                    <p className="text-sm">{alert.content}</p>
-                  </div>
+    ),
+    alert_banner: (
+      <section key="alert_banner" className="pt-16 pb-6" ref={ref}>
+        <div className="container-wide max-w-4xl mx-auto">
+          {alert.isActive && (
+            <div className="reveal bg-gold-light rounded-xl p-6 mb-10 border border-[hsl(var(--gold)/0.2)]">
+              <div className="flex items-start gap-4">
+                <Calendar className="w-6 h-6 text-navy shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-foreground mb-1">{alert.title}</p>
+                  <p className="text-sm">{alert.content}</p>
                 </div>
               </div>
-            )}
-
-            <div className="reveal grid sm:grid-cols-2 gap-6 mb-14">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border">
-                <img src={data?.bannerImage || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-2xl border hidden sm:block">
-                <img src={data?.images?.[0]?.url || "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Life" className="w-full h-64 object-cover" />
-              </div>
             </div>
+          )}
 
-            {/* Steps */}
-            <h2 className="text-2xl font-bold text-foreground mb-8">Admission Process</h2>
-            
-            <div className="space-y-6 mb-16">
-              {howToApply.map((step: any, i: number) => (
-                <div key={step.step || step.num || i} className={`reveal delay-${Math.min(i, 4)}00 flex gap-5 p-6 rounded-xl border bg-card`}>
-                  <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center shrink-0">
-                    <span className="text-sm font-bold text-primary-foreground">{step.step || step.num}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{step.title}</h3>
-                    <p className="text-sm leading-relaxed">{step.desc}</p>
-                  </div>
+          <div className="reveal grid sm:grid-cols-2 gap-6 mb-10">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border">
+              <img src={data?.bannerImage || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Admissions" className="w-full h-64 object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border hidden sm:block">
+              <img src={data?.images?.[0]?.url || "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"} alt="Ishan Pharmacy Life" className="w-full h-64 object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+    ),
+    steps: (
+      <section key="steps" className="py-8">
+        <div className="container-wide max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-8">Admission Process</h2>
+          <div className="space-y-6">
+            {howToApply.map((step: any, i: number) => (
+              <div key={step.step || step.num || i} className={`reveal delay-${Math.min(i, 4)}00 flex gap-5 p-6 rounded-xl border bg-card`}>
+                <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center shrink-0">
+                  <span className="text-sm font-bold text-primary-foreground">{step.step || step.num}</span>
                 </div>
-              ))}
-            </div>
-
-            {/* Documents */}
-            <h2 className="text-2xl font-bold text-foreground mb-6">Document Checklist</h2>
-            <div className="reveal grid sm:grid-cols-2 gap-3 mb-16">
-              {docs.map((doc: string, i: number) => (
-                <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-lg border bg-card text-sm text-foreground/80">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                  {doc}
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">{step.title}</h3>
+                  <p className="text-sm leading-relaxed">{step.desc}</p>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ),
+    eligibility: (
+      <section key="eligibility" className="py-8">
+        <div className="container-wide max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Eligibility Criteria</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="p-6 rounded-xl border bg-card">
+              <h3 className="font-bold text-foreground mb-2">B.Pharm (4 Years)</h3>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                10+2 with Physics, Chemistry & Biology/Mathematics with minimum 45% marks (40% for SC/ST). UPSEE/CUET score accepted.
+              </p>
             </div>
-
-            {/* Contact */}
+            <div className="p-6 rounded-xl border bg-card">
+              <h3 className="font-bold text-foreground mb-2">D.Pharm (2 Years)</h3>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                10+2 with Physics, Chemistry & Biology/Mathematics with minimum 45% marks. JEECUP score accepted.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    ),
+    documents: (
+      <section key="documents" className="py-8">
+        <div className="container-wide max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Document Checklist</h2>
+          <div className="reveal grid sm:grid-cols-2 gap-3">
+            {docs.map((doc: string, i: number) => (
+              <div key={i} className="flex items-start gap-2.5 px-4 py-3 rounded-lg border bg-card text-sm text-foreground/80">
+                <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                {doc}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ),
+    cta: (
+      <div key="cta">
+        <section className="py-12">
+          <div className="container-wide max-w-4xl mx-auto">
             <div className="reveal rounded-xl border bg-section-alt p-8 text-center shadow-sm">
               <h3 className="text-xl font-bold text-foreground mb-3">Ready to Join Ishan Institute of Pharmacy?</h3>
               <p className="text-sm mb-8">Begin your pharmacy journey today by filling out our online application form.</p>
@@ -121,10 +154,21 @@ export default function AdmissionsPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <EnquiryCTA />
+      </div>
+    )
+  };
 
-      <EnquiryCTA />
+  const defaultOrder = ["header", "alert_banner", "steps", "eligibility", "documents", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="admissions"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

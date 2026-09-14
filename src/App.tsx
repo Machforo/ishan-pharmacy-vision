@@ -92,6 +92,15 @@ const Careers = lazy(() => import("./pages/Careers"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 
 const Consultation = lazy(() => import("./pages/Consultation"));
+const AdmissionsEnquiry = lazy(() => import("./pages/AdmissionsEnquiry"));
+const AntiRagging = lazy(() => import("./pages/AntiRagging"));
+const GrievanceRedressal = lazy(() => import("./pages/GrievanceRedressal"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const ResearchJournal = lazy(() => import("./pages/ResearchJournal"));
+const Auditorium = lazy(() => import("./pages/Auditorium"));
+const Sports = lazy(() => import("./pages/Sports"));
+const ITLab = lazy(() => import("./pages/ITLab"));
+const CulturalActivities = lazy(() => import("./pages/CulturalActivities"));
 
 const queryClient = new QueryClient();
 
@@ -163,6 +172,14 @@ const App = () => (
             <Route path="/press" element={<Navigate to="/press-coverage" replace />} />
             <Route path="/director-message" element={<Navigate to="/principal-message" replace />} />
             <Route path="/campus-experience" element={<Navigate to="/infrastructure" replace />} />
+            <Route path="/moot-court" element={<Navigate to="/pharmacy-practice" replace />} />
+            <Route path="/legal-aid-cell" element={<Navigate to="/consultation" replace />} />
+            <Route path="/pedagogy-labs" element={<Navigate to="/infrastructure" replace />} />
+            <Route path="/green-initiatives" element={<Navigate to="/herbal-garden" replace />} />
+            <Route path="/best-practices" element={<Navigate to="/why-choose-us" replace />} />
+            <Route path="/debates-gd" element={<Navigate to="/news-events" replace />} />
+            <Route path="/e-cell" element={<Navigate to="/research-projects" replace />} />
+            <Route path="/skill-development" element={<Navigate to="/certificate-programs" replace />} />
             <Route path="/programs-overview" element={<ProgramsOverview />} />
 
             <Route path="/" element={<Index />} />
@@ -179,7 +196,9 @@ const App = () => (
 
             {/* Courses */}
             <Route path="/courses/:courseId" element={<DynamicCourse />} />
+            {/* Admissions */}
             <Route path="/admissions" element={<Admissions />} />
+            <Route path="/admissions-enquiry" element={<AdmissionsEnquiry />} />
             <Route path="/scholarships" element={<Scholarships />} />
             <Route path="/certificate-programs" element={<CertificatePrograms />} />
             <Route path="/consultation" element={<Consultation />} />
@@ -199,11 +218,15 @@ const App = () => (
             <Route path="/machine-room" element={<MachineRoom />} />
             <Route path="/museum-computer-lab" element={<MuseumComputerLab />} />
 
-            {/* Campus Facilities */}
+            {/* Campus Facilities & Campus Life */}
             <Route path="/infrastructure" element={<Infrastructure />} />
             <Route path="/library" element={<Library />} />
             <Route path="/hostel" element={<Hostel />} />
             <Route path="/auditorium-sports" element={<AuditoriumSports />} />
+            <Route path="/auditorium" element={<Auditorium />} />
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/it-lab" element={<ITLab />} />
+            <Route path="/cultural-activities" element={<CulturalActivities />} />
 
             {/* Learning and Gallery */}
             <Route path="/news-events" element={<NewsEvents />} />
@@ -223,14 +246,18 @@ const App = () => (
             {/* Research & Placements */}
             <Route path="/publications" element={<Publications />} />
             <Route path="/research-projects" element={<ResearchProjects />} />
+            <Route path="/research-journal" element={<ResearchJournal />} />
             <Route path="/alumni-network" element={<AlumniNetwork />} />
             <Route path="/placements" element={<Placements />} />
 
-            {/* Contact */}
+            {/* Contact & Governance */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/anti-ragging" element={<AntiRagging />} />
+            <Route path="/grievance-redressal" element={<GrievanceRedressal />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
             <Route path="/p/:slug" element={<DynamicPageRenderer portal="pharmacy" />} />
             <Route path="*" element={<NotFound />} />

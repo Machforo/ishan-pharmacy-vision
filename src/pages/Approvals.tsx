@@ -1,26 +1,28 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { FileText, ExternalLink } from "lucide-react";
+import { FileText } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
+import DynamicPageSections from "@/components/DynamicPageSections";
 
-
-const defaultAccreditations = [];
+const defaultAccreditations: any[] = [];
 
 export default function ApprovalsPage() {
   const ref = useScrollReveal();
   const { data } = usePharmacyData("aboutus");
   const accreditations = data?.approvals?.length > 0 ? data.approvals : defaultAccreditations;
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="Approvals & Affiliations"
         subtitle="Ishan Pharmacy is fully recognized by the Pharmacy Council of India, ensuring the highest professional standards."
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Approvals & Affiliations" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    approvals_grid: (
+      <section key="approvals_grid" className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="max-w-4xl mx-auto mb-16 space-y-6 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
@@ -85,6 +87,18 @@ export default function ApprovalsPage() {
           </div>
         </div>
       </section>
+    )
+  };
+
+  const defaultOrder = ["header", "approvals_grid"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="approvals"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

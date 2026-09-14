@@ -1,11 +1,11 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
+import EnquiryCTA from "@/components/EnquiryCTA";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Calendar, ArrowRight, Search, X } from "lucide-react";
+import { Calendar, Search, X } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
 
 const defaultEvents = [];
 
@@ -28,17 +28,19 @@ export default function NewsEventsPage() {
     return matchesCategory && matchesSearch;
   });
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="News & Events"
-        subtitle="Stay updated with the latest happenings at Ishan Pharmacy — moot courts, health awareness camps, seminars, and more"
+        subtitle="Stay updated with the latest happenings at Ishan Pharmacy — scientific conferences, health awareness camps, seminars, and more"
         breadcrumbs={[{ label: "News & Events" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    featured_news: (
+      <section key="featured_news" className="pt-16 pb-4" ref={ref}>
         <div className="container-wide">
-          <div className="reveal max-w-2xl mx-auto mb-10 relative group">
+          <div className="reveal max-w-2xl mx-auto mb-8 relative group">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-gold transition-colors" />
             <input 
               type="text" 
@@ -57,7 +59,7 @@ export default function NewsEventsPage() {
             )}
           </div>
 
-          <div className="reveal flex flex-wrap gap-2 mb-12 justify-center">
+          <div className="reveal flex flex-wrap gap-2 mb-8 justify-center">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -70,7 +72,12 @@ export default function NewsEventsPage() {
               </button>
             ))}
           </div>
-
+        </div>
+      </section>
+    ),
+    events_list: (
+      <section key="events_list" className="py-8">
+        <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredEvents.map((item: any, i: number) => (
               <article key={item.title || i} className={`reveal delay-${Math.min(i % 3, 2)}00 group bg-card rounded-xl border overflow-hidden shadow-sm hover:shadow-[0_8px_30px_hsl(var(--navy)/0.1)] transition-shadow cursor-pointer`}>
@@ -91,13 +98,26 @@ export default function NewsEventsPage() {
                     </span>
                   </div>
                   <h3 className="font-semibold text-foreground leading-snug mb-2 group-hover:text-navy transition-colors">{item.title}</h3>
-                  {item.excerpt && <p className="text-xs leading-relaxed line-clamp-2">{item.excerpt}</p>}
+                  {item.excerpt && <p className="text-xs leading-relaxed line-clamp-2 text-foreground/70">{item.excerpt}</p>}
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
+    ),
+    cta: <EnquiryCTA key="cta" />
+  };
+
+  const defaultOrder = ["header", "featured_news", "events_list", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="news_events"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

@@ -4,6 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import MediaGallery from "@/components/MediaGallery";
 import PageGallery from "@/components/PageGallery";
 import PageSections from "@/components/PageSections";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { rt } from "@/lib/richText";
@@ -90,11 +91,19 @@ export default function CampusLifePage({
     </div>
   ) : null;
 
-  return (
-    <Layout>
-      <PageHeader title={title} subtitle={subtitle} breadcrumbs={breadcrumbs} />
-
-      <section className="py-20 md:py-28" ref={ref}>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
+      <PageHeader key="header" title={title} subtitle={subtitle} breadcrumbs={breadcrumbs} />
+    ),
+    banner_image: bannerImage ? (
+      <div key="banner_image" className="container-wide mt-10">
+        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
+          <img src={bannerImage} alt={title} className="w-full h-[350px] md:h-[400px] object-cover" />
+        </div>
+      </div>
+    ) : null,
+    overview: (
+      <section key="overview" className="py-16 md:py-20" ref={ref}>
         <div className="container-wide">
           {layout === "split" ? (
             <div className="max-w-6xl mx-auto space-y-16">
@@ -129,34 +138,47 @@ export default function CampusLifePage({
                   )}
                 </div>
               </div>
-
-              <MediaGallery images={images} altPrefix={title} className="reveal" />
-              {notesBlock}
             </div>
           ) : (
             <div className="max-w-4xl mx-auto space-y-12">
-              {bannerImage && (
-                <div className="reveal rounded-2xl overflow-hidden border shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
-                  <img src={bannerImage} alt={title} className="w-full h-[350px] md:h-[400px] object-cover" />
-                </div>
-              )}
-
               {heading && <h2 className="reveal text-3xl font-bold text-foreground leading-tight">{heading}</h2>}
               {content && (
                 <div className="reveal text-foreground/70 leading-relaxed rich-text" dangerouslySetInnerHTML={{ __html: rt(content) }} />
               )}
-
-              {specsBlock}
-              <MediaGallery images={images} altPrefix={title} className="reveal" />
-              {notesBlock}
             </div>
           )}
         </div>
       </section>
+    ),
+    specs_grid: specsBlock ? (
+      <div key="specs_grid" className="container-wide max-w-4xl mx-auto mb-12">
+        {specsBlock}
+      </div>
+    ) : null,
+    notes: notesBlock ? (
+      <div key="notes" className="container-wide max-w-4xl mx-auto mb-12">
+        {notesBlock}
+      </div>
+    ) : null,
+    gallery: images.length > 0 ? (
+      <section key="gallery" className="pb-16 md:pb-20">
+        <div className="container-wide max-w-4xl mx-auto">
+          <MediaGallery images={images} altPrefix={title} className="reveal" />
+        </div>
+      </section>
+    ) : null,
+    cta: <EnquiryCTA key="cta" />
+  };
 
-      <PageSections />
-      <PageGallery />
-      <EnquiryCTA />
+  const defaultOrder = ["header", "banner_image", "overview", "specs_grid", "notes", "gallery", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId={sectionKey}
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

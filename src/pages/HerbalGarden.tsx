@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import MediaGallery from "@/components/MediaGallery";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FlaskConical, Microscope, BookOpen, Award } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
@@ -9,12 +10,12 @@ import { rt } from "@/lib/richText";
 
 const fallbackIcons = [FlaskConical, Microscope, BookOpen, Award];
 
-export default function HerbalGardenPage() {
+export default function HerbalGardenLabPage() {
   const ref = useScrollReveal();
   const { data } = usePharmacyData("facilities");
   
   const fallback = {
-    title: "Herbal Garden",
+    title: "Medicinal Herbal Garden",
     subtitle: "State-of-the-art facility for pharmaceutical science students",
     overviewHeading: "Where Theory Meets Practice",
     overviewContent: "This laboratory is a fully equipped facility designed to provide students with comprehensive training. Students gain hands-on experience essential for careers in pharmaceutical R&D and quality control.\n\nThe lab supports the curricula with experiments aligned to PCI and university syllabus requirements, ensuring students are prepared for professional practice and higher education.",
@@ -29,19 +30,22 @@ export default function HerbalGardenPage() {
   const pageData = data?.length > 0 ? data.find((d: any) => d.slug === "/herbal-garden") : null;
   const current = pageData || fallback;
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title={current.title}
         subtitle={current.subtitle}
-        breadcrumbs={[{ label: "Labs" }, { label: "Herbal Garden" }]}
+        breadcrumbs={[{ label: "Labs" }, { label: "Medicinal Herbal Garden" }]}
       />
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    overview: (
+      <section key="overview" className="pt-20 pb-8 md:pt-28 md:pb-12" ref={ref}>
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
             <div className="reveal space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Facility Overview</p>
-              <h2 className="font-bold text-foreground leading-tight">{current.overviewHeading}</h2>
+              <h2 className="font-bold text-foreground leading-tight text-3xl">{current.overviewHeading}</h2>
               <div className="text-foreground/70 leading-relaxed prose prose-sm max-w-none rich-text" dangerouslySetInnerHTML={{ __html: rt(current.overviewContent) }} />
             </div>
             <div className="reveal">
@@ -50,6 +54,12 @@ export default function HerbalGardenPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+    ),
+    medicinal_plant_species: (
+      <section key="medicinal_plant_species" className="py-8">
+        <div className="container-wide">
           <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {current.highlights.map((h: any, i: number) => {
               const Icon = fallbackIcons[i % fallbackIcons.length];
@@ -68,14 +78,26 @@ export default function HerbalGardenPage() {
           </div>
         </div>
       </section>
-      {current?.images?.length > 0 && (
-        <section className="pb-20 md:pb-28">
-          <div className="container-wide max-w-6xl mx-auto">
-            <MediaGallery images={current.images} altPrefix={current?.title || "Facility photo"} />
-          </div>
-        </section>
-      )}
-      <EnquiryCTA />
+    ),
+    gallery: current?.images?.length > 0 ? (
+      <section key="gallery" className="pb-16 md:pb-20">
+        <div className="container-wide max-w-6xl mx-auto">
+          <MediaGallery images={current.images} altPrefix={current?.title || "Facility photo"} />
+        </div>
+      </section>
+    ) : null,
+    cta: <EnquiryCTA key="cta" />
+  };
+
+  const defaultOrder = ["header", "overview", "medicinal_plant_species", "gallery", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="herbal_garden"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

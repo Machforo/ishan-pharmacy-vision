@@ -4,7 +4,7 @@ import EnquiryCTA from "@/components/EnquiryCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb, GraduationCap, Heart, CheckCircle } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
+import DynamicPageSections from "@/components/DynamicPageSections";
 
 const ICON_MAP: Record<string, any> = { Award, Users, Globe, BookOpen, Building, TrendingUp, Shield, Lightbulb, GraduationCap, Heart, CheckCircle };
 
@@ -25,25 +25,27 @@ export default function WhyIshanPharmacyPage() {
   const whyContent: string | undefined = data?.whyIshanContent;
   const reasonsData = data?.whyIshan?.length > 0 ? data.whyIshan : defaultReasons;
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title={data?.whyIshanHeading || "Why Ishan Pharmacy?"}
         subtitle="8 reasons why students choose Ishan Institute of Pharmacy for a career in healthcare and pharmaceuticals"
         breadcrumbs={[{ label: "Why Ishan Pharmacy?" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    overview: (
+      <section key="overview" className="py-20 md:py-28" ref={ref}>
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-12">
             <div className="reveal space-y-8">
-              <p className="text-foreground/70 leading-relaxed text-lg">
+              <div className="text-foreground/70 leading-relaxed text-lg">
                 {whyContent ? (
                   <div className="[&_p]:text-inherit [&>p]:mb-4 last:[&>p]:mb-0" dangerouslySetInnerHTML={{ __html: whyContent }} />
                 ) : (
-                  <>Ishan Institute of Pharmacy is not just an educational centre; it's a launchpad for healthcare leaders and pharmacists. Our commitment to laboratory training, ethical practice, and industry partnerships sets us apart in pharmaceutical education.</>
+                  <p>Ishan Institute of Pharmacy is not just an educational centre; it's a launchpad for healthcare leaders and pharmacists. Our commitment to laboratory training, ethical practice, and industry partnerships sets us apart in pharmaceutical education.</p>
                 )}
-              </p>
+              </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl border">
                 <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Ishan Pharmacy Excellence" className="w-full h-80 object-cover" />
               </div>
@@ -83,8 +85,25 @@ export default function WhyIshanPharmacyPage() {
           </div>
         </div>
       </section>
+    ),
+    cta: (
+      <EnquiryCTA
+        key="cta"
+        title="Convinced? Take the Next Step"
+        subtitle="Schedule a campus visit or speak with our admissions counsellor today."
+      />
+    )
+  };
 
-      <EnquiryCTA title="Convinced? Take the Next Step" subtitle="Schedule a campus visit or speak with our admissions counsellor today." />
+  const defaultOrder = ["header", "overview", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="why_choose_us"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

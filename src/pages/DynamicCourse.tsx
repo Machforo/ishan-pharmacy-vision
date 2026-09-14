@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import { Clock, GraduationCap, IndianRupee, Users, CheckCircle2 } from "lucide-react";
+import { Clock, GraduationCap, IndianRupee, Users } from "lucide-react";
 import NotFound from "./NotFound";
 import PageGallery from "@/components/PageGallery";
 
@@ -25,7 +26,7 @@ export default function DynamicCourse() {
       overview: "The Bachelor of Pharmacy (B.Pharm) at Ishan Institute of Pharmacy is a 4-year professional undergraduate degree approved by the Pharmacy Council of India (PCI) and affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU). The program provides comprehensive training in pharmaceutical sciences, drug discovery, clinical pharmacy, and quality assurance — preparing students for careers across the pharmaceutical industry, hospitals, research, and regulatory agencies.",
       curriculumStructure: "The curriculum spans 8 semesters covering Pharmaceutics, Pharmaceutical Chemistry, Pharmacology, Pharmacognosy, Pharmacy Practice, and related life sciences. Practical laboratory training in all 10 specialized labs, industrial visits, and a final-year project are integral components. The program follows AKTU and PCI syllabus standards.",
       careerScope: "B.Pharm graduates can work as pharmacists in hospitals, community pharmacies, and pharmaceutical companies. Career options include Production Officer, Quality Control/Assurance Analyst, Drug Regulatory Officer, Medical Representative, Clinical Research Associate, or pursue M.Pharm/MBA for advanced roles.",
-      image: "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments"
+      image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1024&q=80"
     },
     {
       programName: "D.Pharm",
@@ -36,7 +37,7 @@ export default function DynamicCourse() {
       overview: "The Diploma in Pharmacy (D.Pharm) at Ishan Institute of Pharmacy is a 2-year program approved by the Pharmacy Council of India (PCI) and affiliated with the Board of Technical Education, Uttar Pradesh (BTE UP). It is the entry-level qualification for registered pharmacists in India. The program offers a solid foundation in pharmaceutical sciences, dispensing, and patient counselling.",
       curriculumStructure: "The curriculum covers Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Human Anatomy & Physiology, Health Education, and Biochemistry & Clinical Pathology. Practical training in the institutional labs and a hospital internship are mandatory components of the program.",
       careerScope: "D.Pharm graduates are eligible to register as pharmacists with the UP Pharmacy Council. They can work as retail/hospital pharmacists, medical representatives, in pharmaceutical manufacturing, or pursue B.Pharm for further career advancement.",
-      image: "https://placehold.co/1024x683/e2e8f0/1e293b?text=Pharmacy+Lab"
+      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1024&q=80"
     },
   ];
 
@@ -45,20 +46,16 @@ export default function DynamicCourse() {
 
   if (!course) return <NotFound />;
 
-  return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Navbar />
-      
-      {/* Header */}
-      <div className="bg-navy py-20 md:py-32 relative overflow-hidden">
-        {/* Background Image Overlay */}
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
+      <div key="header" className="bg-navy py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-           <img 
-             src={course.image || "https://placehold.co/1024x769/e2e8f0/1e293b?text=Latest+Equipments"} 
-             className="w-full h-full object-cover opacity-20 mix-blend-overlay scale-110" 
-             alt="Background"
-           />
-           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-transparent" />
+          <img 
+            src={course.image || "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1024&q=80"} 
+            className="w-full h-full object-cover opacity-20 mix-blend-overlay scale-110" 
+            alt="Background"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-transparent" />
         </div>
 
         <div className="container-wide relative z-10">
@@ -72,11 +69,10 @@ export default function DynamicCourse() {
           </div>
         </div>
       </div>
-
-      {/* Content */}
-      <div className="flex-1 container-wide py-16 md:py-24">
+    ),
+    overview: (
+      <div key="overview" className="container-wide py-12">
         <div className="grid lg:grid-cols-3 gap-12 items-start">
-          
           <div className="lg:col-span-2 space-y-12">
             <div>
               <h2 className="text-2xl font-bold text-navy mb-5 text-gold-underline">Program Overview</h2>
@@ -86,7 +82,7 @@ export default function DynamicCourse() {
             <div>
               <h2 className="text-2xl font-bold text-navy mb-5 text-gold-underline">Curriculum Structure</h2>
               <div className="bg-card border rounded-2xl p-6 shadow-sm">
-                 <p className="text-base text-foreground/80 leading-relaxed whitespace-pre-wrap">{course.curriculumStructure || "Curriculum structure will be updated shortly."}</p>
+                <p className="text-base text-foreground/80 leading-relaxed whitespace-pre-wrap">{course.curriculumStructure || "Curriculum structure will be updated shortly."}</p>
               </div>
             </div>
 
@@ -149,11 +145,28 @@ export default function DynamicCourse() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
-      
-      <PageGallery images={course.images?.length > 0 ? { images: course.images } : course.pageGallery} />
+    ),
+    gallery: (
+      <div key="gallery">
+        <PageGallery images={course.images?.length > 0 ? { images: course.images } : course.pageGallery} />
+      </div>
+    )
+  };
+
+  const defaultOrder = ["header", "overview", "gallery"];
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navbar />
+      <div className="flex-1">
+        <DynamicPageSections
+          pageId={`course_${sanitizeSlug(courseId || '')}`}
+          defaultSections={defaultSections}
+          defaultOrder={defaultOrder}
+        />
+      </div>
       <Footer />
     </div>
   );

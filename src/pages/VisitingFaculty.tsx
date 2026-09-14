@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
+import EnquiryCTA from "@/components/EnquiryCTA";
+import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-
 
 const defaultVisitingFaculty = [
   { name: "Dr. Arun Sharma", org: "Senior Pharmacologist", specialisation: "Clinical Drug Development & Trials", impact: "Provides insights into clinical trial design, GCP guidelines, and drug evaluation methodologies.", bar: "" },
@@ -21,26 +22,34 @@ export default function VisitingFacultyPage() {
   
   const visitingFaculty = data?.length > 0 ? data : defaultVisitingFaculty;
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title="Visiting Faculty"
         subtitle="Distinguished pharmacologists, industry scientists, and healthcare experts who bring real-world insights to the classroom"
         breadcrumbs={[{ label: "Faculty", href: "/faculty" }, { label: "Visiting Faculty" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
-        <div className="container-wide">
-          <p className="reveal leading-relaxed max-w-4xl mx-auto text-center mb-16 text-lg">
+    ),
+    academic_collaborators: (
+      <section key="academic_collaborators" className="pt-16 pb-8" ref={ref}>
+        <div className="container-wide max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-6">Industry & Hospital Experts</h2>
+          <p className="reveal leading-relaxed text-foreground/70 text-lg">
             Ishan Pharmacy invites distinguished visiting faculty — senior pharmacologists from top research institutes, production heads from leading companies like Sun Pharma and Cipla, hospital pharmacists from premier hospitals, and regulatory experts from CDSCO; students gain direct access to professionals shaping India's pharmaceutical landscape.
           </p>
-
+        </div>
+      </section>
+    ),
+    experts_grid: (
+      <section key="experts_grid" className="py-8">
+        <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {visitingFaculty.map((f, i) => (
-              <div key={f.name} className={`reveal delay-${Math.min(i % 4, 3)}00 bg-card rounded-xl border p-6 hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
+              <div key={f.name || i} className={`reveal delay-${Math.min(i % 4, 3)}00 bg-card rounded-xl border p-6 hover:shadow-[0_4px_20px_hsl(var(--navy)/0.06)] transition-shadow`}>
                 <div className="w-14 h-14 rounded-full bg-navy flex items-center justify-center mb-4">
                   <span className="text-sm font-bold text-primary-foreground">
-                    {f.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                    {f.name.split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
                   </span>
                 </div>
                 <h3 className="font-semibold text-foreground text-sm">{f.name}</h3>
@@ -61,6 +70,19 @@ export default function VisitingFacultyPage() {
           </div>
         </div>
       </section>
+    ),
+    cta: <EnquiryCTA key="cta" />
+  };
+
+  const defaultOrder = ["header", "academic_collaborators", "experts_grid", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="visiting_faculty"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }

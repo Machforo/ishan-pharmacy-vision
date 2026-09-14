@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2 } from "lucide-react";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import { rt } from "@/lib/richText";
-
+import DynamicPageSections from "@/components/DynamicPageSections";
 
 const defaultMilestones = [
   { year: "2017", title: "Inception", desc: "Foundation of Ishan Institute of Pharmacy with a vision to provide quality education." },
@@ -16,14 +16,13 @@ const defaultMilestones = [
 
 export default function AboutPage() {
   const ref = useScrollReveal();
-  const { data, isLoading } = usePharmacyData("aboutus");
+  const { data } = usePharmacyData("aboutus");
   const fallback = `Established with a vision to revolutionize pharmaceutical education, Ishan Institute of Pharmacy stands as a premier center for healthcare studies in Knowledge Park, Greater Noida. Affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU) and the Board of Technical Education, Uttar Pradesh (BTE UP), and recognized by the Pharmacy Council of India (PCI), our institution is committed to producing healthcare professionals who excel in both theory and practice.
 
 Our curriculum is designed to bridge the gap between classroom learning and industrial/clinical reality. From the very first semester, students are exposed to practical applications through our specialized laboratories, regular industrial visits, and clinical training sessions. We offer two flagship professional programs: the Diploma in Pharmacy (D.Pharm) and the Bachelor of Pharmacy (B.Pharm), both structured to meet the modern demands of the pharmaceutical and healthcare sectors.
 
 The Ishan Pharmacy campus provides a specialized environment for pharmaceutical scholarship, featuring 10 advanced laboratories, a comprehensive medical library, a herbal garden, and a dedicated Placement Cell. We invite aspiring healthcare professionals to join our community and build a formidable foundation for a career in clinical pharmacy, research, or pharmaceutical manufacturing.`;
 
-  // Schema: aboutus.ourStory = { title, content } | aboutus.keyDifferentiators = [{title, description}]
   const ourStory = data?.ourStory;
   const milestones = data?.milestones?.length > 0 ? data.milestones : defaultMilestones;
   const keyDiffRaw = data?.keyDifferentiators;
@@ -40,22 +39,26 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
       "Experienced Faculty from Industry & Academia",
     ];
 
-  return (
-    <Layout>
+  const defaultSections: Record<string, React.ReactNode> = {
+    header: (
       <PageHeader
+        key="header"
         title={ourStory?.title || "About Ishan Pharmacy"}
         subtitle="Excellence in pharmaceutical education and practice-oriented learning since 2017."
         breadcrumbs={[{ label: "About Ishan Pharmacy" }]}
       />
-
-      <section className="py-20 md:py-28" ref={ref}>
+    ),
+    banner_image: data?.bannerImage ? (
+      <div key="banner_image" className="container-wide mt-10">
+        <div className="rounded-2xl overflow-hidden aspect-[21/9] shadow-lg max-w-6xl mx-auto">
+          <ImageWithFallback src={data.bannerImage} alt="Banner" className="w-full h-full object-cover" />
+        </div>
+      </div>
+    ) : null,
+    story: (
+      <section key="story" className="py-16 md:py-24" ref={ref}>
         <div className="container-wide">
-          {data?.bannerImage && (
-            <div className="reveal mb-12 rounded-2xl overflow-hidden aspect-[21/9] shadow-lg">
-              <ImageWithFallback src={data.bannerImage} alt="Banner" className="w-full h-full object-cover" />
-            </div>
-          )}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
             <div className="reveal-left relative">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_hsl(var(--navy)/0.1)]">
                 <ImageWithFallback src={ourStory?.image || "https://placehold.co/1024x768/e2e8f0/1e293b?text=Ishan+Campus"} alt="Students and faculty at Ishan Institute of Pharmacy campus" className="w-full h-[400px] object-cover" />
@@ -73,20 +76,24 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
               />
             </div>
           </div>
-          {data?.images && data.images.length > 0 && (
-            <div className="reveal mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {data.images.map((img: any, i: number) => (
-                <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </section>
-
-      {/* Milestones */}
-      <section className="py-16 md:py-24 bg-section-alt">
+    ),
+    gallery: data?.images && data.images.length > 0 ? (
+      <section key="gallery" className="pb-16 md:pb-24">
+        <div className="container-wide max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {data.images.map((img: any, i: number) => (
+              <div key={i} className="rounded-xl overflow-hidden aspect-video shadow-md hover:shadow-xl transition-shadow duration-300">
+                <ImageWithFallback src={img.url} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null,
+    milestones: milestones && milestones.length > 0 ? (
+      <section key="milestones" className="py-16 md:py-24 bg-section-alt">
         <div className="container-wide">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold mb-3">Our Journey</p>
@@ -108,9 +115,9 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
           </div>
         </div>
       </section>
-
-      {/* Highlights */}
-      <section className="py-16 md:py-24">
+    ) : null,
+    differentiators: (
+      <section key="differentiators" className="py-16 md:py-24">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-bold text-foreground mb-8">Key Differentiators</h2>
@@ -125,8 +132,19 @@ The Ishan Pharmacy campus provides a specialized environment for pharmaceutical 
           </div>
         </div>
       </section>
+    ),
+    cta: <EnquiryCTA key="cta" />
+  };
 
-      <EnquiryCTA />
+  const defaultOrder = ["header", "banner_image", "story", "gallery", "milestones", "differentiators", "cta"];
+
+  return (
+    <Layout>
+      <DynamicPageSections
+        pageId="about_us"
+        defaultSections={defaultSections}
+        defaultOrder={defaultOrder}
+      />
     </Layout>
   );
 }
