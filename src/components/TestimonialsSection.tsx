@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
   const { data: homeData } = usePharmacyData("homepage");
 
   const testimonialsList = data?.length > 0 ? data : (data?.data?.length > 0 ? data.data : studentTestimonials);
-  const students = testimonialsList.filter((t: any) => t.type !== 'Parent');
+  const students = testimonialsList.filter((t: any) => t.type !== 'Parent').length > 0 ? testimonialsList.filter((t: any) => t.type !== 'Parent') : studentTestimonials;
   const parents = testimonialsList.filter((t: any) => t.type === 'Parent').length > 0 ? testimonialsList.filter((t: any) => t.type === 'Parent') : parentTestimonials;
 
   return (
