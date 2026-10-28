@@ -117,7 +117,7 @@ export default function DynamicPageSections({
           return <PageGallery key={sec.id} isInline={true} />;
         }
 
-        // Otherwise, render custom section (custom_html, hero, split, cards, cta, faq, gallery)
+        // Otherwise, render custom section (custom_html, hero, split, cards, cta, faq)
         if (
           sec.type === "custom_html" ||
           sec.htmlContent ||
@@ -125,8 +125,7 @@ export default function DynamicPageSections({
           sec.type === "split" ||
           sec.type === "cards" ||
           sec.type === "cta" ||
-          sec.type === "faq" ||
-          sec.type === "gallery"
+          sec.type === "faq"
         ) {
           return <CustomSectionRenderer key={sec.id} section={sec} />;
         }
