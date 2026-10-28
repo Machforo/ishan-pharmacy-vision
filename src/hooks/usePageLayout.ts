@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { getDefaultPharmacyOrder } from "@/lib/pageLayoutDefaults";
 
 export interface SectionLayoutItem {
   id: string;
   name: string;
-  type: 'builtin' | 'custom_html' | 'hero' | 'split' | 'cards' | 'cta' | 'faq';
+  type: 'builtin' | 'custom_html' | 'hero' | 'split' | 'cards' | 'cta' | 'faq' | 'gallery';
   order: number;
   isHidden: boolean;
   heading?: string;
@@ -44,7 +45,38 @@ export function usePageLayout(pageId: string) {
           if (fb.ok) return await fb.json();
         } catch {}
       }
-      return { siteKey: 'pharmacy', pageId, sections: [] };
+
+      // Return realistic fallback sections based on default configuration
+      const defaultOrder = getDefaultPharmacyOrder(pageId);
+      return {
+        siteKey: 'pharmacy',
+        pageId,
+        sections: defaultOrder.map((id, index) => ({
+          id,
+          name: id,
+          type: 'builtin' as const,
+          order: index,
+          isHidden: false,
+        })),
+        isDefault: true,
+      };
+    },
+    placeholderData: (previousData) => {
+      if (previousData) return previousData;
+      const defaultOrder = getDefaultPharmacyOrder(pageId);
+      if (defaultOrder.length === 0) return undefined;
+      return {
+        siteKey: 'pharmacy',
+        pageId,
+        sections: defaultOrder.map((id, index) => ({
+          id,
+          name: id,
+          type: 'builtin' as const,
+          order: index,
+          isHidden: false,
+        })),
+        isDefault: true,
+      };
     },
     staleTime: 1000 * 30, // 30 seconds fresh
     refetchOnWindowFocus: true,

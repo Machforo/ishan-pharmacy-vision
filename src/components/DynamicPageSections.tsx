@@ -4,31 +4,86 @@ import { usePageLayout, SectionLayoutItem } from "@/hooks/usePageLayout";
 import CustomSectionRenderer from "@/components/CustomSectionRenderer";
 import PageGallery from "@/components/PageGallery";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { getDefaultPharmacyOrder } from "@/lib/pageLayoutDefaults";
 
-interface DynamicPageSectionsProps {
+export interface DynamicPageSectionsProps {
   pageId: string;
-  defaultSections: Record<string, ReactNode>;
-  defaultOrder: string[];
+  defaultSections?: Record<string, ReactNode>;
+  defaultOrder?: string[];
+  renderSection?: (sectionId: string) => ReactNode;
 }
 
 export default function DynamicPageSections({
   pageId,
   defaultSections,
-  defaultOrder
+  defaultOrder,
+  renderSection,
 }: DynamicPageSectionsProps) {
   const location = useLocation();
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     (window as any).__renderedDynamicPagePath = location.pathname;
   }
   const { data: layoutData, isLoading } = usePageLayout(pageId);
-  const containerRef = useScrollReveal([layoutData, defaultSections]);
+  const containerRef = useScrollReveal([layoutData, defaultSections, pageId]);
 
-  // If loading or no valid sections array received, render default order
+  // Determine fallback order: explicitly provided defaultOrder > default config for pageId > keys of defaultSections > empty array
+  const effectiveOrder: string[] =
+    Array.isArray(defaultOrder) && defaultOrder.length > 0
+      ? defaultOrder
+      : (() => {
+          const defaults = getDefaultPharmacyOrder(pageId);
+          if (defaults.length > 0) return defaults;
+          if (defaultSections && typeof defaultSections === "object") {
+            return Object.keys(defaultSections);
+          }
+          return [];
+        })();
+
+  // Resolves a section node by its id from either renderSection or defaultSections or built-in elements
+  const resolveSectionNode = (secId: string): ReactNode => {
+    if (!secId) return null;
+    const under = secId.replace(/-/g, "_");
+    const dash = secId.replace(/_/g, "-");
+
+    // 1. Try renderSection callback if provided
+    if (typeof renderSection === "function") {
+      try {
+        const direct = renderSection(secId);
+        if (direct !== undefined && direct !== null) return direct;
+        const u = renderSection(under);
+        if (u !== undefined && u !== null) return u;
+        const d = renderSection(dash);
+        if (d !== undefined && d !== null) return d;
+      } catch (err) {
+        console.error(`Error in renderSection for "${secId}":`, err);
+      }
+    }
+
+    // 2. Try defaultSections dictionary if provided
+    if (defaultSections && typeof defaultSections === "object") {
+      const direct = defaultSections[secId];
+      const u = defaultSections[under];
+      const d = defaultSections[dash];
+      const target = direct || u || d;
+      if (target) {
+        return target;
+      }
+    }
+
+    // 3. Built-in gallery section placed in layout
+    if (secId === "gallery" || secId === "page_gallery" || secId.includes("gallery")) {
+      return <PageGallery key={secId} isInline={true} />;
+    }
+
+    return null;
+  };
+
+  // If loading or no valid sections array received, render fallback order
   if (isLoading || !layoutData || !Array.isArray(layoutData.sections) || layoutData.sections.length === 0) {
     return (
       <div ref={containerRef}>
-        {defaultOrder.map((id) => (
-          <React.Fragment key={id}>{defaultSections[id] || null}</React.Fragment>
+        {effectiveOrder.map((id) => (
+          <React.Fragment key={id}>{resolveSectionNode(id)}</React.Fragment>
         ))}
       </div>
     );
@@ -48,17 +103,12 @@ export default function DynamicPageSections({
           return null;
         }
 
-        // Direct or aliased match (hyphen vs underscore)
-        const direct = defaultSections[sec.id];
-        const under = defaultSections[sec.id.replace(/-/g, "_")];
-        const dash = defaultSections[sec.id.replace(/_/g, "-")];
-        const target = direct || under || dash;
-
-        if (target) {
+        const node = resolveSectionNode(sec.id);
+        if (node) {
           renderedIds.add(sec.id);
           renderedIds.add(sec.id.replace(/-/g, "_"));
           renderedIds.add(sec.id.replace(/_/g, "-"));
-          return <React.Fragment key={sec.id}>{target}</React.Fragment>;
+          return <React.Fragment key={sec.id}>{node}</React.Fragment>;
         }
 
         // Built-in gallery section placed in layout
@@ -67,8 +117,17 @@ export default function DynamicPageSections({
           return <PageGallery key={sec.id} isInline={true} />;
         }
 
-        // Otherwise, render custom section (custom_html, hero, split, cards, cta, faq)
-        if (sec.type === "custom_html" || sec.htmlContent || sec.type === "hero" || sec.type === "split" || sec.type === "cards" || sec.type === "cta" || sec.type === "faq" || sec.type === "gallery") {
+        // Otherwise, render custom section (custom_html, hero, split, cards, cta, faq, gallery)
+        if (
+          sec.type === "custom_html" ||
+          sec.htmlContent ||
+          sec.type === "hero" ||
+          sec.type === "split" ||
+          sec.type === "cards" ||
+          sec.type === "cta" ||
+          sec.type === "faq" ||
+          sec.type === "gallery"
+        ) {
           return <CustomSectionRenderer key={sec.id} section={sec} />;
         }
 
@@ -76,9 +135,16 @@ export default function DynamicPageSections({
       })}
 
       {/* Crucial Safety: Render any default sections that were not returned by the backend layout and not hidden */}
-      {defaultOrder.map((id) => {
-        if (!renderedIds.has(id) && defaultSections[id]) {
-          return <React.Fragment key={id}>{defaultSections[id]}</React.Fragment>;
+      {effectiveOrder.map((id) => {
+        if (
+          !renderedIds.has(id) &&
+          !renderedIds.has(id.replace(/-/g, "_")) &&
+          !renderedIds.has(id.replace(/_/g, "-"))
+        ) {
+          const content = resolveSectionNode(id);
+          if (content) {
+            return <React.Fragment key={id}>{content}</React.Fragment>;
+          }
         }
         return null;
       })}

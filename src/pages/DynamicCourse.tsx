@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DynamicPageSections from "@/components/DynamicPageSections";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
-import { Clock, GraduationCap, IndianRupee, Users } from "lucide-react";
+import { Clock, GraduationCap, IndianRupee, Users, ArrowRight } from "lucide-react";
 import NotFound from "./NotFound";
 import PageGallery from "@/components/PageGallery";
 
@@ -138,10 +138,19 @@ export default function DynamicCourse() {
                 </div>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-primary-foreground/10">
-                <button className="w-full bg-gold hover:bg-gold-light text-navy font-bold py-4 rounded-xl transition-colors shadow-lg active:scale-[0.98]">
-                  Apply Now
-                </button>
+              <div className="mt-10 pt-8 border-t border-primary-foreground/10 space-y-3">
+                <Link
+                  to={`/admissions-enquiry?program=${encodeURIComponent(course.programName || '')}`}
+                  className="flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-light text-navy font-bold py-4 rounded-xl transition-all shadow-lg active:scale-[0.98] text-center"
+                >
+                  Apply Now <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/consultation"
+                  className="flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-xl transition-all border border-white/20 text-sm active:scale-[0.98] text-center"
+                >
+                  Book Free Consultation
+                </Link>
               </div>
             </div>
           </div>

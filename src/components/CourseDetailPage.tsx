@@ -103,7 +103,7 @@ export default function CourseDetailPage(props: CoursePageProps) {
                   ))}
                 </div>
                 <div className="mt-6 space-y-3">
-                  <Link to="/admissions" className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold bg-gold text-foreground rounded-lg shadow-[0_4px_16px_hsl(var(--gold)/0.3)] hover:shadow-[0_6px_24px_hsl(var(--gold)/0.4)] transition-shadow active:scale-[0.97]">
+                  <Link to={`/admissions-enquiry?program=${encodeURIComponent(props.title || "")}`} className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold bg-gold text-foreground rounded-lg shadow-[0_4px_16px_hsl(var(--gold)/0.3)] hover:shadow-[0_6px_24px_hsl(var(--gold)/0.4)] transition-shadow active:scale-[0.97]">
                     Apply Now <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold text-navy border border-navy/20 rounded-lg hover:bg-navy/5 transition-colors active:scale-[0.97]">

@@ -3,14 +3,49 @@ import PageHeader from "@/components/PageHeader";
 import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle2, MessageSquare, MapPin, Laptop } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function AdmissionsEnquiryPage() {
   const ref = useScrollReveal();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", program: "", message: "" });
+  const [searchParams] = useSearchParams();
+  const programQuery = searchParams.get("program") || searchParams.get("course") || "";
+
+  const resolveProgram = (val: string) => {
+    if (!val) return "";
+    const lower = val.toLowerCase();
+    if (lower.includes("b.pharm") || lower.includes("bpharm") || lower.includes("bachelor")) {
+      return "B.Pharm";
+    }
+    if (lower.includes("d.pharm") || lower.includes("dpharm") || lower.includes("diploma")) {
+      return "D.Pharm";
+    }
+    return val;
+  };
+
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    program: resolveProgram(programQuery),
+    message: ""
+  });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const matched = resolveProgram(programQuery);
+    if (matched) {
+      setForm(prev => ({ ...prev, program: matched }));
+      const formEl = document.getElementById("enquiry-form") || document.querySelector("form");
+      if (formEl) {
+        setTimeout(() => {
+          formEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 150);
+      }
+    }
+  }, [programQuery]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -146,12 +181,15 @@ export default function AdmissionsEnquiryPage() {
                   <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Email Address</label>
                   <input type="email" placeholder="rahul@example.com" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all" />
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-1.5" id="enquiry-form">
                   <label className="text-xs font-bold text-foreground/50 uppercase tracking-wider ml-1">Programme of Interest</label>
                   <select value={form.program} onChange={e => setForm(p => ({ ...p, program: e.target.value }))} className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all appearance-none" required>
                     <option value="">Select Programme</option>
                     <option value="B.Pharm">Bachelor of Pharmacy (B.Pharm - 4 Years)</option>
                     <option value="D.Pharm">Diploma in Pharmacy (D.Pharm - 2 Years)</option>
+                    {form.program && form.program !== "B.Pharm" && form.program !== "D.Pharm" && (
+                      <option value={form.program}>{form.program}</option>
+                    )}
                   </select>
                 </div>
                 <div className="space-y-1.5">

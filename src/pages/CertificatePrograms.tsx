@@ -6,6 +6,8 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 import PageGallery from "@/components/PageGallery";
 import { rt } from "@/lib/richText";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const defaultPrograms = [
   { name: "Pharmacovigilance & Clinical Trials", duration: "3 Months", fee: "₹5,000", eligibility: "B.Pharm / D.Pharm students", desc: "Learn about drug safety monitoring, adverse event reporting, and clinical trial regulations." },
@@ -59,7 +61,13 @@ export default function CertificateProgramsPage() {
                   <span className="px-2.5 py-1 rounded-md bg-muted font-medium">{p.fee}</span>
                 </div>
                 <p className="text-sm leading-relaxed mb-4 text-foreground/80">{p.desc}</p>
-                <p className="text-xs text-muted-foreground"><strong>Eligibility:</strong> {p.eligibility}</p>
+                <p className="text-xs text-muted-foreground mb-4"><strong>Eligibility:</strong> {p.eligibility}</p>
+                <Link
+                  to={`/admissions-enquiry?program=${encodeURIComponent(p.name)}`}
+                  className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 text-xs font-bold rounded-lg bg-navy text-white hover:bg-gold hover:text-navy transition-colors shadow-sm active:scale-[0.98]"
+                >
+                  Apply Now <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             ))}
           </div>

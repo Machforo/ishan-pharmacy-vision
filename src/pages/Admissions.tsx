@@ -3,7 +3,8 @@ import PageHeader from "@/components/PageHeader";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import DynamicPageSections from "@/components/DynamicPageSections";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Calendar, Phone, CheckCircle2 } from "lucide-react";
+import { Calendar, Phone, CheckCircle2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { usePharmacyData } from "@/hooks/usePharmacyData";
 
 const steps = [
@@ -137,9 +138,12 @@ export default function AdmissionsPage() {
               <p className="text-sm mb-8">Begin your pharmacy journey today by filling out our online application form.</p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <button className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold bg-gold text-navy rounded-xl hover:bg-gold-light transition-all shadow-lg active:scale-[0.97] shimmer-btn">
-                  Apply Online Now
-                </button>
+                <Link
+                  to="/admissions-enquiry"
+                  className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold bg-gold text-navy rounded-xl hover:bg-gold-light transition-all shadow-lg active:scale-[0.97] shimmer-btn"
+                >
+                  Apply Online Now <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
 
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-6">Or get in touch with us</p>

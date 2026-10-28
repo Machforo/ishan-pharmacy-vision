@@ -187,14 +187,17 @@ export default function ProgramsSection() {
                     )}
                   </AnimatePresence>
 
-                  <div className="pt-6 border-t flex items-center justify-between">
-                    <Link to={program.link || "#"} className="flex items-center gap-2 text-sm font-bold text-navy hover:text-gold transition-colors group/btn">
+                  <div className="pt-6 border-t flex items-center justify-between gap-3">
+                    <Link to={program.link || "#"} className="flex items-center gap-1.5 text-xs font-bold text-navy hover:text-gold transition-colors group/btn">
                       Explore Program
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </Link>
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-500">
-                      <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
-                    </div>
+                    <Link
+                      to={`/admissions-enquiry?program=${encodeURIComponent(program.name || '')}`}
+                      className="px-3 py-1.5 text-xs font-bold rounded-lg bg-gold text-navy hover:bg-gold-light shadow-sm transition-all active:scale-[0.97]"
+                    >
+                      Apply Now
+                    </Link>
                   </div>
                 </div>
               </motion.div>
